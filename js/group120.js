@@ -36,7 +36,7 @@ import Royal5 from './utils.js';
 /******  BEGIN  ******/
 //all these are html elements
     let group120 = new Group120();
-    let allNums = group120.getElements('.button.row2');
+    let allNums = group120.getElements('.button.row1');
     let submitBtn = group120.getElement('.submitBtn');
     let clearBtn1 = group120.getElement('.clearBtn.row1');
     let selectAllBtn1 = group120.getElement('.selectAllBtn.row1');
