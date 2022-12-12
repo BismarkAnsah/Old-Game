@@ -40,7 +40,7 @@ b{
   <input type="hidden" class="row60" value="row1" disabled>
   <?php
  for($x = 0; $x <= 9; $x++){
-      $even = $x%2 == 0 && $x > 0 ?'even':'';
+      $even = $x%2 == 0 ?'even':'';
       $odd  = $x%2 == 1 ?'odd':'';
       $big = $x>=5 ?'big':'';
       $small = $x<5 ? 'small':''
@@ -57,7 +57,7 @@ b{
   
  <?php
  for($x = 0; $x <= 9; $x++){
-      $even = $x%2 == 0 && $x > 0 ?'even':'';
+      $even = $x%2 == 0 ?'even':'';
       $odd  = $x%2 == 1 ?'odd':'';
       $big = $x>=5 ?'big':'';
       $small = $x<5 ? 'small':''
