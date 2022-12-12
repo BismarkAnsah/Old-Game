@@ -119,8 +119,14 @@ import Royal5 from './utils.js';
         let allSelections = group5.generateSelections();
         let url = '';
         let headers = '';
-        let gameId = this.getGameId();
-        console.log(allSelections);
+        let betSelections = group5.getBetSelections();
+        let gameId = group5.getGameId();
+        let data = {
+            "betSelection":betSelections,
+            'game_id':gameId,
+            'data':allSelections
+        }
+        console.log(data);
         let options = {
             url: url,
             method: 'POST',
