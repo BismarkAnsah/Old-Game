@@ -63,12 +63,12 @@ b{
     </p>
     <p>
        <span><button class="submitBtn">Submit Bet</button></span>
-       <span><button class="clearBtn row2">Clear All</button></span>
-       <span><button class="selectAllBtn row2">Select All</button></span>    
-       <span><button class="selectEvenBtn row2">Select Even</button></span> 
-       <span><button class="selectOddBtn row2">Select Odd</button></span> 
-       <span><button class="selectBigBtn row2">Select Big</button></span> 
-       <span><button class="selectSmallBtn row2">Select Small</button></span> 
+       <span><button class="clearBtn row1">Clear All</button></span>
+       <span><button class="selectAllBtn row1">Select All</button></span>    
+       <span><button class="selectEvenBtn row1">Select Even</button></span> 
+       <span><button class="selectOddBtn row1">Select Odd</button></span> 
+       <span><button class="selectBigBtn row1">Select Big</button></span> 
+       <span><button class="selectSmallBtn row1">Select Small</button></span> 
     </p>
  </div>
 

@@ -3,7 +3,7 @@ import Royal5 from './utils.js';
 
 (function(){
     class Group120 extends Royal5 {
-        row1Sample = 1;
+        row1Sample = 5;
         gameId = 6;
         numsClicked = {
             row1:[]
@@ -14,7 +14,7 @@ import Royal5 from './utils.js';
             return this.gameId;
         }
         totalBets(){
-            let len = this.numsClicked.row1.len;
+            let len = this.numsClicked.row1.length;
             return (len * (len - 1) * (len - 2) * (len - 3) * (len - 4)) / 120;
         }
         getBetSelections()
