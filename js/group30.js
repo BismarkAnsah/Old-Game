@@ -1,133 +1,146 @@
 import * as $C from '../libs/combinatorics.js';
-let btnsRow1 = document.querySelectorAll('.btns-row1');
-let btnsRow2 = document.querySelectorAll('.btns-row2');
-let bets = document.querySelector('.bets');
-const machineSelection = [1,1,2,3];
-let btnValue;
-let numbers;
-const sample = 4;
-let nums1 = [];
-let nums2 = [];
-let userSelections = [];
+import Royal5 from './utils.js';
 
-function changeColor(btn){
-    btn.classList.toggle('btns-color');
-    btn.classList.add('on');
-  }
 
-  function restoreDefaultColor (){
-    let selectedNumbers = document.querySelectorAll('.on');
-    for(let i = 0; i<selectedNumbers.length; i++)
-    {
-        selectedNumbers[i].classList.remove('btns-color');
+(function(){
+    class Group30 extends Royal5 {
+        row1Sample = 2;
+        row2Sample = 1;
+        gameId = 4;
+        numsClicked = {
+            row1:[],
+            row2:[]
+        }
+
+        getGameId()
+        {
+            return this.gameId;
+        }
+        totalBets(){
+            let row1 = this.numsClicked.row1;
+            let row2 = this.numsClicked.row2;
+            let repeatedNums = row2.filter(element => row1.includes(element));
+            let repeat = repeatedNums.length;
+            return row1.length * ( row1.length - 1 ) / 2  * (row2.length - repeat ) + repeat * ( row1.length - 1 ) * ( row1.length - 2 ) / 2
+        }
+        getBetSelections()
+        {
+            let row1 = this.numsClicked.row1.join(',');
+            let row2 = this.numsClicked.row2.join(',');
+            return `${row1}|${row2}`;
+        }
+        generateSelections()
+        {
+            return super.generateSelections(false, this.numsClicked.row1, this.numsClicked.row2, this.row1Sample, this.row2Sample);
+        }
+        
+        getSelectedNums()
+        {
+            return [this.numsClicked.row1, this.numsClicked.row2];
+        }
     }
-}
-  
-btnsRow1.forEach(btn => {
-    btn.addEventListener('click',()=>{
-        let btnValue = parseInt(btn.firstChild.innerHTML);
-        let numIndex = nums1.indexOf(btnValue);
-        if (numIndex != -1) nums1.splice(numIndex, 1);
-        else nums1.push(btnValue);
-        changeColor(btn);
-        // console.log(nums1);
-        bets.innerHTML = totalBets(nums1, nums2);
-    });
-})
 
-btnsRow2.forEach(btn => {
-    btn.addEventListener('click', ()=>{
-        let btnValue = parseInt(btn.firstChild.innerHTML);
-        let numIndex = nums2.indexOf(btnValue);
-        if (numIndex != -1) nums2.splice(numIndex, 1);
-        else nums2.push(btnValue);
-        // console.log(nums2);
-        changeColor(btn);
-        bets.innerHTML = totalBets(nums1, nums2);
-    });
-})
+/******  BEGIN  ******/
+//all these are html elements
+    let group30 = new Group30();
+    let allNums = [...group30.getElements('.button.row1'), ...group30.getElements('.button.row2')];
+    let submitBtn = group30.getElement('.submitBtn');
+    let clearBtn1 = group30.getElement('.clearBtn.row1');
+    let selectAllBtn1 = group30.getElement('.selectAllBtn.row1');
+    let selectBigBtn1 = group30.getElement('.selectBigBtn.row1');
+    let selectSmallBtn1 = group30.getElement('.selectSmallBtn.row1');
+    let selectEvenBtn1 = group30.getElement('.selectEvenBtn.row1');
+    let selectOddBtn1 = group30.getElement('.selectOddBtn.row1');
+
+    let clearBtn2 = group30.getElement('.clearBtn.row2');
+    let selectAllBtn2 = group30.getElement('.selectAllBtn.row2');
+    let selectBigBtn2 = group30.getElement('.selectBigBtn.row2');
+    let selectSmallBtn2 = group30.getElement('.selectSmallBtn.row2');
+    let selectEvenBtn2 = group30.getElement('.selectEvenBtn.row2');
+    let selectOddBtn2 = group30.getElement('.selectOddBtn.row2');
+     
+/******  End  ******/
 
 
-
-function getUserSelections(numbers, sample)
-{
-
-    let userSelections = [];
-    window.Combinatorics = $C;
-    let c =  new $C.Combination(numbers, sample);
-    let counter = 0;
-    for(let element of c)
-        userSelections.push(element);
-    return userSelections; 
-}
-
-function arrayUnique(items) {
-  let d = {};
-  let out = [];
-  for (let i = 0; i < items.length; i++) {
-    let item = items[i];
-    let rep = item.toString();
-
-    if (!d[rep]) {
-      d[rep] = true;
-      out.push(item);
-    }
-  }
-  return out;
-}
-
-
-
-// let arr = [[2,3,1,7], [1,2,3,4], [2,3], [2,3],[1,2,3,4], [2,3,4,5], [2,3,4,5], [2,3,4,5],[2,3,4,5]];
-// console.log(arrayUnique(arr));
-
-function onlyUnique(value, index, self) { 
-    return self.indexOf(value) === index; 
-  } 
-   
-//   // usage example: 
-//   var a = ['a', 1, 'a', 2, '1']; 
-//   var unique = a.filter(onlyUnique); 
-   
-//   console.log(unique); // ['a', 1, 2, '1']
-
-let clearBtn = document.querySelector('.clear');
-clearBtn.addEventListener('click', (e)=>{
-    restoreDefaultColor();
-    numbers = [];
-    nums1 = [];
-    nums2 = [];
-    bets.innerHTML = totalBets(nums1, nums2);
-})
-
-
-//submit button click
-let submitBtn = document.querySelector('.submit');
-submitBtn.addEventListener('click', ()=>{
-
-numbers = nums1.concat(nums2).sort();
-userSelections = getUserSelections(numbers, sample);
-console.log(userSelections);
-console.log(arrayUnique(userSelections));
-userWon(machineSelection, userSelections);
-})
-
-function totalBets(row1, row2){
-let repeatedNums = row2.filter(element => row1.includes(element));
-let repeat = repeatedNums.length;
-return row1.length * ( row1.length - 1 ) / 2  * (row2.length - repeat ) + repeat * ( row1.length - 1 ) * ( row1.length - 2 ) / 2
-}
-
-function userWon(machineSelection, userSelections)
-{
-  let bet = []
-  let position = ""
-        userSelections.forEach(selection => {
-        if(selection.sort().join(",") === machineSelection.sort().join(",")){
-            bet.push(selection)
-            position = userSelections.indexOf(selection)
-        } 
+    allNums.forEach(num=>{
+        num.addEventListener('click', ()=>{
+            group30.changeBtnColor(num);
+            group30.toggleSaveNumber(num);
+            group30.showTotalBets();
         })
-        console.log("win:" + bet.length)
-        console.log("position:" + position)
-}
+    });
+
+    clearBtn1.addEventListener('click', ()=>{
+        group30.clear(clearBtn1);
+    });
+ 
+    clearBtn2.addEventListener('click', ()=>{
+        group30.clear(clearBtn2);
+    });
+
+    selectBigBtn1.addEventListener('click', ()=>{
+        group30.selectBig(selectBigBtn1)
+    });
+
+    selectBigBtn2.addEventListener('click', ()=>{
+        group30.selectBig(selectBigBtn2)
+    });
+
+    selectSmallBtn1.addEventListener('click', ()=>{
+        group30.selectSmall(selectSmallBtn1);
+    });
+
+    selectSmallBtn2.addEventListener('click', ()=>{
+        group30.selectSmall(selectSmallBtn2);
+    });
+
+    selectEvenBtn1.addEventListener('click', ()=>{
+        group30.selectEven(selectEvenBtn1);
+    });
+
+    selectEvenBtn2.addEventListener('click', ()=>{
+        group30.selectEven(selectEvenBtn2);
+    });
+
+    selectOddBtn1.addEventListener('click', ()=>{
+        group30.selectOdd(selectOddBtn1);
+    });
+
+    selectOddBtn2.addEventListener('click', ()=>{
+        group30.selectOdd(selectOddBtn2);
+    });
+
+    selectAllBtn1.addEventListener('click', ()=>{
+        group30.selectAll(selectAllBtn1);
+    });
+
+    selectAllBtn2.addEventListener('click', ()=>{
+        group30.selectAll(selectAllBtn2);
+    });
+
+
+
+    submitBtn.addEventListener('click', ()=>{
+        let allSelections = group30.generateSelections();
+        let url = '';
+        let headers = '';
+        let betSelections = group30.getBetSelections();
+        let gameId = group30.getGameId();
+        let data = {
+            "betSelection":betSelections,
+            'game_id':gameId,
+            'data':allSelections
+        }
+        console.log(data);
+        let options = {
+            url: url,
+            method: 'POST',
+            headers: headers,
+            data: data
+        } 
+        axios(options)
+        .then(response => {console.log(response)});
+        
+    });
+})();
+

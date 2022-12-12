@@ -1,110 +1,102 @@
 import * as $C from '../libs/combinatorics.js';
-const machineSelection  = [1,2,3,4,5];
-let userSelections = [];
-const sample = 5;
-let bets = document.querySelector('.bets');
-function changeColor(e){
-  let el = e.target;
-  el.classList.toggle('btn-success');
-  el.classList.add('on');
-}
+import Royal5 from './utils.js';
 
+(function(){
+    class Group120 extends Royal5 {
+        row1Sample = 1;
+        gameId = 6;
+        numsClicked = {
+            row1:[]
+        }
 
-
-
-function restoreDefaultColor (){
-    let selectedNumbers = document.querySelectorAll('.on');
-    for(let i = 0; i<selectedNumbers.length; i++)
-    {
-        selectedNumbers[i].classList.remove('btn-success');
-    }
-}
-
-let numbers = [];
-
-function storeNum(e){
-    btnValue = parseInt(e.target.innerHTML);
-    let numIndex = numbers.indexOf(btnValue);
-    if(numIndex != -1)
-    {
-        numbers.splice(numIndex,1);
+        getGameId()
+        {
+            return this.gameId;
+        }
+        totalBets(){
+            let len = this.numsClicked.row1.len;
+            return (len * (len - 1) * (len - 2) * (len - 3) * (len - 4)) / 120;
+        }
+        getBetSelections()
+        {
+            let row1 = this.numsClicked.row1.join(',');
+            return row1;
+        }
+        generateSelections()
+        {
+            return super.generateSelections(false, this.numsClicked.row1, this.row1Sample);
+        }
         
+        getSelectedNums()
+        {
+            return this.numsClicked.row1;
+        }
     }
-    else
-    {
-        numbers.push(btnValue)  
-    }
-    bets.innerHTML = totalBets(numbers);
-    
-}
 
-function getUserSelections(numbers, sample)
-{
-    let userSelections = [];
-    window.Combinatorics = $C;
-    let c =  new $C.Combination(numbers, sample);
-    let counter = 0;
-    for(let element of c)
-        userSelections.push(element);
-    return userSelections; 
-}
-let foo = [1,2,3,4,4,4]
-console.log(getUserSelections(foo, 4));
-let btns = document.querySelectorAll('.btn');
-let btnValue;
-
-//adds events to all buttons 0 - 9
-
-for(let i = 0; i<=9; i++)
-{
-    btns[i].addEventListener('click', storeNum);
-    btns[i].addEventListener('click', changeColor);
-}
+/******  BEGIN  ******/
+//all these are html elements
+    let group120 = new Group120();
+    let allNums = group120.getElements('.button.row2');
+    let submitBtn = group120.getElement('.submitBtn');
+    let clearBtn1 = group120.getElement('.clearBtn.row1');
+    let selectAllBtn1 = group120.getElement('.selectAllBtn.row1');
+    let selectBigBtn1 = group120.getElement('.selectBigBtn.row1');
+    let selectSmallBtn1 = group120.getElement('.selectSmallBtn.row1');
+    let selectEvenBtn1 = group120.getElement('.selectEvenBtn.row1');
+    let selectOddBtn1 = group120.getElement('.selectOddBtn.row1');
+/******  End  ******/
 
 
-let submitBtn = document.querySelector('#submit');
-submitBtn.addEventListener('click', (e)=>{ 
-userSelections = getUserSelections(numbers, sample);
-console.log(JSON.stringify(userSelections));
-userWon(machineSelection, userSelections);
-})
-
-function userWon(machineSelection, userSelections)
-{
-  let bet = []
-  let position = ""
-        userSelections.forEach(selection => {
-        if(selection.sort().join(",") === machineSelection.sort().join(",")){
-            bet.push(selection)
-            position = userSelections.indexOf(selection)
-        } 
+    allNums.forEach(num=>{
+        num.addEventListener('click', ()=>{
+            group120.changeBtnColor(num);
+            group120.toggleSaveNumber(num);
+            group120.showTotalBets();
         })
-        console.log("win:" + bet.length)
-        console.log("position:" + position)
+    });
+    clearBtn1.addEventListener('click', ()=>{
+        group120.clear(clearBtn1);
+    });
+ 
+    selectBigBtn1.addEventListener('click', ()=>{
+        group120.selectBig(selectBigBtn1)
+    });
 
-}
+    selectSmallBtn1.addEventListener('click', ()=>{
+        group120.selectSmall(selectSmallBtn1);
+    });
 
-let clearBtn = document.querySelector('#clearBtn');
-clearBtn.addEventListener('click', (e)=>{
-    restoreDefaultColor();
-    numbers = [];
-    bets.innerHTML = totalBets(numbers);
-})
+    selectEvenBtn1.addEventListener('click', ()=>{
+        group120.selectEven(selectEvenBtn1);
+    });
 
-function factorial(num){
-  if (num < 0) return -1;
-  if (num == 0) return 1;
-  else return num * factorial(num - 1);
-};
+    selectOddBtn1.addEventListener('click', ()=>{
+        group120.selectOdd(selectOddBtn1);
+    });
 
+    selectAllBtn1.addEventListener('click', ()=>{
+        group120.selectAll(selectAllBtn1);
+    });
 
-let totalBets = (arr) => {
-  var len = arr.length;
-  if (len >= 5)
-    return (len * (len - 1) * (len - 2) * (len - 3) * (len - 4)) / 120;
-  return 0;
-}
-
-
-
-  
+    submitBtn.addEventListener('click', ()=>{
+        let allSelections = group120.generateSelections();
+        let url = '';
+        let headers = '';
+        let betSelections = group120.getBetSelections();
+        let gameId = group120.getGameId();
+        let data = {
+            "betSelection":betSelections,
+            'game_id':gameId,
+            'data':allSelections
+        }
+        console.log(data);
+        let options = {
+            url: url,
+            method: 'POST',
+            headers: headers,
+            data: data
+        } 
+        axios(options)
+        .then(response => {console.log(response)});
+    });
+})();

@@ -23,7 +23,12 @@ import Royal5 from './utils.js';
             let repeat = repeatedNums.length;
             return row2.length * (row1.length - repeat ) + repeat * ( row2.length - 1 );
         }
-
+        getBetSelections()
+        {
+            let row1 = this.numsClicked.row1.join(',');
+            let row2 = this.numsClicked.row2.join(',');
+            return `${row1}|${row2}`;
+        }
         generateSelections()
         {
             return super.generateSelections(false, this.numsClicked.row1, this.numsClicked.row2, this.row1Sample, this.row2Sample);
@@ -131,14 +136,11 @@ import Royal5 from './utils.js';
             url: url,
             method: 'POST',
             headers: headers,
-            data: {
-                'game_id':gameId,
-                'data':allSelections
-            }
+            data: data
         } 
         axios(options)
         .then(response => {console.log(response)});
         
-    }) 
+    });
 })();
 
