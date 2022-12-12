@@ -1,0 +1,13 @@
+/* .round-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+
+} */
+
+.btn{
+    margin-left: 15px;
+    border-radius: 15px;
+}
