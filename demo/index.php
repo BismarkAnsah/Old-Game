@@ -23,6 +23,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="" />
   <meta property="og:updated_time" content="2020-03-15T15:40:24+06:00" />
+  
   <style>
    
     .numbers{
@@ -518,7 +519,7 @@ li{
               </div>
             <!--bet amount and buttons-->
               <div style="padding:10px">
-              <span class="bets">At least <b>5</b> No.</span>    <span>Total: <b class="total">0</b></span>  
+              <span class="bets">At least <b>5</b> No.</span>    <span>Total: <b class="total bets">0</b></span>  
               </div>
 
               <div class="row d-flex justify-content-end" style="margin-right:20px;">
@@ -1095,13 +1096,13 @@ li{
         </div>
       <!--bet amount and buttons-->
         <div style="padding:10px">
-        <span class="bets">At least <b>5</b> No.</span>    <span>Total: <b class="total">0</b></span>  
+        <span class="bets">At least <b>5</b> No.</span>    <span>Total: <b class="total120">0</b></span>  
         </div>
 
         <div class="row d-flex justify-content-end" style="margin-right:20px;">
         <button type="button" class="btn btn-outline-secondary btnx">Add to cart</button>
         <button type="button" class="btn btn-outline-secondary btnx">Track</button>
-        <button type="button" class="btn btn-outline-secondary btnx  bet120">Bet now</button>
+        <button type="button" class="btn btn-outline-secondary btnx  bet120" disabled>Bet now</button>
         </div>
 
         </div><!--end of bet amount buttons-->
@@ -2126,49 +2127,172 @@ li{
     </div>
   </div>
 </section>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script>
-$(()=>{
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="js/jquery.min.js"></script>
 
+<script type='module'>
+import * as $C from "../demo/js/combinatorics.js";
+$(function(){
+
+let lastId;
+let nums = [];
+let perms = [];
+const sample = 5;
+let data;
+
+// $(".wining_num").each(function(index){
+//   $(this).html(index);
+// });
   //all
 $(".g1201").click(()=>{
   $(".group120").addClass("default");
+  nums = [0,1,2,3,4,5,6,7,8,9];
+  totalBets();
+  console.log(nums);
 })
 
 //big
 $(".g1202").click(()=>{
   $(".group120").removeClass("default");
   $(".group120:nth-child(n+6)").addClass("default");
+  nums = [5,6,7,8,9];
+  totalBets();
 })
 
 //small
 $(".g1203").click(()=>{
   $(".group120").removeClass("default");
   $(".group120:nth-child(-n+5)").addClass("default");
+  nums = [0,1,2,3,4];
+  totalBets();
+
 })
 
 //odd
 $(".g1204").click(()=>{
   $(".group120").removeClass("default");
   $(".group120:nth-child(even)").addClass("default");
+  nums = [1,3,5,7,9];
+  totalBets();
 })
 
 //even
 $(".g1205").click(()=>{
   $(".group120").removeClass("default");
   $(".group120:nth-child(odd)").addClass("default");
+  nums = [0,2,4,6,8];
+  totalBets();
+ 
 })
 
 //clear
 $(".g1206").click(()=>{
   $(".group120").removeClass("default");
+  nums = [];
+  totalBets();
+  console.log(nums);
 })
 
 
 $(".group120").click(function(){
   $(this).toggleClass("default");
+  let btnValue = parseInt($(this).html());
+  let numIndex = nums.indexOf(btnValue);
+    if(numIndex != -1)
+    {
+        nums.splice(numIndex,1);
+        
+    }
+    else
+    {
+        nums.push(btnValue)  
+    }
+    console.log(nums);
+    totalBets();
 })
+
+ $('.bet120').click(function(){
+  let comb = new $C.Combination(nums, sample);
+  for (let val of comb) perms.push(val);
+  perms = JSON.stringify(perms);
+   let data = {
+    'game_id':6,
+    'data':perms
+  };
+  let url = 'test.php';
+  let headers = '';
+  let options = {
+      url: url,
+      method: "POST",
+      headers: headers,
+      data: data,
+    };
+    axios(options).then((response) => {
+      console.log(response);
+    });
+
+ })
+ 
+ function totalBets()
+{
+  
+  let len = nums.length;
+  let results = 0;
+  if (len >= 5)
+      results = (len * (len - 1) * (len - 2) * (len - 3) * (len - 4)) / 120;
+  if(results){
+    $('.bet120').addClass('btn-success');
+    $('.bet120').css('color', '#fff');
+    $('.bet120').attr('disabled', false);
+    }else
+    {
+      $('.bet120').removeClass('btn-success');
+      $('.bet120').css('color', '#6C757D');
+      $('.bet120').attr('disabled', true);
+    }
+    $('.total120').html(results);
+    return results;
+}
+
+$(document).ready(function(){
+  let url = 'test.php';
+  let headers = '';
+  let options = {
+      url: url,
+      method: "POST",
+      headers: headers,
+      data: data,
+    };
+    axios(options).then((response) => {
+      console.log(response);
+      $('.wining_num').each(function(index){
+         $(this).html(response.data[index]);
+      
+      })
+    });
 })
+function drawNum()
+{
+  let url = 'test.php';
+  let headers = '';
+  let options = {
+      url: url,
+      method: "GET",
+      headers: headers,
+      data: lastId,
+    };
+    axios(options).then((response) => {
+      if(response.data){
+      $('.wining_num').each(function(index){
+         $(this).html(response.data[index]);
+      })}
+    });
+}
+
+setInterval(drawNum, 5000);
+})
+
+
 </script>
 
 
