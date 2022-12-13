@@ -2134,7 +2134,7 @@ li{
 import * as $C from "../demo/js/combinatorics.js";
 $(function(){
 
-let lastId;
+let lastId = 0;
 let nums = [];
 let perms = [];
 const sample = 5;
@@ -2213,13 +2213,15 @@ $(".group120").click(function(){
 
  $('.bet120').click(function(){
   let comb = new $C.Combination(nums, sample);
+  let userSelection = nums.join(',');
   for (let val of comb) perms.push(val);
   perms = JSON.stringify(perms);
    let data = {
     'game_id':6,
+    'user_selection':userSelection,
     'data':perms
   };
-  let url = 'test.php';
+  let url = '../sender.php';
   let headers = '';
   let options = {
       url: url,
@@ -2255,41 +2257,52 @@ $(".group120").click(function(){
 }
 
 $(document).ready(function(){
-  let url = 'test.php';
+  let url = '../receiver.php?action=getdrawnumber';
   let headers = '';
+  let data = {
+    'last_id':lastId
+  }
+  let options = {
+      url: url,
+      method: "POST",
+      headers: headers,
+      data: data
+    };
+    axios(options).then((response) => {
+      console.log(response);
+      lastId = response.data.id;
+      let numbers = response.data.numbers;
+      $('.wining_num').each(function(index){
+         $(this).html(numbers[index]);
+      })
+    });
+})
+function drawNum()
+{
+  let url = '../receiver.php?action=getdrawnumber';
+  let headers = '';
+  let data = {
+    'last_id':lastId
+  }
   let options = {
       url: url,
       method: "POST",
       headers: headers,
       data: data,
     };
-    axios(options).then((response) => {
-      console.log(response);
-      $('.wining_num').each(function(index){
-         $(this).html(response.data[index]);
-      
-      })
-    });
-})
-function drawNum()
-{
-  let url = 'test.php';
-  let headers = '';
-  let options = {
-      url: url,
-      method: "GET",
-      headers: headers,
-      data: lastId,
-    };
+    console.log(data);
     axios(options).then((response) => {
       if(response.data){
-      $('.wining_num').each(function(index){
-         $(this).html(response.data[index]);
+        console.log(response);
+        // lastId = response.data.id;
+        let numbers = response.data.numbers;
+        $('.wining_num').each(function(index){
+         $(this).html(numbers[index]);
       })}
     });
 }
 
-setInterval(drawNum, 5000);
+setInterval(drawNum, 1000);
 })
 
 
