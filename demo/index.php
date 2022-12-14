@@ -2255,7 +2255,7 @@ $(".group120").click(function(){
       $('.bet120').css('color', '#6C757D');
       $('.bet120').attr('disabled', true);
     }
-    let total = moneyresults;
+    let total = money;
     results = `<span style='color:red'>${results} </span>bets. Total<span style='color:red'> ${total}</span>`
 // $('.bet-total-div').hide();
     $('.bet-total-div').html(results);
@@ -2331,8 +2331,6 @@ $('.menu').click(function(){
   hideAllExcept(hideAll, except);
 })
 
-echo($('#group-joint').find('*').html())
-
 
 
 
@@ -2355,6 +2353,7 @@ function echo(value)
 
 
 </script>
+<script src="js/royal5.js"></script>
 
 
 </body>
