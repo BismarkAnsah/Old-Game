@@ -193,6 +193,7 @@ left:20px
 
 .money_bg{
   background-color:#875FDF;
+  color:#FFF;
 }
 
 .coins:hover{
@@ -867,7 +868,7 @@ li{
       <br>
       
     </div>
-  </div>
+  </div class>
       <p></p>
       <div class="group_combo" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
               
@@ -1095,7 +1096,7 @@ li{
           </div>
         </div>
       <!--bet amount and buttons-->
-        <div style="padding:10px">
+        <div class='bet-total-div' style="padding:10px">
         <span class="bets">At least <b>5</b> No.</span>    <span>Total: <b class="total120">0</b></span>  
         </div>
 
@@ -1561,7 +1562,7 @@ li{
       &nbsp;
     
       <div class="rows row">
-      <button class="codex">One Pair</button>
+      <button class="codex">Three of <br/>a Kind</button>
       <?php
         for($x = 0; $x < 10; $x++){
           ?>
@@ -1748,7 +1749,7 @@ li{
       &nbsp;
     
       <div class="rows row">
-      <button class="codex">One Pair</button>
+      <button class="codex">Three of <br/>a Kind</button>
       <?php
         for($x = 0; $x < 10; $x++){
           ?>
@@ -1767,7 +1768,7 @@ li{
       </div>
       <br>
       <div class="rows row">
-      <button class="codex">One No.</button>
+      <button class="codex">One Pair</button>
       <?php
         for($x = 0; $x < 10; $x++){
           ?>
@@ -1934,7 +1935,7 @@ li{
       &nbsp;
     
       <div class="rows row">
-      <button class="codex">One Pair</button>
+      <button class="codex">Four of <br/>a Kind</button>
       <?php
         for($x = 0; $x < 10; $x++){
           ?>
@@ -2137,6 +2138,7 @@ $(function(){
 let lastId = 0;
 let nums = [];
 let perms = [];
+let money = 1;
 const sample = 5;
 let data;
 
@@ -2146,6 +2148,7 @@ let data;
   //all
 $(".g1201").click(()=>{
   $(".group120").addClass("default");
+
   nums = [0,1,2,3,4,5,6,7,8,9];
   totalBets();
   console.log(nums);
@@ -2252,31 +2255,34 @@ $(".group120").click(function(){
       $('.bet120').css('color', '#6C757D');
       $('.bet120').attr('disabled', true);
     }
-    $('.total120').html(results);
-    return results;
+    let total = money*results;
+    results = `<span style='color:red'>${results} </span>bets. Total<span style='color:red'> ${total}</span>`
+// $('.bet-total-div').hide();
+    $('.bet-total-div').html(results);
+    
 }
 
-$(document).ready(function(){
-  let url = '../receiver.php?action=getdrawnumber';
-  let headers = '';
-  let data = {
-    'last_id':lastId
-  }
-  let options = {
-      url: url,
-      method: "POST",
-      headers: headers,
-      data: data
-    };
-    axios(options).then((response) => {
-      console.log(response);
-      lastId = response.data.id;
-      let numbers = response.data.numbers;
-      $('.wining_num').each(function(index){
-         $(this).html(numbers[index]);
-      })
-    });
-})
+// $(document).ready(function(){
+//   let url = '../receiver.php?action=getdrawnumber';
+//   let headers = '';
+//   let data = {
+//     'last_id':lastId
+//   }
+//   let options = {
+//       url: url,
+//       method: "POST",
+//       headers: headers,
+//       data: data
+//     };
+//     axios(options).then((response) => {
+//       console.log(response);
+//       lastId = response.data.id;
+//       let numbers = response.data.numbers;
+//       $('.wining_num').each(function(index){
+//          $(this).html(numbers[index]);
+//       })
+//     });
+// })
 function drawNum()
 {
   let url = '../receiver.php?action=getdrawnumber';
@@ -2301,9 +2307,66 @@ function drawNum()
       })}
     });
 }
-
-setInterval(drawNum, 1000);
+$('.coins').click(function(){
+money = $(this).html();
 })
+function hideAll(except)
+{
+$('#group_120').hide();
+$('#group_60').hide();
+$('#group_30').hide();
+$('#group_20').hide();
+$('#group_10').hide();
+$('#group_manual').hide();
+$('#group_joint').hide();
+$('#group_combo').hide();
+$('#group_5').hide();
+$(except).show();
+}
+
+$('.menu').click(function(){
+$('.menu').removeClass('money_bg');
+
+$(this).addClass('money_bg');
+})
+$('.option1').click(function(){
+  hideAll('#group_joint');
+})
+
+$('.option2').click(function(){
+  hideAll('#group_manual');
+})
+
+$('.option3').click(function(){
+  hideAll('#group_combo');
+})
+
+$('.option4').click(function(){
+  hideAll('#group_120');
+})
+
+$('.option5').click(function(){
+  hideAll('#group_60');
+})
+
+$('.option6').click(function(){
+  hideAll('#group_30');
+})
+
+$('.option7').click(function(){
+  hideAll('#group_20');
+})
+
+$('.option8').click(function(){
+  hideAll('#group_10');
+})
+
+$('.option9').click(function(){
+  hideAll('#group_5');
+})
+// setInterval(drawNum, 1000);
+})
+
 
 
 </script>

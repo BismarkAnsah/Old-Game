@@ -27,11 +27,8 @@ function __construct($drawNumber, ...$rows)
 {
     $this->drawNumber = $drawNumber;
     $totalRows = count($rows);
-    if($totalRows == 1)
-        $this->row1 = $rows;
-    else
     for($i=0;$i<$totalRows;$i++)
-        $this->{"rows$i"} = $rows[$i];
+        $this->{'row'.$i+1} = $rows[$i];
 }
 
     #all numbers must appear in draw number without repetition
@@ -40,7 +37,8 @@ function __construct($drawNumber, ...$rows)
         // print_r($this->drawNumber);
         // print_r($this->row1);
         // die;
-        $difference = array_diff($this->drawNumber, $this->row1);
+        $difference = array_diff($this->row1, $this->drawNumber);
+  
         $totalDifference = count($difference);
         $totalRow1 = count($this->row1);
         return $totalDifference == ($totalRow1-5);
@@ -51,7 +49,7 @@ private function deleteElements($delete, $from)
 }
    private function countDuplicates($needle, $arr)
 {
-    $duplicates = 1;
+    $duplicates = 0;
     foreach($arr as $value)
         $needle != $value ?:++$duplicates;
     return $duplicates;
@@ -68,16 +66,20 @@ private function deleteElements($delete, $from)
         foreach($this->row1 as $value)
         {
             $duplicates = $this->countDuplicates($value, $this->drawNumber);
+
             if($duplicates == 2){
                 $rule1 = true;
-                array_push($value);
+                array_push($duplicatedValue, $value);
                 break;
             }
         }
+
         if(!$rule1)
             return false;
-        $remains = array_diff($duplicatedValue, $this->drawNumber);
-        if(!array_diff($remains, $this->row2))
+        $remains = array_diff($this->drawNumber,$duplicatedValue);
+        
+        
+        if(!(array_diff($this->row2, $remains) || array_diff($remains, $this->row2)))
             $rule2 = true;
         return $rule2;
        
@@ -103,7 +105,7 @@ private function deleteElements($delete, $from)
         if(!$rule1)
             return false;
         $remains = array_diff($duplicatedValue, $this->drawNumber);
-        if(!array_diff($remains, $this->row2))
+        if(!(array_diff($remains, $this->row2) && array_diff($remains, $this->row2)))
             $rule2 = true;
         return $rule2;
     }
@@ -164,14 +166,15 @@ private function deleteElements($delete, $from)
             $duplicates = $this->countDuplicates($value, $this->drawNumber);
             if($duplicates == 4){
                 $rule1 = true;
-                array_push($value);
+                array_push($duplicatedValue, $value);
                 break;
             }
         }
+     
         if(!$rule1)
             return false;
         $remains = array_diff($duplicatedValue, $this->drawNumber);
-        if(!array_diff($remains, $this->row2))
+        if(!array_diff($this->row2, $remains))
             $rule2 = true;
         return $rule2;
     }
@@ -198,9 +201,10 @@ private function deleteElements($delete, $from)
 }
 
 
-$row1 = [0,2,3,8,9];
-$drawNumber = [9,8,0,2,3];
-$checkWin = new Royal5($drawNumber, $row1);
+$row1 = [1];
+$row2 = [3,1,2,4];
+$drawNumber = [1, 2, 3, 1, 1,4];
+$checkWin = new Royal5($drawNumber, $row1, $row2);
 
-$win = $checkWin->group120();
+$win = $checkWin->group60();
 var_dump($win);

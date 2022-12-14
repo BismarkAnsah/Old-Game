@@ -57,7 +57,7 @@ $(window).on('load', function () {
 	});
 
 	//post slider
-	$('.post-slider').slick({
+	$('.post-slider').click({
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		autoplay: true,
@@ -87,7 +87,7 @@ $(window).on('load', function () {
 	}
 
 	setTimeout(function () {
-		$('.instagram-slider').slick({
+		$('.instagram-slider').click({
 			dots: false,
 			speed: 300,
 			autoplay: true,
