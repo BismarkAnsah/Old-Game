@@ -191,7 +191,7 @@ left:20px
   box-shadow: none!important;
 }
 
-.money_bg{
+.money-bg{
   background-color:#875FDF;
   color:#FFF;
 }
@@ -329,19 +329,19 @@ li{
               
               <div class="row" style="margin-left:10px;">
               <span  class=" btn-sm option"><b>Straight:</b></span>
-              <button class="menu option1">All 5 Straight(Joint)</button>
-              <button class="menu option2">All 5 Straight(Manual)</button>
-              <button class="menu option3">All 5 Straight(Combo)</button>
+              <button class="menu option1" data-points-to="group-joint">All 5 Straight(Joint)</button>
+              <button class="menu option2" data-points-to="group-manual">All 5 Straight(Manual)</button>
+              <button class="menu option3" data-points-to="group-combo">All 5 Straight(Combo)</button>
               <span  class=" btn-sm option"></span>
               </div>
               <div class="row" style="margin-left:10px;">
               <span  class=" btn-sm option"><b>Group:</b></span>
-              <button class="menu option4">All 5 Group 120</button>
-              <button class="menu option5">All 5 Group 60</button>
-              <button class="menu option6">All 5 Group 30</button>
-              <button class="menu option7">All 5 Group 20</button>
-              <button class="menu option8">All 5 Group 10</button>
-              <button class="menu option9">All 5 Group 5</button>
+              <button class="menu option4" data-points-to="group-120">All 5 Group 120</button>
+              <button class="menu option5" data-points-to="group-60">All 5 Group 60</button>
+              <button class="menu option6" data-points-to="group-30">All 5 Group 30</button>
+              <button class="menu option7" data-points-to="group-20">All 5 Group 20</button>
+              <button class="menu option8" data-points-to="group-10">All 5 Group 10</button>
+              <button class="menu option9" data-points-to="group-5">All 5 Group 5</button>
               </div>
             </div>
 
@@ -352,11 +352,11 @@ li{
       <div class="mb-3 main">
 
 
-      <!--group_joint-->
-      <div id="group_joint" style="display:none">     
+      <!--group-joint-->
+      <div id="group-joint" class="all5", style="display:none">     
       <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
               
-              <div class="group_joint" style="position:relative;top:-20px;">
+              <div class="group-joint" style="position:relative;top:-20px;">
             <br>
             &nbsp;
           
@@ -463,7 +463,7 @@ li{
           </div>
         </div>
       <p></p>
-      <div class="group_joint" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+      <div class="group-joint" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
               
               <div class="row">
                 <div class="col-sm">
@@ -531,7 +531,7 @@ li{
 
               </div><!--end of bet amount buttons-->
       <p></p>
-      <div class="group_joint" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+      <div class="group-joint" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
               
               <div class="table-responsive">
 
@@ -603,11 +603,11 @@ li{
 
 
 
-      <!--group_manual-->
-      <div id="group_manual" style="display:none">     
+      <!--group-manual-->
+      <div id="group-manual" class="all5" style="display:none">     
       <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
               
-              <div class="group_manual" style="position:relative;top:-20px;">
+              <div class="group-manual" class="all5" style="position:relative;top:-20px;">
             <br>
             &nbsp;
           
@@ -620,7 +620,7 @@ li{
           </div>
         </div>
       <p></p>
-      <div class="group_manual" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+      <div class="group-manual" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
               
               <div class="row">
                 <div class="col-sm">
@@ -688,7 +688,7 @@ li{
 
               </div><!--end of bet amount buttons-->
       <p></p>
-      <div class="group_manual" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+      <div class="group-manual" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
               
               <div class="table-responsive">
 
@@ -759,11 +759,11 @@ li{
       </div>
 
      
-      <!--group_combo-->
-      <div id="group_combo" style="display:none">     
+      <!--group-combo-->
+      <div id="group-combo" class="all5" style="display:none">     
       <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
         
-        <div class="group_combo" style="position:relative;top:-20px;">
+        <div class="group-combo" style="position:relative;top:-20px;">
       <br>
       &nbsp;
     
@@ -870,7 +870,7 @@ li{
     </div>
   </div class>
       <p></p>
-      <div class="group_combo" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+      <div class="group-combo" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
               
               <div class="row">
                 <div class="col-sm">
@@ -938,7 +938,7 @@ li{
 
               </div><!--end of bet amount buttons-->
       <p></p>
-      <div class="group_combo" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+      <div class="group-combo" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
               
               <div class="table-responsive">
 
@@ -1009,8 +1009,8 @@ li{
       </div> 
 
 
-        <!--group_120-->
-        <div id="group_120" style="display:block">
+        <!--group-120-->
+        <div id="group-120" class="all5" style="display:block">
         <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
         
         <div class="g120" style="position:relative;top:-20px;">
@@ -1179,8 +1179,8 @@ li{
         </div> 
        
 
-        <!--group_60-->
-        <div id="group_60" style="display:none">     
+        <!--group-60-->
+        <div id="group-60" class="all5" style="display:none">     
         <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
         
         <div class="g60" style="position:relative;top:-20px;">
@@ -1366,8 +1366,8 @@ li{
         </div> 
 
 
-        <!--group_30-->
-        <div id="group_30" style="display:none">     
+        <!--group-30-->
+        <div id="group-30" class="all5" style="display:none">     
         <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
         
         <div class="g60" style="position:relative;top:-20px;">
@@ -1553,8 +1553,8 @@ li{
         </div> 
         
         
-        <!--group_20-->
-        <div id="group_20" style="display:none">     
+        <!--group-20-->
+        <div id="group-20" class="all5" style="display:none">     
         <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
         
         <div class="g20" style="position:relative;top:-20px;">
@@ -1740,8 +1740,8 @@ li{
         </div>
 
 
-        <!--group_10-->
-        <div id="group_10" style="display:none">     
+        <!--group-10-->
+        <div id="group-10" class="all5" style="display:none">     
         <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
         
         <div class="g10" style="position:relative;top:-20px;">
@@ -1927,8 +1927,8 @@ li{
         </div>
 
 
-        <!--group_5-->
-        <div id="group_5" style="display:none">     
+        <!--group-5-->
+        <div id="group-5" class="all5" style="display:none">     
         <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
         <div class="g5" style="position:relative;top:-20px;">
       <br>
@@ -2255,7 +2255,7 @@ $(".group120").click(function(){
       $('.bet120').css('color', '#6C757D');
       $('.bet120').attr('disabled', true);
     }
-    let total = money*results;
+    let total = moneyresults;
     results = `<span style='color:red'>${results} </span>bets. Total<span style='color:red'> ${total}</span>`
 // $('.bet-total-div').hide();
     $('.bet-total-div').html(results);
@@ -2307,63 +2307,31 @@ function drawNum()
       })}
     });
 }
+
+
 $('.coins').click(function(){
 money = $(this).html();
 })
-function hideAll(except)
+
+//display and hiding game type
+function hideAllExcept(hideAll, except)
 {
-$('#group_120').hide();
-$('#group_60').hide();
-$('#group_30').hide();
-$('#group_20').hide();
-$('#group_10').hide();
-$('#group_manual').hide();
-$('#group_joint').hide();
-$('#group_combo').hide();
-$('#group_5').hide();
-$(except).show();
+  $(hideAll).hide();
+  $(except).show();
 }
 
+
+//menu selections
 $('.menu').click(function(){
-$('.menu').removeClass('money_bg');
-
-$(this).addClass('money_bg');
-})
-$('.option1').click(function(){
-  hideAll('#group_joint');
-})
-
-$('.option2').click(function(){
-  hideAll('#group_manual');
+  $('.menu').removeClass('money-bg');
+  $(this).addClass('money-bg');
+  let pointsTo = $(this).attr('data-points-to');
+  let hideAll = '.all5';
+  let except  = `#${pointsTo}`;
+  hideAllExcept(hideAll, except);
 })
 
-$('.option3').click(function(){
-  hideAll('#group_combo');
-})
 
-$('.option4').click(function(){
-  hideAll('#group_120');
-})
-
-$('.option5').click(function(){
-  hideAll('#group_60');
-})
-
-$('.option6').click(function(){
-  hideAll('#group_30');
-})
-
-$('.option7').click(function(){
-  hideAll('#group_20');
-})
-
-$('.option8').click(function(){
-  hideAll('#group_10');
-})
-
-$('.option9').click(function(){
-  hideAll('#group_5');
-})
 // setInterval(drawNum, 1000);
 })
 
