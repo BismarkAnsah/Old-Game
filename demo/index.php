@@ -2331,7 +2331,24 @@ $('.menu').click(function(){
   hideAllExcept(hideAll, except);
 })
 
+echo($('#group-joint').find('*').html())
 
+
+
+
+
+
+
+
+
+
+
+
+
+function echo(value)
+{
+  console.log(value);
+}
 // setInterval(drawNum, 1000);
 })
 
