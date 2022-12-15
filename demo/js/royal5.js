@@ -16,66 +16,84 @@ class Royal5Utils {
 
   selectAll(allBtn, rowNums, effects) {
     this.$(allBtn).click(() => {
-      $(rowNums).addClass(effects);
+      this.$(rowNums).addClass(effects);
     });
   }
 
   selectBig(triggeredBy, target, effects) {
     this.$(triggeredBy).click(() => {
-      $(target).removeClass(effects);
-      $(`${target}:nth-child(n+6)`).addClass(effects);
+      this.$(target).removeClass(effects);
+      this.$(`${target}:nth-child(n+6)`).addClass(effects);
     });
   }
 
   selectSmall(triggeredBy, target, effects) {
     this.$(triggeredBy).click(() => {
-      $(target).removeClass(effects);
-      $(`${target}:nth-child(-n+5)`).addClass(effects);
+      this.$(target).removeClass(effects);
+      this.$(`${target}:nth-child(-n+5)`).addClass(effects);
     });
   }
 
   selectEven(triggeredBy, target, effects) {
     this.$(triggeredBy).click(() => {
-      $(target).removeClass(effects);
-      $(`${target}:nth-child(odd)`).addClass(effects);
-      nums = [0, 2, 4, 6, 8];
-      totalBets();
+      this.$(target).removeClass(effects);
+      this.$(`${target}:nth-child(odd)`).addClass(effects);
     });
   }
 
   selectOdd(triggeredBy, target, effects) {
     //odd
     this.$(triggeredBy).click(() => {
-      $(target).removeClass(effects);
-      $(`${target}:nth-child(even)`).addClass(effects);
-      nums = [1, 3, 5, 7, 9];
-      totalBets();
+      this.$(target).removeClass(effects);
+      this.$(`${target}:nth-child(even)`).addClass(effects);
     });
   }
 
   clear(triggeredBy, target, effects) {
     //clear
     this.$(triggeredBy).click(() => {
-      $(target).removeClass(effects);
+      this.$(target).removeClass(effects);
     });
   }
 
   selectAmount(triggeredBy, target, effects)
   {
     this.$(triggeredBy).click(()=>{
-        $(target).removeClass(effects);
-        $(target).addClass(effects);
+        this.$(target).removeClass(effects);
+        this.$(target).addClass(effects);
     })
   }
 
   selectMultiplier(triggeredBy, target, effects)
   {
     this.$(triggeredBy).click(()=>{
-        $(target).removeClass(effects);
-        $(target).addClass(effects);
+        this.$(target).removeClass(effects);
+        this.$(target).addClass(effects);
     })
   }
 
+  /******logics */
+  totalAmt()
+  {
+
+  }
+
+  totalBet()
+  {
+
+  }
+
+  increaseMultiplier()
+  {
+
+  }
+
+  decreaseMultiplier()
+  {
+    
+  }
+
+  /****validations */
   validateMoney() {}
 
   ready() {}
