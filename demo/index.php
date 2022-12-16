@@ -34,6 +34,15 @@
         border-radius:0;
   
     }
+    .add-to-cart-active{
+      background-color: #7C65D8;
+      color: #fff;
+    }
+
+    .bet-now-active{
+      background-color: #FF5111;
+      color: #fff;
+    }
 
     .code {
   display:block;
@@ -365,17 +374,17 @@ li{
             <?php
               for($x = 0; $x < 10; $x++){
                 ?>
-                  <button class="x1 code d min num hvr-pop"><b><?=$x?></b></button>
+                  <button class="x1 code d min num hvr-pop row1"><b><?=$x?></b></button>
                 <?php
               }
             ?>
-            <div class="nums">
-            <button class="fr1 codec">All</button>
-            <button class="fr2 codec">Big</button>
-            <button class="fr3 codec">Small</button>
-            <button class="fr4 codec">Odd</button>
-            <button class="fr5 codec">Even</button>
-            <button class="fr6 codec">Clear</button>
+            <div class="nums" data-points-to="row1">
+            <button class="fr1 codec all-btn" data-points-to="row1">All</button>
+            <button class="fr2 codec big-btn">Big</button>
+            <button class="fr3 codec small-btn">Small</button>
+            <button class="fr4 codec odd-btn">Odd</button>
+            <button class="fr5 codec even-btn">Even</button>
+            <button class="fr6 codec clear-btn">Clear</button>
             </div>
             </div>
             <br>
@@ -385,17 +394,17 @@ li{
             <?php
               for($x = 0; $x < 10; $x++){
                 ?>
-                  <button class="x2 code d min num hvr-pop"><b><?=$x?></b></button>
+                  <button class="x2 code d min num hvr-pop row2"><b><?=$x?></b></button>
                 <?php
               }
             ?>
-            <div class="nums">
-            <button class="fr11 codec">All</button>
-            <button class="fr22 codec">Big</button>
-            <button class="fr33 codec">Small</button>
-            <button class="fr44 codec">Odd</button>
-            <button class="fr55 codec">Even</button>
-            <button class="fr66 codec">Clear</button>
+            <div class="nums" data-points-to="row2">
+            <button class="fr11 codec all-btn">All</button>
+            <button class="fr22 codec big-btn">Big</button>
+            <button class="fr33 codec small-btn">Small</button>
+            <button class="fr44 codec odd-btn">Odd</button>
+            <button class="fr55 codec even-btn">Even</button>
+            <button class="fr66 codec clear-btn">Clear</button>
             </div>
             </div>
             <br>
@@ -405,17 +414,17 @@ li{
             <?php
               for($x = 0; $x < 10; $x++){
                 ?>
-                  <button class="x3 code d min num hvr-pop"><b><?=$x?></b></button>
+                  <button class="x3 code d min num hvr-pop row3"><b><?=$x?></b></button>
                 <?php
               }
             ?>
-            <div class="nums">
-            <button class="fr111 codec">All</button>
-            <button class="fr222 codec">Big</button>
-            <button class="fr333 codec">Small</button>
-            <button class="fr444 codec">Odd</button>
-            <button class="fr555 codec">Even</button>
-            <button class="fr666 codec">Clear</button>
+            <div class="nums" data-points-to="row3">
+            <button class="fr111 codec all-btn">All</button>
+            <button class="fr222 codec big-btn">Big</button>
+            <button class="fr333 codec small-btn">Small</button>
+            <button class="fr444 codec odd-btn">Odd</button>
+            <button class="fr555 codec even-btn">Even</button>
+            <button class="fr666 codec clear-btn">Clear</button>
             </div>
             </div>
             <br>
@@ -425,17 +434,17 @@ li{
             <?php
               for($x = 0; $x < 10; $x++){
                 ?>
-                  <button class="x4 code d min num hvr-pop"><b><?=$x?></b></button>
+                  <button class="x4 code d min num hvr-pop row4"><b><?=$x?></b></button>
                 <?php
               }
             ?>
-            <div class="nums">
-            <button class="fr1111 codec">All</button>
-            <button class="fr2222 codec">Big</button>
-            <button class="fr3333 codec">Small</button>
-            <button class="fr4444 codec">Odd</button>
-            <button class="fr5555 codec">Even</button>
-            <button class="fr6666 codec">Clear</button>
+            <div class="nums" data-points-to="row4">
+            <button class="fr1111 codec all-btn">All</button>
+            <button class="fr2222 codec big-btn">Big</button>
+            <button class="fr3333 codec small-btn">Small</button>
+            <button class="fr4444 codec odd-btn">Odd</button>
+            <button class="fr5555 codec even-btn">Even</button>
+            <button class="fr6666 codec clear-btn">Clear</button>
             </div>
             </div>
             <br>
@@ -445,17 +454,17 @@ li{
             <?php
               for($x = 0; $x < 10; $x++){
                 ?>
-                  <button class="x5 code d min num hvr-pop"><b><?=$x?></b></button>
+                  <button class="x5 code d min num hvr-pop row5"><b><?=$x?></b></button>
                 <?php
               }
             ?>
-            <div class="nums">
-            <button class="fr11111 codec">All</button>
-            <button class="fr22222 codec">Big</button>
-            <button class="fr33333 codec">Small</button>
-            <button class="fr44444 codec">Odd</button>
-            <button class="fr55555 codec">Even</button>
-            <button class="fr66666 codec">Clear</button>
+            <div class="nums" data-points-to="row5">
+            <button class="fr11111 codec all-btn">All</button>
+            <button class="fr22222 codec big-btn">Big</button>
+            <button class="fr33333 codec small-btn">Small</button>
+            <button class="fr44444 codec odd-btn">Odd</button>
+            <button class="fr55555 codec even-btn">Even</button>
+            <button class="fr66666 codec clear-btn">Clear</button>
             </div>
             </div>
             <br>
@@ -494,14 +503,14 @@ li{
                 </div>
                 <p></p>
                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                <button type="button" class="btn coins">x1</button>
-                <button type="button" class="btn coins">x5</button>
-                <button type="button" class="btn coins">x10</button>
-                <button type="button" class="btn coins">x20</button>
-                <button type="button" class="btn coins">x30</button>
-                <button type="button" class="btn coins">x40</button>
-                <button type="button" class="btn coins">x50</button>
-                <button type="button" class="btn coins">x100</button>
+                <button type="button" class="btn coins multiplier">x1</button>
+                <button type="button" class="btn coins multiplier">x5</button>
+                <button type="button" class="btn coins multiplier">x10</button>
+                <button type="button" class="btn coins multiplier">x20</button>
+                <button type="button" class="btn coins multiplier">x30</button>
+                <button type="button" class="btn coins multiplier">x40</button>
+                <button type="button" class="btn coins multiplier">x50</button>
+                <button type="button" class="btn coins multiplier">x100</button>
                 </div>
                 </div>
                 <div class="col-sm">
@@ -1028,7 +1037,7 @@ li{
     
       <div class="nums">
         
-      <button class="g1201 codec">All</button>
+      <button class="g1201 codec all-btn-foo" data-points-to="hello">All</button>
       <button class="g1202 codec">Big</button>
       <button class="g1203 codec">Small</button>
       <button class="g1204 codec">Odd</button>
@@ -2148,6 +2157,7 @@ let data;
 // });
   //all
 $(".g1201").click(()=>{
+  console.log($(this).attr('points-to'))
   $(".group120").addClass("default");
 
   nums = [0,1,2,3,4,5,6,7,8,9];
@@ -2331,11 +2341,6 @@ $('.menu').click(function(){
   let except  = `#${pointsTo}`;
   hideAllExcept(hideAll, except);
 })
-
-
-
-
-
 
 
 
