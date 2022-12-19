@@ -34,12 +34,12 @@
         border-radius:0;
   
     }
-    .add-to-cart-active{
+    .cart, .cart:hover{
       background-color: #7C65D8;
       color: #fff;
     }
 
-    .bet-now-active{
+    .betNow, .betNow:hover{
       background-color: #FF5111;
       color: #fff;
     }
@@ -56,6 +56,10 @@
 
 .code:hover{
   border:solid 6px  #875FDF;
+}
+
+.money-bg:hover{
+  color:#fff;
 }
 
   ::-webkit-scrollbar{width:6px;border-left:1px solid #E6ECF8;}
@@ -205,9 +209,9 @@ left:20px
   color:#FFF;
 }
 
-.coins:hover{
+/* .coins:hover{
   background-color:#E6E1FF;
-}
+} */
 
 .btnx{
   margin:3px;
@@ -492,25 +496,25 @@ li{
                 </div>
                 <div class="col-sm">
                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                <button type="button" class="btn coins">2</button>
-                <button type="button" class="btn coins">1</button>
-                <button type="button" class="btn coins">0.2</button>
-                <button type="button" class="btn coins">0.1</button>
-                <button type="button" class="btn coins">0.02</button>
-                <button type="button" class="btn coins">0.01</button>
-                <button type="button" class="btn coins">0.002</button>
-                <button type="button" class="btn coins">0.001</button>
+                <button type="button" class="btn coins money" value="2">2</button>
+                <button type="button" class="btn coins money money-bg" value="1">1</button>
+                <button type="button" class="btn coins money" value="0.2">0.2</button>
+                <button type="button" class="btn coins money" value="0.1">0.1</button>
+                <button type="button" class="btn coins money" value="0.02">0.02</button>
+                <button type="button" class="btn coins money" value="0.01">0.01</button>
+                <button type="button" class="btn coins money" value="0.002">0.002</button>
+                <button type="button" class="btn coins money" value="0.001">0.001</button>
                 </div>
                 <p></p>
                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                <button type="button" class="btn coins multiplier">x1</button>
-                <button type="button" class="btn coins multiplier">x5</button>
-                <button type="button" class="btn coins multiplier">x10</button>
-                <button type="button" class="btn coins multiplier">x20</button>
-                <button type="button" class="btn coins multiplier">x30</button>
-                <button type="button" class="btn coins multiplier">x40</button>
-                <button type="button" class="btn coins multiplier">x50</button>
-                <button type="button" class="btn coins multiplier">x100</button>
+                <button type="button" class="btn coins multiplier money-bg" value="1">x1</button>
+                <button type="button" class="btn coins multiplier" value="5">x5</button>
+                <button type="button" class="btn coins multiplier" value="10">x10</button>
+                <button type="button" class="btn coins multiplier" value="20">x20</button>
+                <button type="button" class="btn coins multiplier" value="30">x30</button>
+                <button type="button" class="btn coins multiplier" value="40">x40</button>
+                <button type="button" class="btn coins multiplier" value="50">x50</button>
+                <button type="button" class="btn coins multiplier" value="100">x100</button>
                 </div>
                 </div>
                 <div class="col-sm">
@@ -520,22 +524,22 @@ li{
                 </div>
                 <p></p>
                 Mult. Bet.<div class="btn-group mr-2" role="group" aria-label="First group"  style="width:120px;position:relative;left:15px">
-                <button type="button" class="btn coins">-</button>
-                <button type="button" class="btn coins">1</button>
-                <button type="button" class="btn coins">+</button>
+                <button type="button" class="btn coins minus">-</button>
+                <input type="text" maxlength="4" size="1" class="btn coins multiplier-value" value="1">
+                <button type="button" class="btn coins plus">+</button>
                 </div>
-
                 </div>
               </div>
             <!--bet amount and buttons-->
               <div style="padding:10px">
-              <span class="bets">At least <b>5</b> No.</span>    <span>Total: <b class="total bets">0</b></span>  
+              <div class="least-bet"><span class="bets">At least <b>5</b> No.</span>    <span>Total: <b class="total bets">0</b></span></div>  
+              <div class="bet-info"><span class="total-bet"> 21 </span> bets. Total <span class="bet-value"> 54</span></div>
               </div>
 
               <div class="row d-flex justify-content-end" style="margin-right:20px;">
-              <button type="button" class="btn btn-outline-secondary btnx">Add to cart</button>
-              <button type="button" class="btn btn-outline-secondary btnx">Track</button>
-              <button type="button" class="btn btn-outline-secondary btnx">Bet now</button>
+              <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
+              <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
+              <button type="button" class="btn btn-outline-secondary btnx betNow" disabled>Bet now</button>
               </div>
 
               </div><!--end of bet amount buttons-->
@@ -690,9 +694,9 @@ li{
               </div>
 
               <div class="row d-flex justify-content-end" style="margin-right:20px;">
-              <button type="button" class="btn btn-outline-secondary btnx">Add to cart</button>
+              <button type="button" class="btn btn-outline-secondary btnx cart">Add to cart</button>
               <button type="button" class="btn btn-outline-secondary btnx">Track</button>
-              <button type="button" class="btn btn-outline-secondary btnx">Bet now</button>
+              <button type="button" class="btn btn-outline-secondary btnx betNow">Bet now</button>
               </div>
 
               </div><!--end of bet amount buttons-->
@@ -737,7 +741,7 @@ li{
                     </div>
                     <!-- 2nd card -->
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                      
+
                     <ul class="ccontent">
                         <li>
                           <div class="wrapp">
