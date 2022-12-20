@@ -464,6 +464,20 @@ let savePoint = {
   let multiplier = game.getMultiplier();
   $(this).val(multiplier);
   $(this).select();
+  game.$('.multiplier-select').removeClass('money-bg');
+ })
+
+ game.$('.multiplier-input').on('blur', function(){
+  let value = parseInt($(this).val());
+  game.setMultiplier(value);
+  game.$(`.multiplier-select[value=${value}]`).click(); 
+ })
+ 
+ game.$('.multiplier-input').on('input', function(){
+  let onlyNums = parseInt($(this).val().replace(/\D+/g, ''));
+  onlyNums = onlyNums ? onlyNums:1;
+  $(this).val(onlyNums);
+  $('.bet-amt').val('-');
  })
 
  game.$('input.bet-amt').click(function(){
@@ -489,18 +503,6 @@ let savePoint = {
     game.$('.multiplier-select[value="1"]').click();
     game.$(`.unit-amt[value=${unitAmt}`).click();  
 })
-
- game.$('.multiplier-input').on('input', function(){
-  let onlyNums = parseInt($(this).val().replace(/\D+/g, ''));
-  onlyNums = onlyNums ? onlyNums:1;
-  $(this).val(onlyNums);
-  $('.bet-amt').val('-');
- })
-
- game.$('.multiplier-input').on('blur', function(){
-  let value = parseInt($(this).val());
-  game.setMultiplier(value);
- })
 
  game.$('.plus').click(function(){
   game.increaseMultiplier(classNames.multiValue);
