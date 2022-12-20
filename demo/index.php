@@ -535,7 +535,7 @@ li{
             <!--bet amount and buttons-->
               <div style="padding:10px">
               <div class="least-bet">At least <b>1</b> No. every place</div>  
-              <div class="bet-info"><span class="total-bets"> 21 </span> bets, Each bet 	&#8373;<span class="unit-amt">50.223</span>, Actual betting 	&#8373;<span class="actual-amt">54</span></div>
+              <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet 	&#8373;<span class="unit-amt">50.223</span><br> Actual betting 	&#8373;<span class="actual-amt">54</span></div>
               </div>
 
               <div class="row d-flex justify-content-end" style="margin-right:20px;">

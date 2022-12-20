@@ -97,7 +97,11 @@ class Royal5utils {
 
   truncate(number, decimalPlaces = 3) 
   {
-    return +number.toString().slice(0, (number.toString().indexOf(".")) + (decimalPlaces + 1));
+    let indexOfDecimal = number.toString().indexOf(".");
+    if(indexOfDecimal == -1)
+      return number;
+    let result = +number.toString().slice(0, indexOfDecimal + (decimalPlaces + 1));
+    return parseFloat(result);
   }
 
 allSelections(...rowsAndSamples)
@@ -191,7 +195,13 @@ allSelections(...rowsAndSamples)
   validateMoney() {}
 
   
-
+  totalBets5() {
+    let row1 = this.rows.row1;
+    let row2 = this.rows.row2;
+    let repeatedNums = row2.filter((element) => row1.includes(element));
+    let repeat = repeatedNums.length;
+    return row2.length * (row1.length - repeat) + repeat * (row2.length - 1);
+  }
 totalBets10(row1, row2){
   let repeatedNums = row2.filter(element => row1.includes(element));
   let repeat = repeatedNums.length;
@@ -247,20 +257,40 @@ class group5 extends Royal5utils {
   multiplier = 1;
   unitAmt = 1;
   rows = {
-  
+    row1:[],
+    row2:[],
+    row3:[],
+    row4:[],
+    row5:[]
   };
   cart = [];
 
   calcTotalBets() {
-    let row1 = this.rows.row1;
-    let row2 = this.rows.row2;
-    let repeatedNums = row2.filter((element) => row1.includes(element));
-    let repeat = repeatedNums.length;
-    return row2.length * (row1.length - repeat) + repeat * (row2.length - 1);
+    let row1 = this.rows.row1.length;
+    let row2 = this.rows.row2.length;
+    let row3 = this.rows.row3.length;
+    let row4 = this.rows.row4.length;
+    let row5 = this.rows.row5.length;
+    return row1 * row2 * row3 * row4 * row5;
   }
-  showTotalBets()
+  showBetsInfo()
   {
-    totalBets = this.calcTotalBets();
+    let totalBets = this.calcTotalBets();
+    if(totalBets==0)
+    {
+      super.$('div.least-bet').show();
+      super.$('div.bet-info').hide();
+      return 0;
+    }
+    let unitAmt = this.unitAmt;
+    let multiplier = this.multiplier;
+    console.log(unitAmt);
+    let actualAmt = super.truncate(totalBets * multiplier * unitAmt);
+    super.$('span.total-bets').html(totalBets);
+    super.$('span.unit-amt').html(unitAmt);
+    super.$('span.actual-amt').html(actualAmt);
+    super.$('div.least-bet').hide();
+    super.$('div.bet-info').show();
   }
   pushToCart() {
     this.readyData.gameId = this.gameId;
@@ -325,16 +355,15 @@ class group5 extends Royal5utils {
     return this.unitAmt;
   }
 
-  calcUnitAmt() {
-    let amt, totalBets, unitAmt;
-    amt = this.betAmt;
+  calcUnitAmt(betAmt) {
+    let totalBets, unitAmt;
     totalBets = this.calcTotalBets();
-    unitAmt = amt / totalBets;
+    unitAmt = betAmt / totalBets;
     return super.truncate(unitAmt);
   }
 
-  calcActualBetAmt() {
-    return this.calcUnitAmt * this.calcTotalBets();
+  calcActualAmt() {
+    return super.truncate(this.calcTotalBets() * this.unitAmt);
   }
 
 
@@ -392,6 +421,7 @@ let savePoint = {
     let row = $(this).parent().attr('data-points-to');
     game.selectAll(`.${row}`);
     game.saveToRow(data, row);
+    game.showBetsInfo();
   });
 
 
@@ -400,6 +430,7 @@ let savePoint = {
     let row = $(this).parent().attr('data-points-to');
     game.selectBig(`.${row}`);
     game.saveToRow(data, row);
+    game.showBetsInfo();
   });
 
 
@@ -408,6 +439,7 @@ let savePoint = {
     let row = $(this).parent().attr('data-points-to');
     game.selectSmall(`.${row}`);
     game.saveToRow(data, row);
+    game.showBetsInfo();
   });
 
 
@@ -416,6 +448,7 @@ let savePoint = {
     let row = $(this).parent().attr('data-points-to');
     game.selectOdd(`.${row}`);
     game.saveToRow(data, row);
+    game.showBetsInfo();
   });
 
  game.$(classNames.evenBtn).click(function(){
@@ -424,6 +457,7 @@ let savePoint = {
     game.selectEven(`.${row}`);
     savePoint.data[row] = data;
     game.saveToRow(data, row);
+    game.showBetsInfo();
   });
 
 
@@ -434,6 +468,7 @@ let savePoint = {
     let row  = game.getRowFromClass(classNames);
     game.saveToRow(btnValue, row);
     console.log(game.getAllRows());
+    game.showBetsInfo();
     // let req=$.post('index.php', {name:'kofi'});
     // req.done(function(){alert('done')})
     // req.fail(function(){alert('failed')})
@@ -449,6 +484,7 @@ let savePoint = {
     game.clear(`.${row}`);
     savePoint.data[row] = data;
     game.saveToRow(data, row);
+    game.showBetsInfo();
   });
 
   
@@ -458,6 +494,7 @@ let savePoint = {
       let value = $(this).val();
       game.setMultiplier(value);
       game.$('.multiplier-input').val(value);
+      game.showBetsInfo();
  });
 
  game.$(classNames.unitAmt).click(function(){
@@ -465,6 +502,7 @@ let savePoint = {
       game.$(this).addClass('money-bg');
       let value = $(this).val();
       game.setUnitAmt(value);
+      game.showBetsInfo();
  });
 
 
@@ -520,7 +558,9 @@ let savePoint = {
     $('.plus').removeClass('money-bg')
   }, 50);
   game.setMultiplier(value);
+  game.$('.multiplier-select').removeClass('money-bg');
   game.$(`.multiplier-select[value=${value}]`).click();
+  game.showBetsInfo();
  })
 
  game.$('.minus').click(function(){
@@ -531,7 +571,9 @@ let savePoint = {
     $('.minus').removeClass('money-bg')
   }, 50);
   game.setMultiplier(value);
+  game.$('.multiplier-select').removeClass('money-bg');
   game.$(`.multiplier-select[value=${value}]`).click();
+  game.showBetsInfo();
  })
 
 
@@ -548,9 +590,9 @@ game.$('.bet-now').click(function(){
 })
 
 
-// game.$('.least-bet').hide();
+game.$('div.bet-info').hide();
 
-
+Math.ceil()
 
 function newData(oldData = [], btnValue)
 {
