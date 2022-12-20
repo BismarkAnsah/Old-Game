@@ -1,3 +1,4 @@
+import * as $C from "../js/combinatorics.js";
 class Royal5utils {
 
   /***
@@ -94,6 +95,44 @@ class Royal5utils {
   }
 
 
+
+
+allSelections(...rowsAndSamples)
+{
+    let rows = [], samples =  [], perms = [], results =[];
+
+    //dividing rows and samples
+    rowsAndSamples.forEach(element=>{
+       Array.isArray(element) ? rows.push(element):samples.push(element);
+    });
+
+    if(rows.length != samples.length) return -1;
+
+    //perming rows
+    let comb, val;
+    rows.forEach((element, index)=>{
+        comb =  new $C.Combination(element, samples[index]);
+        for(val of comb)
+            perms.push(val)
+    })
+
+    // getting non-repeating lists
+    let startCheck = getCombination(rows[0].length, samples[0]);
+    let i,j, permsSize;
+    permsSize = perms.length;
+      for (i = 0; i < startCheck; i++) {
+        for (j = startCheck; j < permsSize; j++) {
+          if (everyInArray(perms[j], perms[i]) || everyInArray(perms[i], perms[j])) {
+            continue;
+          }
+          results.push([...perms[i], ...perms[j]]);
+        }
+      }
+    return results.length==0 ? perms:results;
+}
+
+
+
   /******logics */
 
   // totalBet()
@@ -101,31 +140,15 @@ class Royal5utils {
 
   // }
 
-  getEachBet()
-  {
-    let amt, totalBets, eachBet;
-    amt = this.getAmt();
-    totalBets = this.getTotalBets();
-    eachBet = amt/totalBets;
-    eachBet = eachBet.toFixed(3);
-    return parseFloat(eachBet)
-  }
-  getActualBet()
-  {
-    let eachBet, totalBets = this.getEachBet();
-    totalBets = this.getTotalBets();
-    return totalBets * eachBet;
-  }
-  getTotalBets()
-  {
+ 
 
-  }
 
   increaseMultiplier(target)
   {
     let multiValue = this.getValue(target);
     // let multiValue = parseInt(this.$(target).html());
-    ++multiValue;
+    multiValue = multiValue>=9999?multiValue:++multiValue;
+
     // this.$(target).html(multiValue);
     this.$(target).val(multiValue);
   }
@@ -135,7 +158,7 @@ class Royal5utils {
     let value = this.$(selector).val();
     return parseInteger ? parseInt(value):value;
   }
-
+   
   decreaseMultiplier(target)
   {
     
@@ -160,11 +183,7 @@ class Royal5utils {
     return classNames.substring(classIndex, classIndex+4);
   }
 
-  
-  postData()
-  {
 
-  }
   /****validations */
   validateMoney() {}
 
@@ -218,20 +237,104 @@ newRow(oldRow, value)
 }
 
 
-class group5 extends Royal5utils{
- 
+class group5 extends Royal5utils {
+  gameId = 9;
+  sample1 = 1;
+  sample2 = 1;
+  multiplier = 1;
+  unitAmt = 1;
+  rows = {
+    row1:[],
+    row2:[]
+  };
+  cart = [];
 
-
-  totalBets(){
+  totalBets() {
     let row1 = this.savePoint.data.row1;
     let row2 = this.savePoint.data.row2;
-    let repeatedNums = row2.filter(element => row1.includes(element));
+    let repeatedNums = row2.filter((element) => row1.includes(element));
     let repeat = repeatedNums.length;
-    return row2.length * (row1.length - repeat ) + repeat * ( row2.length - 1 );
-}
+    return row2.length * (row1.length - repeat) + repeat * (row2.length - 1);
+  }
 
+  pushToCart() {
+    this.readyData.gameId = this.gameId;
+    this.readyData.multiplier =this.multiplier;
+    this.readyData.totalBets = this.totalBets();
+    this.readyData.betAmt = this.actualBet();
+    this.readyData.allSelections = super.allSelections(Object.values(this.rows), this.sample1, this.sample2);
+    this.readyData.userSelections = Object.values(this.rows).join("|");
+    this.cart.push(savePoint.readyData);
+  }
 
+  saveToRow(data, row)
+  {
+    if (Array.isArray(data)) this.rows[row] = data;
+    else 
+    {
+      let numIndex = this.rows[row].indexOf(data);
+      if (numIndex != -1) this.rows[row].splice(numIndex, 1);
+      else this.rows[row].push(data);
+    }
+  }
 
+  getCart()
+  {
+    return this.cart;
+  }
+
+  getAllRows()
+  {
+    return this.rows;
+  }
+
+  getMultiplier()
+  {
+    return this.multiplier;
+  }
+
+  getBetAmt()
+  {
+    return this.betAmt;
+  }
+
+  setMultiplier(multiplier)
+  {
+    this.multiplier = multiplier;
+  }
+
+  setBetAmt(amt)
+  {
+    this.amt = amt;
+  }
+
+  setUnitAmt(unitAmt)
+  {
+    this.unitAmt = unitAmt;
+  }
+
+  getUnitAmt()
+  {
+    return this.unitAmt();
+  }
+
+  calcUnitAmt() {
+    let amt, totalBets, eachBet;
+    amt = this.betAmt();
+    totalBets = this.totalBets();
+    eachBet = amt / totalBets;
+    eachBet = eachBet.toFixed(3);
+    return parseFloat(eachBet);
+  }
+
+  actualBet() {
+    return this.unitAmt() * this.totalBets();
+  }
+
+  getRow(row)
+  {
+    return this.rows[row];
+  }
 
 }
 
@@ -239,7 +342,7 @@ class group5 extends Royal5utils{
 
 
 let game = new group5();
-classNames = {
+let classNames = {
   selectionCtrl:'selection-ctr',
   allBtn:'.all-btn',
   bigBtn:'.big-btn',
@@ -268,7 +371,7 @@ classNames = {
 
 
 
-savePoint = {
+let savePoint = {
   cart:[],
   data:{
     // row1,
@@ -278,55 +381,127 @@ savePoint = {
 
 
  game.$(classNames.allBtn).click(function(){
+    let data = [0,1,2,3,4,5,6,7,8,9];
     let row = $(this).parent().attr('data-points-to');
-    console.log(row);
     game.selectAll(`.${row}`);
-    savePoint.data[row] = [0,1,2,3,4,5,6,7,8,9];
+    game.saveToRow(data, row);
   });
 
 
  game.$(classNames.bigBtn).click(function(){
+    let data = [5,6,7,8,9];
     let row = $(this).parent().attr('data-points-to');
     game.selectBig(`.${row}`);
-    savePoint.data[row] = [5,6,7,8,9];
+    game.saveToRow(data, row);
   });
 
 
  game.$(classNames.smallBtn).click(function(){
+    let data = [0,1,2,3,4];
     let row = $(this).parent().attr('data-points-to');
     game.selectSmall(`.${row}`);
-    savePoint.data[row] = [0,1,2,3,4];
+    game.saveToRow(data, row);
   });
 
 
  game.$(classNames.oddBtn).click(function(){
+    let data = [1,3,5,7,9];
     let row = $(this).parent().attr('data-points-to');
     game.selectOdd(`.${row}`);
-    savePoint.data[row] = [1,3,5,7,9];
+    game.saveToRow(data, row);
   });
 
  game.$(classNames.evenBtn).click(function(){
+    let data = [0,2,4,6,8];
     let row = $(this).parent().attr('data-points-to');
     game.selectEven(`.${row}`);
-    savePoint.data[row] = [0,2,4,6,8];
+    savePoint.data[row] = data;
+    game.saveToRow(data, row);
   });
 
+
+  game.$('.num').click(function(){
+    console.log($(this))
+    $(this).toggleClass('default');
+    let btnValue = parseInt($(this).children().html());
+    let classNames = $(this).attr('class');
+    let row  = game.getRowFromClass(classNames);
+    game.saveToRow(btnValue, row);
+    console.log(game.getAllRows());
+    // let req=$.post('index.php', {name:'kofi'});
+    // req.done(function(){alert('done')})
+    // req.fail(function(){alert('failed')})
+    // let req = $.get('rand.php',function(data, status){
+    //     alert("data: "+data +"\nStatus: "+ status);
+    // })
+    // req.fail(function(){alert('failed')})
+  })
+
  game.$(classNames.clearBtn).click(function(){
+    let data = [];
     let row = $(this).parent().attr('data-points-to');
     game.clear(`.${row}`);
-    savePoint.data[row] = [];
+    savePoint.data[row] = data;
+    game.saveToRow(data, row);
   });
 
   
   game.$(classNames.multiplier).click(function(){
       $(classNames.multiplier).removeClass('money-bg');
       game.$(this).addClass('money-bg');
+      value = $(this).val();
+      game.setMultiplier(value);
  });
 
  game.$(classNames.moneySelect).click(function(){
       $(classNames.moneySelect).removeClass('money-bg');
       game.$(this).addClass('money-bg');
+      value = $(this).val();
+      game.setUnitAmt(value);
  });
+
+
+ game.$('.multiplier-value').click(function(){
+  let multiplier = game.getMultiplier();
+  $(this).val(multiplier);
+  $(this).select();
+ })
+
+ game.$('.bet-amt').click(function(){
+  let betAmt = game.getBetAmt();
+  $(this).val(betAmt);
+  $(this).select();
+  game.$('.unit-bet').removeClass('money-bg');
+  game.$('.multiplier').removeClass('money-bg');
+ })
+
+ game.$('.bet-amt').on('input', function(){
+  let onlyNums = parseInt($(this).val().replace(/\D+/g, ''));
+  onlyNums = onlyNums ? onlyNums:1;
+  onlyNums = onlyNums>=9999?9999:onlyNums;
+  $(this).val(onlyNums);
+ })
+
+ game.$('.bet-amt').on('blur', function(){ 
+    let value = parseInt($(this).val());
+    game.setBetAmt(value);
+    let unitAmt = game.getUnitAmt();
+    game.$('.multiplier-value').val(multiplier);
+    game.$('.multiplier[value="1"]').click();
+    game.$(`.unit-amt[value=${unitAmt}`).click();  
+})
+
+ game.$('.multiplier-value').on('input', function(){
+  let onlyNums = parseInt($(this).val().replace(/\D+/g, ''));
+  onlyNums = onlyNums ? onlyNums:1;
+  $(this).val(onlyNums);
+  $('.bet-amt').val('-');
+ })
+
+ game.$('.multiplier-value').on('blur', function(){
+  let value = parseInt($(this).val());
+  game.setMultiplier(value);
+ })
 
  game.$('.plus').click(function(){
   game.increaseMultiplier(classNames.multiValue);
@@ -335,18 +510,6 @@ savePoint = {
     $('.plus').removeClass('money-bg')
   }, 50);
  })
-
- game.$('.multiplier-value').click(function(){
-  $(this).select();
-   
- })
-
- game.$('.multiplier-value').on('input', function(){
-  let onlyNums = parseInt($(this).val().replace(/\D+/g, ''));
-  onlyNums = onlyNums ? onlyNums:1;
-  $(this).val(onlyNums);
- })
-
 
  game.$('.minus').click(function(){
   game.decreaseMultiplier(classNames.multiValue);
@@ -358,37 +521,34 @@ savePoint = {
 
 
 game.$('.cart').click(function(){
-  savePoint.data.multiplier = game.getMultiplier();
-  savePoint.data.totalBets = game.totalBets();
-  savepoint.data.unitBet = game.unitBet();
-  savepoint.data.gameId = game.gameId();
-  
-  savePoint.cart.push(savePoint.data);
+  game.pushToCart();
 })
+
+game.$('.bet-now').click(function(){
+  let data = game.getData();
+  let url = '';
+  let req=$.post(url, data);
+  req.done();
+  req.fail(alert('An error occured, make sure your URL is correct and try again.'));
+})
+
+
+function pushToCart()
+{
+  savepoint.readyData.gameId = game.gameId();
+  savePoint.readyData.multiplier = game.getMultiplier();
+  savePoint.readyData.totalBets = game.totalBets();
+  savepoint.readyData.unitAmt = game.unitAmt();
+  savepoint.readyData.betAmt = game.betAmt();
+  savepoint.readyData.unitAmt = game.unitAmt();
+  savepoint.readyData.allSelections = game.allSelections();
+  savepoint.readyData.userSelections = game.gameId();
+
+  savePoint.cart.push(savePoint.readyData);
+}
 
 game.$('.least-bet').hide();
 
-
-
-    game.$('.num').click(function(){
-      console.log($(this))
-      $(this).toggleClass('default');
-      let btnValue = parseInt($(this).children().html());
-      let classNames = $(this).attr('class');
-      let row  = game.getRowFromClass(classNames);
-      let oldData = savePoint.data[row];
- 
-      let data = newData(oldData, btnValue);
-      savePoint.data[row] = data;
-      console.log(savePoint);
-      // let req=$.post('index.php', {name:'kofi'});
-      // req.done(function(){alert('done')})
-      // req.fail(function(){alert('failed')})
-      // let req = $.get('rand.php',function(data, status){
-      //     alert("data: "+data +"\nStatus: "+ status);
-      // })
-      // req.fail(function(){alert('failed')})
-    })
 
 
 function newData(oldData = [], btnValue)

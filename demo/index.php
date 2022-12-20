@@ -34,12 +34,12 @@
         border-radius:0;
   
     }
-    .cart, .cart:hover{
+    .cart{
       background-color: #7C65D8;
       color: #fff;
     }
 
-    .betNow, .betNow:hover{
+    .betNow{
       background-color: #FF5111;
       color: #fff;
     }
@@ -525,7 +525,7 @@ li{
                 <p></p>
                 Mult. Bet.<div class="btn-group mr-2" role="group" aria-label="First group"  style="width:120px;position:relative;left:15px">
                 <button type="button" class="btn coins minus">-</button>
-                <input type="text" maxlength="4" size="1" class="btn coins multiplier-value" value="1">
+                <input type="text" maxlength="4" size="3" class="btn coins multiplier-value" value="1">
                 <button type="button" class="btn coins plus">+</button>
                 </div>
                 </div>
@@ -2363,7 +2363,7 @@ function echo(value)
 
 
 </script>
-<script src="js/royal5.js"></script>
+<script src="js/royal5.js" type="module"></script>
 
 
 </body>
