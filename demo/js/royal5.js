@@ -508,17 +508,23 @@ let savePoint = {
  game.$('.plus').click(function(){
   game.increaseMultiplier(classNames.multiValue);
   $(this).addClass('money-bg');
+  let value = game.$('.multiplier-input').val();
   setTimeout(function(){
     $('.plus').removeClass('money-bg')
   }, 50);
+  game.setMultiplier(value);
+  game.$(`.multiplier-select[value=${value}]`).click();
  })
 
  game.$('.minus').click(function(){
   game.decreaseMultiplier(classNames.multiValue);
+  let value = game.$('.multiplier-input').val();
   $(this).addClass('money-bg');
   setTimeout(function(){
     $('.minus').removeClass('money-bg')
   }, 50);
+  game.setMultiplier(value);
+  game.$(`.multiplier-select[value=${value}]`).click();
  })
 
 
