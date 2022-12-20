@@ -496,36 +496,36 @@ li{
                 </div>
                 <div class="col-sm">
                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                <button type="button" class="btn coins money" value="2">2</button>
-                <button type="button" class="btn coins money money-bg" value="1">1</button>
-                <button type="button" class="btn coins money" value="0.2">0.2</button>
-                <button type="button" class="btn coins money" value="0.1">0.1</button>
-                <button type="button" class="btn coins money" value="0.02">0.02</button>
-                <button type="button" class="btn coins money" value="0.01">0.01</button>
-                <button type="button" class="btn coins money" value="0.002">0.002</button>
-                <button type="button" class="btn coins money" value="0.001">0.001</button>
+                <button type="button" class="btn coins unit-amt" value="2">2</button>
+                <button type="button" class="btn coins unit-amt money-bg" value="1">1</button>
+                <button type="button" class="btn coins unit-amt" value="0.2">0.2</button>
+                <button type="button" class="btn coins unit-amt" value="0.1">0.1</button>
+                <button type="button" class="btn coins unit-amt" value="0.02">0.02</button>
+                <button type="button" class="btn coins unit-amt" value="0.01">0.01</button>
+                <button type="button" class="btn coins unit-amt" value="0.002">0.002</button>
+                <button type="button" class="btn coins unit-amt" value="0.001">0.001</button>
                 </div>
                 <p></p>
                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                <button type="button" class="btn coins multiplier money-bg" value="1">x1</button>
-                <button type="button" class="btn coins multiplier" value="5">x5</button>
-                <button type="button" class="btn coins multiplier" value="10">x10</button>
-                <button type="button" class="btn coins multiplier" value="20">x20</button>
-                <button type="button" class="btn coins multiplier" value="30">x30</button>
-                <button type="button" class="btn coins multiplier" value="40">x40</button>
-                <button type="button" class="btn coins multiplier" value="50">x50</button>
-                <button type="button" class="btn coins multiplier" value="100">x100</button>
+                <button type="button" class="btn coins multiplier-select money-bg" value="1">x1</button>
+                <button type="button" class="btn coins multiplier-select" value="5">x5</button>
+                <button type="button" class="btn coins multiplier-select" value="10">x10</button>
+                <button type="button" class="btn coins multiplier-select" value="20">x20</button>
+                <button type="button" class="btn coins multiplier-select" value="30">x30</button>
+                <button type="button" class="btn coins multiplier-select" value="40">x40</button>
+                <button type="button" class="btn coins multiplier-select" value="50">x50</button>
+                <button type="button" class="btn coins multiplier-select" value="100">x100</button>
                 </div>
                 </div>
                 <div class="col-sm">
                 <!---->
                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                Bet Amt.<input type="text" placeholder="GHc 1" style="width:120px;position:relative;left:20px;border:solid 1px #eee">
+                Bet Amt.<input class="bet-amt" type="text" placeholder="GHc 1" style="width:120px;position:relative;left:20px;border:solid 1px #eee">
                 </div>
                 <p></p>
                 Mult. Bet.<div class="btn-group mr-2" role="group" aria-label="First group"  style="width:120px;position:relative;left:15px">
                 <button type="button" class="btn coins minus">-</button>
-                <input type="text" maxlength="4" size="3" class="btn coins multiplier-value" value="1">
+                <input type="text" maxlength="4" size="3" class="btn coins multiplier-input" value="1">
                 <button type="button" class="btn coins plus">+</button>
                 </div>
                 </div>
