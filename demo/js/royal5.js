@@ -251,14 +251,17 @@ class group5 extends Royal5utils {
   };
   cart = [];
 
-  totalBets() {
-    let row1 = this.savePoint.data.row1;
-    let row2 = this.savePoint.data.row2;
+  calcTotalBets() {
+    let row1 = this.rows.row1;
+    let row2 = this.rows.row2;
     let repeatedNums = row2.filter((element) => row1.includes(element));
     let repeat = repeatedNums.length;
     return row2.length * (row1.length - repeat) + repeat * (row2.length - 1);
   }
-
+  showTotalBets()
+  {
+    totalBets = this.calcTotalBets();
+  }
   pushToCart() {
     this.readyData.gameId = this.gameId;
     this.readyData.multiplier =this.multiplier;
@@ -323,17 +326,17 @@ class group5 extends Royal5utils {
   }
 
   calcUnitAmt() {
-    let amt, totalBets, eachBet;
-    amt = this.betAmt();
-    totalBets = this.totalBets();
-    eachBet = amt / totalBets;
-    eachBet = eachBet.toFixed(3);
-    return parseFloat(eachBet);
+    let amt, totalBets, unitAmt;
+    amt = this.betAmt;
+    totalBets = this.calcTotalBets();
+    unitAmt = amt / totalBets;
+    return super.truncate(unitAmt);
   }
 
-  actualBet() {
-    return this.unitAmt() * this.totalBets();
+  calcActualBetAmt() {
+    return this.calcUnitAmt * this.calcTotalBets();
   }
+
 
   getRow(row)
   {
@@ -545,21 +548,7 @@ game.$('.bet-now').click(function(){
 })
 
 
-function pushToCart()
-{
-  savepoint.readyData.gameId = game.gameId();
-  savePoint.readyData.multiplier = game.getMultiplier();
-  savePoint.readyData.totalBets = game.totalBets();
-  savepoint.readyData.unitAmt = game.unitAmt();
-  savepoint.readyData.betAmt = game.betAmt();
-  savepoint.readyData.unitAmt = game.unitAmt();
-  savepoint.readyData.allSelections = game.allSelections();
-  savepoint.readyData.userSelections = game.gameId();
-
-  savePoint.cart.push(savePoint.readyData);
-}
-
-game.$('.least-bet').hide();
+// game.$('.least-bet').hide();
 
 
 

@@ -268,7 +268,9 @@ li{
 .demo div span{
   color:#FFFFFF;
 }
-
+ span.total-bets, span.unit-amt, span.actual-amt{
+  color: red;
+ }
 /* end tab css */
 
 
@@ -532,8 +534,8 @@ li{
               </div>
             <!--bet amount and buttons-->
               <div style="padding:10px">
-              <div class="least-bet"><span class="bets">At least <b>5</b> No.</span>    <span>Total: <b class="total bets">0</b></span></div>  
-              <div class="bet-info"><span class="total-bet"> 21 </span> bets. Total <span class="bet-value"> 54</span></div>
+              <div class="least-bet">At least <b>1</b> No. every place</div>  
+              <div class="bet-info"><span class="total-bets"> 21 </span> bets, Each bet 	&#8373;<span class="unit-amt">50.223</span>, Actual betting 	&#8373;<span class="actual-amt">54</span></div>
               </div>
 
               <div class="row d-flex justify-content-end" style="margin-right:20px;">
