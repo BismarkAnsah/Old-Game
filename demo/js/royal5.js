@@ -95,7 +95,10 @@ class Royal5utils {
   }
 
 
-
+  truncate(number, decimalPlaces = 3) 
+  {
+    return +number.toString().slice(0, (number.toString().indexOf(".")) + (decimalPlaces + 1));
+  }
 
 allSelections(...rowsAndSamples)
 {
@@ -277,6 +280,7 @@ class group5 extends Royal5utils {
       else this.rows[row].push(data);
     }
   }
+
 
   getCart()
   {
