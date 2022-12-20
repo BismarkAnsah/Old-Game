@@ -315,7 +315,7 @@ class group5 extends Royal5utils {
 
   getUnitAmt()
   {
-    return this.unitAmt();
+    return this.unitAmt;
   }
 
   calcUnitAmt() {
