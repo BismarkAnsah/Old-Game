@@ -450,6 +450,7 @@ let savePoint = {
       game.$(this).addClass('money-bg');
       let value = $(this).val();
       game.setMultiplier(value);
+      game.$('.multiplier-input').val(value);
  });
 
  game.$(classNames.unitAmt).click(function(){
