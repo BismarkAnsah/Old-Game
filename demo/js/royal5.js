@@ -527,7 +527,7 @@ let savePoint = {
  })
 
  game.$('input.bet-amt').click(function(){
-  let betAmt = game.getBetAmt();
+  let betAmt = game.calcActualAmt()||1;
   $(this).val(betAmt);
   $(this).select();
   game.$('.unit-bet').removeClass('money-bg');
@@ -543,11 +543,11 @@ let savePoint = {
 
  game.$('.bet-amt').on('blur', function(){ 
     let value = parseInt($(this).val());
-    game.setBetAmt(value);
-    let unitAmt = game.getUnitAmt();
-    game.$('.multiplier-input').val(multiplier);
+    let unitAmt = game.calcUnitAmt(value);
+    game.setUnitAmt(unitAmt);
     game.$('.multiplier-select[value="1"]').click();
     game.$(`.unit-amt[value=${unitAmt}`).click();  
+    game.showBetsInfo();
 })
 
  game.$('.plus').click(function(){
