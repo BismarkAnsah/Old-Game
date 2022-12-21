@@ -256,6 +256,7 @@ class group5 extends Royal5utils {
   sample2 = 1;
   multiplier = 1;
   unitAmt = 1;
+  betAmt = '';
   rows = {
     row1:[],
     row2:[],
@@ -282,10 +283,11 @@ class group5 extends Royal5utils {
       super.$('div.bet-info').hide();
       return 0;
     }
-    let unitAmt = this.unitAmt;
+    let unitAmt = this.betAmt? this.calcUnitAmt(this.betAmt):this.unitAmt;
     let multiplier = this.multiplier;
     console.log(unitAmt);
     let actualAmt = super.truncate(totalBets * multiplier * unitAmt);
+    super.$(`.unit-amt[value=${unitAmt}]`).click();
     super.$('span.total-bets').html(totalBets);
     super.$('span.unit-amt').html(unitAmt);
     super.$('span.actual-amt').html(actualAmt);
@@ -356,8 +358,11 @@ class group5 extends Royal5utils {
   }
 
   calcUnitAmt(betAmt) {
+    betAmt = betAmt||0;
     let totalBets, unitAmt;
     totalBets = this.calcTotalBets();
+    if(totalBets == 0)
+      return totalBets;
     unitAmt = betAmt / totalBets;
     return super.truncate(unitAmt);
   }
@@ -507,47 +512,42 @@ let savePoint = {
 
 
  game.$('.multiplier-input').click(function(){
-  let multiplier = game.getMultiplier();
-  $(this).val(multiplier);
   $(this).select();
-  game.$('.multiplier-select').removeClass('money-bg');
  })
 
- game.$('.multiplier-input').on('blur', function(){
-  let value = parseInt($(this).val());
-  game.setMultiplier(value);
-  game.$(`.multiplier-select[value=${value}]`).click(); 
- })
- 
  game.$('.multiplier-input').on('input', function(){
   let onlyNums = parseInt($(this).val().replace(/\D+/g, ''));
   onlyNums = onlyNums ? onlyNums:1;
   $(this).val(onlyNums);
-  $('.bet-amt').val('-');
+  game.$(`.multiplier-select[value=${onlyNums}]`).click();
+  game.setMultiplier(onlyNums);
+  game.showBetsInfo();
  })
 
  game.$('input.bet-amt').click(function(){
-  let betAmt = game.calcActualAmt()||1;
+  let betAmt = game.betAmt;
+  let unitAmt = game.betAmt?unitAmt:0;
+  game.setUnitAmt(unitAmt);
   $(this).val(betAmt);
   $(this).select();
-  game.$('.unit-bet').removeClass('money-bg');
-  game.$('.multiplier-select').removeClass('money-bg');
+  game.$('.unit-amt').removeClass('money-bg');
+  game.$('.multiplier-select[value="1"]').click();
  })
 
- game.$('.bet-amt').on('input', function(){
+ game.$('input.bet-amt').on('input', function(){
   let onlyNums = parseInt($(this).val().replace(/\D+/g, ''));
-  onlyNums = onlyNums ? onlyNums:1;
+  onlyNums = onlyNums ? onlyNums:'';
   onlyNums = onlyNums>=9999?9999:onlyNums;
+  let unitAmt = game.calcUnitAmt(onlyNums);
+  game.setUnitAmt(unitAmt);
+  game.setBetAmt(onlyNums);
   $(this).val(onlyNums);
+  game.showBetsInfo();
+  console.log(game.getUnitAmt());
  })
 
  game.$('.bet-amt').on('blur', function(){ 
-    let value = parseInt($(this).val());
-    let unitAmt = game.calcUnitAmt(value);
-    game.setUnitAmt(unitAmt);
-    game.$('.multiplier-select[value="1"]').click();
-    game.$(`.unit-amt[value=${unitAmt}`).click();  
-    game.showBetsInfo();
+   
 })
 
  game.$('.plus').click(function(){
