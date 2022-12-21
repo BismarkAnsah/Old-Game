@@ -34,12 +34,12 @@
         border-radius:0;
   
     }
-    .cart{
+    .cart, .cart:enabled:hover{
       background-color: #7C65D8;
       color: #fff;
     }
 
-    .betNow{
+    .bet-now, .bet-now:enabled:hover{
       background-color: #FF5111;
       color: #fff;
     }
@@ -344,19 +344,19 @@ li{
               
               <div class="row" style="margin-left:10px;">
               <span  class=" btn-sm option"><b>Straight:</b></span>
-              <button class="menu option1" data-points-to="group-joint">All 5 Straight(Joint)</button>
-              <button class="menu option2" data-points-to="group-manual">All 5 Straight(Manual)</button>
-              <button class="menu option3" data-points-to="group-combo">All 5 Straight(Combo)</button>
+              <button class="menu option1" data-className="groupJoint" data-points-to="group-joint">All 5 Straight(Joint)</button>
+              <button class="menu option2" data-className="groupManual" data-points-to="group-manual">All 5 Straight(Manual)</button>
+              <button class="menu option3" data-className="groupCombo" data-points-to="group-combo">All 5 Straight(Combo)</button>
               <span  class=" btn-sm option"></span>
               </div>
               <div class="row" style="margin-left:10px;">
               <span  class=" btn-sm option"><b>Group:</b></span>
-              <button class="menu option4" data-points-to="group-120">All 5 Group 120</button>
-              <button class="menu option5" data-points-to="group-60">All 5 Group 60</button>
-              <button class="menu option6" data-points-to="group-30">All 5 Group 30</button>
-              <button class="menu option7" data-points-to="group-20">All 5 Group 20</button>
-              <button class="menu option8" data-points-to="group-10">All 5 Group 10</button>
-              <button class="menu option9" data-points-to="group-5">All 5 Group 5</button>
+              <button class="menu option4" data-className="group120" data-points-to="group-120">All 5 Group 120</button>
+              <button class="menu option5" data-className="group60" data-points-to="group-60">All 5 Group 60</button>
+              <button class="menu option6" data-className="group30" data-points-to="group-30">All 5 Group 30</button>
+              <button class="menu option7" data-className="group20" data-points-to="group-20">All 5 Group 20</button>
+              <button class="menu option8" data-className="group10" data-points-to="group-10">All 5 Group 10</button>
+              <button class="menu option9" data-className="group5" data-points-to="group-5">All 5 Group 5</button>
               </div>
             </div>
 
@@ -385,7 +385,7 @@ li{
               }
             ?>
             <div class="nums" data-points-to="row1">
-            <button class="fr1 codec all-btn" data-points-to="row1">All</button>
+            <button class="fr1 codec all-btn">All</button>
             <button class="fr2 codec big-btn">Big</button>
             <button class="fr3 codec small-btn">Small</button>
             <button class="fr4 codec odd-btn">Odd</button>
@@ -405,7 +405,7 @@ li{
               }
             ?>
             <div class="nums" data-points-to="row2">
-            <button class="fr11 codec all-btn">All</button>
+            <button class="fr11 codec all-btn all-btn">All</button>
             <button class="fr22 codec big-btn">Big</button>
             <button class="fr33 codec small-btn">Small</button>
             <button class="fr44 codec odd-btn">Odd</button>
@@ -425,7 +425,7 @@ li{
               }
             ?>
             <div class="nums" data-points-to="row3">
-            <button class="fr111 codec all-btn">All</button>
+            <button class="fr111 codec all-btn all-btn">All</button>
             <button class="fr222 codec big-btn">Big</button>
             <button class="fr333 codec small-btn">Small</button>
             <button class="fr444 codec odd-btn">Odd</button>
@@ -445,7 +445,7 @@ li{
               }
             ?>
             <div class="nums" data-points-to="row4">
-            <button class="fr1111 codec all-btn">All</button>
+            <button class="fr1111 codec all-btn all-btn">All</button>
             <button class="fr2222 codec big-btn">Big</button>
             <button class="fr3333 codec small-btn">Small</button>
             <button class="fr4444 codec odd-btn">Odd</button>
@@ -541,7 +541,7 @@ li{
               <div class="row d-flex justify-content-end" style="margin-right:20px;">
               <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
               <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-              <button type="button" class="btn btn-outline-secondary btnx betNow" disabled>Bet now</button>
+              <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
               </div>
 
               </div><!--end of bet amount buttons-->
@@ -791,13 +791,13 @@ li{
           <?php
         }
       ?>
-      <div class="nums">
-      <button class="cb1 codec">All</button>
-      <button class="cb2 codec">Big</button>
-      <button class="cb3 codec">Small</button>
-      <button class="cb4 codec">Odd</button>
-      <button class="cb5 codec">Even</button>
-      <button class="cb6 codec">Clear</button>
+      <div class="nums" data-points-to="row1">
+      <button class="cb1 codec all-btn">All</button>
+      <button class="cb2 codec big-btn">Big</button>
+      <button class="cb3 codec small-btn">Small</button>
+      <button class="cb4 codec odd-btn">Odd</button>
+      <button class="cb5 codec even-btn">Even</button>
+      <button class="cb6 codec clear-btn">Clear</button>
       </div>
       </div>
       <br>
@@ -811,13 +811,13 @@ li{
           <?php
         }
       ?>
-      <div class="nums">
-      <button class="cb11 codec">All</button>
-      <button class="cb22 codec">Big</button>
-      <button class="cb33 codec">Small</button>
-      <button class="cb44 codec">Odd</button>
-      <button class="cb55 codec">Even</button>
-      <button class="cb66 codec">Clear</button>
+      <div class="nums" data-points-to="row2">
+      <button class="cb11 codec all-btn">All</button>
+      <button class="cb22 codec big-btn">Big</button>
+      <button class="cb33 codec small-btn">Small</button>
+      <button class="cb44 codec odd-btn">Odd</button>
+      <button class="cb55 codec even-btn">Even</button>
+      <button class="cb66 codec clear-btn">Clear</button>
       </div>
       </div>
       <br>
@@ -831,13 +831,13 @@ li{
           <?php
         }
       ?>
-      <div class="nums">
-      <button class="cb111 codec">All</button>
-      <button class="cb222 codec">Big</button>
-      <button class="cb333 codec">Small</button>
-      <button class="cb444 codec">Odd</button>
-      <button class="cb555 codec">Even</button>
-      <button class="cb666 codec">Clear</button>
+      <div class="nums" data-points-to="row3">
+      <button class="cb111 codec all-btn">All</button>
+      <button class="cb222 codec big-btn">Big</button>
+      <button class="cb333 codec small-btn">Small</button>
+      <button class="cb444 codec odd-btn">Odd</button>
+      <button class="cb555 codec even-btn">Even</button>
+      <button class="cb666 codec clear-btn">Clear</button>
       </div>
       </div>
       <br>
@@ -851,13 +851,13 @@ li{
           <?php
         }
       ?>
-      <div class="nums">
-      <button class="cb1111 codec">All</button>
-      <button class="cb2222 codec">Big</button>
-      <button class="cb3333 codec">Small</button>
-      <button class="cb4444 codec">Odd</button>
-      <button class="cb5555 codec">Even</button>
-      <button class="cb6666 codec">Clear</button>
+      <div class="nums" data-points-to="row4">
+      <button class="cb1111 codec all-btn">All</button>
+      <button class="cb2222 codec big-btn">Big</button>
+      <button class="cb3333 codec small-btn">Small</button>
+      <button class="cb4444 codec odd-btn">Odd</button>
+      <button class="cb5555 codec even-btn">Even</button>
+      <button class="cb6666 codec clear-btn">Clear</button>
       </div>
       </div>
       <br>
@@ -871,13 +871,13 @@ li{
           <?php
         }
       ?>
-      <div class="nums">
-      <button class="cb11111 codec">All</button>
-      <button class="cb22222 codec">Big</button>
-      <button class="cb33333 codec">Small</button>
-      <button class="cb44444 codec">Odd</button>
-      <button class="cb55555 codec">Even</button>
-      <button class="cb66666 codec">Clear</button>
+      <div class="nums" data-points-to="row5">
+      <button class="cb11111 codec all-btn">All</button>
+      <button class="cb22222 codec big-btn">Big</button>
+      <button class="cb33333 codec small-btn">Small</button>
+      <button class="cb44444 codec odd-btn">Odd</button>
+      <button class="cb55555 codec even-btn">Even</button>
+      <button class="cb66666 codec clear-btn">Clear</button>
       </div>
       </div>
       <br>
@@ -1041,14 +1041,13 @@ li{
         }
       ?>
     
-      <div class="nums">
-        
-      <button class="g1201 codec all-btn-foo" data-points-to="hello">All</button>
-      <button class="g1202 codec">Big</button>
-      <button class="g1203 codec">Small</button>
-      <button class="g1204 codec">Odd</button>
-      <button class="g1205 codec">Even</button>
-      <button class="g1206 codec">Clear</button>
+      <div class="nums" data-points-to="row1">
+      <button class="g1201 codec all-btn">All</button>
+      <button class="g1202 codec big-btn">Big</button>
+      <button class="g1203 codec small-btn">Small</button>
+      <button class="g1204 codec odd-btn">Odd</button>
+      <button class="g1205 codec even-btn">Even</button>
+      <button class="g1206 codec clear-btn">Clear</button>
       </div>
       </div>
       
@@ -1211,13 +1210,13 @@ li{
           <?php
         }
       ?>
-      <div class="nums">
-      <button class="g601 codec">All</button>
-      <button class="g602 codec">Big</button>
-      <button class="g603 codec">Small</button>
-      <button class="g604 codec">Odd</button>
-      <button class="g605 codec">Even</button>
-      <button class="g606 codec">Clear</button>
+      <div class="nums" data-points-to="row1">
+      <button class="g601 codec all-btn">All</button>
+      <button class="g602 codec big-btn">Big</button>
+      <button class="g603 codec small-btn">Small</button>
+      <button class="g604 codec odd-btn">Odd</button>
+      <button class="g605 codec even-btn">Even</button>
+      <button class="g606 codec clear-btn">Clear</button>
       </div>
       </div>
       <br>
@@ -1230,13 +1229,13 @@ li{
           <?php
         }
       ?>
-      <div class="nums">
-      <button class="g6011 codec">All</button>
-      <button class="g6022 codec">Big</button>
-      <button class="g6033 codec">Small</button>
-      <button class="g6044 codec">Odd</button>
-      <button class="g6055 codec">Even</button>
-      <button class="g6066 codec">Clear</button>
+      <div class="nums" data-points-to="row2">
+      <button class="g6011 codec all-btn">All</button>
+      <button class="g6022 codec big-btn">Big</button>
+      <button class="g6033 codec small-btn">Small</button>
+      <button class="g6044 codec odd-btn">Odd</button>
+      <button class="g6055 codec even-btn">Even</button>
+      <button class="g6066 codec clear-btn">Clear</button>
       </div>
       </div>
       <br>
@@ -1399,13 +1398,13 @@ li{
           <?php
         }
       ?>
-      <div class="nums">
-      <button class="g301 codec">All</button>
-      <button class="g302 codec">Big</button>
-      <button class="g303 codec">Small</button>
-      <button class="g304 codec">Odd</button>
-      <button class="g305 codec">Even</button>
-      <button class="g306 codec">Clear</button>
+      <div class="nums" data-points-to="row1">
+      <button class="g301 codec all-btn">All</button>
+      <button class="g302 codec big-btn">Big</button>
+      <button class="g303 codec small-btn">Small</button>
+      <button class="g304 codec odd-btn">Odd</button>
+      <button class="g305 codec even-btn">Even</button>
+      <button class="g306 codec clear-btn">Clear</button>
       </div>
       </div>
       <br>
@@ -1418,13 +1417,13 @@ li{
           <?php
         }
       ?>
-      <div class="nums">
-      <button class="g3011 codec">All</button>
-      <button class="g3022 codec">Big</button>
-      <button class="g3033 codec">Small</button>
-      <button class="g3044 codec">Odd</button>
-      <button class="g3055 codec">Even</button>
-      <button class="g3066 codec">Clear</button>
+      <div class="nums" data-points-to="row2">
+      <button class="g3011 codec all-btn">All</button>
+      <button class="g3022 codec big-btn">Big</button>
+      <button class="g3033 codec small-btn">Small</button>
+      <button class="g3044 codec odd-btn">Odd</button>
+      <button class="g3055 codec even-btn">Even</button>
+      <button class="g3066 codec clear-btn">Clear</button>
       </div>
       </div>
       <br>
@@ -1586,13 +1585,13 @@ li{
           <?php
         }
       ?>
-      <div class="nums">
-      <button class="g201 codec">All</button>
-      <button class="g202 codec">Big</button>
-      <button class="g203 codec">Small</button>
-      <button class="g204 codec">Odd</button>
-      <button class="g205 codec">Even</button>
-      <button class="g206 codec">Clear</button>
+      <div class="nums" data-points-to="row1">
+      <button class="g201 codec all-btn">All</button>
+      <button class="g202 codec big-btn">Big</button>
+      <button class="g203 codec small-btn">Small</button>
+      <button class="g204 codec odd-btn">Odd</button>
+      <button class="g205 codec even-btn">Even</button>
+      <button class="g206 codec clear-btn">Clear</button>
       </div>
       </div>
       <br>
@@ -1605,13 +1604,13 @@ li{
           <?php
         }
       ?>
-      <div class="nums">
-      <button class="g2011 codec">All</button>
-      <button class="g2022 codec">Big</button>
-      <button class="g2033 codec">Small</button>
-      <button class="g2044 codec">Odd</button>
-      <button class="g2055 codec">Even</button>
-      <button class="g2066 codec">Clear</button>
+      <div class="nums" data-points-to="row2">
+      <button class="g2011 codec all-btn">All</button>
+      <button class="g2022 codec big-btn">Big</button>
+      <button class="g2033 codec small-btn">Small</button>
+      <button class="g2044 codec odd-btn">Odd</button>
+      <button class="g2055 codec even-btn">Even</button>
+      <button class="g2066 codec clear-btn">Clear</button>
       </div>
       </div>
       <br>
@@ -1773,13 +1772,13 @@ li{
           <?php
         }
       ?>
-      <div class="nums">
-      <button class="g101 codec">All</button>
-      <button class="g102 codec">Big</button>
-      <button class="g103 codec">Small</button>
-      <button class="g104 codec">Odd</button>
-      <button class="g105 codec">Even</button>
-      <button class="g106 codec">Clear</button>
+      <div class="nums" data-points-to="row1">
+      <button class="g101 codec all-btn">All</button>
+      <button class="g102 codec big-btn">Big</button>
+      <button class="g103 codec small-btn">Small</button>
+      <button class="g104 codec odd-btn">Odd</button>
+      <button class="g105 codec even-btn">Even</button>
+      <button class="g106 codec clear-btn">Clear</button>
       </div>
       </div>
       <br>
@@ -1792,13 +1791,13 @@ li{
           <?php
         }
       ?>
-      <div class="nums">
-      <button class="g1011 codec">All</button>
-      <button class="g1022 codec">Big</button>
-      <button class="g1033 codec">Small</button>
-      <button class="g1044 codec">Odd</button>
-      <button class="g1055 codec">Even</button>
-      <button class="g1066 codec">Clear</button>
+      <div class="nums" data-points-to="row2">
+      <button class="g1011 codec all-btn">All</button>
+      <button class="g1022 codec big-btn">Big</button>
+      <button class="g1033 codec small-btn">Small</button>
+      <button class="g1044 codec odd-btn">Odd</button>
+      <button class="g1055 codec even-btn">Even</button>
+      <button class="g1066 codec clear-btn">Clear</button>
       </div>
       </div>
       <br>
@@ -1959,13 +1958,13 @@ li{
           <?php
         }
       ?>
-      <div class="nums">
-      <button class="g51 codec">All</button>
-      <button class="g52 codec">Big</button>
-      <button class="g53 codec">Small</button>
-      <button class="g54 codec">Odd</button>
-      <button class="g55 codec">Even</button>
-      <button class="g56 codec">Clear</button>
+      <div class="nums" data-points-to="row1">
+      <button class="g51 codec all-btn">All</button>
+      <button class="g52 codec big-btn">Big</button>
+      <button class="g53 codec small-btn">Small</button>
+      <button class="g54 codec odd-btn">Odd</button>
+      <button class="g55 codec even-btn">Even</button>
+      <button class="g56 codec clear-btn">Clear</button>
       </div>
       </div>
       <br>
@@ -1978,13 +1977,13 @@ li{
           <?php
         }
       ?>
-      <div class="nums">
-      <button class="g511 codec">All</button>
-      <button class="g522 codec">Big</button>
-      <button class="g533 codec">Small</button>
-      <button class="g544 codec">Odd</button>
-      <button class="g555 codec">Even</button>
-      <button class="g566 codec">Clear</button>
+      <div class="nums" data-points-to="row2">
+      <button class="g511 codec all-btn">All</button>
+      <button class="g522 codec big-btn">Big</button>
+      <button class="g533 codec small-btn">Small</button>
+      <button class="g544 codec odd-btn">Odd</button>
+      <button class="g555 codec even-btn">Even</button>
+      <button class="g566 codec clear-btn">Clear</button>
       </div>
       </div>
       <br>
@@ -2148,7 +2147,7 @@ li{
 <script src="js/jquery.min.js"></script>
 
 <script type='module'>
-import * as $C from "../demo/js/combinatorics.js";
+/*import * as $C from "../demo/js/combinatorics.js";
 $(function(){
 
 let lastId = 0;
@@ -2362,7 +2361,7 @@ function echo(value)
 // setInterval(drawNum, 1000);
 })
 
-
+*/
 
 </script>
 <script src="js/royal5.js" type="module"></script>
