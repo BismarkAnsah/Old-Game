@@ -1035,14 +1035,14 @@ li{
       &nbsp;
     
       <div class="rows row">
+      <button hidden class="codex">One Pair</button>
       <?php
         for($x = 0; $x < 10; $x++){
           ?>
-            <button class="group120 code d min num hvr-pop row1"><b><?=$x?></b></button>
+            <button class="group60 code d min num hvr-pop row1"><b><?=$x?></b></button>
           <?php
         }
       ?>
-    
       <div class="nums" data-points-to="row1">
       <button class="g1201 codec all-btn">All</button>
       <button class="g1202 codec big-btn">Big</button>
@@ -1113,7 +1113,7 @@ li{
         </div>
       <!--bet amount and buttons-->
       <div style="padding:10px">
-              <div class="least-bet">At least <b>1</b> No. every place</div>  
+              <div class="least-bet">At least <b>5</b> No.</div>  
               <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet 	&#8373;<span class="unit-amt">50.223</span><br> Actual betting 	&#8373;<span class="actual-amt">54</span></div>
       </div>
 
@@ -1302,7 +1302,7 @@ li{
         </div>
       <!--bet amount and buttons-->
       <div style="padding:10px">
-              <div class="least-bet">At least <b>1</b> No. every place</div>  
+              <div class="least-bet">One Pair at least <b>1</b> No. <br> One No. at least <b>3</b> No.</div>  
               <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet 	&#8373;<span class="unit-amt">50.223</span><br> Actual betting 	&#8373;<span class="actual-amt">54</span></div>
               </div>
 
@@ -1490,7 +1490,7 @@ li{
         </div>
       <!--bet amount and buttons-->
       <div style="padding:10px">
-              <div class="least-bet">At least <b>1</b> No. every place</div>  
+              <div class="least-bet">One Pair at least <b>2</b> No. <br> One No. at least <b>1</b> No.</div>  
               <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet 	&#8373;<span class="unit-amt">50.223</span><br> Actual betting 	&#8373;<span class="actual-amt">54</span></div>
               </div>
 
@@ -1678,7 +1678,7 @@ li{
         </div>
       <!--bet amount and buttons-->
       <div style="padding:10px">
-              <div class="least-bet">At least <b>1</b> No. every place</div>  
+              <div class="least-bet">Three of a Kind at least <b>1</b> No. <br> One No. at least <b>2</b> No.</div>  
               <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet 	&#8373;<span class="unit-amt">50.223</span><br> Actual betting 	&#8373;<span class="actual-amt">54</span></div>
               </div>
 
@@ -1866,7 +1866,7 @@ li{
         </div>
       <!--bet amount and buttons-->
       <div style="padding:10px">
-              <div class="least-bet">At least <b>1</b> No. every place</div>  
+              <div class="least-bet">Three of a Kind, One Pair at least <b>1</b> No.</div>
               <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet 	&#8373;<span class="unit-amt">50.223</span><br> Actual betting 	&#8373;<span class="actual-amt">54</span></div>
               </div>
 
@@ -2053,7 +2053,7 @@ li{
         </div>
       <!--bet amount and buttons-->
       <div style="padding:10px">
-              <div class="least-bet">At least <b>1</b> No. every place</div>  
+              <div class="least-bet">Four of a Kind, One No. at least <b>1</b> No.</div>
               <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet 	&#8373;<span class="unit-amt">50.223</span><br> Actual betting 	&#8373;<span class="actual-amt">54</span></div>
               </div>
 

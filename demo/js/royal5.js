@@ -11,7 +11,7 @@ class Royal5utils {
    * 'effects' adds the class to the 'target'
    * 
    */
-  
+
   decimalPlaces = 3;
   page;
   groupName = ".group-joint";
@@ -107,7 +107,28 @@ getPageId()
     let result = +number.toString().slice(0, indexOfDecimal + (decimalPlaces + 1));
     return parseFloat(result);
   }
-
+   everyInArray(array1, array2)
+  {
+    return array1.every(element=>{
+          return array2.includes(element);
+      });
+  }
+  
+   getCombination(n, r){
+      if(!(r>=0 && n>=r))
+          return -1;
+      return this.factorial(n)/(this.factorial(r)*this.factorial(n-r));
+  }
+   factorial(num){
+      if(num == 0)
+          return 1;
+      if(num < 0 )
+          return -1;
+      let result = num;
+      for(let i = num-1; i>1; i--)
+          result *= i;
+      return result;
+  }
 allSelections(...rowsAndSamples)
 {
     let rows = [], samples =  [], perms = [], results =[];
@@ -128,12 +149,12 @@ allSelections(...rowsAndSamples)
     })
 
     // getting non-repeating lists
-    let startCheck = getCombination(rows[0].length, samples[0]);
+    let startCheck = this.getCombination(rows[0].length, samples[0]);
     let i,j, permsSize;
     permsSize = perms.length;
       for (i = 0; i < startCheck; i++) {
         for (j = startCheck; j < permsSize; j++) {
-          if (everyInArray(perms[j], perms[i]) || everyInArray(perms[i], perms[j])) {
+          if (this.everyInArray(perms[j], perms[i]) || this.everyInArray(perms[i], perms[j])) {
             continue;
           }
           results.push([...perms[i], ...perms[j]]);
@@ -267,10 +288,11 @@ class group5 extends Royal5utils {
     this.readyData.unitStaked = this.unitAmt;
     this.readyData.totalBetAmt = this.calcActualAmt();
     this.readyData.multiplier =this.multiplier;
-    let calc = this.calcTotalBets();
-    this.readyData.allSelections = [];/*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
+    this.readyData.totalBets = this.calcTotalBets();
+    this.readyData.allSelections = this.allSelections(...Object.values(this.rows), this.sample1, this.sample2);
+    /*super.allSelections(...Object.values(this.rows), this.sample1, this.sample2);*/
     this.readyData.userSelections = Object.values(this.rows).join("|");
-    this.cart.push(this.readyData);
+    cart.push(this.readyData);
   }
 
   saveToRow(data, row)
@@ -425,10 +447,11 @@ class group10 extends Royal5utils {
     this.readyData.unitStaked = this.unitAmt;
     this.readyData.totalBetAmt = this.calcActualAmt();
     this.readyData.multiplier =this.multiplier;
-    let calc = this.calcTotalBets();
-    this.readyData.allSelections = [];/*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
+    this.readyData.totalBets = this.calcTotalBets();
+    this.readyData.allSelections = this.allSelections(...Object.values(this.rows), this.sample1, this.sample2);
+    /*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
     this.readyData.userSelections = Object.values(this.rows).join("|");
-    this.cart.push(this.readyData);
+    cart.push(this.readyData);
   }
 
   saveToRow(data, row)
@@ -586,10 +609,11 @@ class group20 extends Royal5utils {
     this.readyData.unitStaked = this.unitAmt;
     this.readyData.totalBetAmt = this.calcActualAmt();
     this.readyData.multiplier =this.multiplier;
-    let calc = this.calcTotalBets();
-    this.readyData.allSelections = [];/*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
+    this.readyData.totalBets = this.calcTotalBets();
+    this.readyData.allSelections = this.allSelections(...Object.values(this.rows), this.sample1, this.sample2);
+    /*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
     this.readyData.userSelections = Object.values(this.rows).join("|");
-    this.cart.push(this.readyData);
+    cart.push(this.readyData);
   }
 
   saveToRow(data, row)
@@ -746,10 +770,11 @@ class group30 extends Royal5utils {
     this.readyData.unitStaked = this.unitAmt;
     this.readyData.totalBetAmt = this.calcActualAmt();
     this.readyData.multiplier =this.multiplier;
-    let calc = this.calcTotalBets();
-    this.readyData.allSelections = [];/*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
+    this.readyData.totalBets = this.calcTotalBets();
+    this.readyData.allSelections = this.allSelections(...Object.values(this.rows), this.sample1, this.sample2);
+    /*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
     this.readyData.userSelections = Object.values(this.rows).join("|");
-    this.cart.push(this.readyData);
+    cart.push(this.readyData);
   }
 
   saveToRow(data, row)
@@ -906,10 +931,11 @@ class group60 extends Royal5utils {
     this.readyData.unitStaked = this.unitAmt;
     this.readyData.totalBetAmt = this.calcActualAmt();
     this.readyData.multiplier =this.multiplier;
-    let calc = this.calcTotalBets();
-    this.readyData.allSelections = [];/*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
+    this.readyData.totalBets = this.calcTotalBets();
+    this.readyData.allSelections = this.allSelections(...Object.values(this.rows), this.sample1, this.sample2);
+    /*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
     this.readyData.userSelections = Object.values(this.rows).join("|");
-    this.cart.push(this.readyData);
+    cart.push(this.readyData);
   }
 
   saveToRow(data, row)
@@ -1017,7 +1043,6 @@ class group120 extends Royal5utils {
   {
     super(pageId);
   
-    console.log(this.getPageId());
   }
 
   
@@ -1066,10 +1091,11 @@ class group120 extends Royal5utils {
     this.readyData.unitStaked = this.unitAmt;
     this.readyData.totalBetAmt = this.calcActualAmt();
     this.readyData.multiplier =this.multiplier;
-    let calc = this.calcTotalBets();
-    this.readyData.allSelections = [];/*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
+    this.readyData.totalBets = this.calcTotalBets();
+    this.readyData.allSelections = this.allSelections(...Object.values(this.rows), this.sample1);
+    /*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
     this.readyData.userSelections = Object.values(this.rows).join("|");
-    this.cart.push(this.readyData);
+    cart.push(this.readyData);
   }
 
   saveToRow(data, row)
@@ -1182,10 +1208,8 @@ class groupJoint extends Royal5utils {
   constructor(pageId)
   {
     super(pageId);
-    console.log(this.getPageId());
   }
   calcTotalBets() {
-    console.log(this.rows);
     let row1 = this.rows.row1.length;
     let row2 = this.rows.row2.length;
     let row3 = this.rows.row3.length;
@@ -1232,10 +1256,10 @@ class groupJoint extends Royal5utils {
     this.readyData.unitStaked = this.unitAmt;
     this.readyData.totalBetAmt = this.calcActualAmt();
     this.readyData.multiplier =this.multiplier;
-    let calc = this.calcTotalBets();
-    this.readyData.allSelections = [];/*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
+    this.readyData.totalBets = this.calcTotalBets();
+    this.readyData.allSelections = []/*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
     this.readyData.userSelections = Object.values(this.rows).join("|");
-    this.cart.push(this.readyData);
+    cart.push(this.readyData);
   }
 
   saveToRow(data, row)
@@ -1349,7 +1373,6 @@ class groupManual extends Royal5utils {
     super(pageId);
   }
   calcTotalBets() {
-    console.log(this.rows);
     let row1 = this.rows.row1.length;
     let row2 = this.rows.row2.length;
     let row3 = this.rows.row3.length;
@@ -1396,10 +1419,10 @@ class groupManual extends Royal5utils {
     this.readyData.unitStaked = this.unitAmt;
     this.readyData.totalBetAmt = this.calcActualAmt();
     this.readyData.multiplier =this.multiplier;
-    let calc = this.calcTotalBets();
-    this.readyData.allSelections = [];/*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
+    this.readyData.totalBets = this.calcTotalBets();
+    this.readyData.allSelections = []/*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
     this.readyData.userSelections = Object.values(this.rows).join("|");
-    this.cart.push(this.readyData);
+    cart.push(this.readyData);
   }
 
   saveToRow(data, row)
@@ -1514,7 +1537,6 @@ class groupCombo extends Royal5utils {
     super(pageId);
   }
   calcTotalBets() {
-    console.log(this.rows);
     let row1 = this.rows.row1.length;
     let row2 = this.rows.row2.length;
     let row3 = this.rows.row3.length;
@@ -1562,9 +1584,9 @@ class groupCombo extends Royal5utils {
     this.readyData.totalBetAmt = this.calcActualAmt();
     this.readyData.multiplier =this.multiplier;
     let calc = this.calcTotalBets();
-    this.readyData.allSelections = [];/*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
+    this.readyData.allSelections = []/*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
     this.readyData.userSelections = Object.values(this.rows).join("|");
-    this.cart.push(this.readyData);
+    cart.push(this.readyData);
   }
 
   saveToRow(data, row)
@@ -1657,11 +1679,20 @@ class groupCombo extends Royal5utils {
 
 }
 
+
+
+let initializedClasses = [];
+let cart = [];
+let oldClass = 'group120';
 let game = new group120('#group-120');
-ready();
-function ready(){
-  
-   console.log(game);
+ready('group120');
+function ready(className){
+if(initializedClasses.includes(className)) 
+{
+    game.resetAllData();
+    return 0;
+}
+initializedClasses.push(className);
 let classNames = {
   selectionCtrl:'selection-ctr',
   allBtn:'.all-btn',
@@ -1869,12 +1900,14 @@ game.$('.cart').click(function(){
 
 game.$('.bet-now').click(function(){
   game.pushToCart();
-  let data = game.getCart();
+  console.log(cart);
+  let data = cart;
   let url = 'den.kld';
   let req=$.post(url, data);
   req.done(function(){
     alert('failed');
     game.resetAllData();
+    cart = [];
   });
   req.fail(alert('An error occured, make sure your URL is correct and try again.'));
 })
@@ -1906,10 +1939,13 @@ $('.menu').click(function(){
   let pointsTo = $(this).attr('data-points-to');
   let className = $(this).attr('data-className');
   game = getClass(className, `#${pointsTo}`);
-  ready();
+  if(oldClass != className){
+  oldClass = className;
+  ready(className);
   let hideAll = '.all5';
   let except  = `#${pointsTo}`;
   hideAllExcept(hideAll, except);
+  }
 })
 
 function getClass(className, classConstructor)
