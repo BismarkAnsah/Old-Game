@@ -1,3 +1,4 @@
+//draw numbers
 import * as $C from "../js/combinatorics.js";
 class Royal5utils {
 
@@ -38,6 +39,7 @@ class Royal5utils {
   $(element = "") {
     return element ? $(this.page).find(element) : this.$(this.pageId);
   }
+
 getPageId()
 {
   return this.pageId;
@@ -98,6 +100,29 @@ getPageId()
     this.$(elementSelector).addClass(effectsClass);
   }
 
+  appendRow(type, detail, bets, unit, multiplier, betAmt, index)
+  {
+    let cartItem = `<tr class="cart-row">
+    <th scope="row">${type}</th>
+    <td>${detail}</td>
+    <td>${bets}</td>
+    <td>${unit}</td>
+    <td>${multiplier}</td>
+    <td>${betAmt}</td>
+    <td><i class="del bx bxs-trash" id="del-${index}"></i></td>
+    </tr>`;
+    $(".cart-items").prepend(cartItem);
+    // $(`del-${index}`).fadeIn('slow', function() { $(this).prepend(cartItem); });
+  }
+
+  removeRow(id)
+  {
+    let index = id.split("-")[1];
+    let el = $(`#${id}`).closest('tr');
+    el.fadeOut(300, function() { $(this).remove(); });
+    cart.splice(index,1);
+    console.log(cart);
+  }
 
   truncate(number, decimalPlaces = 3) 
   {
@@ -1083,6 +1108,7 @@ class group120 extends Royal5utils {
     this.betAmt = '';
     super.$('input.bet-amt').val('');
   }
+
   pushToCart() {
  
     // console.log(this.unitAmt);
@@ -1095,6 +1121,8 @@ class group120 extends Royal5utils {
     this.readyData.allSelections = this.allSelections(...Object.values(this.rows), this.sample1);
     /*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
     this.readyData.userSelections = Object.values(this.rows).join("|");
+    let index = cart.length;
+    this.appendRow('random', 'random', 'random', 'random', 'random', 'random', index);
     cart.push(this.readyData);
   }
 
@@ -1586,7 +1614,9 @@ class groupCombo extends Royal5utils {
     let calc = this.calcTotalBets();
     this.readyData.allSelections = []/*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
     this.readyData.userSelections = Object.values(this.rows).join("|");
+    index = cart.length;
     cart.push(this.readyData);
+    
   }
 
   saveToRow(data, row)
@@ -1680,7 +1710,7 @@ class groupCombo extends Royal5utils {
 }
 
 
-
+let lastId = 0;
 let initializedClasses = [];
 let cart = [];
 let oldClass = 'group120';
@@ -1895,22 +1925,24 @@ let savePoint = {
 
 game.$('.cart').click(function(){
   game.pushToCart();
+  console.log(cart);
   game.resetAllData();
 })
 
 game.$('.bet-now').click(function(){
   game.pushToCart();
-  console.log(cart);
-  let data = cart;
-  let url = 'den.kld';
-  let req=$.post(url, data);
-  req.done(function(){
-    alert('failed');
-    game.resetAllData();
-    cart = [];
+  let data = JSON.stringify(cart);
+  let url = '../nav.php';
+    let req = $.post(url, data, function(response){
+      response = JSON.parse(response);
+        alert(response.title +"\n"+ response.message);
+        console.log(response.title);
+        game.resetAllData();
+        cart = [];
+    })
+    req.fail(function(){alert('failed')})
+    
   });
-  req.fail(alert('An error occured, make sure your URL is correct and try again.'));
-})
 
 
 game.$('div.bet-info').hide();
@@ -1923,6 +1955,15 @@ function echo(...data)
 
 }
 
+$(document).on('click','.del', function(){
+
+  // let deleteThisRow = $(this).closest("tr");
+  // deleteThisRow.remove();
+
+
+  let id = $(this).attr('id');
+  game.removeRow(id);
+})
 
 //display and hiding game type
 function hideAllExcept(hideAll, except)
@@ -1963,3 +2004,65 @@ function getClass(className, classConstructor)
   }
   return classes[className];
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$().ready(function(){
+    let url = '../generateRandom.php';
+    // let url = '../receiver.php?action=getdrawnumber';
+    let data = {
+      'last_id':lastId
+    }
+data = JSON.stringify(data);
+    let req = $.post(url, data, function(response){
+      response = JSON.parse(response);
+       lastId = response.id;
+      console.log(response);
+      $('.wining_num').each(function(index){
+        $(this).html(response.numbers[index]);
+     })
+  })
+  req.fail(function(){console.log('failed')})
+  })
+
+ 
+
+
+
+  function drawNum()
+  {
+    let url = '../generateRandom.php';
+    // let url =  '../receiver.php?action=getdrawnumber';
+    let data = {
+      'last_id':lastId
+    }
+    data = JSON.stringify(data);
+    let req = $.post(url, data, function(response){
+      response = JSON.parse(response);
+      if(response.numbers){
+        console.log(response);
+        lastId = response.id;
+      $('.wining_num').each(function(index){
+        $(this).html(response.numbers[index]);
+      })}
+  })
+  req.fail(function(){console.log('failed')})
+  }
+  
+
+setInterval(drawNum, 30000);

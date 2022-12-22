@@ -7,5 +7,6 @@ function generateRandom($min, $max, $howMany)
         array_push($nums, random_int($min, $max));
     return $nums;
 }
-
-print_r(json_encode(generateRandom(0,9,5)));
+$data = generateRandom(0,9,5);
+$response = array('id'=>random_int(10,1000), 'numbers'=>$data);
+print_r(json_encode($response));
