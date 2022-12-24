@@ -102,7 +102,7 @@ getPageId()
 
   appendRow(type, detail, bets, unit, multiplier, betAmt, index)
   {
-    let cartItem = `<tr class="cart-row">
+    let cartItem = `<tr id="cart-row${index}">
     <th scope="row">${type}</th>
     <td>${detail}</td>
     <td>${bets}</td>
@@ -112,16 +112,21 @@ getPageId()
     <td><i class="del bx bxs-trash" id="del-${index}"></i></td>
     </tr>`;
     $(".cart-items").prepend(cartItem);
+    $('#cart-submit').show();
+    $('.clear-cart').show();
     // $(`del-${index}`).fadeIn('slow', function() { $(this).prepend(cartItem); });
   }
 
   removeRow(id)
   {
     let index = id.split("-")[1];
-    let el = $(`#${id}`).closest('tr');
-    el.fadeOut(300, function() { $(this).remove(); });
-    cart.splice(index,1);
-    console.log(cart);
+    $(`#cart-row${index}`).fadeOut(300, function() { $(this).remove(); });
+    cart.splice(index,1);console.log(cart.length);
+    if(!cart.length)
+    {
+    $('#cart-submit').hide();
+    $('.clear-cart').hide();
+    }
   }
 
   truncate(number, decimalPlaces = 3) 
@@ -251,6 +256,7 @@ getPageId()
 
 class group5 extends Royal5utils {
   gameId = 9;
+  type = 'All 5 group 5';
   sample1 = 1;
   sample2 = 1;
   multiplier = 1;
@@ -399,7 +405,7 @@ class group5 extends Royal5utils {
   }
 
   calcActualAmt() {
-    return super.truncate(this.calcTotalBets() * this.unitAmt);
+    return super.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
   }
 
 
@@ -412,6 +418,7 @@ class group5 extends Royal5utils {
 
 class group10 extends Royal5utils {
   gameId = 8;
+  type = 'All 5 group 10';
   sample1 = 1;
   sample2 = 1;
   multiplier = 1;
@@ -558,7 +565,7 @@ class group10 extends Royal5utils {
   }
 
   calcActualAmt() {
-    return super.truncate(this.calcTotalBets() * this.unitAmt);
+    return super.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
   }
 
 
@@ -572,6 +579,7 @@ class group10 extends Royal5utils {
 
 class group20 extends Royal5utils {
   gameId = 7;
+  type = 'All 5 group 20';
   sample1 = 1;
   sample2 = 2;
   multiplier = 1;
@@ -720,7 +728,7 @@ class group20 extends Royal5utils {
   }
 
   calcActualAmt() {
-    return super.truncate(this.calcTotalBets() * this.unitAmt);
+    return super.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
   }
 
 
@@ -733,6 +741,7 @@ class group20 extends Royal5utils {
 
 class group30 extends Royal5utils {
   gameId = 6;
+  type = 'All 5 group 30';
   sample1 = 2;
   sample2 = 1;
   multiplier = 1;
@@ -881,7 +890,7 @@ class group30 extends Royal5utils {
   }
 
   calcActualAmt() {
-    return super.truncate(this.calcTotalBets() * this.unitAmt);
+    return super.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
   }
 
 
@@ -894,6 +903,7 @@ class group30 extends Royal5utils {
 
 class group60 extends Royal5utils {
   gameId = 5;
+  type = 'All 5 group 60';
   sample1 = 1;
   sample2 = 3;
   multiplier = 1;
@@ -1042,7 +1052,7 @@ class group60 extends Royal5utils {
   }
 
   calcActualAmt() {
-    return super.truncate(this.calcTotalBets() * this.unitAmt);
+    return super.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
   }
 
 
@@ -1055,6 +1065,7 @@ class group60 extends Royal5utils {
 
 class group120 extends Royal5utils {
   gameId = 4;
+  type = 'All 5 group 120';
   sample1 = 5;
   multiplier = 1;
   unitAmt = 1;
@@ -1109,21 +1120,34 @@ class group120 extends Royal5utils {
     super.$('input.bet-amt').val('');
   }
 
-  pushToCart() {
- 
-    // console.log(this.unitAmt);
-    // this.readyData.totalbetAmt = this.calcTotalBets();
-    this.readyData.gameId = this.gameId;
+  pushToCart()
+  {
+    let index = cart.length;
+    let type = this.type;
+    let detail = this.readyData.userSelections;
+    let bets = this.readyData.totalBets;
+    let unit = this.readyData.unitStaked;
+    let multiplier = `x${this.readyData.multiplier}`;
+    let betAmt = `&#8373;${this.readyData.totalBetAmt}`;
+    this.appendRow(type, detail, bets, unit, multiplier, betAmt, index);
+    cart.push(this.readyData);
+    this.readyData = {};
+  }
+
+
+getSavedData()
+{
+  return this.readyData;
+}
+  saveData()
+  {
+    this.readyData.index.gameId = this.gameId;
     this.readyData.unitStaked = this.unitAmt;
     this.readyData.totalBetAmt = this.calcActualAmt();
     this.readyData.multiplier =this.multiplier;
     this.readyData.totalBets = this.calcTotalBets();
     this.readyData.allSelections = this.allSelections(...Object.values(this.rows), this.sample1);
-    /*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
     this.readyData.userSelections = Object.values(this.rows).join("|");
-    let index = cart.length;
-    this.appendRow('random', 'random', 'random', 'random', 'random', 'random', index);
-    cart.push(this.readyData);
   }
 
   saveToRow(data, row)
@@ -1205,7 +1229,7 @@ class group120 extends Royal5utils {
   }
 
   calcActualAmt() {
-    return super.truncate(this.calcTotalBets() * this.unitAmt);
+    return super.truncate(this.calcTotalBets() * this.multiplier * this.unitAmt);
   }
 
 
@@ -1219,6 +1243,7 @@ class group120 extends Royal5utils {
 class groupJoint extends Royal5utils {
 
   gameId = 1;
+  type = 'All 5 Straight(Joint)';
   // sample1 = 1;
   // sample2 = 1;
   multiplier = 1;
@@ -1369,7 +1394,7 @@ class groupJoint extends Royal5utils {
   }
 
   calcActualAmt() {
-    return super.truncate(this.calcTotalBets() * this.unitAmt);
+    return super.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
   }
 
 
@@ -1382,10 +1407,13 @@ class groupJoint extends Royal5utils {
 
 class groupManual extends Royal5utils {
   gameId = 2;
+  type = 'All 5 group Straight(Manual)';
   sample1 = 1;
   sample2 = 1;
   multiplier = 1;
   unitAmt = 1;
+  errorBets = 0;
+  allBets = [];
   betAmt = '';
   rows = {
     row1:[],
@@ -1400,14 +1428,7 @@ class groupManual extends Royal5utils {
   {
     super(pageId);
   }
-  calcTotalBets() {
-    let row1 = this.rows.row1.length;
-    let row2 = this.rows.row2.length;
-    let row3 = this.rows.row3.length;
-    let row4 = this.rows.row4.length;
-    let row5 = this.rows.row5.length;
-    return row1 * row2 * row3 * row4 * row5;
-  }
+
   showBetsInfo()
   {
     let totalBets = this.calcTotalBets();
@@ -1434,6 +1455,11 @@ class groupManual extends Royal5utils {
     super.disableButtons(true, '.cart', '.bet-now');
   }
 
+  calcTotalBets()
+  {
+    return this.allBets.length;
+  }
+
   unsetBetAmt()
   {
     this.betAmt = '';
@@ -1448,9 +1474,53 @@ class groupManual extends Royal5utils {
     this.readyData.totalBetAmt = this.calcActualAmt();
     this.readyData.multiplier =this.multiplier;
     this.readyData.totalBets = this.calcTotalBets();
-    this.readyData.allSelections = []/*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
-    this.readyData.userSelections = Object.values(this.rows).join("|");
+    this.readyData.allSelections = this.allBets/*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
+    this.readyData.userSelections = [];
     cart.push(this.readyData);
+  }
+
+  setAllBets()
+  {
+
+    this.allBets = this.getBets();
+  }
+
+  alertErrBets()
+  {
+    if(this.errorBets)
+    {
+      this.$('.bet-box').val(this.allBets);
+      alert("System Deleted Invalid Entries");
+    }
+  }
+
+  getBets()
+  {
+    let bets = this.$('.bet-box').val().split(";");
+    bets.forEach((element, index)=>{
+      element = element.trim();
+      bets[index] = element;
+      let arrElement = element.split(',');
+      let errors = 0;
+      if(!this.isValidEntry(arrElement)){
+        bets.splice(index,1);
+        errors++;
+      }
+      this.errorBets = errors;
+    });
+    
+    return bets;
+  }
+
+  isValidEntry(entry)
+  {
+    if(entry.length != 5)
+      return false;
+    if(entry.some(value=>{
+      return (isNaN(value) || isNaN(parseInt(value)));
+    })) return false;
+
+    return true;
   }
 
   saveToRow(data, row)
@@ -1532,7 +1602,7 @@ class groupManual extends Royal5utils {
   }
 
   calcActualAmt() {
-    return super.truncate(this.calcTotalBets() * this.unitAmt);
+    return super.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
   }
 
 
@@ -1546,6 +1616,7 @@ class groupManual extends Royal5utils {
 
 class groupCombo extends Royal5utils {
   gameId = 3;
+  type = 'All 5 Straight(Combo)';
   // sample1 = 1;
   // sample2 = 1;
   multiplier = 1;
@@ -1582,7 +1653,7 @@ class groupCombo extends Royal5utils {
       super.$('div.bet-info').hide();
       super.disableButtons(true, '.cart', '.bet-now');
       return 0;
-    }
+  }
 
     
     let multiplier = this.multiplier;
@@ -1698,7 +1769,7 @@ class groupCombo extends Royal5utils {
   }
 
   calcActualAmt() {
-    return super.truncate(this.calcTotalBets() * this.unitAmt);
+    return super.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
   }
 
 
@@ -1760,7 +1831,8 @@ let savePoint = {
   }
 }
 
-
+// $('.cart').hide();
+// $('.cart-items').hide();
 
  game.$(classNames.allBtn).click(function(){
     let data = [0,1,2,3,4,5,6,7,8,9];
@@ -1896,6 +1968,11 @@ let savePoint = {
    
 })
 
+game.$('.bet-box').on('input',function(){
+    game.setAllBets();
+    game.showBetsInfo();
+})
+
  game.$('.plus').click(function(){
   game.increaseMultiplier(classNames.multiValue);
   $(this).addClass('money-bg');
@@ -1922,28 +1999,74 @@ let savePoint = {
   game.showBetsInfo();
  })
 
-
 game.$('.cart').click(function(){
+  game.saveData();
   game.pushToCart();
-  console.log(cart);
   game.resetAllData();
 })
 
 game.$('.bet-now').click(function(){
-  game.pushToCart();
-  let data = JSON.stringify(cart);
+  game.alertErrBets();
+  game.saveData();
+  let savedData = game.getSavedData();
+  let data = JSON.stringify([savedData]);
   let url = '../nav.php';
     let req = $.post(url, data, function(response){
+      console.log(response);
       response = JSON.parse(response);
-        alert(response.title +"\n"+ response.message);
-        console.log(response.title);
-        game.resetAllData();
-        cart = [];
+if(response.title == 'success'){
+
+  toastr.options.progressBar = true;
+  toastr.success(response.message, response.title);
+  game.resetAllData();
+  cart = [];
+}else{
+  toastr.options.progressBar = true;
+  toastr.warning(response.message, response.title);
+  
+}
+     
+    req.fail(function(){
+      toastr.options.progressBar = true;
+      toastr.warning('Please check your internet connection', 'Failed');
     })
-    req.fail(function(){alert('failed')})
     
   });
+})
 
+$('#cart-submit').click(function(){
+  let data = JSON.stringify(cart);
+  let url = '../nav.php';
+  console.log(data);
+    let req = $.post(url, data, function(response){
+      console.log(response);
+      response = JSON.parse(response);
+if(response.title == 'success'){
+  toastr.options.progressBar = true;
+  toastr.success(response.message, response.title);
+  $('.del').click();
+}else{
+  toastr.options.progressBar = true;
+  toastr.warning(response.message, response.title);
+}
+    req.fail(function(){
+      toastr.options.progressBar = true;
+      toastr.warning('Please check your internet connection', 'Failed');
+    })
+    
+  });
+})
+
+$('.clear-cart').click(function(){
+  let res = confirm("Do you want to clear all bets in cart?");
+  if(res)
+  {
+    $('.cart-items').empty();
+    $('#cart-submit').hide();
+    $('.clear-cart').hide();
+    cart = [];
+  }
+})
 
 game.$('div.bet-info').hide();
 
@@ -2023,8 +2146,8 @@ function getClass(className, classConstructor)
 
 
 $().ready(function(){
-    let url = '../generateRandom.php';
-    // let url = '../receiver.php?action=getdrawnumber';
+    // let url = '../generateRandom.php';
+    let url = '../receiver.php?action=getdrawnumber';
     let data = {
       'last_id':lastId
     }
@@ -2046,8 +2169,8 @@ data = JSON.stringify(data);
 
   function drawNum()
   {
-    let url = '../generateRandom.php';
-    // let url =  '../receiver.php?action=getdrawnumber';
+    // let url = '../generateRandom.php';
+    let url =  '../receiver.php?action=getdrawnumber';
     let data = {
       'last_id':lastId
     }

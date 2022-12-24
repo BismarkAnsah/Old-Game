@@ -36,16 +36,8 @@
     width:20%;
     margin-left:40%;
     margin-right:20%;
-    display: none;
+    ;
 }
-.del{
-  font-size: 20px;
-  cursor: pointer;
-}
-.clear-cart{
-  display: none;
-}
-
     .numbers {
       margin-bottom: 10px;
     }
@@ -581,7 +573,74 @@ li{
                   </div>
                   <!--end of bet amount buttons-->
                   <p></p>
-                  
+                  <div class="group-joint" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+
+                    <div class="table-responsive">
+
+                      <div class="container card shadow d-flex justify-content-center mt-5">
+                        <!-- nav options -->
+                        <ul class="nav nav-pills mb-3 shadow-sm" id="pills-tab" role="tablist">
+                          <li class="nav-item">
+                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Example 1</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Example 2</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 3</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 4</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 5</a>
+                          </li>
+                        </ul>
+
+                        <!-- content -->
+                        <div class="tab-content" id="pills-tabContent p-3">
+                          <!-- 1st card -->
+                          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                            <ul class="ccontent">
+                              <li>
+                                <div class="wrapp">
+                                  <div>login attempts</div>
+                                </div>
+                              </li>
+                            </ul>
+
+                          </div>
+                          <!-- 2nd card -->
+                          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+                            <ul class="ccontent">
+                              <li>
+                                <div class="wrapp">
+                                  <div>login attempts</div>
+                                </div>
+                              </li>
+                            </ul>
+
+                          </div>
+                          <!-- 3nd card -->
+                          <div class="tab-pane fade third" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+
+                            <ul class="ccontent">
+                              <li>
+                                <div class="wrapp">
+                                  <div>Values</div>
+                                </div>
+                              </li>
+                            </ul>
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
                   <!--table-->
                 </div>
 
@@ -673,7 +732,74 @@ li{
                   </div>
                   <!--end of bet amount buttons-->
                   <p></p>
-                  
+                  <div class="group-manual" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+
+                    <div class="table-responsive">
+
+                      <div class="container card shadow d-flex justify-content-center mt-5">
+                        <!-- nav options -->
+                        <ul class="nav nav-pills mb-3 shadow-sm" id="pills-tab" role="tablist">
+                          <li class="nav-item">
+                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Example 1</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Example 2</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 3</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 4</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 5</a>
+                          </li>
+                        </ul>
+
+                        <!-- content -->
+                        <div class="tab-content" id="pills-tabContent p-3">
+                          <!-- 1st card -->
+                          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                            <ul class="ccontent">
+                              <li>
+                                <div class="wrapp">
+                                  <div>login attempts</div>
+                                </div>
+                              </li>
+                            </ul>
+
+                          </div>
+                          <!-- 2nd card -->
+                          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+                            <ul class="ccontent">
+                              <li>
+                                <div class="wrapp">
+                                  <div>login attempts</div>
+                                </div>
+                              </li>
+                            </ul>
+
+                          </div>
+                          <!-- 3nd card -->
+                          <div class="tab-pane fade third" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+
+                            <ul class="ccontent">
+                              <li>
+                                <div class="wrapp">
+                                  <div>Values</div>
+                                </div>
+                              </li>
+                            </ul>
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
                   <!--table-->
                 </div>
 
@@ -859,7 +985,74 @@ li{
                   </div>
                   <!--end of bet amount buttons-->
                   <p></p>
-                  
+                  <div class="group-combo" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+
+                    <div class="table-responsive">
+
+                      <div class="container card shadow d-flex justify-content-center mt-5">
+                        <!-- nav options -->
+                        <ul class="nav nav-pills mb-3 shadow-sm" id="pills-tab" role="tablist">
+                          <li class="nav-item">
+                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Example 1</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Example 2</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 3</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 4</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 5</a>
+                          </li>
+                        </ul>
+
+                        <!-- content -->
+                        <div class="tab-content" id="pills-tabContent p-3">
+                          <!-- 1st card -->
+                          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                            <ul class="ccontent">
+                              <li>
+                                <div class="wrapp">
+                                  <div>login attempts</div>
+                                </div>
+                              </li>
+                            </ul>
+
+                          </div>
+                          <!-- 2nd card -->
+                          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+                            <ul class="ccontent">
+                              <li>
+                                <div class="wrapp">
+                                  <div>login attempts</div>
+                                </div>
+                              </li>
+                            </ul>
+
+                          </div>
+                          <!-- 3nd card -->
+                          <div class="tab-pane fade third" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+
+                            <ul class="ccontent">
+                              <li>
+                                <div class="wrapp">
+                                  <div>Values</div>
+                                </div>
+                              </li>
+                            </ul>
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
                   <!--table-->
                 </div>
 
@@ -964,7 +1157,91 @@ li{
                   </div>
                   <!--end of bet amount buttons-->
                   <p></p>
-                  
+                  <div class="g120" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+
+                    <div class="table-responsive">
+
+                      <div class="container card shadow d-flex justify-content-center mt-5">
+                        <!-- nav options -->
+                        <ul class="nav nav-pills mb-3 shadow-sm" id="pills-tab" role="tablist">
+                          <li class="nav-item">
+                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Cart <i class='bx bxs-cart' style="font-size: 15px;"></i></a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Example 2</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 3</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 4</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 5</a>
+                          </li>
+                        </ul>
+
+                        <!-- content -->
+                        <div class="tab-content" id="pills-tabContent p-3">
+                          <!-- 1st card -->
+                          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                            <ul class="ccontent">
+                              <li>
+                                <div class="wrapp">
+                                  <div>
+                                    <table class="cart-table table">
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">Type</th>
+                                          <th scope="col">Detail</th>
+                                          <th scope="col">Bets</th>
+                                          <th scope="col">Unit</th>
+                                          <th scope="col">Mult.</th>
+                                          <th scope="col">Bet Amt.</th>
+                                          <th scope="col"><button class="clear-cart btn btn-danger">Clear</button></th>
+                                        </tr>
+                                      </thead>
+                                      <tbody class="cart-items">
+                                      </tbody>
+                                    </table>
+                                    <div><button id="cart-submit" class="btn btn-success">Bet Now</button></div>
+                                  </div>
+                                </div>
+                              </li>
+                            </ul>
+
+                          </div>
+                          <!-- 2nd card -->
+                          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+                            <ul class="ccontent">
+                              <li>
+                                <div class="wrapp">
+                                  <div>login attempts</div>
+                                </div>
+                              </li>
+                            </ul>
+
+                          </div>
+                          <!-- 3nd card -->
+                          <div class="tab-pane fade third" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+
+                            <ul class="ccontent">
+                              <li>
+                                <div class="wrapp">
+                                  <div>Values</div>
+                                </div>
+                              </li>
+                            </ul>
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
                   <!--table-->
                 </div>
 
@@ -1088,7 +1365,73 @@ li{
                   </div>
                   <!--end of bet amount buttons-->
                   <p></p>
-                  
+                  <div class="g60" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+                    <div class="table-responsive">
+
+                      <div class="container card shadow d-flex justify-content-center mt-5">
+                        <!-- nav options -->
+                        <ul class="nav nav-pills mb-3 shadow-sm" id="pills-tab" role="tablist">
+                          <li class="nav-item">
+                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Example 1</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Example 2</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 3</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 4</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 5</a>
+                          </li>
+                        </ul>
+
+                        <!-- content -->
+                        <div class="tab-content" id="pills-tabContent p-3">
+                          <!-- 1st card -->
+                          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                            <ul class="ccontent">
+                              <li>
+                                <div class="wrapp">
+                                  <div>login attempts</div>
+                                </div>
+                              </li>
+                            </ul>
+
+                          </div>
+                          <!-- 2nd card -->
+                          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+                            <ul class="ccontent">
+                              <li>
+                                <div class="wrapp">
+                                  <div>login attempts</div>
+                                </div>
+                              </li>
+                            </ul>
+
+                          </div>
+                          <!-- 3nd card -->
+                          <div class="tab-pane fade third" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+
+                            <ul class="ccontent">
+                              <li>
+                                <div class="wrapp">
+                                  <div>Values</div>
+                                </div>
+                              </li>
+                            </ul>
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
                   <!--table-->
                 </div>
 
@@ -1212,7 +1555,73 @@ li{
                   </div>
                   <!--end of bet amount buttons-->
                   <p></p>
-                  
+                  <div class="g30" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+                    <div class="table-responsive">
+
+                      <div class="container card shadow d-flex justify-content-center mt-5">
+                        <!-- nav options -->
+                        <ul class="nav nav-pills mb-3 shadow-sm" id="pills-tab" role="tablist">
+                          <li class="nav-item">
+                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Example 1</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Example 2</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 3</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 4</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 5</a>
+                          </li>
+                        </ul>
+
+                        <!-- content -->
+                        <div class="tab-content" id="pills-tabContent p-3">
+                          <!-- 1st card -->
+                          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                            <ul class="ccontent">
+                              <li>
+                                <div class="wrapp">
+                                  <div>login attempts</div>
+                                </div>
+                              </li>
+                            </ul>
+
+                          </div>
+                          <!-- 2nd card -->
+                          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+                            <ul class="ccontent">
+                              <li>
+                                <div class="wrapp">
+                                  <div>login attempts</div>
+                                </div>
+                              </li>
+                            </ul>
+
+                          </div>
+                          <!-- 3nd card -->
+                          <div class="tab-pane fade third" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+
+                            <ul class="ccontent">
+                              <li>
+                                <div class="wrapp">
+                                  <div>Values</div>
+                                </div>
+                              </li>
+                            </ul>
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
                   <!--table-->
                 </div>
 
@@ -1267,7 +1676,7 @@ li{
                     </div>
                   </div>
                   <p></p>
-                  <div class="g20" style="display:none;padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+                  <div class="g20" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
                     <div class="row">
                       <div class="col-sm">
                         <!--dropdown 1-->
@@ -1336,7 +1745,73 @@ li{
                   </div>
                   <!--end of bet amount buttons-->
                   <p></p>
-                  
+                  <div class="g20" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+                    <div class="table-responsive">
+
+                      <div class="container card shadow d-flex justify-content-center mt-5">
+                        <!-- nav options -->
+                        <ul class="nav nav-pills mb-3 shadow-sm" id="pills-tab" role="tablist">
+                          <li class="nav-item">
+                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Example 1</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Example 2</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 3</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 4</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 5</a>
+                          </li>
+                        </ul>
+
+                        <!-- content -->
+                        <div class="tab-content" id="pills-tabContent p-3">
+                          <!-- 1st card -->
+                          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                            <ul class="ccontent">
+                              <li>
+                                <div class="wrapp">
+                                  <div>login attempts</div>
+                                </div>
+                              </li>
+                            </ul>
+
+                          </div>
+                          <!-- 2nd card -->
+                          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+                            <ul class="ccontent">
+                              <li>
+                                <div class="wrapp">
+                                  <div>login attempts</div>
+                                </div>
+                              </li>
+                            </ul>
+
+                          </div>
+                          <!-- 3nd card -->
+                          <div class="tab-pane fade third" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+
+                            <ul class="ccontent">
+                              <li>
+                                <div class="wrapp">
+                                  <div>Values</div>
+                                </div>
+                              </li>
+                            </ul>
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
                   <!--table-->
                 </div>
 
@@ -1460,7 +1935,73 @@ li{
                   </div>
                   <!--end of bet amount buttons-->
                   <p></p>
-                  
+                  <div class="g10" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+                    <div class="table-responsive">
+
+                      <div class="container card shadow d-flex justify-content-center mt-5">
+                        <!-- nav options -->
+                        <ul class="nav nav-pills mb-3 shadow-sm" id="pills-tab" role="tablist">
+                          <li class="nav-item">
+                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Example 1</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Example 2</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 3</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 4</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 5</a>
+                          </li>
+                        </ul>
+
+                        <!-- content -->
+                        <div class="tab-content" id="pills-tabContent p-3">
+                          <!-- 1st card -->
+                          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                            <ul class="ccontent">
+                              <li>
+                                <div class="wrapp">
+                                  <div>login attempts</div>
+                                </div>
+                              </li>
+                            </ul>
+
+                          </div>
+                          <!-- 2nd card -->
+                          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+                            <ul class="ccontent">
+                              <li>
+                                <div class="wrapp">
+                                  <div>login attempts</div>
+                                </div>
+                              </li>
+                            </ul>
+
+                          </div>
+                          <!-- 3nd card -->
+                          <div class="tab-pane fade third" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+
+                            <ul class="ccontent">
+                              <li>
+                                <div class="wrapp">
+                                  <div>Values</div>
+                                </div>
+                              </li>
+                            </ul>
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
                   <!--table-->
                 </div>
 
@@ -1583,98 +2124,80 @@ li{
                   </div>
                   <!--end of bet amount buttons-->
                   <p></p>
-                  
+                  <div class="g5" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+                    <div class="table-responsive">
+
+                      <div class="container card shadow d-flex justify-content-center mt-5">
+                        <!-- nav options -->
+                        <ul class="nav nav-pills mb-3 shadow-sm" id="pills-tab" role="tablist">
+                          <li class="nav-item">
+                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Example 1</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Example 2</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 3</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 4</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 5</a>
+                          </li>
+                        </ul>
+
+                        <!-- content -->
+                        <div class="tab-content" id="pills-tabContent p-3">
+                          <!-- 1st card -->
+                          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                            <ul class="ccontent">
+                              <li>
+                                <div class="wrapp">
+                                  <div>login attempts</div>
+                                </div>
+                              </li>
+                            </ul>
+
+                          </div>
+                          <!-- 2nd card -->
+                          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+                            <ul class="ccontent">
+                              <li>
+                                <div class="wrapp">
+                                  <div>login attempts</div>
+                                </div>
+                              </li>
+                            </ul>
+
+                          </div>
+                          <!-- 3nd card -->
+                          <div class="tab-pane fade third" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+
+                            <ul class="ccontent">
+                              <li>
+                                <div class="wrapp">
+                                  <div>Values</div>
+                                </div>
+                              </li>
+                            </ul>
+
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
                   <!--table-->
                 </div>
 
 
 
 
-                <div class="g120" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
 
-<div class="table-responsive">
-
-  <div class="container card shadow d-flex justify-content-center mt-5">
-    <!-- nav options -->
-    <ul class="nav nav-pills mb-3 shadow-sm" id="pills-tab" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Cart <i class='bx bxs-cart' style="font-size: 15px;"></i></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Example 2</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 3</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 4</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 5</a>
-      </li>
-    </ul>
-
-    <!-- content -->
-    <div class="tab-content" id="pills-tabContent p-3">
-      <!-- 1st card -->
-      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-
-        <ul class="ccontent">
-          <li>
-            <div class="wrapp">
-              <div>
-                <table class="cart-table table">
-                  <thead>
-                    <tr>
-                      <th scope="col">Type</th>
-                      <th scope="col">Detail</th>
-                      <th scope="col">Bets</th>
-                      <th scope="col">Unit</th>
-                      <th scope="col">Mult.</th>
-                      <th scope="col">Bet Amt.</th>
-                      <th scope="col"><button class="clear-cart btn btn-danger">Clear</button></th>
-                    </tr>
-                  </thead>
-                  <tbody class="cart-items">
-                  </tbody>
-                </table>
-                <div><button id="cart-submit" class="btn btn-success">Bet Now</button></div>
-              </div>
-            </div>
-          </li>
-        </ul>
-
-      </div>
-      <!-- 2nd card -->
-      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-
-        <ul class="ccontent">
-          <li>
-            <div class="wrapp">
-              <div>login attempts</div>
-            </div>
-          </li>
-        </ul>
-
-      </div>
-      <!-- 3nd card -->
-      <div class="tab-pane fade third" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-
-        <ul class="ccontent">
-          <li>
-            <div class="wrapp">
-              <div>Values</div>
-            </div>
-          </li>
-        </ul>
-
-      </div>
-    </div>
-  </div>
-
-</div>
-
-</div>
 
                 <!--end of -->
 
