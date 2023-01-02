@@ -291,8 +291,6 @@
     span.actual-amt {
       color: red;
     }
-
-
   </style>
 </head>
 
@@ -359,32 +357,34 @@
               <button class="menu game-group" data-points-to="mid3">Mid 3</button>
               <button class="menu game-group" data-points-to="last3">Last 3</button>
             </div>
-            <div id="all5" class="game-group page">
-              <div style="height:150px;background-color:#E6E1FF;padding:20px">
-                <div>
 
-                  <div class="row" style="margin-left:10px;">
-                    <span class=" btn-sm game-name option"><b>Straight:</b></span>
-                    <button class="menu  game-name option1" data-className="groupJoint" data-points-to="group-joint">All 5 Straight(Joint)</button>
-                    <button class="menu  game-name option2" data-className="groupManual" data-points-to="group-manual">All 5 Straight(Manual)</button>
-                    <button class="menu  game-name option3" data-className="groupCombo" data-points-to="group-combo">All 5 Straight(Combo)</button>
-                    <span class=" btn-sm game-name option"></span>
-                  </div>
-                  <div class="row" style="margin-left:10px;">
-                    <span class=" btn-sm option"><b>Group:</b></span>
-                    <button class="menu game-name option4 money-bg" data-className="group120" data-points-to="group-120">All 5 Group 120</button>
-                    <button class="menu game-name option5" data-className="group60" data-points-to="group-60">All 5 Group 60</button>
-                    <button class="menu game-name option6" data-className="group30" data-points-to="group-30">All 5 Group 30</button>
-                    <button class="menu game-name option7" data-className="group20" data-points-to="group-20">All 5 Group 20</button>
-                    <button class="menu game-name option8" data-className="group10" data-points-to="group-10">All 5 Group 10</button>
-                    <button class="menu game-name option9" data-className="group5" data-points-to="group-5">All 5 Group 5</button>
-                  </div>
+            <div style="height:150px;background-color:#E6E1FF;padding:20px">
+              <div>
+
+                <div class="row" style="margin-left:10px;">
+                  <span class=" btn-sm game-name option"><b>Straight:</b></span>
+                  <button class="menu  game-name option1" data-className="groupJoint" data-points-to="group-joint">All 5 Straight(Joint)</button>
+                  <button class="menu  game-name option2" data-className="groupManual" data-points-to="group-manual">All 5 Straight(Manual)</button>
+                  <button class="menu  game-name option3" data-className="groupCombo" data-points-to="group-combo">All 5 Straight(Combo)</button>
+                  <span class=" btn-sm game-name option"></span>
                 </div>
-
+                <div class="row" style="margin-left:10px;">
+                  <span class=" btn-sm option"><b>Group:</b></span>
+                  <button class="menu game-name option4 money-bg" data-className="group120" data-points-to="group-120">All 5 Group 120</button>
+                  <button class="menu game-name option5" data-className="group60" data-points-to="group-60">All 5 Group 60</button>
+                  <button class="menu game-name option6" data-className="group30" data-points-to="group-30">All 5 Group 30</button>
+                  <button class="menu game-name option7" data-className="group20" data-points-to="group-20">All 5 Group 20</button>
+                  <button class="menu game-name option8" data-className="group10" data-points-to="group-10">All 5 Group 10</button>
+                  <button class="menu game-name option9" data-className="group5" data-points-to="group-5">All 5 Group 5</button>
+                </div>
               </div>
-              <div style="height:50px;background-color:#FFF;box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;"></div>
-              <div class="card-body">
 
+            </div>
+            <div style="height:50px;background-color:#FFF;box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;"></div>
+
+
+            <div class="card-body">
+              <div id="all5" class="game-group page">
                 <div class="mb-3 main">
 
 
@@ -1574,97 +1574,95 @@
                     <!--table-->
                   </div>
                 </div>
+              </div>
 
 
 
+              <!--end of -->
+              <div class="g120" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
 
-                <!--end of -->
+                <div class="table-responsive">
 
-                <div class="g120" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+                  <div class="container card shadow d-flex justify-content-center mt-5">
+                    <!-- nav options -->
+                    <ul class="nav nav-pills mb-3 shadow-sm" id="pills-tab" role="tablist">
+                      <li class="nav-item">
+                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Cart <i class='bx bxs-cart' style="font-size: 15px;"></i></a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Example 2</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 3</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 4</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 5</a>
+                      </li>
+                    </ul>
 
-                  <div class="table-responsive">
+                    <!-- content -->
+                    <div class="tab-content" id="pills-tabContent p-3">
+                      <!-- 1st card -->
+                      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 
-                    <div class="container card shadow d-flex justify-content-center mt-5">
-                      <!-- nav options -->
-                      <ul class="nav nav-pills mb-3 shadow-sm" id="pills-tab" role="tablist">
-                        <li class="nav-item">
-                          <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Cart <i class='bx bxs-cart' style="font-size: 15px;"></i></a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Example 2</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 3</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 4</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 5</a>
-                        </li>
-                      </ul>
-
-                      <!-- content -->
-                      <div class="tab-content" id="pills-tabContent p-3">
-                        <!-- 1st card -->
-                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-
-                          <ul class="ccontent">
-                            <li>
-                              <div class="wrapp">
-                                <div>
-                                  <table class="cart-table table">
-                                    <thead>
-                                      <tr>
-                                        <th scope="col">Type</th>
-                                        <th scope="col">Detail</th>
-                                        <th scope="col">Bets</th>
-                                        <th scope="col">Unit</th>
-                                        <th scope="col">Mult.</th>
-                                        <th scope="col">Bet Amt.</th>
-                                        <th scope="col"><button class="clear-cart btn btn-danger">Clear</button></th>
-                                      </tr>
-                                    </thead>
-                                    <tbody class="cart-items">
-                                    </tbody>
-                                  </table>
-                                  <div><button id="cart-submit" class="btn btn-success">Bet Now</button></div>
-                                </div>
+                        <ul class="ccontent">
+                          <li>
+                            <div class="wrapp">
+                              <div>
+                                <table class="cart-table table">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">Type</th>
+                                      <th scope="col">Detail</th>
+                                      <th scope="col">Bets</th>
+                                      <th scope="col">Unit</th>
+                                      <th scope="col">Mult.</th>
+                                      <th scope="col">Bet Amt.</th>
+                                      <th scope="col"><button class="clear-cart btn btn-danger">Clear</button></th>
+                                    </tr>
+                                  </thead>
+                                  <tbody class="cart-items">
+                                  </tbody>
+                                </table>
+                                <div><button id="cart-submit" class="btn btn-success">Bet Now</button></div>
                               </div>
-                            </li>
-                          </ul>
+                            </div>
+                          </li>
+                        </ul>
 
-                        </div>
-                        <!-- 2nd card -->
-                        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                      </div>
+                      <!-- 2nd card -->
+                      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 
-                          <ul class="ccontent">
-                            <li>
-                              <div class="wrapp">
-                                <div>login attempts</div>
-                              </div>
-                            </li>
-                          </ul>
+                        <ul class="ccontent">
+                          <li>
+                            <div class="wrapp">
+                              <div>login attempts</div>
+                            </div>
+                          </li>
+                        </ul>
 
-                        </div>
-                        <!-- 3nd card -->
-                        <div class="tab-pane fade third" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                      </div>
+                      <!-- 3nd card -->
+                      <div class="tab-pane fade third" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
 
-                          <ul class="ccontent">
-                            <li>
-                              <div class="wrapp">
-                                <div>Values</div>
-                              </div>
-                            </li>
-                          </ul>
+                        <ul class="ccontent">
+                          <li>
+                            <div class="wrapp">
+                              <div>Values</div>
+                            </div>
+                          </li>
+                        </ul>
 
-                        </div>
                       </div>
                     </div>
-
                   </div>
 
                 </div>
+
               </div>
 
 
@@ -1674,7 +1672,11 @@
         </div>
 
       </div>
+
     </div>
+
+    </div>
+
     </div>
     </div>
   </section>
