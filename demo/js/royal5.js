@@ -251,10 +251,7 @@ getPageId()
 }
   /****validations */
   validateMoney() {}
-}
 
-
-class group5 extends Royal5utils {
   gameId = 9;
   type = 'All 5 group 5';
   sample1 = 1;
@@ -262,54 +259,16 @@ class group5 extends Royal5utils {
   multiplier = 1;
   unitAmt = 1;
   betAmt = '';
-  rows = {
-    row1:[],
-    row2:[],
-  };
+  rows = {};
   cart = [];
   readyData = {};
-  constructor(pageId)
-  {
-    super(pageId);
-  }
-  calcTotalBets() {
-      let row1 = this.rows.row1;
-      let row2 = this.rows.row2;
-      let repeatedNums = row2.filter((element) => row1.includes(element));
-      let repeat = repeatedNums.length;
-      return row2.length * (row1.length - repeat) + repeat * (row2.length - 1);
-  }
 
-  showBetsInfo()
-  {
-    let totalBets = this.calcTotalBets();
-    let unitAmt = this.betAmt? this.calcUnitAmt(this.betAmt):this.unitAmt;
-    if(!totalBets)
-    {
-      super.$('div.least-bet').show();
-      super.$('div.bet-info').hide();
-      super.disableButtons(true, '.cart', '.bet-now');
-      return 0;
-    }
-
-    
-    let multiplier = this.multiplier;
-    // console.log(unitAmt);
-    let actualAmt = super.truncate(totalBets * multiplier * unitAmt);
-    super.$('span.total-bets').html(totalBets);
-    super.$('span.unit-amt').html(unitAmt);
-    super.$('span.actual-amt').html(actualAmt);
-    super.$('div.least-bet').hide();
-    super.$('div.bet-info').show();
-    super.disableButtons(false, '.cart', '.bet-now');
-    if(!unitAmt)
-    super.disableButtons(true, '.cart', '.bet-now');
-  }
+ 
 
   unsetBetAmt()
   {
     this.betAmt = '';
-    super.$('input.bet-amt').val('');
+    this.$('input.bet-amt').val('');
   }
   pushToCart() {
  
@@ -321,7 +280,7 @@ class group5 extends Royal5utils {
     this.readyData.multiplier =this.multiplier;
     this.readyData.totalBets = this.calcTotalBets();
     this.readyData.allSelections = this.allSelections(...Object.values(this.rows), this.sample1, this.sample2);
-    /*super.allSelections(...Object.values(this.rows), this.sample1, this.sample2);*/
+    /*this.allSelections(...Object.values(this.rows), this.sample1, this.sample2);*/
     this.readyData.userSelections = Object.values(this.rows).join("|");
     cart.push(this.readyData);
   }
@@ -344,13 +303,13 @@ class group5 extends Royal5utils {
     this.unitAmt = 1;
     this.betAmt = '';
     this.readyData = {};
-    super.$('.clear-btn').click();
-    super.$('input.bet-amt').val('');
-    super.$('.multiplier-input').val(1);
-    super.$('.multiplier-select').removeClass('money-bg');
-    super.$('.multiplier-select[value="1"]').addClass('money-bg');
-    super.$('.unit-amt').removeClass('money-bg');
-    super.$('.unit-amt[value="1"]').addClass('money-bg');
+    this.$('.clear-btn').click();
+    this.$('input.bet-amt').val('');
+    this.$('.multiplier-input').val(1);
+    this.$('.multiplier-select').removeClass('money-bg');
+    this.$('.multiplier-select[value="1"]').addClass('money-bg');
+    this.$('.unit-amt').removeClass('money-bg');
+    this.$('.unit-amt[value="1"]').addClass('money-bg');
   }
 
   
@@ -401,11 +360,141 @@ class group5 extends Royal5utils {
     if(totalBets == 0)
       return totalBets;
     unitAmt = betAmt / totalBets;
-    return super.truncate(unitAmt);
+    return this.truncate(unitAmt);
   }
 
   calcActualAmt() {
-    return super.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
+    return this.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
+  }
+
+
+  getRow(row)
+  {
+    return this.rows[row];
+  }
+
+}
+
+
+class group5 extends Royal5utils {
+  gameId = 9;
+  type = 'All 5 group 5';
+  sample1 = 1;
+  sample2 = 1;
+  multiplier = 1;
+  unitAmt = 1;
+  betAmt = '';
+  rows = {
+    row1:[],
+    row2:[],
+  };
+  cart = [];
+  readyData = {};
+  constructor(pageId)
+  {
+    this(pageId);
+  }
+
+
+  unsetBetAmt()
+  {
+    this.betAmt = '';
+    this.$('input.bet-amt').val('');
+  }
+  pushToCart() {
+ 
+    // console.log(this.unitAmt);
+    // this.readyData.totalbetAmt = this.calcTotalBets();
+    this.readyData.gameId = this.gameId;
+    this.readyData.unitStaked = this.unitAmt;
+    this.readyData.totalBetAmt = this.calcActualAmt();
+    this.readyData.multiplier =this.multiplier;
+    this.readyData.totalBets = this.calcTotalBets();
+    this.readyData.allSelections = this.allSelections(...Object.values(this.rows), this.sample1, this.sample2);
+    /*this.allSelections(...Object.values(this.rows), this.sample1, this.sample2);*/
+    this.readyData.userSelections = Object.values(this.rows).join("|");
+    cart.push(this.readyData);
+  }
+
+  saveToRow(data, row)
+  {
+    if (Array.isArray(data)) this.rows[row] = data;
+    else 
+    {
+      this.rows[row] = this.rows[row]||[];
+      let numIndex = this.rows[row].indexOf(data);
+      numIndex != -1?this.rows[row].splice(numIndex, 1):this.rows[row].push(data);
+    }
+  }
+
+  resetAllData()
+  {
+    this.multiplier = 1;
+    this.unitAmt = 1;
+    this.betAmt = '';
+    this.readyData = {};
+    this.$('.clear-btn').click();
+    this.$('input.bet-amt').val('');
+    this.$('.multiplier-input').val(1);
+    this.$('.multiplier-select').removeClass('money-bg');
+    this.$('.multiplier-select[value="1"]').addClass('money-bg');
+    this.$('.unit-amt').removeClass('money-bg');
+    this.$('.unit-amt[value="1"]').addClass('money-bg');
+  }
+
+  /***Getters */
+  getCart()
+  {
+    return this.cart;
+  }
+
+  getAllRows()
+  {
+    return this.rows;
+  }
+
+  getMultiplier()
+  {
+    return this.multiplier;
+  }
+
+  getBetAmt()
+  {
+    return this.betAmt;
+  }
+
+  setMultiplier(multiplier)
+  {
+    this.multiplier = multiplier;
+  }
+
+  setBetAmt(amt)
+  {
+    this.betAmt = amt;
+  }
+
+  setUnitAmt(amt)
+  {
+    this.unitAmt = amt;
+  }
+
+  getUnitAmt()
+  {
+    return this.unitAmt;
+  }
+
+  calcUnitAmt(betAmt) {
+    betAmt = betAmt||0;
+    let totalBets, unitAmt;
+    totalBets = this.calcTotalBets();
+    if(totalBets == 0)
+      return totalBets;
+    unitAmt = betAmt / totalBets;
+    return this.truncate(unitAmt);
+  }
+
+  calcActualAmt() {
+    return this.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
   }
 
 
@@ -432,7 +521,7 @@ class group10 extends Royal5utils {
   readyData = {};
   constructor(pageId)
   {
-    super(pageId);
+    this(pageId);
   }
   calcTotalBets() {
     let row1 = this.rows.row1;
@@ -448,28 +537,28 @@ class group10 extends Royal5utils {
     let unitAmt = this.betAmt? this.calcUnitAmt(this.betAmt):this.unitAmt;
     if(!totalBets)
     {
-      super.$('div.least-bet').show();
-      super.$('div.bet-info').hide();
-      super.disableButtons(true, '.cart', '.bet-now');
+      this.$('div.least-bet').show();
+      this.$('div.bet-info').hide();
+      this.disableButtons(true, '.cart', '.bet-now');
       return 0;
     }
     let multiplier = this.multiplier;
     // console.log(unitAmt);
-    let actualAmt = super.truncate(totalBets * multiplier * unitAmt);
-    super.$('span.total-bets').html(totalBets);
-    super.$('span.unit-amt').html(unitAmt);
-    super.$('span.actual-amt').html(actualAmt);
-    super.$('div.least-bet').hide();
-    super.$('div.bet-info').show();
-    super.disableButtons(false, '.cart', '.bet-now');
+    let actualAmt = this.truncate(totalBets * multiplier * unitAmt);
+    this.$('span.total-bets').html(totalBets);
+    this.$('span.unit-amt').html(unitAmt);
+    this.$('span.actual-amt').html(actualAmt);
+    this.$('div.least-bet').hide();
+    this.$('div.bet-info').show();
+    this.disableButtons(false, '.cart', '.bet-now');
     if(!unitAmt)
-    super.disableButtons(true, '.cart', '.bet-now');
+    this.disableButtons(true, '.cart', '.bet-now');
   }
 
   unsetBetAmt()
   {
     this.betAmt = '';
-    super.$('input.bet-amt').val('');
+    this.$('input.bet-amt').val('');
   }
   pushToCart() {
  
@@ -481,7 +570,7 @@ class group10 extends Royal5utils {
     this.readyData.multiplier =this.multiplier;
     this.readyData.totalBets = this.calcTotalBets();
     this.readyData.allSelections = this.allSelections(...Object.values(this.rows), this.sample1, this.sample2);
-    /*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
+    /*this.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
     this.readyData.userSelections = Object.values(this.rows).join("|");
     cart.push(this.readyData);
   }
@@ -504,13 +593,13 @@ class group10 extends Royal5utils {
     this.unitAmt = 1;
     this.betAmt = '';
     this.readyData = {};
-    super.$('.clear-btn').click();
-    super.$('input.bet-amt').val('');
-    super.$('.multiplier-input').val(1);
-    super.$('.multiplier-select').removeClass('money-bg');
-    super.$('.multiplier-select[value="1"]').addClass('money-bg');
-    super.$('.unit-amt').removeClass('money-bg');
-    super.$('.unit-amt[value="1"]').addClass('money-bg');
+    this.$('.clear-btn').click();
+    this.$('input.bet-amt').val('');
+    this.$('.multiplier-input').val(1);
+    this.$('.multiplier-select').removeClass('money-bg');
+    this.$('.multiplier-select[value="1"]').addClass('money-bg');
+    this.$('.unit-amt').removeClass('money-bg');
+    this.$('.unit-amt[value="1"]').addClass('money-bg');
   }
 
   
@@ -561,11 +650,11 @@ class group10 extends Royal5utils {
     if(totalBets == 0)
       return totalBets;
     unitAmt = betAmt / totalBets;
-    return super.truncate(unitAmt);
+    return this.truncate(unitAmt);
   }
 
   calcActualAmt() {
-    return super.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
+    return this.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
   }
 
 
@@ -593,7 +682,7 @@ class group20 extends Royal5utils {
   readyData = {};
   constructor(pageId)
   {
-    super(pageId);
+    this(pageId);
   }
   calcTotalBets() {
       let row1 = this.rows.row1;
@@ -609,30 +698,30 @@ class group20 extends Royal5utils {
     let unitAmt = this.betAmt? this.calcUnitAmt(this.betAmt):this.unitAmt;
     if(!totalBets)
     {
-      super.$('div.least-bet').show();
-      super.$('div.bet-info').hide();
-      super.disableButtons(true, '.cart', '.bet-now');
+      this.$('div.least-bet').show();
+      this.$('div.bet-info').hide();
+      this.disableButtons(true, '.cart', '.bet-now');
       return 0;
     }
 
     
     let multiplier = this.multiplier;
     // console.log(unitAmt);
-    let actualAmt = super.truncate(totalBets * multiplier * unitAmt);
-    super.$('span.total-bets').html(totalBets);
-    super.$('span.unit-amt').html(unitAmt);
-    super.$('span.actual-amt').html(actualAmt);
-    super.$('div.least-bet').hide();
-    super.$('div.bet-info').show();
-    super.disableButtons(false, '.cart', '.bet-now');
+    let actualAmt = this.truncate(totalBets * multiplier * unitAmt);
+    this.$('span.total-bets').html(totalBets);
+    this.$('span.unit-amt').html(unitAmt);
+    this.$('span.actual-amt').html(actualAmt);
+    this.$('div.least-bet').hide();
+    this.$('div.bet-info').show();
+    this.disableButtons(false, '.cart', '.bet-now');
     if(!unitAmt)
-    super.disableButtons(true, '.cart', '.bet-now');
+    this.disableButtons(true, '.cart', '.bet-now');
   }
 
   unsetBetAmt()
   {
     this.betAmt = '';
-    super.$('input.bet-amt').val('');
+    this.$('input.bet-amt').val('');
   }
   pushToCart() {
  
@@ -644,7 +733,7 @@ class group20 extends Royal5utils {
     this.readyData.multiplier =this.multiplier;
     this.readyData.totalBets = this.calcTotalBets();
     this.readyData.allSelections = this.allSelections(...Object.values(this.rows), this.sample1, this.sample2);
-    /*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
+    /*this.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
     this.readyData.userSelections = Object.values(this.rows).join("|");
     cart.push(this.readyData);
   }
@@ -667,13 +756,13 @@ class group20 extends Royal5utils {
     this.unitAmt = 1;
     this.betAmt = '';
     this.readyData = {};
-    super.$('.clear-btn').click();
-    super.$('input.bet-amt').val('');
-    super.$('.multiplier-input').val(1);
-    super.$('.multiplier-select').removeClass('money-bg');
-    super.$('.multiplier-select[value="1"]').addClass('money-bg');
-    super.$('.unit-amt').removeClass('money-bg');
-    super.$('.unit-amt[value="1"]').addClass('money-bg');
+    this.$('.clear-btn').click();
+    this.$('input.bet-amt').val('');
+    this.$('.multiplier-input').val(1);
+    this.$('.multiplier-select').removeClass('money-bg');
+    this.$('.multiplier-select[value="1"]').addClass('money-bg');
+    this.$('.unit-amt').removeClass('money-bg');
+    this.$('.unit-amt[value="1"]').addClass('money-bg');
   }
 
   
@@ -724,11 +813,11 @@ class group20 extends Royal5utils {
     if(totalBets == 0)
       return totalBets;
     unitAmt = betAmt / totalBets;
-    return super.truncate(unitAmt);
+    return this.truncate(unitAmt);
   }
 
   calcActualAmt() {
-    return super.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
+    return this.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
   }
 
 
@@ -755,7 +844,7 @@ class group30 extends Royal5utils {
   readyData = {};
   constructor(pageId)
   {
-    super(pageId);
+    this(pageId);
   }
   calcTotalBets() {
       let row1 = this.rows.row1;
@@ -771,30 +860,30 @@ class group30 extends Royal5utils {
     let unitAmt = this.betAmt? this.calcUnitAmt(this.betAmt):this.unitAmt;
     if(!totalBets)
     {
-      super.$('div.least-bet').show();
-      super.$('div.bet-info').hide();
-      super.disableButtons(true, '.cart', '.bet-now');
+      this.$('div.least-bet').show();
+      this.$('div.bet-info').hide();
+      this.disableButtons(true, '.cart', '.bet-now');
       return 0;
     }
 
     
     let multiplier = this.multiplier;
     // console.log(unitAmt);
-    let actualAmt = super.truncate(totalBets * multiplier * unitAmt);
-    super.$('span.total-bets').html(totalBets);
-    super.$('span.unit-amt').html(unitAmt);
-    super.$('span.actual-amt').html(actualAmt);
-    super.$('div.least-bet').hide();
-    super.$('div.bet-info').show();
-    super.disableButtons(false, '.cart', '.bet-now');
+    let actualAmt = this.truncate(totalBets * multiplier * unitAmt);
+    this.$('span.total-bets').html(totalBets);
+    this.$('span.unit-amt').html(unitAmt);
+    this.$('span.actual-amt').html(actualAmt);
+    this.$('div.least-bet').hide();
+    this.$('div.bet-info').show();
+    this.disableButtons(false, '.cart', '.bet-now');
     if(!unitAmt)
-    super.disableButtons(true, '.cart', '.bet-now');
+    this.disableButtons(true, '.cart', '.bet-now');
   }
 
   unsetBetAmt()
   {
     this.betAmt = '';
-    super.$('input.bet-amt').val('');
+    this.$('input.bet-amt').val('');
   }
   pushToCart() {
  
@@ -806,7 +895,7 @@ class group30 extends Royal5utils {
     this.readyData.multiplier =this.multiplier;
     this.readyData.totalBets = this.calcTotalBets();
     this.readyData.allSelections = this.allSelections(...Object.values(this.rows), this.sample1, this.sample2);
-    /*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
+    /*this.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
     this.readyData.userSelections = Object.values(this.rows).join("|");
     cart.push(this.readyData);
   }
@@ -829,13 +918,13 @@ class group30 extends Royal5utils {
     this.unitAmt = 1;
     this.betAmt = '';
     this.readyData = {};
-    super.$('.clear-btn').click();
-    super.$('input.bet-amt').val('');
-    super.$('.multiplier-input').val(1);
-    super.$('.multiplier-select').removeClass('money-bg');
-    super.$('.multiplier-select[value="1"]').addClass('money-bg');
-    super.$('.unit-amt').removeClass('money-bg');
-    super.$('.unit-amt[value="1"]').addClass('money-bg');
+    this.$('.clear-btn').click();
+    this.$('input.bet-amt').val('');
+    this.$('.multiplier-input').val(1);
+    this.$('.multiplier-select').removeClass('money-bg');
+    this.$('.multiplier-select[value="1"]').addClass('money-bg');
+    this.$('.unit-amt').removeClass('money-bg');
+    this.$('.unit-amt[value="1"]').addClass('money-bg');
   }
 
   
@@ -886,11 +975,11 @@ class group30 extends Royal5utils {
     if(totalBets == 0)
       return totalBets;
     unitAmt = betAmt / totalBets;
-    return super.truncate(unitAmt);
+    return this.truncate(unitAmt);
   }
 
   calcActualAmt() {
-    return super.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
+    return this.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
   }
 
 
@@ -917,7 +1006,7 @@ class group60 extends Royal5utils {
   readyData = {};
   constructor(pageId)
   {
-    super(pageId);
+    this(pageId);
   }
   calcTotalBets() {
       let row1 = this.rows.row1;
@@ -933,30 +1022,30 @@ class group60 extends Royal5utils {
     let unitAmt = this.betAmt? this.calcUnitAmt(this.betAmt):this.unitAmt;
     if(!totalBets)
     {
-      super.$('div.least-bet').show();
-      super.$('div.bet-info').hide();
-      super.disableButtons(true, '.cart', '.bet-now');
+      this.$('div.least-bet').show();
+      this.$('div.bet-info').hide();
+      this.disableButtons(true, '.cart', '.bet-now');
       return 0;
     }
 
     
     let multiplier = this.multiplier;
     // console.log(unitAmt);
-    let actualAmt = super.truncate(totalBets * multiplier * unitAmt);
-    super.$('span.total-bets').html(totalBets);
-    super.$('span.unit-amt').html(unitAmt);
-    super.$('span.actual-amt').html(actualAmt);
-    super.$('div.least-bet').hide();
-    super.$('div.bet-info').show();
-    super.disableButtons(false, '.cart', '.bet-now');
+    let actualAmt = this.truncate(totalBets * multiplier * unitAmt);
+    this.$('span.total-bets').html(totalBets);
+    this.$('span.unit-amt').html(unitAmt);
+    this.$('span.actual-amt').html(actualAmt);
+    this.$('div.least-bet').hide();
+    this.$('div.bet-info').show();
+    this.disableButtons(false, '.cart', '.bet-now');
     if(!unitAmt)
-    super.disableButtons(true, '.cart', '.bet-now');
+    this.disableButtons(true, '.cart', '.bet-now');
   }
 
   unsetBetAmt()
   {
     this.betAmt = '';
-    super.$('input.bet-amt').val('');
+    this.$('input.bet-amt').val('');
   }
   pushToCart() {
  
@@ -968,7 +1057,7 @@ class group60 extends Royal5utils {
     this.readyData.multiplier =this.multiplier;
     this.readyData.totalBets = this.calcTotalBets();
     this.readyData.allSelections = this.allSelections(...Object.values(this.rows), this.sample1, this.sample2);
-    /*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
+    /*this.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
     this.readyData.userSelections = Object.values(this.rows).join("|");
     cart.push(this.readyData);
   }
@@ -991,13 +1080,13 @@ class group60 extends Royal5utils {
     this.unitAmt = 1;
     this.betAmt = '';
     this.readyData = {};
-    super.$('.clear-btn').click();
-    super.$('input.bet-amt').val('');
-    super.$('.multiplier-input').val(1);
-    super.$('.multiplier-select').removeClass('money-bg');
-    super.$('.multiplier-select[value="1"]').addClass('money-bg');
-    super.$('.unit-amt').removeClass('money-bg');
-    super.$('.unit-amt[value="1"]').addClass('money-bg');
+    this.$('.clear-btn').click();
+    this.$('input.bet-amt').val('');
+    this.$('.multiplier-input').val(1);
+    this.$('.multiplier-select').removeClass('money-bg');
+    this.$('.multiplier-select[value="1"]').addClass('money-bg');
+    this.$('.unit-amt').removeClass('money-bg');
+    this.$('.unit-amt[value="1"]').addClass('money-bg');
   }
 
   
@@ -1048,11 +1137,11 @@ class group60 extends Royal5utils {
     if(totalBets == 0)
       return totalBets;
     unitAmt = betAmt / totalBets;
-    return super.truncate(unitAmt);
+    return this.truncate(unitAmt);
   }
 
   calcActualAmt() {
-    return super.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
+    return this.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
   }
 
 
@@ -1077,7 +1166,7 @@ class group120 extends Royal5utils {
   readyData = {};
   constructor(pageId)
   {
-    super(pageId);
+    this(pageId);
   
   }
 
@@ -1094,30 +1183,30 @@ class group120 extends Royal5utils {
     let unitAmt = this.betAmt? this.calcUnitAmt(this.betAmt):this.unitAmt;
     if(!totalBets)
     {
-      super.$('div.least-bet').show();
-      super.$('div.bet-info').hide();
-      super.disableButtons(true, '.cart', '.bet-now');
+      this.$('div.least-bet').show();
+      this.$('div.bet-info').hide();
+      this.disableButtons(true, '.cart', '.bet-now');
       return 0;
     }
 
     
     let multiplier = this.multiplier;
     // console.log(unitAmt);
-    let actualAmt = super.truncate(totalBets * multiplier * unitAmt);
-    super.$('span.total-bets').html(totalBets);
-    super.$('span.unit-amt').html(unitAmt);
-    super.$('span.actual-amt').html(actualAmt);
-    super.$('div.least-bet').hide();
-    super.$('div.bet-info').show();
-    super.disableButtons(false, '.cart', '.bet-now');
+    let actualAmt = this.truncate(totalBets * multiplier * unitAmt);
+    this.$('span.total-bets').html(totalBets);
+    this.$('span.unit-amt').html(unitAmt);
+    this.$('span.actual-amt').html(actualAmt);
+    this.$('div.least-bet').hide();
+    this.$('div.bet-info').show();
+    this.disableButtons(false, '.cart', '.bet-now');
     if(!unitAmt)
-    super.disableButtons(true, '.cart', '.bet-now');
+    this.disableButtons(true, '.cart', '.bet-now');
   }
 
   unsetBetAmt()
   {
     this.betAmt = '';
-    super.$('input.bet-amt').val('');
+    this.$('input.bet-amt').val('');
   }
 
   pushToCart()
@@ -1168,13 +1257,13 @@ getSavedData()
     this.unitAmt = 1;
     this.betAmt = '';
     this.readyData = {};
-    super.$('.clear-btn').click();
-    super.$('input.bet-amt').val('');
-    super.$('.multiplier-input').val(1);
-    super.$('.multiplier-select').removeClass('money-bg');
-    super.$('.multiplier-select[value="1"]').addClass('money-bg');
-    super.$('.unit-amt').removeClass('money-bg');
-    super.$('.unit-amt[value="1"]').addClass('money-bg');
+    this.$('.clear-btn').click();
+    this.$('input.bet-amt').val('');
+    this.$('.multiplier-input').val(1);
+    this.$('.multiplier-select').removeClass('money-bg');
+    this.$('.multiplier-select[value="1"]').addClass('money-bg');
+    this.$('.unit-amt').removeClass('money-bg');
+    this.$('.unit-amt[value="1"]').addClass('money-bg');
   }
 
   
@@ -1225,11 +1314,11 @@ getSavedData()
     if(totalBets == 0)
       return totalBets;
     unitAmt = betAmt / totalBets;
-    return super.truncate(unitAmt);
+    return this.truncate(unitAmt);
   }
 
   calcActualAmt() {
-    return super.truncate(this.calcTotalBets() * this.multiplier * this.unitAmt);
+    return this.truncate(this.calcTotalBets() * this.multiplier * this.unitAmt);
   }
 
 
@@ -1260,7 +1349,7 @@ class groupJoint extends Royal5utils {
   readyData = {};
   constructor(pageId)
   {
-    super(pageId);
+    this(pageId);
   }
   calcTotalBets() {
     let row1 = this.rows.row1.length;
@@ -1276,30 +1365,30 @@ class groupJoint extends Royal5utils {
     let unitAmt = this.betAmt? this.calcUnitAmt(this.betAmt):this.unitAmt;
     if(!totalBets)
     {
-      super.$('div.least-bet').show();
-      super.$('div.bet-info').hide();
-      super.disableButtons(true, '.cart', '.bet-now');
+      this.$('div.least-bet').show();
+      this.$('div.bet-info').hide();
+      this.disableButtons(true, '.cart', '.bet-now');
       return 0;
     }
 
     
     let multiplier = this.multiplier;
     // console.log(unitAmt);
-    let actualAmt = super.truncate(totalBets * multiplier * unitAmt);
-    super.$('span.total-bets').html(totalBets);
-    super.$('span.unit-amt').html(unitAmt);
-    super.$('span.actual-amt').html(actualAmt);
-    super.$('div.least-bet').hide();
-    super.$('div.bet-info').show();
-    super.disableButtons(false, '.cart', '.bet-now');
+    let actualAmt = this.truncate(totalBets * multiplier * unitAmt);
+    this.$('span.total-bets').html(totalBets);
+    this.$('span.unit-amt').html(unitAmt);
+    this.$('span.actual-amt').html(actualAmt);
+    this.$('div.least-bet').hide();
+    this.$('div.bet-info').show();
+    this.disableButtons(false, '.cart', '.bet-now');
     if(!unitAmt)
-    super.disableButtons(true, '.cart', '.bet-now');
+    this.disableButtons(true, '.cart', '.bet-now');
   }
 
   unsetBetAmt()
   {
     this.betAmt = '';
-    super.$('input.bet-amt').val('');
+    this.$('input.bet-amt').val('');
   }
   pushToCart() {
  
@@ -1310,7 +1399,7 @@ class groupJoint extends Royal5utils {
     this.readyData.totalBetAmt = this.calcActualAmt();
     this.readyData.multiplier =this.multiplier;
     this.readyData.totalBets = this.calcTotalBets();
-    this.readyData.allSelections = []/*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
+    this.readyData.allSelections = []/*this.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
     this.readyData.userSelections = Object.values(this.rows).join("|");
     cart.push(this.readyData);
   }
@@ -1333,13 +1422,13 @@ class groupJoint extends Royal5utils {
     this.unitAmt = 1;
     this.betAmt = '';
     this.readyData = {};
-    super.$('.clear-btn').click();
-    super.$('input.bet-amt').val('');
-    super.$('.multiplier-input').val(1);
-    super.$('.multiplier-select').removeClass('money-bg');
-    super.$('.multiplier-select[value="1"]').addClass('money-bg');
-    super.$('.unit-amt').removeClass('money-bg');
-    super.$('.unit-amt[value="1"]').addClass('money-bg');
+    this.$('.clear-btn').click();
+    this.$('input.bet-amt').val('');
+    this.$('.multiplier-input').val(1);
+    this.$('.multiplier-select').removeClass('money-bg');
+    this.$('.multiplier-select[value="1"]').addClass('money-bg');
+    this.$('.unit-amt').removeClass('money-bg');
+    this.$('.unit-amt[value="1"]').addClass('money-bg');
   }
 
   
@@ -1390,11 +1479,11 @@ class groupJoint extends Royal5utils {
     if(totalBets == 0)
       return totalBets;
     unitAmt = betAmt / totalBets;
-    return super.truncate(unitAmt);
+    return this.truncate(unitAmt);
   }
 
   calcActualAmt() {
-    return super.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
+    return this.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
   }
 
 
@@ -1426,7 +1515,7 @@ class groupManual extends Royal5utils {
   readyData = {};
   constructor(pageId)
   {
-    super(pageId);
+    this(pageId);
   }
 
   showBetsInfo()
@@ -1435,24 +1524,24 @@ class groupManual extends Royal5utils {
     let unitAmt = this.betAmt? this.calcUnitAmt(this.betAmt):this.unitAmt;
     if(!totalBets)
     {
-      super.$('div.least-bet').show();
-      super.$('div.bet-info').hide();
-      super.disableButtons(true, '.cart', '.bet-now');
+      this.$('div.least-bet').show();
+      this.$('div.bet-info').hide();
+      this.disableButtons(true, '.cart', '.bet-now');
       return 0;
     }
 
     
     let multiplier = this.multiplier;
     // console.log(unitAmt);
-    let actualAmt = super.truncate(totalBets * multiplier * unitAmt);
-    super.$('span.total-bets').html(totalBets);
-    super.$('span.unit-amt').html(unitAmt);
-    super.$('span.actual-amt').html(actualAmt);
-    super.$('div.least-bet').hide();
-    super.$('div.bet-info').show();
-    super.disableButtons(false, '.cart', '.bet-now');
+    let actualAmt = this.truncate(totalBets * multiplier * unitAmt);
+    this.$('span.total-bets').html(totalBets);
+    this.$('span.unit-amt').html(unitAmt);
+    this.$('span.actual-amt').html(actualAmt);
+    this.$('div.least-bet').hide();
+    this.$('div.bet-info').show();
+    this.disableButtons(false, '.cart', '.bet-now');
     if(!unitAmt)
-    super.disableButtons(true, '.cart', '.bet-now');
+    this.disableButtons(true, '.cart', '.bet-now');
   }
 
   calcTotalBets()
@@ -1463,7 +1552,7 @@ class groupManual extends Royal5utils {
   unsetBetAmt()
   {
     this.betAmt = '';
-    super.$('input.bet-amt').val('');
+    this.$('input.bet-amt').val('');
   }
   pushToCart() {
  
@@ -1474,7 +1563,7 @@ class groupManual extends Royal5utils {
     this.readyData.totalBetAmt = this.calcActualAmt();
     this.readyData.multiplier =this.multiplier;
     this.readyData.totalBets = this.calcTotalBets();
-    this.readyData.allSelections = this.allBets/*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
+    this.readyData.allSelections = this.allBets/*this.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
     this.readyData.userSelections = [];
     cart.push(this.readyData);
   }
@@ -1522,7 +1611,8 @@ class groupManual extends Royal5utils {
 
     return true;
   }
-
+ 
+ 
   saveToRow(data, row)
   {
     if (Array.isArray(data)) this.rows[row] = data;
@@ -1541,13 +1631,13 @@ class groupManual extends Royal5utils {
     this.unitAmt = 1;
     this.betAmt = '';
     this.readyData = {};
-    super.$('.clear-btn').click();
-    super.$('input.bet-amt').val('');
-    super.$('.multiplier-input').val(1);
-    super.$('.multiplier-select').removeClass('money-bg');
-    super.$('.multiplier-select[value="1"]').addClass('money-bg');
-    super.$('.unit-amt').removeClass('money-bg');
-    super.$('.unit-amt[value="1"]').addClass('money-bg');
+    this.$('.clear-btn').click();
+    this.$('input.bet-amt').val('');
+    this.$('.multiplier-input').val(1);
+    this.$('.multiplier-select').removeClass('money-bg');
+    this.$('.multiplier-select[value="1"]').addClass('money-bg');
+    this.$('.unit-amt').removeClass('money-bg');
+    this.$('.unit-amt[value="1"]').addClass('money-bg');
   }
 
   
@@ -1598,11 +1688,11 @@ class groupManual extends Royal5utils {
     if(totalBets == 0)
       return totalBets;
     unitAmt = betAmt / totalBets;
-    return super.truncate(unitAmt);
+    return this.truncate(unitAmt);
   }
 
   calcActualAmt() {
-    return super.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
+    return this.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
   }
 
 
@@ -1633,7 +1723,7 @@ class groupCombo extends Royal5utils {
   readyData = {};
   constructor(pageId)
   {
-    super(pageId);
+    this(pageId);
   }
   calcTotalBets() {
     let row1 = this.rows.row1.length;
@@ -1649,30 +1739,30 @@ class groupCombo extends Royal5utils {
     let unitAmt = this.betAmt? this.calcUnitAmt(this.betAmt):this.unitAmt;
     if(!totalBets)
     {
-      super.$('div.least-bet').show();
-      super.$('div.bet-info').hide();
-      super.disableButtons(true, '.cart', '.bet-now');
+      this.$('div.least-bet').show();
+      this.$('div.bet-info').hide();
+      this.disableButtons(true, '.cart', '.bet-now');
       return 0;
   }
 
     
     let multiplier = this.multiplier;
     // console.log(unitAmt);
-    let actualAmt = super.truncate(totalBets * multiplier * unitAmt);
-    super.$('span.total-bets').html(totalBets);
-    super.$('span.unit-amt').html(unitAmt);
-    super.$('span.actual-amt').html(actualAmt);
-    super.$('div.least-bet').hide();
-    super.$('div.bet-info').show();
-    super.disableButtons(false, '.cart', '.bet-now');
+    let actualAmt = this.truncate(totalBets * multiplier * unitAmt);
+    this.$('span.total-bets').html(totalBets);
+    this.$('span.unit-amt').html(unitAmt);
+    this.$('span.actual-amt').html(actualAmt);
+    this.$('div.least-bet').hide();
+    this.$('div.bet-info').show();
+    this.disableButtons(false, '.cart', '.bet-now');
     if(!unitAmt)
-    super.disableButtons(true, '.cart', '.bet-now');
+    this.disableButtons(true, '.cart', '.bet-now');
   }
 
   unsetBetAmt()
   {
     this.betAmt = '';
-    super.$('input.bet-amt').val('');
+    this.$('input.bet-amt').val('');
   }
   pushToCart() {
  
@@ -1683,7 +1773,7 @@ class groupCombo extends Royal5utils {
     this.readyData.totalBetAmt = this.calcActualAmt();
     this.readyData.multiplier =this.multiplier;
     let calc = this.calcTotalBets();
-    this.readyData.allSelections = []/*super.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
+    this.readyData.allSelections = []/*this.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
     this.readyData.userSelections = Object.values(this.rows).join("|");
     index = cart.length;
     cart.push(this.readyData);
@@ -1708,13 +1798,13 @@ class groupCombo extends Royal5utils {
     this.unitAmt = 1;
     this.betAmt = '';
     this.readyData = {};
-    super.$('.clear-btn').click();
-    super.$('input.bet-amt').val('');
-    super.$('.multiplier-input').val(1);
-    super.$('.multiplier-select').removeClass('money-bg');
-    super.$('.multiplier-select[value="1"]').addClass('money-bg');
-    super.$('.unit-amt').removeClass('money-bg');
-    super.$('.unit-amt[value="1"]').addClass('money-bg');
+    this.$('.clear-btn').click();
+    this.$('input.bet-amt').val('');
+    this.$('.multiplier-input').val(1);
+    this.$('.multiplier-select').removeClass('money-bg');
+    this.$('.multiplier-select[value="1"]').addClass('money-bg');
+    this.$('.unit-amt').removeClass('money-bg');
+    this.$('.unit-amt[value="1"]').addClass('money-bg');
   }
 
   
@@ -1765,11 +1855,11 @@ class groupCombo extends Royal5utils {
     if(totalBets == 0)
       return totalBets;
     unitAmt = betAmt / totalBets;
-    return super.truncate(unitAmt);
+    return this.truncate(unitAmt);
   }
 
   calcActualAmt() {
-    return super.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
+    return this.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
   }
 
 
@@ -1793,6 +1883,34 @@ if(initializedClasses.includes(className))
     game.resetAllData();
     return 0;
 }
+
+function showBetsInfo()
+{
+  let totalBets = game.calcTotalBets();
+  let unitAmt = game.getBetAmt()? game.calcUnitAmt(game.betAmt):game.getUnitAmt();
+  if(!totalBets)
+  {
+    game.$('div.least-bet').show();
+    game.$('div.bet-info').hide();
+    game.disableButtons(true, '.cart', '.bet-now');
+    return 0;
+  }
+
+  
+  let multiplier = game.getMultiplier();
+  // console.log(unitAmt);
+  let actualAmt = game.truncate(totalBets * multiplier * unitAmt);
+  game.$('span.total-bets').html(totalBets);
+  game.$('span.unit-amt').html(unitAmt);
+  game.$('span.actual-amt').html(actualAmt);
+  game.$('div.least-bet').hide();
+  game.$('div.bet-info').show();
+  game.disableButtons(false, '.cart', '.bet-now');
+  if(!unitAmt)
+  game.disableButtons(true, '.cart', '.bet-now');
+}
+
+
 initializedClasses.push(className);
 let classNames = {
   selectionCtrl:'selection-ctr',
@@ -1840,7 +1958,7 @@ let savePoint = {
     let row = $(this).parent().attr('data-points-to');
     game.selectAll(`.${row}`);
     game.saveToRow(data, row);
-    game.showBetsInfo();
+    showBetsInfo();
   });
 
 
@@ -1849,7 +1967,7 @@ let savePoint = {
     let row = $(this).parent().attr('data-points-to');
     game.selectBig(`.${row}`);
     game.saveToRow(data, row);
-    game.showBetsInfo();
+    showBetsInfo();
   });
 
 
@@ -1859,7 +1977,7 @@ let savePoint = {
     game.selectSmall(`.${row}`);
     game.saveToRow(data, row);
     console.log(data);
-    game.showBetsInfo();
+    showBetsInfo();
   });
 
 
@@ -1868,7 +1986,7 @@ let savePoint = {
     let row = $(this).parent().attr('data-points-to');
     game.selectOdd(`.${row}`);
     game.saveToRow(data, row);
-    game.showBetsInfo();
+    showBetsInfo();
   });
 
  game.$(classNames.evenBtn).click(function(){
@@ -1877,7 +1995,7 @@ let savePoint = {
     game.selectEven(`.${row}`);
     savePoint.data[row] = data;
     game.saveToRow(data, row);
-    game.showBetsInfo();
+    showBetsInfo();
   });
 
 
@@ -1888,7 +2006,7 @@ let savePoint = {
     let row  = game.getRowFromClass(classNames);
     console.log(row, btnValue);
     game.saveToRow(btnValue, row);
-    game.showBetsInfo();
+    showBetsInfo();
     // let req=$.post('index.php', {name:'kofi'});
     // req.done(function(){alert('done')})
     // req.fail(function(){alert('failed')})
@@ -1904,7 +2022,7 @@ let savePoint = {
     game.clear(`.${row}`);
     savePoint.data[row] = data;
     game.saveToRow(data, row);
-    game.showBetsInfo();
+    showBetsInfo();
   });
 
   
@@ -1915,7 +2033,7 @@ let savePoint = {
       game.setMultiplier(value);
       game.$('.multiplier-input').val(value);
       game.unsetBetAmt();
-      game.showBetsInfo();
+      showBetsInfo();
  });
 
  game.$(classNames.unitAmt).click(function(){
@@ -1924,7 +2042,7 @@ let savePoint = {
       let value = $(this).val();
       game.setUnitAmt(value);
       game.unsetBetAmt();
-      game.showBetsInfo();
+      showBetsInfo();
  });
 
 
@@ -1939,7 +2057,7 @@ let savePoint = {
   game.$(`.multiplier-select[value=${onlyNums}]`).click();
   game.unsetBetAmt();
   game.setMultiplier(onlyNums);
-  game.showBetsInfo();
+  showBetsInfo();
  })
 
  game.$('input.bet-amt').click(function(){
@@ -1960,7 +2078,7 @@ let savePoint = {
   game.setUnitAmt(unitAmt);
   game.setBetAmt(onlyNums);
   $(this).val(onlyNums);
-  game.showBetsInfo();
+  showBetsInfo();
   console.log(game.getBetAmt());
  })
 
@@ -1970,7 +2088,7 @@ let savePoint = {
 
 game.$('.bet-box').on('input',function(){
     game.setAllBets();
-    game.showBetsInfo();
+    showBetsInfo();
 })
 
  game.$('.plus').click(function(){
@@ -1983,7 +2101,7 @@ game.$('.bet-box').on('input',function(){
   game.setMultiplier(value);
   game.$('.multiplier-select').removeClass('money-bg');
   game.$(`.multiplier-select[value=${value}]`).click();
-  game.showBetsInfo();
+  showBetsInfo();
  })
 
  game.$('.minus').click(function(){
@@ -1996,7 +2114,7 @@ game.$('.bet-box').on('input',function(){
   game.setMultiplier(value);
   game.$('.multiplier-select').removeClass('money-bg');
   game.$(`.multiplier-select[value=${value}]`).click();
-  game.showBetsInfo();
+  showBetsInfo();
  })
 
 game.$('.cart').click(function(){

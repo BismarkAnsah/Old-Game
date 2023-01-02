@@ -373,6 +373,7 @@ li{
               <button class="game">Mid 3</button>
               <button class="game">Last 3</button>
             </div>
+            <div class="all5">
             <div style="height:150px;background-color:#E6E1FF;padding:20px">
               <div>
 
@@ -1687,6 +1688,7 @@ li{
       </div>
     </div>
   </section>
+  </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="js/jquery.min.js"></script>
 
