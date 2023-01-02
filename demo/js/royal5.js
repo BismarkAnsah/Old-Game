@@ -433,7 +433,7 @@ class group5 extends Royal5utils {
 
   constructor(pageId)
   {
-    this(pageId);
+    super(pageId);
   }
 
   pushToCart() {
@@ -465,10 +465,10 @@ class group5 extends Royal5utils {
 }
 
 class group10 extends Royal5utils {
-  
+
   constructor(pageId)
   {
-    this(pageId);
+    super(pageId);
   }
 
   calcTotalBets() {
@@ -509,7 +509,7 @@ class group20 extends Royal5utils {
   };
   constructor(pageId)
   {
-    this(pageId);
+    super(pageId);
   }
 
   calcTotalBets() {
@@ -551,7 +551,7 @@ class group30 extends Royal5utils {
   };
   constructor(pageId)
   {
-    this(pageId);
+    super(pageId);
   }
   calcTotalBets() {
       let row1 = this.rows.row1;
@@ -602,7 +602,7 @@ class group60 extends Royal5utils {
   };
   constructor(pageId)
   {
-    this(pageId);
+    super(pageId);
   }
   calcTotalBets() {
       let row1 = this.rows.row1;
@@ -637,9 +637,10 @@ class group120 extends Royal5utils {
   rows = {
     row1:[]
   };
+
   constructor(pageId)
   {
-    this(pageId);
+    super(pageId);
   
   }
 
@@ -681,7 +682,7 @@ class groupJoint extends Royal5utils {
   };
   constructor(pageId)
   {
-    this(pageId);
+    super(pageId);
   }
   calcTotalBets() {
     let row1 = this.rows.row1.length;
@@ -722,7 +723,7 @@ class groupManual extends Royal5utils {
   };
   constructor(pageId)
   {
-    this(pageId);
+    super(pageId);
   }
 
   
@@ -769,7 +770,7 @@ class groupCombo extends Royal5utils {
   readyData = {};
   constructor(pageId)
   {
-    this(pageId);
+    super(pageId);
   }
   calcTotalBets() {
     let row1 = this.rows.row1.length;
