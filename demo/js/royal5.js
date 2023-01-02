@@ -258,13 +258,58 @@ getPageId()
   sample2 = 1;
   multiplier = 1;
   unitAmt = 1;
+  errorBets = 0;
+  allBets = [];
   betAmt = '';
   rows = {};
   cart = [];
   readyData = {};
 
  
+  setAllBets()
+  {
 
+    this.allBets = this.getBets();
+  }
+
+  alertErrBets()
+  {
+    if(this.errorBets)
+    {
+      this.$('.bet-box').val(this.allBets);
+      alert("System Deleted Invalid Entries");
+    }
+  }
+
+  getBets()
+  {
+    let bets = this.$('.bet-box').val().split(";");
+    bets.forEach((element, index)=>{
+      element = element.trim();
+      bets[index] = element;
+      let arrElement = element.split(',');
+      let errors = 0;
+      if(!this.isValidEntry(arrElement)){
+        bets.splice(index,1);
+        errors++;
+      }
+      this.errorBets = errors;
+    });
+    
+    return bets;
+  }  
+
+  isValidEntry(entry)
+  {
+    if(entry.length != 5)
+      return false;
+    if(entry.some(value=>{
+      return (isNaN(value) || isNaN(parseInt(value)));
+    })) return false;
+
+    return true;
+  }
+  
   unsetBetAmt()
   {
     this.betAmt = '';
@@ -312,7 +357,7 @@ getPageId()
     this.$('.unit-amt[value="1"]').addClass('money-bg');
   }
 
-  
+  /**Getters */
   getCart()
   {
     return this.cart;
@@ -381,26 +426,16 @@ class group5 extends Royal5utils {
   type = 'All 5 group 5';
   sample1 = 1;
   sample2 = 1;
-  multiplier = 1;
-  unitAmt = 1;
-  betAmt = '';
   rows = {
     row1:[],
     row2:[],
   };
-  cart = [];
-  readyData = {};
+
   constructor(pageId)
   {
     this(pageId);
   }
 
-
-  unsetBetAmt()
-  {
-    this.betAmt = '';
-    this.$('input.bet-amt').val('');
-  }
   pushToCart() {
  
     // console.log(this.unitAmt);
@@ -427,102 +462,10 @@ class group5 extends Royal5utils {
     }
   }
 
-  resetAllData()
-  {
-    this.multiplier = 1;
-    this.unitAmt = 1;
-    this.betAmt = '';
-    this.readyData = {};
-    this.$('.clear-btn').click();
-    this.$('input.bet-amt').val('');
-    this.$('.multiplier-input').val(1);
-    this.$('.multiplier-select').removeClass('money-bg');
-    this.$('.multiplier-select[value="1"]').addClass('money-bg');
-    this.$('.unit-amt').removeClass('money-bg');
-    this.$('.unit-amt[value="1"]').addClass('money-bg');
-  }
-
-  /***Getters */
-  getCart()
-  {
-    return this.cart;
-  }
-
-  getAllRows()
-  {
-    return this.rows;
-  }
-
-  getMultiplier()
-  {
-    return this.multiplier;
-  }
-
-  getBetAmt()
-  {
-    return this.betAmt;
-  }
-
-  setMultiplier(multiplier)
-  {
-    this.multiplier = multiplier;
-  }
-
-  setBetAmt(amt)
-  {
-    this.betAmt = amt;
-  }
-
-  setUnitAmt(amt)
-  {
-    this.unitAmt = amt;
-  }
-
-  getUnitAmt()
-  {
-    return this.unitAmt;
-  }
-
-  calcUnitAmt(betAmt) {
-    betAmt = betAmt||0;
-    let totalBets, unitAmt;
-    totalBets = this.calcTotalBets();
-    if(totalBets == 0)
-      return totalBets;
-    unitAmt = betAmt / totalBets;
-    return this.truncate(unitAmt);
-  }
-
-  calcActualAmt() {
-    return this.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
-  }
-
-
-  getRow(row)
-  {
-    return this.rows[row];
-  }
-
 }
 
 class group10 extends Royal5utils {
-  gameId = 8;
-  type = 'All 5 group 10';
-  sample1 = 1;
-  sample2 = 1;
-  multiplier = 1;
-  unitAmt = 1;
-  betAmt = '';
-  rows = {
-    row1:[],
-    row2:[]
-  };
-  cart = [];
-  readyData = {};
-  constructor(pageId)
-  {
-    this(pageId);
-  }
+  
   calcTotalBets() {
     let row1 = this.rows.row1;
     let row2 = this.rows.row2;
@@ -531,35 +474,6 @@ class group10 extends Royal5utils {
     return row2.length * (row1.length - repeat ) + repeat * ( row2.length - 1 )
   }
 
-  showBetsInfo()
-  {
-    let totalBets = this.calcTotalBets();
-    let unitAmt = this.betAmt? this.calcUnitAmt(this.betAmt):this.unitAmt;
-    if(!totalBets)
-    {
-      this.$('div.least-bet').show();
-      this.$('div.bet-info').hide();
-      this.disableButtons(true, '.cart', '.bet-now');
-      return 0;
-    }
-    let multiplier = this.multiplier;
-    // console.log(unitAmt);
-    let actualAmt = this.truncate(totalBets * multiplier * unitAmt);
-    this.$('span.total-bets').html(totalBets);
-    this.$('span.unit-amt').html(unitAmt);
-    this.$('span.actual-amt').html(actualAmt);
-    this.$('div.least-bet').hide();
-    this.$('div.bet-info').show();
-    this.disableButtons(false, '.cart', '.bet-now');
-    if(!unitAmt)
-    this.disableButtons(true, '.cart', '.bet-now');
-  }
-
-  unsetBetAmt()
-  {
-    this.betAmt = '';
-    this.$('input.bet-amt').val('');
-  }
   pushToCart() {
  
     // console.log(this.unitAmt);
@@ -575,93 +489,6 @@ class group10 extends Royal5utils {
     cart.push(this.readyData);
   }
 
-  saveToRow(data, row)
-  {
-    if (Array.isArray(data)) this.rows[row] = data;
-    else 
-    {
-      this.rows[row] = this.rows[row]||[];
-      let numIndex = this.rows[row].indexOf(data);
-      if (numIndex != -1) this.rows[row].splice(numIndex, 1);
-      else this.rows[row].push(data);
-    }
-  }
-
-  resetAllData()
-  {
-    this.multiplier = 1;
-    this.unitAmt = 1;
-    this.betAmt = '';
-    this.readyData = {};
-    this.$('.clear-btn').click();
-    this.$('input.bet-amt').val('');
-    this.$('.multiplier-input').val(1);
-    this.$('.multiplier-select').removeClass('money-bg');
-    this.$('.multiplier-select[value="1"]').addClass('money-bg');
-    this.$('.unit-amt').removeClass('money-bg');
-    this.$('.unit-amt[value="1"]').addClass('money-bg');
-  }
-
-  
-  getCart()
-  {
-    return this.cart;
-  }
-
-  getAllRows()
-  {
-    return this.rows;
-  }
-
-  getMultiplier()
-  {
-    return this.multiplier;
-  }
-
-  getBetAmt()
-  {
-    return this.betAmt;
-  }
-
-  setMultiplier(multiplier)
-  {
-    this.multiplier = multiplier;
-  }
-
-  setBetAmt(amt)
-  {
-    this.betAmt = amt;
-  }
-
-  setUnitAmt(amt)
-  {
-    this.unitAmt = amt;
-  }
-
-  getUnitAmt()
-  {
-    return this.unitAmt;
-  }
-
-  calcUnitAmt(betAmt) {
-    betAmt = betAmt||0;
-    let totalBets, unitAmt;
-    totalBets = this.calcTotalBets();
-    if(totalBets == 0)
-      return totalBets;
-    unitAmt = betAmt / totalBets;
-    return this.truncate(unitAmt);
-  }
-
-  calcActualAmt() {
-    return this.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
-  }
-
-
-  getRow(row)
-  {
-    return this.rows[row];
-  }
 
 }
 
@@ -671,19 +498,15 @@ class group20 extends Royal5utils {
   type = 'All 5 group 20';
   sample1 = 1;
   sample2 = 2;
-  multiplier = 1;
-  unitAmt = 1;
-  betAmt = '';
   rows = {
     row1:[],
     row2:[]
   };
-  cart = [];
-  readyData = {};
   constructor(pageId)
   {
     this(pageId);
   }
+
   calcTotalBets() {
       let row1 = this.rows.row1;
       let row2 = this.rows.row2;
@@ -692,37 +515,7 @@ class group20 extends Royal5utils {
       return row2.length * ( row2.length - 1 ) / 2  * (row1.length - repeat ) + repeat * ( row2.length - 1 ) * ( row2.length - 2 ) / 2
     }
 
-    showBetsInfo()
-  {
-    let totalBets = this.calcTotalBets();
-    let unitAmt = this.betAmt? this.calcUnitAmt(this.betAmt):this.unitAmt;
-    if(!totalBets)
-    {
-      this.$('div.least-bet').show();
-      this.$('div.bet-info').hide();
-      this.disableButtons(true, '.cart', '.bet-now');
-      return 0;
-    }
-
     
-    let multiplier = this.multiplier;
-    // console.log(unitAmt);
-    let actualAmt = this.truncate(totalBets * multiplier * unitAmt);
-    this.$('span.total-bets').html(totalBets);
-    this.$('span.unit-amt').html(unitAmt);
-    this.$('span.actual-amt').html(actualAmt);
-    this.$('div.least-bet').hide();
-    this.$('div.bet-info').show();
-    this.disableButtons(false, '.cart', '.bet-now');
-    if(!unitAmt)
-    this.disableButtons(true, '.cart', '.bet-now');
-  }
-
-  unsetBetAmt()
-  {
-    this.betAmt = '';
-    this.$('input.bet-amt').val('');
-  }
   pushToCart() {
  
     // console.log(this.unitAmt);
@@ -738,110 +531,19 @@ class group20 extends Royal5utils {
     cart.push(this.readyData);
   }
 
-  saveToRow(data, row)
-  {
-    if (Array.isArray(data)) this.rows[row] = data;
-    else 
-    {
-      this.rows[row] = this.rows[row]||[];
-      let numIndex = this.rows[row].indexOf(data);
-      if (numIndex != -1) this.rows[row].splice(numIndex, 1);
-      else this.rows[row].push(data);
-    }
-  }
-
-  resetAllData()
-  {
-    this.multiplier = 1;
-    this.unitAmt = 1;
-    this.betAmt = '';
-    this.readyData = {};
-    this.$('.clear-btn').click();
-    this.$('input.bet-amt').val('');
-    this.$('.multiplier-input').val(1);
-    this.$('.multiplier-select').removeClass('money-bg');
-    this.$('.multiplier-select[value="1"]').addClass('money-bg');
-    this.$('.unit-amt').removeClass('money-bg');
-    this.$('.unit-amt[value="1"]').addClass('money-bg');
-  }
-
-  
-  getCart()
-  {
-    return this.cart;
-  }
-
-  getAllRows()
-  {
-    return this.rows;
-  }
-
-  getMultiplier()
-  {
-    return this.multiplier;
-  }
-
-  getBetAmt()
-  {
-    return this.betAmt;
-  }
-
-  setMultiplier(multiplier)
-  {
-    this.multiplier = multiplier;
-  }
-
-  setBetAmt(amt)
-  {
-    this.betAmt = amt;
-  }
-
-  setUnitAmt(amt)
-  {
-    this.unitAmt = amt;
-  }
-
-  getUnitAmt()
-  {
-    return this.unitAmt;
-  }
-
-  calcUnitAmt(betAmt) {
-    betAmt = betAmt||0;
-    let totalBets, unitAmt;
-    totalBets = this.calcTotalBets();
-    if(totalBets == 0)
-      return totalBets;
-    unitAmt = betAmt / totalBets;
-    return this.truncate(unitAmt);
-  }
-
-  calcActualAmt() {
-    return this.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
   }
 
 
-  getRow(row)
-  {
-    return this.rows[row];
-  }
-
-  }
 
 class group30 extends Royal5utils {
   gameId = 6;
   type = 'All 5 group 30';
   sample1 = 2;
   sample2 = 1;
-  multiplier = 1;
-  unitAmt = 1;
-  betAmt = '';
   rows = {
     row1:[],
     row2:[]
   };
-  cart = [];
-  readyData = {};
   constructor(pageId)
   {
     this(pageId);
@@ -854,37 +556,7 @@ class group30 extends Royal5utils {
       return row1.length * ( row1.length - 1 ) / 2  * (row2.length - repeat ) + repeat * ( row1.length - 1 ) * ( row1.length - 2 ) / 2;
   }
 
-  showBetsInfo()
-  {
-    let totalBets = this.calcTotalBets();
-    let unitAmt = this.betAmt? this.calcUnitAmt(this.betAmt):this.unitAmt;
-    if(!totalBets)
-    {
-      this.$('div.least-bet').show();
-      this.$('div.bet-info').hide();
-      this.disableButtons(true, '.cart', '.bet-now');
-      return 0;
-    }
-
-    
-    let multiplier = this.multiplier;
-    // console.log(unitAmt);
-    let actualAmt = this.truncate(totalBets * multiplier * unitAmt);
-    this.$('span.total-bets').html(totalBets);
-    this.$('span.unit-amt').html(unitAmt);
-    this.$('span.actual-amt').html(actualAmt);
-    this.$('div.least-bet').hide();
-    this.$('div.bet-info').show();
-    this.disableButtons(false, '.cart', '.bet-now');
-    if(!unitAmt)
-    this.disableButtons(true, '.cart', '.bet-now');
-  }
-
-  unsetBetAmt()
-  {
-    this.betAmt = '';
-    this.$('input.bet-amt').val('');
-  }
+ 
   pushToCart() {
  
     // console.log(this.unitAmt);
@@ -912,82 +584,6 @@ class group30 extends Royal5utils {
     }
   }
 
-  resetAllData()
-  {
-    this.multiplier = 1;
-    this.unitAmt = 1;
-    this.betAmt = '';
-    this.readyData = {};
-    this.$('.clear-btn').click();
-    this.$('input.bet-amt').val('');
-    this.$('.multiplier-input').val(1);
-    this.$('.multiplier-select').removeClass('money-bg');
-    this.$('.multiplier-select[value="1"]').addClass('money-bg');
-    this.$('.unit-amt').removeClass('money-bg');
-    this.$('.unit-amt[value="1"]').addClass('money-bg');
-  }
-
-  
-  getCart()
-  {
-    return this.cart;
-  }
-
-  getAllRows()
-  {
-    return this.rows;
-  }
-
-  getMultiplier()
-  {
-    return this.multiplier;
-  }
-
-  getBetAmt()
-  {
-    return this.betAmt;
-  }
-
-  setMultiplier(multiplier)
-  {
-    this.multiplier = multiplier;
-  }
-
-  setBetAmt(amt)
-  {
-    this.betAmt = amt;
-  }
-
-  setUnitAmt(amt)
-  {
-    this.unitAmt = amt;
-  }
-
-  getUnitAmt()
-  {
-    return this.unitAmt;
-  }
-
-  calcUnitAmt(betAmt) {
-    betAmt = betAmt||0;
-    let totalBets, unitAmt;
-    totalBets = this.calcTotalBets();
-    if(totalBets == 0)
-      return totalBets;
-    unitAmt = betAmt / totalBets;
-    return this.truncate(unitAmt);
-  }
-
-  calcActualAmt() {
-    return this.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
-  }
-
-
-  getRow(row)
-  {
-    return this.rows[row];
-  }
-
 }
 
 class group60 extends Royal5utils {
@@ -995,15 +591,10 @@ class group60 extends Royal5utils {
   type = 'All 5 group 60';
   sample1 = 1;
   sample2 = 3;
-  multiplier = 1;
-  unitAmt = 1;
-  betAmt = '';
   rows = {
     row1:[],
     row2:[]
   };
-  cart = [];
-  readyData = {};
   constructor(pageId)
   {
     this(pageId);
@@ -1016,37 +607,6 @@ class group60 extends Royal5utils {
       return row2.length * ( row2.length - 1 ) * ( row2.length - 2 ) / 6     *   ( row1.length - repeat ) + repeat * ( row2.length - 1) * ( row2.length - 2 ) * ( row2.length - 3 ) / 6;
   }
 
-  showBetsInfo()
-  {
-    let totalBets = this.calcTotalBets();
-    let unitAmt = this.betAmt? this.calcUnitAmt(this.betAmt):this.unitAmt;
-    if(!totalBets)
-    {
-      this.$('div.least-bet').show();
-      this.$('div.bet-info').hide();
-      this.disableButtons(true, '.cart', '.bet-now');
-      return 0;
-    }
-
-    
-    let multiplier = this.multiplier;
-    // console.log(unitAmt);
-    let actualAmt = this.truncate(totalBets * multiplier * unitAmt);
-    this.$('span.total-bets').html(totalBets);
-    this.$('span.unit-amt').html(unitAmt);
-    this.$('span.actual-amt').html(actualAmt);
-    this.$('div.least-bet').hide();
-    this.$('div.bet-info').show();
-    this.disableButtons(false, '.cart', '.bet-now');
-    if(!unitAmt)
-    this.disableButtons(true, '.cart', '.bet-now');
-  }
-
-  unsetBetAmt()
-  {
-    this.betAmt = '';
-    this.$('input.bet-amt').val('');
-  }
   pushToCart() {
  
     // console.log(this.unitAmt);
@@ -1062,152 +622,28 @@ class group60 extends Royal5utils {
     cart.push(this.readyData);
   }
 
-  saveToRow(data, row)
-  {
-    if (Array.isArray(data)) this.rows[row] = data;
-    else 
-    {
-      this.rows[row] = this.rows[row]||[];
-      let numIndex = this.rows[row].indexOf(data);
-      if (numIndex != -1) this.rows[row].splice(numIndex, 1);
-      else this.rows[row].push(data);
-    }
   }
 
-  resetAllData()
-  {
-    this.multiplier = 1;
-    this.unitAmt = 1;
-    this.betAmt = '';
-    this.readyData = {};
-    this.$('.clear-btn').click();
-    this.$('input.bet-amt').val('');
-    this.$('.multiplier-input').val(1);
-    this.$('.multiplier-select').removeClass('money-bg');
-    this.$('.multiplier-select[value="1"]').addClass('money-bg');
-    this.$('.unit-amt').removeClass('money-bg');
-    this.$('.unit-amt[value="1"]').addClass('money-bg');
-  }
-
-  
-  getCart()
-  {
-    return this.cart;
-  }
-
-  getAllRows()
-  {
-    return this.rows;
-  }
-
-  getMultiplier()
-  {
-    return this.multiplier;
-  }
-
-  getBetAmt()
-  {
-    return this.betAmt;
-  }
-
-  setMultiplier(multiplier)
-  {
-    this.multiplier = multiplier;
-  }
-
-  setBetAmt(amt)
-  {
-    this.betAmt = amt;
-  }
-
-  setUnitAmt(amt)
-  {
-    this.unitAmt = amt;
-  }
-
-  getUnitAmt()
-  {
-    return this.unitAmt;
-  }
-
-  calcUnitAmt(betAmt) {
-    betAmt = betAmt||0;
-    let totalBets, unitAmt;
-    totalBets = this.calcTotalBets();
-    if(totalBets == 0)
-      return totalBets;
-    unitAmt = betAmt / totalBets;
-    return this.truncate(unitAmt);
-  }
-
-  calcActualAmt() {
-    return this.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
-  }
-
-
-  getRow(row)
-  {
-    return this.rows[row];
-  }
-
-}
 
 class group120 extends Royal5utils {
   gameId = 4;
   type = 'All 5 group 120';
   sample1 = 5;
-  multiplier = 1;
-  unitAmt = 1;
-  betAmt = '';
   rows = {
     row1:[]
   };
-  cart = [];
-  readyData = {};
   constructor(pageId)
   {
     this(pageId);
   
   }
 
-  
   calcTotalBets()
   {     let row1 = this.rows.row1;
         let len = row1.length;
         return (len * (len - 1) * (len - 2) * (len - 3) * (len - 4)) / 120;
   }
 
-  showBetsInfo()
-  {
-    let totalBets = this.calcTotalBets();
-    let unitAmt = this.betAmt? this.calcUnitAmt(this.betAmt):this.unitAmt;
-    if(!totalBets)
-    {
-      this.$('div.least-bet').show();
-      this.$('div.bet-info').hide();
-      this.disableButtons(true, '.cart', '.bet-now');
-      return 0;
-    }
-
-    
-    let multiplier = this.multiplier;
-    // console.log(unitAmt);
-    let actualAmt = this.truncate(totalBets * multiplier * unitAmt);
-    this.$('span.total-bets').html(totalBets);
-    this.$('span.unit-amt').html(unitAmt);
-    this.$('span.actual-amt').html(actualAmt);
-    this.$('div.least-bet').hide();
-    this.$('div.bet-info').show();
-    this.disableButtons(false, '.cart', '.bet-now');
-    if(!unitAmt)
-    this.disableButtons(true, '.cart', '.bet-now');
-  }
-
-  unsetBetAmt()
-  {
-    this.betAmt = '';
-    this.$('input.bet-amt').val('');
-  }
 
   pushToCart()
   {
@@ -1223,110 +659,6 @@ class group120 extends Royal5utils {
     this.readyData = {};
   }
 
-
-getSavedData()
-{
-  return this.readyData;
-}
-  saveData()
-  {
-    this.readyData.index.gameId = this.gameId;
-    this.readyData.unitStaked = this.unitAmt;
-    this.readyData.totalBetAmt = this.calcActualAmt();
-    this.readyData.multiplier =this.multiplier;
-    this.readyData.totalBets = this.calcTotalBets();
-    this.readyData.allSelections = this.allSelections(...Object.values(this.rows), this.sample1);
-    this.readyData.userSelections = Object.values(this.rows).join("|");
-  }
-
-  saveToRow(data, row)
-  {
-    if (Array.isArray(data)) this.rows[row] = data;
-    else 
-    {
-      this.rows[row] = this.rows[row]||[];
-      let numIndex = this.rows[row].indexOf(data);
-      if (numIndex != -1) this.rows[row].splice(numIndex, 1);
-      else this.rows[row].push(data);
-    }
-  }
-
-  resetAllData()
-  {
-    this.multiplier = 1;
-    this.unitAmt = 1;
-    this.betAmt = '';
-    this.readyData = {};
-    this.$('.clear-btn').click();
-    this.$('input.bet-amt').val('');
-    this.$('.multiplier-input').val(1);
-    this.$('.multiplier-select').removeClass('money-bg');
-    this.$('.multiplier-select[value="1"]').addClass('money-bg');
-    this.$('.unit-amt').removeClass('money-bg');
-    this.$('.unit-amt[value="1"]').addClass('money-bg');
-  }
-
-  
-  getCart()
-  {
-    return this.cart;
-  }
-
-  getAllRows()
-  {
-    return this.rows;
-  }
-
-  getMultiplier()
-  {
-    return this.multiplier;
-  }
-
-  getBetAmt()
-  {
-    return this.betAmt;
-  }
-
-  setMultiplier(multiplier)
-  {
-    this.multiplier = multiplier;
-  }
-
-  setBetAmt(amt)
-  {
-    this.betAmt = amt;
-  }
-
-  setUnitAmt(amt)
-  {
-    this.unitAmt = amt;
-  }
-
-  getUnitAmt()
-  {
-    return this.unitAmt;
-  }
-
-  calcUnitAmt(betAmt) {
-    betAmt = betAmt||0;
-    let totalBets, unitAmt;
-    totalBets = this.calcTotalBets();
-    if(totalBets == 0)
-      return totalBets;
-    unitAmt = betAmt / totalBets;
-    return this.truncate(unitAmt);
-  }
-
-  calcActualAmt() {
-    return this.truncate(this.calcTotalBets() * this.multiplier * this.unitAmt);
-  }
-
-
-  getRow(row)
-  {
-    return this.rows[row];
-  }
-
 }
 
 class groupJoint extends Royal5utils {
@@ -1335,9 +667,6 @@ class groupJoint extends Royal5utils {
   type = 'All 5 Straight(Joint)';
   // sample1 = 1;
   // sample2 = 1;
-  multiplier = 1;
-  unitAmt = 1;
-  betAmt = '';
   rows = {
     row1:[],
     row2:[],
@@ -1345,8 +674,6 @@ class groupJoint extends Royal5utils {
     row4:[],
     row5:[]
   };
-  cart = [];
-  readyData = {};
   constructor(pageId)
   {
     this(pageId);
@@ -1359,37 +686,7 @@ class groupJoint extends Royal5utils {
     let row5 = this.rows.row5.length;
     return row1 * row2 * row3 * row4 * row5;
   }
-  showBetsInfo()
-  {
-    let totalBets = this.calcTotalBets();
-    let unitAmt = this.betAmt? this.calcUnitAmt(this.betAmt):this.unitAmt;
-    if(!totalBets)
-    {
-      this.$('div.least-bet').show();
-      this.$('div.bet-info').hide();
-      this.disableButtons(true, '.cart', '.bet-now');
-      return 0;
-    }
 
-    
-    let multiplier = this.multiplier;
-    // console.log(unitAmt);
-    let actualAmt = this.truncate(totalBets * multiplier * unitAmt);
-    this.$('span.total-bets').html(totalBets);
-    this.$('span.unit-amt').html(unitAmt);
-    this.$('span.actual-amt').html(actualAmt);
-    this.$('div.least-bet').hide();
-    this.$('div.bet-info').show();
-    this.disableButtons(false, '.cart', '.bet-now');
-    if(!unitAmt)
-    this.disableButtons(true, '.cart', '.bet-now');
-  }
-
-  unsetBetAmt()
-  {
-    this.betAmt = '';
-    this.$('input.bet-amt').val('');
-  }
   pushToCart() {
  
     // console.log(this.unitAmt);
@@ -1404,94 +701,6 @@ class groupJoint extends Royal5utils {
     cart.push(this.readyData);
   }
 
-  saveToRow(data, row)
-  {
-    if (Array.isArray(data)) this.rows[row] = data;
-    else 
-    {
-      this.rows[row] = this.rows[row]||[];
-      let numIndex = this.rows[row].indexOf(data);
-      if (numIndex != -1) this.rows[row].splice(numIndex, 1);
-      else this.rows[row].push(data);
-    }
-  }
-
-  resetAllData()
-  {
-    this.multiplier = 1;
-    this.unitAmt = 1;
-    this.betAmt = '';
-    this.readyData = {};
-    this.$('.clear-btn').click();
-    this.$('input.bet-amt').val('');
-    this.$('.multiplier-input').val(1);
-    this.$('.multiplier-select').removeClass('money-bg');
-    this.$('.multiplier-select[value="1"]').addClass('money-bg');
-    this.$('.unit-amt').removeClass('money-bg');
-    this.$('.unit-amt[value="1"]').addClass('money-bg');
-  }
-
-  
-  getCart()
-  {
-    return this.cart;
-  }
-
-  getAllRows()
-  {
-    return this.rows;
-  }
-
-  getMultiplier()
-  {
-    return this.multiplier;
-  }
-
-  getBetAmt()
-  {
-    return this.betAmt;
-  }
-
-  setMultiplier(multiplier)
-  {
-    this.multiplier = multiplier;
-  }
-
-  setBetAmt(amt)
-  {
-    this.betAmt = amt;
-  }
-
-  setUnitAmt(amt)
-  {
-    this.unitAmt = amt;
-  }
-
-  getUnitAmt()
-  {
-    return this.unitAmt;
-  }
-
-  calcUnitAmt(betAmt) {
-    betAmt = betAmt||0;
-    let totalBets, unitAmt;
-    totalBets = this.calcTotalBets();
-    if(totalBets == 0)
-      return totalBets;
-    unitAmt = betAmt / totalBets;
-    return this.truncate(unitAmt);
-  }
-
-  calcActualAmt() {
-    return this.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
-  }
-
-
-  getRow(row)
-  {
-    return this.rows[row];
-  }
-
 }
 
 class groupManual extends Royal5utils {
@@ -1499,11 +708,6 @@ class groupManual extends Royal5utils {
   type = 'All 5 group Straight(Manual)';
   sample1 = 1;
   sample2 = 1;
-  multiplier = 1;
-  unitAmt = 1;
-  errorBets = 0;
-  allBets = [];
-  betAmt = '';
   rows = {
     row1:[],
     row2:[],
@@ -1511,49 +715,18 @@ class groupManual extends Royal5utils {
     row4:[],
     row5:[]
   };
-  cart = [];
-  readyData = {};
   constructor(pageId)
   {
     this(pageId);
   }
 
-  showBetsInfo()
-  {
-    let totalBets = this.calcTotalBets();
-    let unitAmt = this.betAmt? this.calcUnitAmt(this.betAmt):this.unitAmt;
-    if(!totalBets)
-    {
-      this.$('div.least-bet').show();
-      this.$('div.bet-info').hide();
-      this.disableButtons(true, '.cart', '.bet-now');
-      return 0;
-    }
-
-    
-    let multiplier = this.multiplier;
-    // console.log(unitAmt);
-    let actualAmt = this.truncate(totalBets * multiplier * unitAmt);
-    this.$('span.total-bets').html(totalBets);
-    this.$('span.unit-amt').html(unitAmt);
-    this.$('span.actual-amt').html(actualAmt);
-    this.$('div.least-bet').hide();
-    this.$('div.bet-info').show();
-    this.disableButtons(false, '.cart', '.bet-now');
-    if(!unitAmt)
-    this.disableButtons(true, '.cart', '.bet-now');
-  }
-
+  
   calcTotalBets()
   {
     return this.allBets.length;
   }
 
-  unsetBetAmt()
-  {
-    this.betAmt = '';
-    this.$('input.bet-amt').val('');
-  }
+
   pushToCart() {
  
     // console.log(this.unitAmt);
@@ -1567,139 +740,7 @@ class groupManual extends Royal5utils {
     this.readyData.userSelections = [];
     cart.push(this.readyData);
   }
-
-  setAllBets()
-  {
-
-    this.allBets = this.getBets();
-  }
-
-  alertErrBets()
-  {
-    if(this.errorBets)
-    {
-      this.$('.bet-box').val(this.allBets);
-      alert("System Deleted Invalid Entries");
-    }
-  }
-
-  getBets()
-  {
-    let bets = this.$('.bet-box').val().split(";");
-    bets.forEach((element, index)=>{
-      element = element.trim();
-      bets[index] = element;
-      let arrElement = element.split(',');
-      let errors = 0;
-      if(!this.isValidEntry(arrElement)){
-        bets.splice(index,1);
-        errors++;
-      }
-      this.errorBets = errors;
-    });
-    
-    return bets;
-  }
-
-  isValidEntry(entry)
-  {
-    if(entry.length != 5)
-      return false;
-    if(entry.some(value=>{
-      return (isNaN(value) || isNaN(parseInt(value)));
-    })) return false;
-
-    return true;
-  }
  
- 
-  saveToRow(data, row)
-  {
-    if (Array.isArray(data)) this.rows[row] = data;
-    else 
-    {
-      this.rows[row] = this.rows[row]||[];
-      let numIndex = this.rows[row].indexOf(data);
-      if (numIndex != -1) this.rows[row].splice(numIndex, 1);
-      else this.rows[row].push(data);
-    }
-  }
-
-  resetAllData()
-  {
-    this.multiplier = 1;
-    this.unitAmt = 1;
-    this.betAmt = '';
-    this.readyData = {};
-    this.$('.clear-btn').click();
-    this.$('input.bet-amt').val('');
-    this.$('.multiplier-input').val(1);
-    this.$('.multiplier-select').removeClass('money-bg');
-    this.$('.multiplier-select[value="1"]').addClass('money-bg');
-    this.$('.unit-amt').removeClass('money-bg');
-    this.$('.unit-amt[value="1"]').addClass('money-bg');
-  }
-
-  
-  getCart()
-  {
-    return this.cart;
-  }
-
-  getAllRows()
-  {
-    return this.rows;
-  }
-
-  getMultiplier()
-  {
-    return this.multiplier;
-  }
-
-  getBetAmt()
-  {
-    return this.betAmt;
-  }
-
-  setMultiplier(multiplier)
-  {
-    this.multiplier = multiplier;
-  }
-
-  setBetAmt(amt)
-  {
-    this.betAmt = amt;
-  }
-
-  setUnitAmt(amt)
-  {
-    this.unitAmt = amt;
-  }
-
-  getUnitAmt()
-  {
-    return this.unitAmt;
-  }
-
-  calcUnitAmt(betAmt) {
-    betAmt = betAmt||0;
-    let totalBets, unitAmt;
-    totalBets = this.calcTotalBets();
-    if(totalBets == 0)
-      return totalBets;
-    unitAmt = betAmt / totalBets;
-    return this.truncate(unitAmt);
-  }
-
-  calcActualAmt() {
-    return this.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
-  }
-
-
-  getRow(row)
-  {
-    return this.rows[row];
-  }
 
 }
 
@@ -1877,6 +918,9 @@ let cart = [];
 let oldClass = 'group120';
 let game = new group120('#group-120');
 ready('group120');
+
+
+
 function ready(className){
 if(initializedClasses.includes(className)) 
 {
