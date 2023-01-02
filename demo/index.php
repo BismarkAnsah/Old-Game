@@ -373,7 +373,7 @@ li{
               <button class="game">Mid 3</button>
               <button class="game">Last 3</button>
             </div>
-            <div class="all5">
+            <div id="all5">
             <div style="height:150px;background-color:#E6E1FF;padding:20px">
               <div>
 

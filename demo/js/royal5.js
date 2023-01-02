@@ -1309,7 +1309,22 @@ function getClass(className, classConstructor)
 
 
 
+function getDrawNum(url=false, data=false)
+{
+    // let url = '../generateRandom.php';
+    let url =  '../receiver.php?action=getdrawnumber';
+    let results = false;
+    let data = {
+      'last_id':lastId
+    }
+    data = JSON.stringify(data);
 
+    let req = $.post(url, data, function(response){
+        results = JSON.parse(response); 
+  })
+  req.fail(function(){console.log('failed')});
+  return results;
+  }
 
 
 
@@ -1346,13 +1361,13 @@ data = JSON.stringify(data);
     let req = $.post(url, data, function(response){
       response = JSON.parse(response);
       if(response.numbers){
-        console.log(response);
-        lastId = response.id;
+        // console.log(response);
+        // lastId = response.id;
       $('.wining_num').each(function(index){
         $(this).html(response.numbers[index]);
       })}
   })
-  req.fail(function(){console.log('failed')})
+  req.fail(function(){console.log('failed')});
   }
   
 
