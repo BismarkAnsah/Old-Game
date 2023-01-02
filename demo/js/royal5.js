@@ -1,4 +1,4 @@
-//draw numbers
+
 import * as $C from "../js/combinatorics.js";
 class Royal5utils {
 
@@ -928,323 +928,324 @@ ready('group120');
 
 
 function ready(className){
-if(initializedClasses.includes(className)) 
-{
-    game.resetAllData();
-    return 0;
-}
-
-function showBetsInfo()
-{
-  let totalBets = game.calcTotalBets();
-  let unitAmt = game.getBetAmt()? game.calcUnitAmt(game.betAmt):game.getUnitAmt();
-  if(!totalBets)
+  if(initializedClasses.includes(className)) 
   {
-    game.$('div.least-bet').show();
-    game.$('div.bet-info').hide();
-    game.disableButtons(true, '.cart', '.bet-now');
-    return 0;
+      game.resetAllData();
+      return 0;
   }
 
-  
-  let multiplier = game.getMultiplier();
-  // console.log(unitAmt);
-  let actualAmt = game.truncate(totalBets * multiplier * unitAmt);
-  game.$('span.total-bets').html(totalBets);
-  game.$('span.unit-amt').html(unitAmt);
-  game.$('span.actual-amt').html(actualAmt);
-  game.$('div.least-bet').hide();
-  game.$('div.bet-info').show();
-  game.disableButtons(false, '.cart', '.bet-now');
-  if(!unitAmt)
-  game.disableButtons(true, '.cart', '.bet-now');
-}
+  function showBetsInfo()
+  {
+    let totalBets = game.calcTotalBets();
+    let unitAmt = game.getBetAmt()? game.calcUnitAmt(game.betAmt):game.getUnitAmt();
+    if(!totalBets)
+    {
+      game.$('div.least-bet').show();
+      game.$('div.bet-info').hide();
+      game.disableButtons(true, '.cart', '.bet-now');
+      return 0;
+    }
 
-
-initializedClasses.push(className);
-let classNames = {
-  selectionCtrl:'selection-ctr',
-  allBtn:'.all-btn',
-  bigBtn:'.big-btn',
-  smallBtn:'.small-btn',
-  oddBtn:'.odd-btn',
-  evenBtn:'.even-btn',
-  clearBtn:'.clear-btn',
-  row1Nums:'.row1',
-  row2Nums:'.row2',
-  row3Nums:'.row3',
-  row4Nums:'.row4',
-  row5Nums:'.row5',
-  row6Nums:'.row6',
-  betAmt:'.bet-amt',
-  eachBetBox:'.each-bet-select',
-  multiplierSelect:'.multiplier-select',
-  unitAmt:'.unit-amt',
-  eachBetShow:'.each-bet',
-  totalBetShow:'.total-bet',
-  totalBetAmtShow:'.totalAmt',
-  multiValue: '.multiplier-input',
-  cartBtn:'.cart-btn',
-  betNowBtn:'.bet-now',
-  numBtn: '.num'
-};
-
-
-
-let savePoint = {
-  cart:[],
-  data:{
-    // row1,
-    // row2
-  }
-}
-
-// $('.cart').hide();
-// $('.cart-items').hide();
-
- game.$(classNames.allBtn).click(function(){
-    let data = [0,1,2,3,4,5,6,7,8,9];
     
-    let row = $(this).parent().attr('data-points-to');
-    game.selectAll(`.${row}`);
-    game.saveToRow(data, row);
-    showBetsInfo();
+    let multiplier = game.getMultiplier();
+    // console.log(unitAmt);
+    let actualAmt = game.truncate(totalBets * multiplier * unitAmt);
+    game.$('span.total-bets').html(totalBets);
+    game.$('span.unit-amt').html(unitAmt);
+    game.$('span.actual-amt').html(actualAmt);
+    game.$('div.least-bet').hide();
+    game.$('div.bet-info').show();
+    game.disableButtons(false, '.cart', '.bet-now');
+    if(!unitAmt)
+    game.disableButtons(true, '.cart', '.bet-now');
+  }
+
+
+  initializedClasses.push(className);
+  let classNames = {
+    selectionCtrl:'selection-ctr',
+    allBtn:'.all-btn',
+    bigBtn:'.big-btn',
+    smallBtn:'.small-btn',
+    oddBtn:'.odd-btn',
+    evenBtn:'.even-btn',
+    clearBtn:'.clear-btn',
+    row1Nums:'.row1',
+    row2Nums:'.row2',
+    row3Nums:'.row3',
+    row4Nums:'.row4',
+    row5Nums:'.row5',
+    row6Nums:'.row6',
+    betAmt:'.bet-amt',
+    eachBetBox:'.each-bet-select',
+    multiplierSelect:'.multiplier-select',
+    unitAmt:'.unit-amt',
+    eachBetShow:'.each-bet',
+    totalBetShow:'.total-bet',
+    totalBetAmtShow:'.totalAmt',
+    multiValue: '.multiplier-input',
+    cartBtn:'.cart-btn',
+    betNowBtn:'.bet-now',
+    numBtn: '.num'
+  };
+
+
+
+  let savePoint = {
+    cart:[],
+    data:{
+      // row1,
+      // row2
+    }
+  }
+
+  // $('.cart').hide();
+  // $('.cart-items').hide();
+
+  game.$(classNames.allBtn).click(function(){
+      let data = [0,1,2,3,4,5,6,7,8,9];
+      let row = $(this).parent().attr('data-points-to');
+      game.selectAll(`.${row}`);
+      game.saveToRow(data, row);
+      showBetsInfo();
+    });
+
+
+  game.$(classNames.bigBtn).click(function(){
+      let data = [5,6,7,8,9];
+      let row = $(this).parent().attr('data-points-to');
+      game.selectBig(`.${row}`);
+      game.saveToRow(data, row);
+      showBetsInfo();
+    });
+
+
+  game.$(classNames.smallBtn).click(function(){
+      let data = [0,1,2,3,4];
+      let row = $(this).parent().attr('data-points-to');
+      game.selectSmall(`.${row}`);
+      game.saveToRow(data, row);
+      console.log(data);
+      showBetsInfo();
+    });
+
+
+  game.$(classNames.oddBtn).click(function(){
+      let data = [1,3,5,7,9];
+      let row = $(this).parent().attr('data-points-to');
+      game.selectOdd(`.${row}`);
+      game.saveToRow(data, row);
+      showBetsInfo();
+    });
+
+  game.$(classNames.evenBtn).click(function(){
+      let data = [0,2,4,6,8];
+      let row = $(this).parent().attr('data-points-to');
+      game.selectEven(`.${row}`);
+      savePoint.data[row] = data;
+      game.saveToRow(data, row);
+      showBetsInfo();
+    });
+
+
+    game.$('.num').click(function(){
+      $(this).toggleClass('default');
+      let btnValue = parseInt($(this).children().html());
+      let classNames = $(this).attr('class');
+      let row  = game.getRowFromClass(classNames);
+      console.log(row, btnValue);
+      game.saveToRow(btnValue, row);
+      showBetsInfo();
+      // let req=$.post('index.php', {name:'kofi'});
+      // req.done(function(){alert('done')})
+      // req.fail(function(){alert('failed')})
+      // let req = $.get('rand.php',function(data, status){
+      //     alert("data: "+data +"\nStatus: "+ status);
+      // })
+      // req.fail(function(){alert('failed')})
+    })
+
+  game.$(classNames.clearBtn).click(function(){
+      let data = [];
+      let row = $(this).parent().attr('data-points-to');
+      game.clear(`.${row}`);
+      savePoint.data[row] = data;
+      game.saveToRow(data, row);
+      showBetsInfo();
+    });
+
+    
+    game.$(classNames.multiplierSelect).click(function(){
+        game.$(classNames.multiplierSelect).removeClass('money-bg');
+        game.$(this).addClass('money-bg');
+        let value = $(this).val();
+        game.setMultiplier(value);
+        game.$('.multiplier-input').val(value);
+        game.unsetBetAmt();
+        showBetsInfo();
+  });
+
+  game.$(classNames.unitAmt).click(function(){
+        game.$(classNames.unitAmt).removeClass('money-bg');
+        game.$(this).addClass('money-bg');
+        let value = $(this).val();
+        game.setUnitAmt(value);
+        game.unsetBetAmt();
+        showBetsInfo();
   });
 
 
- game.$(classNames.bigBtn).click(function(){
-    let data = [5,6,7,8,9];
-    let row = $(this).parent().attr('data-points-to');
-    game.selectBig(`.${row}`);
-    game.saveToRow(data, row);
-    showBetsInfo();
-  });
-
-
- game.$(classNames.smallBtn).click(function(){
-    let data = [0,1,2,3,4];
-    let row = $(this).parent().attr('data-points-to');
-    game.selectSmall(`.${row}`);
-    game.saveToRow(data, row);
-    console.log(data);
-    showBetsInfo();
-  });
-
-
- game.$(classNames.oddBtn).click(function(){
-    let data = [1,3,5,7,9];
-    let row = $(this).parent().attr('data-points-to');
-    game.selectOdd(`.${row}`);
-    game.saveToRow(data, row);
-    showBetsInfo();
-  });
-
- game.$(classNames.evenBtn).click(function(){
-    let data = [0,2,4,6,8];
-    let row = $(this).parent().attr('data-points-to');
-    game.selectEven(`.${row}`);
-    savePoint.data[row] = data;
-    game.saveToRow(data, row);
-    showBetsInfo();
-  });
-
-
-  game.$('.num').click(function(){
-    $(this).toggleClass('default');
-    let btnValue = parseInt($(this).children().html());
-    let classNames = $(this).attr('class');
-    let row  = game.getRowFromClass(classNames);
-    console.log(row, btnValue);
-    game.saveToRow(btnValue, row);
-    showBetsInfo();
-    // let req=$.post('index.php', {name:'kofi'});
-    // req.done(function(){alert('done')})
-    // req.fail(function(){alert('failed')})
-    // let req = $.get('rand.php',function(data, status){
-    //     alert("data: "+data +"\nStatus: "+ status);
-    // })
-    // req.fail(function(){alert('failed')})
+  game.$('.multiplier-input').click(function(){
+    $(this).select();
   })
 
- game.$(classNames.clearBtn).click(function(){
-    let data = [];
-    let row = $(this).parent().attr('data-points-to');
-    game.clear(`.${row}`);
-    savePoint.data[row] = data;
-    game.saveToRow(data, row);
+  game.$('.multiplier-input').on('input', function(){
+    let onlyNums = parseInt($(this).val().replace(/\D+/g, ''));
+    onlyNums = onlyNums ? onlyNums:1;
+    $(this).val(onlyNums);
+    game.$(`.multiplier-select[value=${onlyNums}]`).click();
+    game.unsetBetAmt();
+    game.setMultiplier(onlyNums);
     showBetsInfo();
-  });
+  })
 
-  
-  game.$(classNames.multiplierSelect).click(function(){
-      game.$(classNames.multiplierSelect).removeClass('money-bg');
-      game.$(this).addClass('money-bg');
-      let value = $(this).val();
-      game.setMultiplier(value);
-      game.$('.multiplier-input').val(value);
-      game.unsetBetAmt();
-      showBetsInfo();
- });
+  game.$('input.bet-amt').click(function(){
+    let betAmt = game.betAmt;
+    let unitAmt = game.betAmt?unitAmt:0;
+    game.setUnitAmt(unitAmt);
+    $(this).val(betAmt);
+    $(this).select();
+    game.$('.unit-amt').removeClass('money-bg');
+    game.$('.multiplier-select[value="1"]').click();
+  })
 
- game.$(classNames.unitAmt).click(function(){
-      game.$(classNames.unitAmt).removeClass('money-bg');
-      game.$(this).addClass('money-bg');
-      let value = $(this).val();
-      game.setUnitAmt(value);
-      game.unsetBetAmt();
-      showBetsInfo();
- });
-
-
- game.$('.multiplier-input').click(function(){
-  $(this).select();
- })
-
- game.$('.multiplier-input').on('input', function(){
-  let onlyNums = parseInt($(this).val().replace(/\D+/g, ''));
-  onlyNums = onlyNums ? onlyNums:1;
-  $(this).val(onlyNums);
-  game.$(`.multiplier-select[value=${onlyNums}]`).click();
-  game.unsetBetAmt();
-  game.setMultiplier(onlyNums);
-  showBetsInfo();
- })
-
- game.$('input.bet-amt').click(function(){
-  let betAmt = game.betAmt;
-  let unitAmt = game.betAmt?unitAmt:0;
-  game.setUnitAmt(unitAmt);
-  $(this).val(betAmt);
-  $(this).select();
-  game.$('.unit-amt').removeClass('money-bg');
-  game.$('.multiplier-select[value="1"]').click();
- })
-
- game.$('input.bet-amt').on('input', function(){
-  let onlyNums = parseInt($(this).val().replace(/\D+/g, ''));
-  onlyNums = onlyNums ? onlyNums:'';
-  onlyNums = onlyNums>=9999?9999:onlyNums;
-  let unitAmt = game.calcUnitAmt(onlyNums);
-  game.setUnitAmt(unitAmt);
-  game.setBetAmt(onlyNums);
-  $(this).val(onlyNums);
-  showBetsInfo();
-  console.log(game.getBetAmt());
- })
-
- game.$('.bet-amt').on('blur', function(){ 
-   
-})
-
-game.$('.bet-box').on('input',function(){
-    game.setAllBets();
+  game.$('input.bet-amt').on('input', function(){
+    let onlyNums = parseInt($(this).val().replace(/\D+/g, ''));
+    onlyNums = onlyNums ? onlyNums:'';
+    onlyNums = onlyNums>=9999?9999:onlyNums;
+    let unitAmt = game.calcUnitAmt(onlyNums);
+    game.setUnitAmt(unitAmt);
+    game.setBetAmt(onlyNums);
+    $(this).val(onlyNums);
     showBetsInfo();
-})
+    console.log(game.getBetAmt());
+  })
 
- game.$('.plus').click(function(){
-  game.increaseMultiplier(classNames.multiValue);
-  $(this).addClass('money-bg');
-  let value = game.$('.multiplier-input').val();
-  setTimeout(function(){
-    $('.plus').removeClass('money-bg')
-  }, 50);
-  game.setMultiplier(value);
-  game.$('.multiplier-select').removeClass('money-bg');
-  game.$(`.multiplier-select[value=${value}]`).click();
-  showBetsInfo();
- })
-
- game.$('.minus').click(function(){
-  game.decreaseMultiplier(classNames.multiValue);
-  let value = game.$('.multiplier-input').val();
-  $(this).addClass('money-bg');
-  setTimeout(function(){
-    $('.minus').removeClass('money-bg')
-  }, 50);
-  game.setMultiplier(value);
-  game.$('.multiplier-select').removeClass('money-bg');
-  game.$(`.multiplier-select[value=${value}]`).click();
-  showBetsInfo();
- })
-
-game.$('.cart').click(function(){
-  game.saveData();
-  game.pushToCart();
-  game.resetAllData();
-})
-
-game.$('.bet-now').click(function(){
-  game.alertErrBets();
-  game.saveData();
-  let savedData = game.getSavedData();
-  let data = JSON.stringify([savedData]);
-  let url = '../nav.php';
-    let req = $.post(url, data, function(response){
-      console.log(response);
-      response = JSON.parse(response);
-if(response.title == 'success'){
-
-  toastr.options.progressBar = true;
-  toastr.success(response.message, response.title);
-  game.resetAllData();
-  cart = [];
-}else{
-  toastr.options.progressBar = true;
-  toastr.warning(response.message, response.title);
-  
-}
-     
-    req.fail(function(){
-      toastr.options.progressBar = true;
-      toastr.warning('Please check your internet connection', 'Failed');
-    })
+  game.$('.bet-amt').on('blur', function(){ 
     
-  });
-})
+  })
 
-$('#cart-submit').click(function(){
-  let data = JSON.stringify(cart);
-  let url = '../nav.php';
-  console.log(data);
-    let req = $.post(url, data, function(response){
-      console.log(response);
-      response = JSON.parse(response);
-if(response.title == 'success'){
-  toastr.options.progressBar = true;
-  toastr.success(response.message, response.title);
-  $('.del').click();
-}else{
-  toastr.options.progressBar = true;
-  toastr.warning(response.message, response.title);
-}
-    req.fail(function(){
-      toastr.options.progressBar = true;
-      toastr.warning('Please check your internet connection', 'Failed');
-    })
-    
-  });
-})
+  game.$('.bet-box').on('input',function(){
+      game.setAllBets();
+      showBetsInfo();
+  })
 
-$('.clear-cart').click(function(){
-  let res = confirm("Do you want to clear all bets in cart?");
-  if(res)
-  {
-    $('.cart-items').empty();
-    $('#cart-submit').hide();
-    $('.clear-cart').hide();
+  game.$('.plus').click(function(){
+    game.increaseMultiplier(classNames.multiValue);
+    $(this).addClass('money-bg');
+    let value = game.$('.multiplier-input').val();
+    setTimeout(function(){
+      $('.plus').removeClass('money-bg')
+    }, 50);
+    game.setMultiplier(value);
+    game.$('.multiplier-select').removeClass('money-bg');
+    game.$(`.multiplier-select[value=${value}]`).click();
+    showBetsInfo();
+  })
+
+  game.$('.minus').click(function(){
+    game.decreaseMultiplier(classNames.multiValue);
+    let value = game.$('.multiplier-input').val();
+    $(this).addClass('money-bg');
+    setTimeout(function(){
+      $('.minus').removeClass('money-bg')
+    }, 50);
+    game.setMultiplier(value);
+    game.$('.multiplier-select').removeClass('money-bg');
+    game.$(`.multiplier-select[value=${value}]`).click();
+    showBetsInfo();
+  })
+
+  game.$('.cart').click(function(){
+    game.saveData();
+    game.pushToCart();
+    game.resetAllData();
+  })
+
+  game.$('.bet-now').click(function(){
+    game.alertErrBets();
+    game.saveData();
+    let savedData = game.getSavedData();
+    let data = JSON.stringify([savedData]);
+    let url = '../nav.php';
+      let req = $.post(url, data, function(response){
+        console.log(response);
+        response = JSON.parse(response);
+  if(response.title == 'success'){
+
+    toastr.options.progressBar = true;
+    toastr.success(response.message, response.title);
+    game.resetAllData();
     cart = [];
+  }else{
+    toastr.options.progressBar = true;
+    toastr.warning(response.message, response.title);
+    
   }
-})
+      
+      req.fail(function(){
+        toastr.options.progressBar = true;
+        toastr.warning('Please check your internet connection', 'Failed');
+      })
+      
+    });
+  })
 
-game.$('div.bet-info').hide();
+  $('#cart-submit').click(function(){
+    let data = JSON.stringify(cart);
+    let url = '../nav.php';
+    console.log(data);
+      let req = $.post(url, data, function(response){
+        console.log(response);
+        response = JSON.parse(response);
+  if(response.title == 'success'){
+    toastr.options.progressBar = true;
+    toastr.success(response.message, response.title);
+    $('.del').click();
+  }else{
+    toastr.options.progressBar = true;
+    toastr.warning(response.message, response.title);
+  }
+      req.fail(function(){
+        toastr.options.progressBar = true;
+        toastr.warning('Please check your internet connection', 'Failed');
+      })
+      
+    });
+  })
+
+  $('.clear-cart').click(function(){
+    let res = confirm("Do you want to clear all bets in cart?");
+    if(res)
+    {
+      $('.cart-items').empty();
+      $('#cart-submit').hide();
+      $('.clear-cart').hide();
+      cart = [];
+    }
+  })
+
+  game.$('div.bet-info').hide();
 
 
-function echo(...data)
-{
-  console.log(...data);
+  function echo(...data)
+  {
+    console.log(...data);
+  }
+
 }
 
-}
+
 
 $(document).on('click','.del', function(){
 
@@ -1265,8 +1266,8 @@ function hideAllExcept(hideAll, except)
 
 
 //menu selections
-$('.menu').click(function(){
-  $('.menu').removeClass('money-bg');
+$('.game-name.menu').click(function(){
+  $('.game-name.menu').removeClass('money-bg');
   $(this).addClass('money-bg');
   let pointsTo = $(this).attr('data-points-to');
   let className = $(this).attr('data-className');
@@ -1278,8 +1279,24 @@ $('.menu').click(function(){
   let except  = `#${pointsTo}`;
   hideAllExcept(hideAll, except);
   }
+
+  
+  
 })
 
+$('.game-group.menu').click(function(){
+  $('.game-group.menu').removeClass('money-bg');
+  $(this).addClass('money-bg');
+  let pointsTo = $(this).attr('data-points-to');
+  // game = getClass(className, `#${pointsTo}`);
+  // if(oldClass != className){
+  // oldClass = className;
+  // ready(className);
+  let hideAll = '.game-group:not(.menu)';
+  let except  = `#${pointsTo}`;
+  // hideAllExcept(hideAll, except);
+  //}
+})
 function getClass(className, classConstructor)
 {
   let classes = {
@@ -1309,24 +1326,36 @@ function getClass(className, classConstructor)
 
 
 
-function getDrawNum(url=false, data=false)
+function getDrawNums(url=false, data=false)
 {
     // let url = '../generateRandom.php';
-    let url =  '../receiver.php?action=getdrawnumber';
-    let results = false;
-    let data = {
+     url = url || '../receiver.php?action=getdrawnumber';
+     data = data ||  {
       'last_id':lastId
     }
-    data = JSON.stringify(data);
+    return fetchData(url, data).numbers;
 
-    let req = $.post(url, data, function(response){
-        results = JSON.parse(response); 
-  })
-  req.fail(function(){console.log('failed')});
-  return results;
   }
 
+function fetchData(url, data)
+{
+    let results = false;
+    data = JSON.stringify(data);
+    let req = $.post(url, data, function(response){
+        results = JSON.parse(response); 
+  });
+  req.fail(function(){console.log('failed')});
+  return results;
+}
 
+
+function showDrawNums(drawNums=getDrawNums())
+{
+  $('.wining_num').each(function(index){
+    $(this).html(drawNums[index]);
+ })
+}
+// showDrawNums([1,0,5,6,7]);
 
 $().ready(function(){
     // let url = '../generateRandom.php';
@@ -1371,4 +1400,4 @@ data = JSON.stringify(data);
   }
   
 
-setInterval(drawNum, 30000);
+setInterval(drawNum, 30000000);

@@ -38,6 +38,7 @@
     margin-right:20%;
     display: none;
 }
+
 .del{
   font-size: 20px;
   cursor: pointer;
@@ -160,7 +161,7 @@
       border-radius: 5px;
     }
 
-    .game {
+    .game-group.menu {
       box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
       height: 35px;
       width: 80px;
@@ -367,31 +368,31 @@ li{
 
             </div>
             <div style="height:70px;background-color:#5548A2;padding:10px;">
-              <button class="game">All 5</button>
-              <button class="game">All 4</button>
-              <button class="game">First 3</button>
-              <button class="game">Mid 3</button>
-              <button class="game">Last 3</button>
+              <button  class="menu game-group" data-points-to="all5">All 5</button>
+              <button  class="menu game-group" data-points-to="all4">All 4</button>
+              <button  class="menu game-group" data-points-to="first3">First 3</button>
+              <button  class="menu game-group" data-points-to="mid3">Mid 3</button>
+              <button  class="menu game-group" data-points-to="last3">Last 3</button>
             </div>
-            <div id="all5">
+            <div id="all5" class="game-group page">
             <div style="height:150px;background-color:#E6E1FF;padding:20px">
               <div>
 
                 <div class="row" style="margin-left:10px;">
-                  <span class=" btn-sm option"><b>Straight:</b></span>
-                  <button class="menu option1" data-className="groupJoint" data-points-to="group-joint">All 5 Straight(Joint)</button>
-                  <button class="menu option2" data-className="groupManual" data-points-to="group-manual">All 5 Straight(Manual)</button>
-                  <button class="menu option3" data-className="groupCombo" data-points-to="group-combo">All 5 Straight(Combo)</button>
-                  <span class=" btn-sm option"></span>
+                  <span class=" btn-sm game-name option"><b>Straight:</b></span>
+                  <button class="menu  game-name option1" data-className="groupJoint" data-points-to="group-joint">All 5 Straight(Joint)</button>
+                  <button class="menu  game-name option2" data-className="groupManual" data-points-to="group-manual">All 5 Straight(Manual)</button>
+                  <button class="menu  game-name option3" data-className="groupCombo" data-points-to="group-combo">All 5 Straight(Combo)</button>
+                  <span class=" btn-sm game-name option"></span>
                 </div>
                 <div class="row" style="margin-left:10px;">
                   <span class=" btn-sm option"><b>Group:</b></span>
-                  <button class="menu option4 money-bg" data-className="group120" data-points-to="group-120">All 5 Group 120</button>
-                  <button class="menu option5" data-className="group60" data-points-to="group-60">All 5 Group 60</button>
-                  <button class="menu option6" data-className="group30" data-points-to="group-30">All 5 Group 30</button>
-                  <button class="menu option7" data-className="group20" data-points-to="group-20">All 5 Group 20</button>
-                  <button class="menu option8" data-className="group10" data-points-to="group-10">All 5 Group 10</button>
-                  <button class="menu option9" data-className="group5" data-points-to="group-5">All 5 Group 5</button>
+                  <button class="menu game-name option4 money-bg" data-className="group120" data-points-to="group-120">All 5 Group 120</button>
+                  <button class="menu game-name option5" data-className="group60" data-points-to="group-60">All 5 Group 60</button>
+                  <button class="menu game-name option6" data-className="group30" data-points-to="group-30">All 5 Group 30</button>
+                  <button class="menu game-name option7" data-className="group20" data-points-to="group-20">All 5 Group 20</button>
+                  <button class="menu game-name option8" data-className="group10" data-points-to="group-10">All 5 Group 10</button>
+                  <button class="menu game-name option9" data-className="group5" data-points-to="group-5">All 5 Group 5</button>
                 </div>
               </div>
 
