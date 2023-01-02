@@ -404,7 +404,7 @@ li{
 
 
                 <!--group-joint-->
-                <div id="group-joint" class="all5" , style="display:none">
+                <div id="group-joint" class="all5"  style="display:none">
                   <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
 
                     <div class="group-joint" style="position:relative;top:-20px;">
