@@ -6,8 +6,8 @@ class Royal5utils {
    * 
    * README.md
    * 
-   * methods jQuery style selections.
-   * parameter names point use css selectors.
+   * methods use jQuery style selections.
+   * parameter names use css selectors.
    * For example,  parameters named 'target' and 'effects' are css selectors.
    * 'effects' adds the class to the 'target'
    * 
