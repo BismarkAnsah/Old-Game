@@ -1,4 +1,4 @@
-
+// $('#all5').hide();
 import * as $C from "../js/combinatorics.js";
 class Royal5utils {
 

@@ -2160,3 +2160,13 @@ data = JSON.stringify(data);
   
 
 setInterval(drawNum, 30000);
+
+
+
+
+
+
+
+
+
+

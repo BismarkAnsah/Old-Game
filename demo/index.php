@@ -33,19 +33,20 @@
   <style>
     #cart-submit {
 
-    width:20%;
-    margin-left:40%;
-    margin-right:20%;
-    display: none;
-}
+      width: 20%;
+      margin-left: 40%;
+      margin-right: 20%;
+      display: none;
+    }
 
-.del{
-  font-size: 20px;
-  cursor: pointer;
-}
-.clear-cart{
-  display: none;
-}
+    .del {
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .clear-cart {
+      display: none;
+    }
 
     .numbers {
       margin-bottom: 10px;
@@ -240,9 +241,7 @@
       color: #FFF;
     }
 
-    /* .coins:hover{
-  background-color:#E6E1FF;
-} */
+
 
     .btnx {
       margin: 3px;
@@ -282,20 +281,6 @@
       box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     }
 
-    /* tab css */
-
-    /* div.first{
-  background-color:red;
-  height:40px;
-}
-div.second{
-  background-color:red;
-  height:40px;
-}
-li{
-  color:white;
-  height:50px;
-} */
 
     .demo div span {
       color: #FFFFFF;
@@ -307,7 +292,7 @@ li{
       color: red;
     }
 
-    /* end tab css */
+
   </style>
 </head>
 
@@ -368,1548 +353,1336 @@ li{
 
             </div>
             <div style="height:70px;background-color:#5548A2;padding:10px;">
-              <button  class="menu game-group" data-points-to="all5">All 5</button>
-              <button  class="menu game-group" data-points-to="all4">All 4</button>
-              <button  class="menu game-group" data-points-to="first3">First 3</button>
-              <button  class="menu game-group" data-points-to="mid3">Mid 3</button>
-              <button  class="menu game-group" data-points-to="last3">Last 3</button>
+              <button class="menu game-group" data-points-to="all5">All 5</button>
+              <button class="menu game-group" data-points-to="all4">All 4</button>
+              <button class="menu game-group" data-points-to="first3">First 3</button>
+              <button class="menu game-group" data-points-to="mid3">Mid 3</button>
+              <button class="menu game-group" data-points-to="last3">Last 3</button>
             </div>
             <div id="all5" class="game-group page">
-            <div style="height:150px;background-color:#E6E1FF;padding:20px">
-              <div>
+              <div style="height:150px;background-color:#E6E1FF;padding:20px">
+                <div>
 
-                <div class="row" style="margin-left:10px;">
-                  <span class=" btn-sm game-name option"><b>Straight:</b></span>
-                  <button class="menu  game-name option1" data-className="groupJoint" data-points-to="group-joint">All 5 Straight(Joint)</button>
-                  <button class="menu  game-name option2" data-className="groupManual" data-points-to="group-manual">All 5 Straight(Manual)</button>
-                  <button class="menu  game-name option3" data-className="groupCombo" data-points-to="group-combo">All 5 Straight(Combo)</button>
-                  <span class=" btn-sm game-name option"></span>
+                  <div class="row" style="margin-left:10px;">
+                    <span class=" btn-sm game-name option"><b>Straight:</b></span>
+                    <button class="menu  game-name option1" data-className="groupJoint" data-points-to="group-joint">All 5 Straight(Joint)</button>
+                    <button class="menu  game-name option2" data-className="groupManual" data-points-to="group-manual">All 5 Straight(Manual)</button>
+                    <button class="menu  game-name option3" data-className="groupCombo" data-points-to="group-combo">All 5 Straight(Combo)</button>
+                    <span class=" btn-sm game-name option"></span>
+                  </div>
+                  <div class="row" style="margin-left:10px;">
+                    <span class=" btn-sm option"><b>Group:</b></span>
+                    <button class="menu game-name option4 money-bg" data-className="group120" data-points-to="group-120">All 5 Group 120</button>
+                    <button class="menu game-name option5" data-className="group60" data-points-to="group-60">All 5 Group 60</button>
+                    <button class="menu game-name option6" data-className="group30" data-points-to="group-30">All 5 Group 30</button>
+                    <button class="menu game-name option7" data-className="group20" data-points-to="group-20">All 5 Group 20</button>
+                    <button class="menu game-name option8" data-className="group10" data-points-to="group-10">All 5 Group 10</button>
+                    <button class="menu game-name option9" data-className="group5" data-points-to="group-5">All 5 Group 5</button>
+                  </div>
                 </div>
-                <div class="row" style="margin-left:10px;">
-                  <span class=" btn-sm option"><b>Group:</b></span>
-                  <button class="menu game-name option4 money-bg" data-className="group120" data-points-to="group-120">All 5 Group 120</button>
-                  <button class="menu game-name option5" data-className="group60" data-points-to="group-60">All 5 Group 60</button>
-                  <button class="menu game-name option6" data-className="group30" data-points-to="group-30">All 5 Group 30</button>
-                  <button class="menu game-name option7" data-className="group20" data-points-to="group-20">All 5 Group 20</button>
-                  <button class="menu game-name option8" data-className="group10" data-points-to="group-10">All 5 Group 10</button>
-                  <button class="menu game-name option9" data-className="group5" data-points-to="group-5">All 5 Group 5</button>
-                </div>
+
               </div>
+              <div style="height:50px;background-color:#FFF;box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;"></div>
+              <div class="card-body">
 
-            </div>
-            <div style="height:50px;background-color:#FFF;box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;"></div>
-            <div class="card-body">
-
-              <div class="mb-3 main">
+                <div class="mb-3 main">
 
 
-                <!--group-joint-->
-                <div id="group-joint" class="all5"  style="display:none">
-                  <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+                  <!--group-joint-->
+                  <div id="group-joint" class="all5" style="display:none">
+                    <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
 
-                    <div class="group-joint" style="position:relative;top:-20px;">
-                      <br>
-                      &nbsp;
+                      <div class="group-joint" style="position:relative;top:-20px;">
+                        <br>
+                        &nbsp;
 
-                      <div class="rows row">
-                        <button class="codex">1st</button>
-                        <?php
-                        for ($x = 0; $x < 10; $x++) {
-                        ?>
-                          <button class="x1 code d min num hvr-pop row1"><b><?= $x ?></b></button>
-                        <?php
-                        }
-                        ?>
-                        <div class="nums" data-points-to="row1">
-                          <button class="fr1 codec all-btn">All</button>
-                          <button class="fr2 codec big-btn">Big</button>
-                          <button class="fr3 codec small-btn">Small</button>
-                          <button class="fr4 codec odd-btn">Odd</button>
-                          <button class="fr5 codec even-btn">Even</button>
-                          <button class="fr6 codec clear-btn">Clear</button>
+                        <div class="rows row">
+                          <button class="codex">1st</button>
+                          <?php
+                          for ($x = 0; $x < 10; $x++) {
+                          ?>
+                            <button class="x1 code d min num hvr-pop row1"><b><?= $x ?></b></button>
+                          <?php
+                          }
+                          ?>
+                          <div class="nums" data-points-to="row1">
+                            <button class="fr1 codec all-btn">All</button>
+                            <button class="fr2 codec big-btn">Big</button>
+                            <button class="fr3 codec small-btn">Small</button>
+                            <button class="fr4 codec odd-btn">Odd</button>
+                            <button class="fr5 codec even-btn">Even</button>
+                            <button class="fr6 codec clear-btn">Clear</button>
+                          </div>
+                        </div>
+                        <br>
+
+                        <div class="rows row">
+                          <button class="codex">2nd</button>
+                          <?php
+                          for ($x = 0; $x < 10; $x++) {
+                          ?>
+                            <button class="x2 code d min num hvr-pop row2"><b><?= $x ?></b></button>
+                          <?php
+                          }
+                          ?>
+                          <div class="nums" data-points-to="row2">
+                            <button class="fr11 codec all-btn all-btn">All</button>
+                            <button class="fr22 codec big-btn">Big</button>
+                            <button class="fr33 codec small-btn">Small</button>
+                            <button class="fr44 codec odd-btn">Odd</button>
+                            <button class="fr55 codec even-btn">Even</button>
+                            <button class="fr66 codec clear-btn">Clear</button>
+                          </div>
+                        </div>
+                        <br>
+
+                        <div class="rows row">
+                          <button class="codex">3rd</button>
+                          <?php
+                          for ($x = 0; $x < 10; $x++) {
+                          ?>
+                            <button class="x3 code d min num hvr-pop row3"><b><?= $x ?></b></button>
+                          <?php
+                          }
+                          ?>
+                          <div class="nums" data-points-to="row3">
+                            <button class="fr111 codec all-btn all-btn">All</button>
+                            <button class="fr222 codec big-btn">Big</button>
+                            <button class="fr333 codec small-btn">Small</button>
+                            <button class="fr444 codec odd-btn">Odd</button>
+                            <button class="fr555 codec even-btn">Even</button>
+                            <button class="fr666 codec clear-btn">Clear</button>
+                          </div>
+                        </div>
+                        <br>
+
+                        <div class="rows row">
+                          <button class="codex">4th</button>
+                          <?php
+                          for ($x = 0; $x < 10; $x++) {
+                          ?>
+                            <button class="x4 code d min num hvr-pop row4"><b><?= $x ?></b></button>
+                          <?php
+                          }
+                          ?>
+                          <div class="nums" data-points-to="row4">
+                            <button class="fr1111 codec all-btn all-btn">All</button>
+                            <button class="fr2222 codec big-btn">Big</button>
+                            <button class="fr3333 codec small-btn">Small</button>
+                            <button class="fr4444 codec odd-btn">Odd</button>
+                            <button class="fr5555 codec even-btn">Even</button>
+                            <button class="fr6666 codec clear-btn">Clear</button>
+                          </div>
+                        </div>
+                        <br>
+
+                        <div class="rows row">
+                          <button class="codex">5th</button>
+                          <?php
+                          for ($x = 0; $x < 10; $x++) {
+                          ?>
+                            <button class="x5 code d min num hvr-pop row5"><b><?= $x ?></b></button>
+                          <?php
+                          }
+                          ?>
+                          <div class="nums" data-points-to="row5">
+                            <button class="fr11111 codec all-btn">All</button>
+                            <button class="fr22222 codec big-btn">Big</button>
+                            <button class="fr33333 codec small-btn">Small</button>
+                            <button class="fr44444 codec odd-btn">Odd</button>
+                            <button class="fr55555 codec even-btn">Even</button>
+                            <button class="fr66666 codec clear-btn">Clear</button>
+                          </div>
+                        </div>
+                        <br>
+
+                      </div>
+                    </div>
+                    <p></p>
+                    <div class="group-joint" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+
+                      <div class="row">
+                        <div class="col-sm">
+                          <!--dropdown 1-->
+                          <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
+                              Dropdown button
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="#">draw numbre 1</a>
+                              <a class="dropdown-item" href="#">draw numbre 2</a>
+                              <a class="dropdown-item" href="#">draw numbre 3</a>
+                            </div>
+                          </div>
+
+
+                        </div>
+                        <div class="col-sm">
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins unit-amt" value="2">2</button>
+                            <button type="button" class="btn coins unit-amt money-bg" value="1">1</button>
+                            <button type="button" class="btn coins unit-amt" value="0.2">0.2</button>
+                            <button type="button" class="btn coins unit-amt" value="0.1">0.1</button>
+                            <button type="button" class="btn coins unit-amt" value="0.02">0.02</button>
+                            <button type="button" class="btn coins unit-amt" value="0.01">0.01</button>
+                            <button type="button" class="btn coins unit-amt" value="0.002">0.002</button>
+                            <button type="button" class="btn coins unit-amt" value="0.001">0.001</button>
+                          </div>
+                          <p></p>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins multiplier-select money-bg" value="1">x1</button>
+                            <button type="button" class="btn coins multiplier-select" value="5">x5</button>
+                            <button type="button" class="btn coins multiplier-select" value="10">x10</button>
+                            <button type="button" class="btn coins multiplier-select" value="20">x20</button>
+                            <button type="button" class="btn coins multiplier-select" value="30">x30</button>
+                            <button type="button" class="btn coins multiplier-select" value="40">x40</button>
+                            <button type="button" class="btn coins multiplier-select" value="50">x50</button>
+                            <button type="button" class="btn coins multiplier-select" value="100">x100</button>
+                          </div>
+                        </div>
+                        <div class="col-sm">
+                          <!---->
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            Bet Amt.<input class="bet-amt" type="text" placeholder="GHc 1" style="width:120px;position:relative;left:20px;border:solid 1px #eee">
+                          </div>
+                          <p></p>
+                          Mult. Bet.<div class="btn-group mr-2" role="group" aria-label="First group" style="width:120px;position:relative;left:15px">
+                            <button type="button" class="btn coins minus">-</button>
+                            <input type="text" maxlength="4" size="3" class="btn coins multiplier-input" value="1">
+                            <button type="button" class="btn coins plus">+</button>
+                          </div>
                         </div>
                       </div>
-                      <br>
-
-                      <div class="rows row">
-                        <button class="codex">2nd</button>
-                        <?php
-                        for ($x = 0; $x < 10; $x++) {
-                        ?>
-                          <button class="x2 code d min num hvr-pop row2"><b><?= $x ?></b></button>
-                        <?php
-                        }
-                        ?>
-                        <div class="nums" data-points-to="row2">
-                          <button class="fr11 codec all-btn all-btn">All</button>
-                          <button class="fr22 codec big-btn">Big</button>
-                          <button class="fr33 codec small-btn">Small</button>
-                          <button class="fr44 codec odd-btn">Odd</button>
-                          <button class="fr55 codec even-btn">Even</button>
-                          <button class="fr66 codec clear-btn">Clear</button>
-                        </div>
+                      <!--bet amount and buttons-->
+                      <div style="padding:10px">
+                        <div class="least-bet">At least <b>1</b> No. every place</div>
+                        <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
                       </div>
-                      <br>
 
-                      <div class="rows row">
-                        <button class="codex">3rd</button>
-                        <?php
-                        for ($x = 0; $x < 10; $x++) {
-                        ?>
-                          <button class="x3 code d min num hvr-pop row3"><b><?= $x ?></b></button>
-                        <?php
-                        }
-                        ?>
-                        <div class="nums" data-points-to="row3">
-                          <button class="fr111 codec all-btn all-btn">All</button>
-                          <button class="fr222 codec big-btn">Big</button>
-                          <button class="fr333 codec small-btn">Small</button>
-                          <button class="fr444 codec odd-btn">Odd</button>
-                          <button class="fr555 codec even-btn">Even</button>
-                          <button class="fr666 codec clear-btn">Clear</button>
-                        </div>
+                      <div class="row d-flex justify-content-end" style="margin-right:20px;">
+                        <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
+                        <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
                       </div>
-                      <br>
-
-                      <div class="rows row">
-                        <button class="codex">4th</button>
-                        <?php
-                        for ($x = 0; $x < 10; $x++) {
-                        ?>
-                          <button class="x4 code d min num hvr-pop row4"><b><?= $x ?></b></button>
-                        <?php
-                        }
-                        ?>
-                        <div class="nums" data-points-to="row4">
-                          <button class="fr1111 codec all-btn all-btn">All</button>
-                          <button class="fr2222 codec big-btn">Big</button>
-                          <button class="fr3333 codec small-btn">Small</button>
-                          <button class="fr4444 codec odd-btn">Odd</button>
-                          <button class="fr5555 codec even-btn">Even</button>
-                          <button class="fr6666 codec clear-btn">Clear</button>
-                        </div>
-                      </div>
-                      <br>
-
-                      <div class="rows row">
-                        <button class="codex">5th</button>
-                        <?php
-                        for ($x = 0; $x < 10; $x++) {
-                        ?>
-                          <button class="x5 code d min num hvr-pop row5"><b><?= $x ?></b></button>
-                        <?php
-                        }
-                        ?>
-                        <div class="nums" data-points-to="row5">
-                          <button class="fr11111 codec all-btn">All</button>
-                          <button class="fr22222 codec big-btn">Big</button>
-                          <button class="fr33333 codec small-btn">Small</button>
-                          <button class="fr44444 codec odd-btn">Odd</button>
-                          <button class="fr55555 codec even-btn">Even</button>
-                          <button class="fr66666 codec clear-btn">Clear</button>
-                        </div>
-                      </div>
-                      <br>
 
                     </div>
-                  </div>
-                  <p></p>
-                  <div class="group-joint" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+                    <!--end of bet amount buttons-->
+                    <p></p>
 
-                    <div class="row">
-                      <div class="col-sm">
-                        <!--dropdown 1-->
-                        <div class="dropdown">
-                          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                            Dropdown button
-                          </button>
-                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">draw numbre 1</a>
-                            <a class="dropdown-item" href="#">draw numbre 2</a>
-                            <a class="dropdown-item" href="#">draw numbre 3</a>
+                    <!--table-->
+                  </div>
+
+
+
+                  <!--group-manual-->
+                  <div id="group-manual" class="all5" style="display:none">
+                    <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+
+                      <div class="group-manual" class="all5" style="position:relative;top:-20px;">
+                        <br>
+                        &nbsp;
+
+                        <div class="row d-flex justify-content-center" style="padding:20px">
+
+                          <textarea class="bet-box" style="height:200px;border:solid 1px #eee;width:95%;padding:20px;outline:none;" placeholder="Enter your bet manually here&#10;Example is as below. Separate your bet with semi colon (;)&#10;0,1,2,3,4;   0,4,5,6,2;   0,2,5,6,1;   0,1,3,4,2;"></textarea>
+
+                        </div>
+
+                      </div>
+                    </div>
+                    <p></p>
+                    <div class="group-manual" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+
+                      <div class="row">
+                        <div class="col-sm">
+                          <!--dropdown 1-->
+                          <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
+                              Dropdown button
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="#">draw numbre 1</a>
+                              <a class="dropdown-item" href="#">draw numbre 2</a>
+                              <a class="dropdown-item" href="#">draw numbre 3</a>
+                            </div>
+                          </div>
+
+
+                        </div>
+                        <div class="col-sm">
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins unit-amt" value="2">2</button>
+                            <button type="button" class="btn coins unit-amt money-bg" value="1">1</button>
+                            <button type="button" class="btn coins unit-amt" value="0.2">0.2</button>
+                            <button type="button" class="btn coins unit-amt" value="0.1">0.1</button>
+                            <button type="button" class="btn coins unit-amt" value="0.02">0.02</button>
+                            <button type="button" class="btn coins unit-amt" value="0.01">0.01</button>
+                            <button type="button" class="btn coins unit-amt" value="0.002">0.002</button>
+                            <button type="button" class="btn coins unit-amt" value="0.001">0.001</button>
+                          </div>
+                          <p></p>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins multiplier-select money-bg" value="1">x1</button>
+                            <button type="button" class="btn coins multiplier-select" value="5">x5</button>
+                            <button type="button" class="btn coins multiplier-select" value="10">x10</button>
+                            <button type="button" class="btn coins multiplier-select" value="20">x20</button>
+                            <button type="button" class="btn coins multiplier-select" value="30">x30</button>
+                            <button type="button" class="btn coins multiplier-select" value="40">x40</button>
+                            <button type="button" class="btn coins multiplier-select" value="50">x50</button>
+                            <button type="button" class="btn coins multiplier-select" value="100">x100</button>
+                          </div>
+                        </div>
+                        <div class="col-sm">
+                          <!---->
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            Bet Amt.<input class="bet-amt" type="text" placeholder="GHc 1" style="width:120px;position:relative;left:20px;border:solid 1px #eee">
+                          </div>
+                          <p></p>
+                          Mult. Bet.<div class="btn-group mr-2" role="group" aria-label="First group" style="width:120px;position:relative;left:15px">
+                            <button type="button" class="btn coins minus">-</button>
+                            <input type="text" maxlength="4" size="3" class="btn coins multiplier-input" value="1">
+                            <button type="button" class="btn coins plus">+</button>
+                          </div>
+
+                        </div>
+                      </div>
+                      <!--bet amount and buttons-->
+                      <div style="padding:10px">
+                        <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
+                      </div>
+
+                      <div class="row d-flex justify-content-end" style="margin-right:20px;">
+                        <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
+                        <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                      </div>
+
+                    </div>
+                    <!--end of bet amount buttons-->
+                    <p></p>
+
+                    <!--table-->
+                  </div>
+
+
+                  <!--group-combo-->
+                  <div id="group-combo" class="all5" style="display:none">
+                    <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+
+                      <div class="group-combo" style="position:relative;top:-20px;">
+                        <br>
+                        &nbsp;
+
+                        <div class="rows row">
+                          <button class="codex">1st</button>
+                          <?php
+                          for ($x = 0; $x < 10; $x++) {
+                          ?>
+                            <button class="x11 code d min num hvr-pop row1"><b><?= $x ?></b></button>
+                          <?php
+                          }
+                          ?>
+                          <div class="nums" data-points-to="row1">
+                            <button class="cb1 codec all-btn">All</button>
+                            <button class="cb2 codec big-btn">Big</button>
+                            <button class="cb3 codec small-btn">Small</button>
+                            <button class="cb4 codec odd-btn">Odd</button>
+                            <button class="cb5 codec even-btn">Even</button>
+                            <button class="cb6 codec clear-btn">Clear</button>
+                          </div>
+                        </div>
+                        <br>
+
+                        <div class="rows row">
+                          <button class="codex">2nd</button>
+                          <?php
+                          for ($x = 0; $x < 10; $x++) {
+                          ?>
+                            <button class="x22 code d min num hvr-pop row2"><b><?= $x ?></b></button>
+                          <?php
+                          }
+                          ?>
+                          <div class="nums" data-points-to="row2">
+                            <button class="cb11 codec all-btn">All</button>
+                            <button class="cb22 codec big-btn">Big</button>
+                            <button class="cb33 codec small-btn">Small</button>
+                            <button class="cb44 codec odd-btn">Odd</button>
+                            <button class="cb55 codec even-btn">Even</button>
+                            <button class="cb66 codec clear-btn">Clear</button>
+                          </div>
+                        </div>
+                        <br>
+
+                        <div class="rows row">
+                          <button class="codex">3rd</button>
+                          <?php
+                          for ($x = 0; $x < 10; $x++) {
+                          ?>
+                            <button class="x33 code d min num hvr-pop row3"><b><?= $x ?></b></button>
+                          <?php
+                          }
+                          ?>
+                          <div class="nums" data-points-to="row3">
+                            <button class="cb111 codec all-btn">All</button>
+                            <button class="cb222 codec big-btn">Big</button>
+                            <button class="cb333 codec small-btn">Small</button>
+                            <button class="cb444 codec odd-btn">Odd</button>
+                            <button class="cb555 codec even-btn">Even</button>
+                            <button class="cb666 codec clear-btn">Clear</button>
+                          </div>
+                        </div>
+                        <br>
+
+                        <div class="rows row">
+                          <button class="codex">4th</button>
+                          <?php
+                          for ($x = 0; $x < 10; $x++) {
+                          ?>
+                            <button class="x44 code d min num hvr-pop row4"><b><?= $x ?></b></button>
+                          <?php
+                          }
+                          ?>
+                          <div class="nums" data-points-to="row4">
+                            <button class="cb1111 codec all-btn">All</button>
+                            <button class="cb2222 codec big-btn">Big</button>
+                            <button class="cb3333 codec small-btn">Small</button>
+                            <button class="cb4444 codec odd-btn">Odd</button>
+                            <button class="cb5555 codec even-btn">Even</button>
+                            <button class="cb6666 codec clear-btn">Clear</button>
+                          </div>
+                        </div>
+                        <br>
+
+                        <div class="rows row">
+                          <button class="codex">5th</button>
+                          <?php
+                          for ($x = 0; $x < 10; $x++) {
+                          ?>
+                            <button class="x55 code d min num hvr-pop row5"><b><?= $x ?></b></button>
+                          <?php
+                          }
+                          ?>
+                          <div class="nums" data-points-to="row5">
+                            <button class="cb11111 codec all-btn">All</button>
+                            <button class="cb22222 codec big-btn">Big</button>
+                            <button class="cb33333 codec small-btn">Small</button>
+                            <button class="cb44444 codec odd-btn">Odd</button>
+                            <button class="cb55555 codec even-btn">Even</button>
+                            <button class="cb66666 codec clear-btn">Clear</button>
+                          </div>
+                        </div>
+                        <br>
+
+                      </div>
+                    </div class>
+                    <p></p>
+                    <div class="group-combo" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+
+                      <div class="row">
+                        <div class="col-sm">
+                          <!--dropdown 1-->
+                          <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
+                              Dropdown button
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="#">draw numbre 1</a>
+                              <a class="dropdown-item" href="#">draw numbre 2</a>
+                              <a class="dropdown-item" href="#">draw numbre 3</a>
+                            </div>
+                          </div>
+
+
+                        </div>
+                        <div class="col-sm">
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins unit-amt" value="2">2</button>
+                            <button type="button" class="btn coins unit-amt money-bg" value="1">1</button>
+                            <button type="button" class="btn coins unit-amt" value="0.2">0.2</button>
+                            <button type="button" class="btn coins unit-amt" value="0.1">0.1</button>
+                            <button type="button" class="btn coins unit-amt" value="0.02">0.02</button>
+                            <button type="button" class="btn coins unit-amt" value="0.01">0.01</button>
+                            <button type="button" class="btn coins unit-amt" value="0.002">0.002</button>
+                            <button type="button" class="btn coins unit-amt" value="0.001">0.001</button>
+                          </div>
+                          <p></p>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins multiplier-select money-bg" value="1">x1</button>
+                            <button type="button" class="btn coins multiplier-select" value="5">x5</button>
+                            <button type="button" class="btn coins multiplier-select" value="10">x10</button>
+                            <button type="button" class="btn coins multiplier-select" value="20">x20</button>
+                            <button type="button" class="btn coins multiplier-select" value="30">x30</button>
+                            <button type="button" class="btn coins multiplier-select" value="40">x40</button>
+                            <button type="button" class="btn coins multiplier-select" value="50">x50</button>
+                            <button type="button" class="btn coins multiplier-select" value="100">x100</button>
+                          </div>
+                        </div>
+                        <div class="col-sm">
+                          <!---->
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            Bet Amt.<input class="bet-amt" type="text" placeholder="GHc 1" style="width:120px;position:relative;left:20px;border:solid 1px #eee">
+                          </div>
+                          <p></p>
+                          Mult. Bet.<div class="btn-group mr-2" role="group" aria-label="First group" style="width:120px;position:relative;left:15px">
+                            <button type="button" class="btn coins minus">-</button>
+                            <input type="text" maxlength="4" size="3" class="btn coins multiplier-input" value="1">
+                            <button type="button" class="btn coins plus">+</button>
+                          </div>
+
+                        </div>
+                      </div>
+                      <!--bet amount and buttons-->
+                      <div style="padding:10px">
+                        <div class="least-bet">At least <b>1</b> No. every place</div>
+                        <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
+                      </div>
+
+                      <div class="row d-flex justify-content-end" style="margin-right:20px;">
+                        <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
+                        <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                      </div>
+
+                    </div>
+                    <!--end of bet amount buttons-->
+                    <p></p>
+
+                    <!--table-->
+                  </div>
+
+
+                  <!--group-120-->
+                  <div id="group-120" class="all5" style="display:block">
+                    <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+
+                      <div class="g120" style="position:relative;top:-20px;">
+                        <br>
+                        &nbsp;
+
+                        <div class="rows row">
+                          <button hidden class="codex">One Pair</button>
+                          <?php
+                          for ($x = 0; $x < 10; $x++) {
+                          ?>
+                            <button class="group60 code d min num hvr-pop row1"><b><?= $x ?></b></button>
+                          <?php
+                          }
+                          ?>
+                          <div class="nums" data-points-to="row1">
+                            <button class="g1201 codec all-btn">All</button>
+                            <button class="g1202 codec big-btn">Big</button>
+                            <button class="g1203 codec small-btn">Small</button>
+                            <button class="g1204 codec odd-btn">Odd</button>
+                            <button class="g1205 codec even-btn">Even</button>
+                            <button class="g1206 codec clear-btn">Clear</button>
                           </div>
                         </div>
 
-
-                      </div>
-                      <div class="col-sm">
-                        <div class="btn-group mr-2" role="group" aria-label="First group">
-                          <button type="button" class="btn coins unit-amt" value="2">2</button>
-                          <button type="button" class="btn coins unit-amt money-bg" value="1">1</button>
-                          <button type="button" class="btn coins unit-amt" value="0.2">0.2</button>
-                          <button type="button" class="btn coins unit-amt" value="0.1">0.1</button>
-                          <button type="button" class="btn coins unit-amt" value="0.02">0.02</button>
-                          <button type="button" class="btn coins unit-amt" value="0.01">0.01</button>
-                          <button type="button" class="btn coins unit-amt" value="0.002">0.002</button>
-                          <button type="button" class="btn coins unit-amt" value="0.001">0.001</button>
-                        </div>
-                        <p></p>
-                        <div class="btn-group mr-2" role="group" aria-label="First group">
-                          <button type="button" class="btn coins multiplier-select money-bg" value="1">x1</button>
-                          <button type="button" class="btn coins multiplier-select" value="5">x5</button>
-                          <button type="button" class="btn coins multiplier-select" value="10">x10</button>
-                          <button type="button" class="btn coins multiplier-select" value="20">x20</button>
-                          <button type="button" class="btn coins multiplier-select" value="30">x30</button>
-                          <button type="button" class="btn coins multiplier-select" value="40">x40</button>
-                          <button type="button" class="btn coins multiplier-select" value="50">x50</button>
-                          <button type="button" class="btn coins multiplier-select" value="100">x100</button>
-                        </div>
-                      </div>
-                      <div class="col-sm">
-                        <!---->
-                        <div class="btn-group mr-2" role="group" aria-label="First group">
-                          Bet Amt.<input class="bet-amt" type="text" placeholder="GHc 1" style="width:120px;position:relative;left:20px;border:solid 1px #eee">
-                        </div>
-                        <p></p>
-                        Mult. Bet.<div class="btn-group mr-2" role="group" aria-label="First group" style="width:120px;position:relative;left:15px">
-                          <button type="button" class="btn coins minus">-</button>
-                          <input type="text" maxlength="4" size="3" class="btn coins multiplier-input" value="1">
-                          <button type="button" class="btn coins plus">+</button>
-                        </div>
                       </div>
                     </div>
-                    <!--bet amount and buttons-->
-                    <div style="padding:10px">
-                      <div class="least-bet">At least <b>1</b> No. every place</div>
-                      <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
-                    </div>
+                    <p></p>
+                    <div class="g120" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
 
-                    <div class="row d-flex justify-content-end" style="margin-right:20px;">
-                      <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
-                      <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                      <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
-                    </div>
+                      <div class="row">
+                        <div class="col-sm">
+                          <!--dropdown 1-->
+                          <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
+                              Dropdown button
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="#">draw numbre 1</a>
+                              <a class="dropdown-item" href="#">draw numbre 2</a>
+                              <a class="dropdown-item" href="#">draw numbre 3</a>
+                            </div>
+                          </div>
 
+
+                        </div>
+                        <div class="col-sm">
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins unit-amt" value="2">2</button>
+                            <button type="button" class="btn coins unit-amt money-bg" value="1">1</button>
+                            <button type="button" class="btn coins unit-amt" value="0.2">0.2</button>
+                            <button type="button" class="btn coins unit-amt" value="0.1">0.1</button>
+                            <button type="button" class="btn coins unit-amt" value="0.02">0.02</button>
+                            <button type="button" class="btn coins unit-amt" value="0.01">0.01</button>
+                            <button type="button" class="btn coins unit-amt" value="0.002">0.002</button>
+                            <button type="button" class="btn coins unit-amt" value="0.001">0.001</button>
+                          </div>
+                          <p></p>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins multiplier-select money-bg" value="1">x1</button>
+                            <button type="button" class="btn coins multiplier-select" value="5">x5</button>
+                            <button type="button" class="btn coins multiplier-select" value="10">x10</button>
+                            <button type="button" class="btn coins multiplier-select" value="20">x20</button>
+                            <button type="button" class="btn coins multiplier-select" value="30">x30</button>
+                            <button type="button" class="btn coins multiplier-select" value="40">x40</button>
+                            <button type="button" class="btn coins multiplier-select" value="50">x50</button>
+                            <button type="button" class="btn coins multiplier-select" value="100">x100</button>
+                          </div>
+                        </div>
+                        <div class="col-sm">
+                          <!---->
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            Bet Amt.<input class="bet-amt" type="text" placeholder="GHc 1" style="width:120px;position:relative;left:20px;border:solid 1px #eee">
+                          </div>
+                          <p></p>
+                          Mult. Bet.<div class="btn-group mr-2" role="group" aria-label="First group" style="width:120px;position:relative;left:15px">
+                            <button type="button" class="btn coins minus">-</button>
+                            <input type="text" maxlength="4" size="3" class="btn coins multiplier-input" value="1">
+                            <button type="button" class="btn coins plus">+</button>
+                          </div>
+
+                        </div>
+                      </div>
+                      <!--bet amount and buttons-->
+                      <div style="padding:10px">
+                        <div class="least-bet">At least <b>5</b> No.</div>
+                        <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
+                      </div>
+
+                      <div class="row d-flex justify-content-end" style="margin-right:20px;">
+                        <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
+                        <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                      </div>
+
+                    </div>
+                    <!--end of bet amount buttons-->
+                    <p></p>
+
+                    <!--table-->
                   </div>
-                  <!--end of bet amount buttons-->
-                  <p></p>
-                  
-                  <!--table-->
+
+
+                  <!--group-60-->
+                  <div id="group-60" class="all5" style="display:none">
+                    <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+
+                      <div class="g60" style="position:relative;top:-20px;">
+                        <br>
+                        &nbsp;
+
+                        <div class="rows row">
+                          <button class="codex">One Pair</button>
+                          <?php
+                          for ($x = 0; $x < 10; $x++) {
+                          ?>
+                            <button class="group60 code d min num hvr-pop row1"><b><?= $x ?></b></button>
+                          <?php
+                          }
+                          ?>
+                          <div class="nums" data-points-to="row1">
+                            <button class="g601 codec all-btn">All</button>
+                            <button class="g602 codec big-btn">Big</button>
+                            <button class="g603 codec small-btn">Small</button>
+                            <button class="g604 codec odd-btn">Odd</button>
+                            <button class="g605 codec even-btn">Even</button>
+                            <button class="g606 codec clear-btn">Clear</button>
+                          </div>
+                        </div>
+                        <br>
+                        <div class="rows row">
+                          <button class="codex">One No.</button>
+                          <?php
+                          for ($x = 0; $x < 10; $x++) {
+                          ?>
+                            <button class="group601 code d min num hvr-pop row2"><b><?= $x ?></b></button>
+                          <?php
+                          }
+                          ?>
+                          <div class="nums" data-points-to="row2">
+                            <button class="g6011 codec all-btn">All</button>
+                            <button class="g6022 codec big-btn">Big</button>
+                            <button class="g6033 codec small-btn">Small</button>
+                            <button class="g6044 codec odd-btn">Odd</button>
+                            <button class="g6055 codec even-btn">Even</button>
+                            <button class="g6066 codec clear-btn">Clear</button>
+                          </div>
+                        </div>
+                        <br>
+
+                      </div>
+                    </div>
+                    <p></p>
+                    <div class="g60" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+                      <div class="row">
+                        <div class="col-sm">
+                          <!--dropdown 1-->
+                          <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
+                              Dropdown button
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="#">draw numbre 1</a>
+                              <a class="dropdown-item" href="#">draw numbre 2</a>
+                              <a class="dropdown-item" href="#">draw numbre 3</a>
+                            </div>
+                          </div>
+
+
+                        </div>
+                        <div class="col-sm">
+                          <div class="btn-group mr-2 select-amt" role="group" aria-label="First group">
+                            <button type="button" class="btn coins unit-amt" value="2">2</button>
+                            <button type="button" class="btn coins unit-amt money-bg" value="1">1</button>
+                            <button type="button" class="btn coins unit-amt" value="0.2">0.2</button>
+                            <button type="button" class="btn coins unit-amt" value="0.1">0.1</button>
+                            <button type="button" class="btn coins unit-amt" value="0.02">0.02</button>
+                            <button type="button" class="btn coins unit-amt" value="0.01">0.01</button>
+                            <button type="button" class="btn coins unit-amt" value="0.002">0.002</button>
+                            <button type="button" class="btn coins unit-amt" value="0.001">0.001</button>
+                          </div>
+                          <p></p>
+                          <div class="btn-group mr-2 select-multiplier" role="group" aria-label="First group">
+                            <button type="button" class="btn coins multiplier-select money-bg" value="1">x1</button>
+                            <button type="button" class="btn coins multiplier-select" value="5">x5</button>
+                            <button type="button" class="btn coins multiplier-select" value="10">x10</button>
+                            <button type="button" class="btn coins multiplier-select" value="20">x20</button>
+                            <button type="button" class="btn coins multiplier-select" value="30">x30</button>
+                            <button type="button" class="btn coins multiplier-select" value="40">x40</button>
+                            <button type="button" class="btn coins multiplier-select" value="50">x50</button>
+                            <button type="button" class="btn coins multiplier-select" value="100">x100</button>
+                          </div>
+                        </div>
+                        <div class="col-sm">
+                          <!---->
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            Bet Amt.<input class="bet-amt" type="text" placeholder="GHc 1" style="width:120px;position:relative;left:20px;border:solid 1px #eee">
+                          </div>
+                          <p></p>
+                          Mult. Bet.<div class="btn-group mr-2" role="group" aria-label="First group" style="width:120px;position:relative;left:15px">
+                            <button type="button" class="btn coins minus">-</button>
+                            <input type="text" maxlength="4" size="3" class="btn coins multiplier-input" value="1">
+                            <button type="button" class="btn coins plus">+</button>
+                          </div>
+
+                        </div>
+                      </div>
+                      <!--bet amount and buttons-->
+                      <div style="padding:10px">
+                        <div class="least-bet">One Pair at least <b>1</b> No. <br> One No. at least <b>3</b> No.</div>
+                        <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
+                      </div>
+
+                      <div class="row d-flex justify-content-end" style="margin-right:20px;">
+                        <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
+                        <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                      </div>
+
+                    </div>
+                    <!--end of bet amount buttons-->
+                    <p></p>
+
+                    <!--table-->
+                  </div>
+
+
+                  <!--group-30-->
+                  <div id="group-30" class="all5" style="display:none">
+                    <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+
+                      <div class="g60" style="position:relative;top:-20px;">
+                        <br>
+                        &nbsp;
+
+                        <div class="rows row">
+                          <button class="codex">One Pair</button>
+                          <?php
+                          for ($x = 0; $x < 10; $x++) {
+                          ?>
+                            <button class="group30 code d min num hvr-pop row1"><b><?= $x ?></b></button>
+                          <?php
+                          }
+                          ?>
+                          <div class="nums" data-points-to="row1">
+                            <button class="g301 codec all-btn">All</button>
+                            <button class="g302 codec big-btn">Big</button>
+                            <button class="g303 codec small-btn">Small</button>
+                            <button class="g304 codec odd-btn">Odd</button>
+                            <button class="g305 codec even-btn">Even</button>
+                            <button class="g306 codec clear-btn">Clear</button>
+                          </div>
+                        </div>
+                        <br>
+                        <div class="rows row">
+                          <button class="codex">One No.</button>
+                          <?php
+                          for ($x = 0; $x < 10; $x++) {
+                          ?>
+                            <button class="group301 code d min num hvr-pop row2"><b><?= $x ?></b></button>
+                          <?php
+                          }
+                          ?>
+                          <div class="nums" data-points-to="row2">
+                            <button class="g3011 codec all-btn">All</button>
+                            <button class="g3022 codec big-btn">Big</button>
+                            <button class="g3033 codec small-btn">Small</button>
+                            <button class="g3044 codec odd-btn">Odd</button>
+                            <button class="g3055 codec even-btn">Even</button>
+                            <button class="g3066 codec clear-btn">Clear</button>
+                          </div>
+                        </div>
+                        <br>
+
+                      </div>
+                    </div>
+                    <p></p>
+                    <div class="g30" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+                      <div class="row">
+                        <div class="col-sm">
+                          <!--dropdown 1-->
+                          <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
+                              Dropdown button
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="#">draw numbre 1</a>
+                              <a class="dropdown-item" href="#">draw numbre 2</a>
+                              <a class="dropdown-item" href="#">draw numbre 3</a>
+                            </div>
+                          </div>
+
+
+                        </div>
+                        <div class="col-sm">
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins unit-amt" value="2">2</button>
+                            <button type="button" class="btn coins unit-amt money-bg" value="1">1</button>
+                            <button type="button" class="btn coins unit-amt" value="0.2">0.2</button>
+                            <button type="button" class="btn coins unit-amt" value="0.1">0.1</button>
+                            <button type="button" class="btn coins unit-amt" value="0.02">0.02</button>
+                            <button type="button" class="btn coins unit-amt" value="0.01">0.01</button>
+                            <button type="button" class="btn coins unit-amt" value="0.002">0.002</button>
+                            <button type="button" class="btn coins unit-amt" value="0.001">0.001</button>
+                          </div>
+                          <p></p>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins multiplier-select money-bg" value="1">x1</button>
+                            <button type="button" class="btn coins multiplier-select" value="5">x5</button>
+                            <button type="button" class="btn coins multiplier-select" value="10">x10</button>
+                            <button type="button" class="btn coins multiplier-select" value="20">x20</button>
+                            <button type="button" class="btn coins multiplier-select" value="30">x30</button>
+                            <button type="button" class="btn coins multiplier-select" value="40">x40</button>
+                            <button type="button" class="btn coins multiplier-select" value="50">x50</button>
+                            <button type="button" class="btn coins multiplier-select" value="100">x100</button>
+                          </div>
+                        </div>
+                        <div class="col-sm">
+                          <!---->
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            Bet Amt.<input class="bet-amt" type="text" placeholder="GHc 1" style="width:120px;position:relative;left:20px;border:solid 1px #eee">
+                          </div>
+                          <p></p>
+                          Mult. Bet.<div class="btn-group mr-2" role="group" aria-label="First group" style="width:120px;position:relative;left:15px">
+                            <button type="button" class="btn coins minus">-</button>
+                            <input type="text" maxlength="4" size="3" class="btn coins multiplier-input" value="1">
+                            <button type="button" class="btn coins plus">+</button>
+                          </div>
+
+                        </div>
+                      </div>
+                      <!--bet amount and buttons-->
+                      <div style="padding:10px">
+                        <div class="least-bet">One Pair at least <b>2</b> No. <br> One No. at least <b>1</b> No.</div>
+                        <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
+                      </div>
+
+                      <div class="row d-flex justify-content-end" style="margin-right:20px;">
+                        <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
+                        <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                      </div>
+
+                    </div>
+                    <!--end of bet amount buttons-->
+                    <p></p>
+
+                    <!--table-->
+                  </div>
+
+
+                  <!--group-20-->
+                  <div id="group-20" class="all5" style="display:none">
+                    <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+
+                      <div class="g20" style="position:relative;top:-20px;">
+                        <br>
+                        &nbsp;
+
+                        <div class="rows row">
+                          <button class="codex">Three of <br />a Kind</button>
+                          <?php
+                          for ($x = 0; $x < 10; $x++) {
+                          ?>
+                            <button class="group20 code d min num hvr-pop row1"><b><?= $x ?></b></button>
+                          <?php
+                          }
+                          ?>
+                          <div class="nums" data-points-to="row1">
+                            <button class="g201 codec all-btn">All</button>
+                            <button class="g202 codec big-btn">Big</button>
+                            <button class="g203 codec small-btn">Small</button>
+                            <button class="g204 codec odd-btn">Odd</button>
+                            <button class="g205 codec even-btn">Even</button>
+                            <button class="g206 codec clear-btn">Clear</button>
+                          </div>
+                        </div>
+                        <br>
+                        <div class="rows row">
+                          <button class="codex">One No.</button>
+                          <?php
+                          for ($x = 0; $x < 10; $x++) {
+                          ?>
+                            <button class="group201 code d min num hvr-pop row2"><b><?= $x ?></b></button>
+                          <?php
+                          }
+                          ?>
+                          <div class="nums" data-points-to="row2">
+                            <button class="g2011 codec all-btn">All</button>
+                            <button class="g2022 codec big-btn">Big</button>
+                            <button class="g2033 codec small-btn">Small</button>
+                            <button class="g2044 codec odd-btn">Odd</button>
+                            <button class="g2055 codec even-btn">Even</button>
+                            <button class="g2066 codec clear-btn">Clear</button>
+                          </div>
+                        </div>
+                        <br>
+
+                      </div>
+                    </div>
+                    <p></p>
+                    <div class="g20" style="display:none;padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+                      <div class="row">
+                        <div class="col-sm">
+                          <!--dropdown 1-->
+                          <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
+                              Dropdown button
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="#">draw numbre 1</a>
+                              <a class="dropdown-item" href="#">draw numbre 2</a>
+                              <a class="dropdown-item" href="#">draw numbre 3</a>
+                            </div>
+                          </div>
+
+
+                        </div>
+                        <div class="col-sm">
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins unit-amt" value="2">2</button>
+                            <button type="button" class="btn coins unit-amt money-bg" value="1">1</button>
+                            <button type="button" class="btn coins unit-amt" value="0.2">0.2</button>
+                            <button type="button" class="btn coins unit-amt" value="0.1">0.1</button>
+                            <button type="button" class="btn coins unit-amt" value="0.02">0.02</button>
+                            <button type="button" class="btn coins unit-amt" value="0.01">0.01</button>
+                            <button type="button" class="btn coins unit-amt" value="0.002">0.002</button>
+                            <button type="button" class="btn coins unit-amt" value="0.001">0.001</button>
+                          </div>
+                          <p></p>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins money-bg" value="1">x1</button>
+                            <button type="button" class="btn coins multiplier-select" value="5">x5</button>
+                            <button type="button" class="btn coins multiplier-select" value="10">x10</button>
+                            <button type="button" class="btn coins multiplier-select" value="20">x20</button>
+                            <button type="button" class="btn coins multiplier-select" value="30">x30</button>
+                            <button type="button" class="btn coins multiplier-select" value="40">x40</button>
+                            <button type="button" class="btn coins multiplier-select" value="50">x50</button>
+                            <button type="button" class="btn coins multiplier-select" value="100">x100</button>
+                          </div>
+                        </div>
+                        <div class="col-sm">
+                          <!---->
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            Bet Amt.<input class="bet-amt" type="text" placeholder="GHc 1" style="width:120px;position:relative;left:20px;border:solid 1px #eee">
+                          </div>
+                          <p></p>
+                          Mult. Bet.<div class="btn-group mr-2" role="group" aria-label="First group" style="width:120px;position:relative;left:15px">
+                            <button type="button" class="btn coins minus">-</button>
+                            <input type="text" maxlength="4" size="3" class="btn coins multiplier-input" value="1">
+                            <button type="button" class="btn coins plus">+</button>
+                          </div>
+
+                        </div>
+                      </div>
+                      <!--bet amount and buttons-->
+                      <div style="padding:10px">
+                        <div class="least-bet">Three of a Kind at least <b>1</b> No. <br> One No. at least <b>2</b> No.</div>
+                        <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
+                      </div>
+
+                      <div class="row d-flex justify-content-end" style="margin-right:20px;">
+                        <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
+                        <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                      </div>
+
+                    </div>
+                    <!--end of bet amount buttons-->
+                    <p></p>
+
+                    <!--table-->
+                  </div>
+
+
+                  <!--group-10-->
+                  <div id="group-10" class="all5" style="display:none">
+                    <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+
+                      <div class="g10" style="position:relative;top:-20px;">
+                        <br>
+                        &nbsp;
+
+                        <div class="rows row">
+                          <button class="codex">Three of <br />a Kind</button>
+                          <?php
+                          for ($x = 0; $x < 10; $x++) {
+                          ?>
+                            <button class="group10 code d min num hvr-pop row1"><b><?= $x ?></b></button>
+                          <?php
+                          }
+                          ?>
+                          <div class="nums" data-points-to="row1">
+                            <button class="g101 codec all-btn">All</button>
+                            <button class="g102 codec big-btn">Big</button>
+                            <button class="g103 codec small-btn">Small</button>
+                            <button class="g104 codec odd-btn">Odd</button>
+                            <button class="g105 codec even-btn">Even</button>
+                            <button class="g106 codec clear-btn">Clear</button>
+                          </div>
+                        </div>
+                        <br>
+                        <div class="rows row">
+                          <button class="codex">One Pair</button>
+                          <?php
+                          for ($x = 0; $x < 10; $x++) {
+                          ?>
+                            <button class="group101 code d min num hvr-pop row2"><b><?= $x ?></b></button>
+                          <?php
+                          }
+                          ?>
+                          <div class="nums" data-points-to="row2">
+                            <button class="g1011 codec all-btn">All</button>
+                            <button class="g1022 codec big-btn">Big</button>
+                            <button class="g1033 codec small-btn">Small</button>
+                            <button class="g1044 codec odd-btn">Odd</button>
+                            <button class="g1055 codec even-btn">Even</button>
+                            <button class="g1066 codec clear-btn">Clear</button>
+                          </div>
+                        </div>
+                        <br>
+
+                      </div>
+                    </div>
+                    <p></p>
+                    <div class="g10" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+                      <div class="row">
+                        <div class="col-sm">
+                          <!--dropdown 1-->
+                          <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
+                              Dropdown button
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="#">draw numbre 1</a>
+                              <a class="dropdown-item" href="#">draw numbre 2</a>
+                              <a class="dropdown-item" href="#">draw numbre 3</a>
+                            </div>
+                          </div>
+
+
+                        </div>
+                        <div class="col-sm">
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins unit-amt" value="2">2</button>
+                            <button type="button" class="btn coins unit-amt money-bg" value="1">1</button>
+                            <button type="button" class="btn coins unit-amt" value="0.2">0.2</button>
+                            <button type="button" class="btn coins unit-amt" value="0.1">0.1</button>
+                            <button type="button" class="btn coins unit-amt" value="0.02">0.02</button>
+                            <button type="button" class="btn coins unit-amt" value="0.01">0.01</button>
+                            <button type="button" class="btn coins unit-amt" value="0.002">0.002</button>
+                            <button type="button" class="btn coins unit-amt" value="0.001">0.001</button>
+                          </div>
+                          <p></p>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins money-bg" value="1">x1</button>
+                            <button type="button" class="btn coins multiplier-select" value="5">x5</button>
+                            <button type="button" class="btn coins multiplier-select" value="10">x10</button>
+                            <button type="button" class="btn coins multiplier-select" value="20">x20</button>
+                            <button type="button" class="btn coins multiplier-select" value="30">x30</button>
+                            <button type="button" class="btn coins multiplier-select" value="40">x40</button>
+                            <button type="button" class="btn coins multiplier-select" value="50">x50</button>
+                            <button type="button" class="btn coins multiplier-select" value="100">x100</button>
+                          </div>
+                        </div>
+                        <div class="col-sm">
+                          <!---->
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            Bet Amt.<input class="bet-amt" type="text" placeholder="GHc 1" style="width:120px;position:relative;left:20px;border:solid 1px #eee">
+                          </div>
+                          <p></p>
+                          Mult. Bet.<div class="btn-group mr-2" role="group" aria-label="First group" style="width:120px;position:relative;left:15px">
+                            <button type="button" class="btn coins minus">-</button>
+                            <input type="text" maxlength="4" size="3" class="btn coins multiplier-input" value="1">
+                            <button type="button" class="btn coins plus">+</button>
+                          </div>
+
+                        </div>
+                      </div>
+                      <!--bet amount and buttons-->
+                      <div style="padding:10px">
+                        <div class="least-bet">Three of a Kind, One Pair at least <b>1</b> No.</div>
+                        <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
+                      </div>
+
+                      <div class="row d-flex justify-content-end" style="margin-right:20px;">
+                        <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
+                        <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                      </div>
+
+                    </div>
+                    <!--end of bet amount buttons-->
+                    <p></p>
+
+                    <!--table-->
+                  </div>
+
+
+                  <!--group-5-->
+                  <div id="group-5" class="all5" style="display:none">
+                    <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+                      <div class="g5" style="position:relative;top:-20px;">
+                        <br>
+                        &nbsp;
+
+                        <div class="rows row">
+                          <button class="codex">Four of <br />a Kind</button>
+                          <?php
+                          for ($x = 0; $x < 10; $x++) {
+                          ?>
+                            <button class="group5 code d min num hvr-pop row1"><b><?= $x ?></b></button>
+                          <?php
+                          }
+                          ?>
+                          <div class="nums" data-points-to="row1">
+                            <button class="g51 codec all-btn">All</button>
+                            <button class="g52 codec big-btn">Big</button>
+                            <button class="g53 codec small-btn">Small</button>
+                            <button class="g54 codec odd-btn">Odd</button>
+                            <button class="g55 codec even-btn">Even</button>
+                            <button class="g56 codec clear-btn">Clear</button>
+                          </div>
+                        </div>
+                        <br>
+                        <div class="rows row">
+                          <button class="codex">One No.</button>
+                          <?php
+                          for ($x = 0; $x < 10; $x++) {
+                          ?>
+                            <button class="group51 code d min num hvr-pop row2"><b><?= $x ?></b></button>
+                          <?php
+                          }
+                          ?>
+                          <div class="nums" data-points-to="row2">
+                            <button class="g511 codec all-btn">All</button>
+                            <button class="g522 codec big-btn">Big</button>
+                            <button class="g533 codec small-btn">Small</button>
+                            <button class="g544 codec odd-btn">Odd</button>
+                            <button class="g555 codec even-btn">Even</button>
+                            <button class="g566 codec clear-btn">Clear</button>
+                          </div>
+                        </div>
+                        <br>
+
+                      </div>
+                    </div>
+                    <p></p>
+                    <div class="g5" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
+                      <div class="row">
+                        <div class="col-sm">
+                          <!--dropdown 1-->
+                          <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
+                              Dropdown button
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="#">draw numbre 1</a>
+                              <a class="dropdown-item" href="#">draw numbre 2</a>
+                              <a class="dropdown-item" href="#">draw numbre 3</a>
+                            </div>
+                          </div>
+
+
+                        </div>
+                        <div class="col-sm">
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins unit-amt" value="2">2</button>
+                            <button type="button" class="btn coins unit-amt money-bg" value="1">1</button>
+                            <button type="button" class="btn coins unit-amt" value="0.2">0.2</button>
+                            <button type="button" class="btn coins unit-amt" value="0.1">0.1</button>
+                            <button type="button" class="btn coins unit-amt" value="0.02">0.02</button>
+                            <button type="button" class="btn coins unit-amt" value="0.01">0.01</button>
+                            <button type="button" class="btn coins unit-amt" value="0.002">0.002</button>
+                            <button type="button" class="btn coins unit-amt" value="0.001">0.001</button>
+                          </div>
+                          <p></p>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins money-bg" value="1">x1</button>
+                            <button type="button" class="btn coins multiplier-select" value="5">x5</button>
+                            <button type="button" class="btn coins multiplier-select" value="10">x10</button>
+                            <button type="button" class="btn coins multiplier-select" value="20">x20</button>
+                            <button type="button" class="btn coins multiplier-select" value="30">x30</button>
+                            <button type="button" class="btn coins multiplier-select" value="40">x40</button>
+                            <button type="button" class="btn coins multiplier-select" value="50">x50</button>
+                            <button type="button" class="btn coins multiplier-select" value="100">x100</button>
+                          </div>
+                        </div>
+                        <div class="col-sm">
+                          <!---->
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            Bet Amt.<input class="bet-amt" type="text" placeholder="GHc 1" style="width:120px;position:relative;left:20px;border:solid 1px #eee">
+                          </div>
+                          <p></p>
+                          Mult. Bet.<div class="btn-group mr-2" role="group" aria-label="First group" style="width:120px;position:relative;left:15px">
+                            <button type="button" class="btn coins minus">-</button>
+                            <input type="text" maxlength="4" size="3" class="btn coins multiplier-input" value="1">
+                            <button type="button" class="btn coins plus">+</button>
+                          </div>
+
+                        </div>
+                      </div>
+                      <!--bet amount and buttons-->
+                      <div style="padding:10px">
+                        <div class="least-bet">Four of a Kind, One No. at least <b>1</b> No.</div>
+                        <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
+                      </div>
+
+                      <div class="row d-flex justify-content-end" style="margin-right:20px;">
+                        <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
+                        <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                      </div>
+
+                    </div>
+                    <!--end of bet amount buttons-->
+                    <p></p>
+
+                    <!--table-->
+                  </div>
                 </div>
 
 
 
-                <!--group-manual-->
-                <div id="group-manual" class="all5" style="display:none">
-                  <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
-
-                    <div class="group-manual" class="all5" style="position:relative;top:-20px;">
-                      <br>
-                      &nbsp;
-
-                      <div class="row d-flex justify-content-center" style="padding:20px">
-
-                        <textarea class="bet-box" style="height:200px;border:solid 1px #eee;width:95%;padding:20px;outline:none;" placeholder="Enter your bet manually here&#10;Example is as below. Separate your bet with semi colon (;)&#10;0,1,2,3,4;   0,4,5,6,2;   0,2,5,6,1;   0,1,3,4,2;"></textarea>
-
-                      </div>
-
-                    </div>
-                  </div>
-                  <p></p>
-                  <div class="group-manual" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
-
-                    <div class="row">
-                      <div class="col-sm">
-                        <!--dropdown 1-->
-                        <div class="dropdown">
-                          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                            Dropdown button
-                          </button>
-                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">draw numbre 1</a>
-                            <a class="dropdown-item" href="#">draw numbre 2</a>
-                            <a class="dropdown-item" href="#">draw numbre 3</a>
-                          </div>
-                        </div>
-
-
-                      </div>
-                      <div class="col-sm">
-                        <div class="btn-group mr-2" role="group" aria-label="First group">
-                          <button type="button" class="btn coins unit-amt" value="2">2</button>
-                          <button type="button" class="btn coins unit-amt money-bg" value="1">1</button>
-                          <button type="button" class="btn coins unit-amt" value="0.2">0.2</button>
-                          <button type="button" class="btn coins unit-amt" value="0.1">0.1</button>
-                          <button type="button" class="btn coins unit-amt" value="0.02">0.02</button>
-                          <button type="button" class="btn coins unit-amt" value="0.01">0.01</button>
-                          <button type="button" class="btn coins unit-amt" value="0.002">0.002</button>
-                          <button type="button" class="btn coins unit-amt" value="0.001">0.001</button>
-                        </div>
-                        <p></p>
-                        <div class="btn-group mr-2" role="group" aria-label="First group">
-                          <button type="button" class="btn coins multiplier-select money-bg" value="1">x1</button>
-                          <button type="button" class="btn coins multiplier-select" value="5">x5</button>
-                          <button type="button" class="btn coins multiplier-select" value="10">x10</button>
-                          <button type="button" class="btn coins multiplier-select" value="20">x20</button>
-                          <button type="button" class="btn coins multiplier-select" value="30">x30</button>
-                          <button type="button" class="btn coins multiplier-select" value="40">x40</button>
-                          <button type="button" class="btn coins multiplier-select" value="50">x50</button>
-                          <button type="button" class="btn coins multiplier-select" value="100">x100</button>
-                        </div>
-                      </div>
-                      <div class="col-sm">
-                        <!---->
-                        <div class="btn-group mr-2" role="group" aria-label="First group">
-                          Bet Amt.<input class="bet-amt" type="text" placeholder="GHc 1" style="width:120px;position:relative;left:20px;border:solid 1px #eee">
-                        </div>
-                        <p></p>
-                        Mult. Bet.<div class="btn-group mr-2" role="group" aria-label="First group" style="width:120px;position:relative;left:15px">
-                          <button type="button" class="btn coins minus">-</button>
-                          <input type="text" maxlength="4" size="3" class="btn coins multiplier-input" value="1">
-                          <button type="button" class="btn coins plus">+</button>
-                        </div>
-
-                      </div>
-                    </div>
-                    <!--bet amount and buttons-->
-                    <div style="padding:10px">
-                      <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
-                    </div>
-
-                    <div class="row d-flex justify-content-end" style="margin-right:20px;">
-                      <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
-                      <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                      <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
-                    </div>
-
-                  </div>
-                  <!--end of bet amount buttons-->
-                  <p></p>
-                  
-                  <!--table-->
-                </div>
-
-
-                <!--group-combo-->
-                <div id="group-combo" class="all5" style="display:none">
-                  <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
-
-                    <div class="group-combo" style="position:relative;top:-20px;">
-                      <br>
-                      &nbsp;
-
-                      <div class="rows row">
-                        <button class="codex">1st</button>
-                        <?php
-                        for ($x = 0; $x < 10; $x++) {
-                        ?>
-                          <button class="x11 code d min num hvr-pop row1"><b><?= $x ?></b></button>
-                        <?php
-                        }
-                        ?>
-                        <div class="nums" data-points-to="row1">
-                          <button class="cb1 codec all-btn">All</button>
-                          <button class="cb2 codec big-btn">Big</button>
-                          <button class="cb3 codec small-btn">Small</button>
-                          <button class="cb4 codec odd-btn">Odd</button>
-                          <button class="cb5 codec even-btn">Even</button>
-                          <button class="cb6 codec clear-btn">Clear</button>
-                        </div>
-                      </div>
-                      <br>
-
-                      <div class="rows row">
-                        <button class="codex">2nd</button>
-                        <?php
-                        for ($x = 0; $x < 10; $x++) {
-                        ?>
-                          <button class="x22 code d min num hvr-pop row2"><b><?= $x ?></b></button>
-                        <?php
-                        }
-                        ?>
-                        <div class="nums" data-points-to="row2">
-                          <button class="cb11 codec all-btn">All</button>
-                          <button class="cb22 codec big-btn">Big</button>
-                          <button class="cb33 codec small-btn">Small</button>
-                          <button class="cb44 codec odd-btn">Odd</button>
-                          <button class="cb55 codec even-btn">Even</button>
-                          <button class="cb66 codec clear-btn">Clear</button>
-                        </div>
-                      </div>
-                      <br>
-
-                      <div class="rows row">
-                        <button class="codex">3rd</button>
-                        <?php
-                        for ($x = 0; $x < 10; $x++) {
-                        ?>
-                          <button class="x33 code d min num hvr-pop row3"><b><?= $x ?></b></button>
-                        <?php
-                        }
-                        ?>
-                        <div class="nums" data-points-to="row3">
-                          <button class="cb111 codec all-btn">All</button>
-                          <button class="cb222 codec big-btn">Big</button>
-                          <button class="cb333 codec small-btn">Small</button>
-                          <button class="cb444 codec odd-btn">Odd</button>
-                          <button class="cb555 codec even-btn">Even</button>
-                          <button class="cb666 codec clear-btn">Clear</button>
-                        </div>
-                      </div>
-                      <br>
-
-                      <div class="rows row">
-                        <button class="codex">4th</button>
-                        <?php
-                        for ($x = 0; $x < 10; $x++) {
-                        ?>
-                          <button class="x44 code d min num hvr-pop row4"><b><?= $x ?></b></button>
-                        <?php
-                        }
-                        ?>
-                        <div class="nums" data-points-to="row4">
-                          <button class="cb1111 codec all-btn">All</button>
-                          <button class="cb2222 codec big-btn">Big</button>
-                          <button class="cb3333 codec small-btn">Small</button>
-                          <button class="cb4444 codec odd-btn">Odd</button>
-                          <button class="cb5555 codec even-btn">Even</button>
-                          <button class="cb6666 codec clear-btn">Clear</button>
-                        </div>
-                      </div>
-                      <br>
-
-                      <div class="rows row">
-                        <button class="codex">5th</button>
-                        <?php
-                        for ($x = 0; $x < 10; $x++) {
-                        ?>
-                          <button class="x55 code d min num hvr-pop row5"><b><?= $x ?></b></button>
-                        <?php
-                        }
-                        ?>
-                        <div class="nums" data-points-to="row5">
-                          <button class="cb11111 codec all-btn">All</button>
-                          <button class="cb22222 codec big-btn">Big</button>
-                          <button class="cb33333 codec small-btn">Small</button>
-                          <button class="cb44444 codec odd-btn">Odd</button>
-                          <button class="cb55555 codec even-btn">Even</button>
-                          <button class="cb66666 codec clear-btn">Clear</button>
-                        </div>
-                      </div>
-                      <br>
-
-                    </div>
-                  </div class>
-                  <p></p>
-                  <div class="group-combo" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
-
-                    <div class="row">
-                      <div class="col-sm">
-                        <!--dropdown 1-->
-                        <div class="dropdown">
-                          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                            Dropdown button
-                          </button>
-                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">draw numbre 1</a>
-                            <a class="dropdown-item" href="#">draw numbre 2</a>
-                            <a class="dropdown-item" href="#">draw numbre 3</a>
-                          </div>
-                        </div>
-
-
-                      </div>
-                      <div class="col-sm">
-                        <div class="btn-group mr-2" role="group" aria-label="First group">
-                          <button type="button" class="btn coins unit-amt" value="2">2</button>
-                          <button type="button" class="btn coins unit-amt money-bg" value="1">1</button>
-                          <button type="button" class="btn coins unit-amt" value="0.2">0.2</button>
-                          <button type="button" class="btn coins unit-amt" value="0.1">0.1</button>
-                          <button type="button" class="btn coins unit-amt" value="0.02">0.02</button>
-                          <button type="button" class="btn coins unit-amt" value="0.01">0.01</button>
-                          <button type="button" class="btn coins unit-amt" value="0.002">0.002</button>
-                          <button type="button" class="btn coins unit-amt" value="0.001">0.001</button>
-                        </div>
-                        <p></p>
-                        <div class="btn-group mr-2" role="group" aria-label="First group">
-                          <button type="button" class="btn coins multiplier-select money-bg" value="1">x1</button>
-                          <button type="button" class="btn coins multiplier-select" value="5">x5</button>
-                          <button type="button" class="btn coins multiplier-select" value="10">x10</button>
-                          <button type="button" class="btn coins multiplier-select" value="20">x20</button>
-                          <button type="button" class="btn coins multiplier-select" value="30">x30</button>
-                          <button type="button" class="btn coins multiplier-select" value="40">x40</button>
-                          <button type="button" class="btn coins multiplier-select" value="50">x50</button>
-                          <button type="button" class="btn coins multiplier-select" value="100">x100</button>
-                        </div>
-                      </div>
-                      <div class="col-sm">
-                        <!---->
-                        <div class="btn-group mr-2" role="group" aria-label="First group">
-                          Bet Amt.<input class="bet-amt" type="text" placeholder="GHc 1" style="width:120px;position:relative;left:20px;border:solid 1px #eee">
-                        </div>
-                        <p></p>
-                        Mult. Bet.<div class="btn-group mr-2" role="group" aria-label="First group" style="width:120px;position:relative;left:15px">
-                          <button type="button" class="btn coins minus">-</button>
-                          <input type="text" maxlength="4" size="3" class="btn coins multiplier-input" value="1">
-                          <button type="button" class="btn coins plus">+</button>
-                        </div>
-
-                      </div>
-                    </div>
-                    <!--bet amount and buttons-->
-                    <div style="padding:10px">
-                      <div class="least-bet">At least <b>1</b> No. every place</div>
-                      <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
-                    </div>
-
-                    <div class="row d-flex justify-content-end" style="margin-right:20px;">
-                      <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
-                      <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                      <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
-                    </div>
-
-                  </div>
-                  <!--end of bet amount buttons-->
-                  <p></p>
-                  
-                  <!--table-->
-                </div>
-
-
-                <!--group-120-->
-                <div id="group-120" class="all5" style="display:block">
-                  <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
-
-                    <div class="g120" style="position:relative;top:-20px;">
-                      <br>
-                      &nbsp;
-
-                      <div class="rows row">
-                        <button hidden class="codex">One Pair</button>
-                        <?php
-                        for ($x = 0; $x < 10; $x++) {
-                        ?>
-                          <button class="group60 code d min num hvr-pop row1"><b><?= $x ?></b></button>
-                        <?php
-                        }
-                        ?>
-                        <div class="nums" data-points-to="row1">
-                          <button class="g1201 codec all-btn">All</button>
-                          <button class="g1202 codec big-btn">Big</button>
-                          <button class="g1203 codec small-btn">Small</button>
-                          <button class="g1204 codec odd-btn">Odd</button>
-                          <button class="g1205 codec even-btn">Even</button>
-                          <button class="g1206 codec clear-btn">Clear</button>
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
-                  <p></p>
-                  <div class="g120" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
-
-                    <div class="row">
-                      <div class="col-sm">
-                        <!--dropdown 1-->
-                        <div class="dropdown">
-                          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                            Dropdown button
-                          </button>
-                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">draw numbre 1</a>
-                            <a class="dropdown-item" href="#">draw numbre 2</a>
-                            <a class="dropdown-item" href="#">draw numbre 3</a>
-                          </div>
-                        </div>
-
-
-                      </div>
-                      <div class="col-sm">
-                        <div class="btn-group mr-2" role="group" aria-label="First group">
-                          <button type="button" class="btn coins unit-amt" value="2">2</button>
-                          <button type="button" class="btn coins unit-amt money-bg" value="1">1</button>
-                          <button type="button" class="btn coins unit-amt" value="0.2">0.2</button>
-                          <button type="button" class="btn coins unit-amt" value="0.1">0.1</button>
-                          <button type="button" class="btn coins unit-amt" value="0.02">0.02</button>
-                          <button type="button" class="btn coins unit-amt" value="0.01">0.01</button>
-                          <button type="button" class="btn coins unit-amt" value="0.002">0.002</button>
-                          <button type="button" class="btn coins unit-amt" value="0.001">0.001</button>
-                        </div>
-                        <p></p>
-                        <div class="btn-group mr-2" role="group" aria-label="First group">
-                          <button type="button" class="btn coins multiplier-select money-bg" value="1">x1</button>
-                          <button type="button" class="btn coins multiplier-select" value="5">x5</button>
-                          <button type="button" class="btn coins multiplier-select" value="10">x10</button>
-                          <button type="button" class="btn coins multiplier-select" value="20">x20</button>
-                          <button type="button" class="btn coins multiplier-select" value="30">x30</button>
-                          <button type="button" class="btn coins multiplier-select" value="40">x40</button>
-                          <button type="button" class="btn coins multiplier-select" value="50">x50</button>
-                          <button type="button" class="btn coins multiplier-select" value="100">x100</button>
-                        </div>
-                      </div>
-                      <div class="col-sm">
-                        <!---->
-                        <div class="btn-group mr-2" role="group" aria-label="First group">
-                          Bet Amt.<input class="bet-amt" type="text" placeholder="GHc 1" style="width:120px;position:relative;left:20px;border:solid 1px #eee">
-                        </div>
-                        <p></p>
-                        Mult. Bet.<div class="btn-group mr-2" role="group" aria-label="First group" style="width:120px;position:relative;left:15px">
-                          <button type="button" class="btn coins minus">-</button>
-                          <input type="text" maxlength="4" size="3" class="btn coins multiplier-input" value="1">
-                          <button type="button" class="btn coins plus">+</button>
-                        </div>
-
-                      </div>
-                    </div>
-                    <!--bet amount and buttons-->
-                    <div style="padding:10px">
-                      <div class="least-bet">At least <b>5</b> No.</div>
-                      <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
-                    </div>
-
-                    <div class="row d-flex justify-content-end" style="margin-right:20px;">
-                      <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
-                      <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                      <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
-                    </div>
-
-                  </div>
-                  <!--end of bet amount buttons-->
-                  <p></p>
-                  
-                  <!--table-->
-                </div>
-
-
-                <!--group-60-->
-                <div id="group-60" class="all5" style="display:none">
-                  <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
-
-                    <div class="g60" style="position:relative;top:-20px;">
-                      <br>
-                      &nbsp;
-
-                      <div class="rows row">
-                        <button class="codex">One Pair</button>
-                        <?php
-                        for ($x = 0; $x < 10; $x++) {
-                        ?>
-                          <button class="group60 code d min num hvr-pop row1"><b><?= $x ?></b></button>
-                        <?php
-                        }
-                        ?>
-                        <div class="nums" data-points-to="row1">
-                          <button class="g601 codec all-btn">All</button>
-                          <button class="g602 codec big-btn">Big</button>
-                          <button class="g603 codec small-btn">Small</button>
-                          <button class="g604 codec odd-btn">Odd</button>
-                          <button class="g605 codec even-btn">Even</button>
-                          <button class="g606 codec clear-btn">Clear</button>
-                        </div>
-                      </div>
-                      <br>
-                      <div class="rows row">
-                        <button class="codex">One No.</button>
-                        <?php
-                        for ($x = 0; $x < 10; $x++) {
-                        ?>
-                          <button class="group601 code d min num hvr-pop row2"><b><?= $x ?></b></button>
-                        <?php
-                        }
-                        ?>
-                        <div class="nums" data-points-to="row2">
-                          <button class="g6011 codec all-btn">All</button>
-                          <button class="g6022 codec big-btn">Big</button>
-                          <button class="g6033 codec small-btn">Small</button>
-                          <button class="g6044 codec odd-btn">Odd</button>
-                          <button class="g6055 codec even-btn">Even</button>
-                          <button class="g6066 codec clear-btn">Clear</button>
-                        </div>
-                      </div>
-                      <br>
-
-                    </div>
-                  </div>
-                  <p></p>
-                  <div class="g60" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
-                    <div class="row">
-                      <div class="col-sm">
-                        <!--dropdown 1-->
-                        <div class="dropdown">
-                          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                            Dropdown button
-                          </button>
-                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">draw numbre 1</a>
-                            <a class="dropdown-item" href="#">draw numbre 2</a>
-                            <a class="dropdown-item" href="#">draw numbre 3</a>
-                          </div>
-                        </div>
-
-
-                      </div>
-                      <div class="col-sm">
-                        <div class="btn-group mr-2 select-amt" role="group" aria-label="First group">
-                          <button type="button" class="btn coins unit-amt" value="2">2</button>
-                          <button type="button" class="btn coins unit-amt money-bg" value="1">1</button>
-                          <button type="button" class="btn coins unit-amt" value="0.2">0.2</button>
-                          <button type="button" class="btn coins unit-amt" value="0.1">0.1</button>
-                          <button type="button" class="btn coins unit-amt" value="0.02">0.02</button>
-                          <button type="button" class="btn coins unit-amt" value="0.01">0.01</button>
-                          <button type="button" class="btn coins unit-amt" value="0.002">0.002</button>
-                          <button type="button" class="btn coins unit-amt" value="0.001">0.001</button>
-                        </div>
-                        <p></p>
-                        <div class="btn-group mr-2 select-multiplier" role="group" aria-label="First group">
-                          <button type="button" class="btn coins multiplier-select money-bg" value="1">x1</button>
-                          <button type="button" class="btn coins multiplier-select" value="5">x5</button>
-                          <button type="button" class="btn coins multiplier-select" value="10">x10</button>
-                          <button type="button" class="btn coins multiplier-select" value="20">x20</button>
-                          <button type="button" class="btn coins multiplier-select" value="30">x30</button>
-                          <button type="button" class="btn coins multiplier-select" value="40">x40</button>
-                          <button type="button" class="btn coins multiplier-select" value="50">x50</button>
-                          <button type="button" class="btn coins multiplier-select" value="100">x100</button>
-                        </div>
-                      </div>
-                      <div class="col-sm">
-                        <!---->
-                        <div class="btn-group mr-2" role="group" aria-label="First group">
-                          Bet Amt.<input class="bet-amt" type="text" placeholder="GHc 1" style="width:120px;position:relative;left:20px;border:solid 1px #eee">
-                        </div>
-                        <p></p>
-                        Mult. Bet.<div class="btn-group mr-2" role="group" aria-label="First group" style="width:120px;position:relative;left:15px">
-                          <button type="button" class="btn coins minus">-</button>
-                          <input type="text" maxlength="4" size="3" class="btn coins multiplier-input" value="1">
-                          <button type="button" class="btn coins plus">+</button>
-                        </div>
-
-                      </div>
-                    </div>
-                    <!--bet amount and buttons-->
-                    <div style="padding:10px">
-                      <div class="least-bet">One Pair at least <b>1</b> No. <br> One No. at least <b>3</b> No.</div>
-                      <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
-                    </div>
-
-                    <div class="row d-flex justify-content-end" style="margin-right:20px;">
-                      <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
-                      <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                      <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
-                    </div>
-
-                  </div>
-                  <!--end of bet amount buttons-->
-                  <p></p>
-                  
-                  <!--table-->
-                </div>
-
-
-                <!--group-30-->
-                <div id="group-30" class="all5" style="display:none">
-                  <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
-
-                    <div class="g60" style="position:relative;top:-20px;">
-                      <br>
-                      &nbsp;
-
-                      <div class="rows row">
-                        <button class="codex">One Pair</button>
-                        <?php
-                        for ($x = 0; $x < 10; $x++) {
-                        ?>
-                          <button class="group30 code d min num hvr-pop row1"><b><?= $x ?></b></button>
-                        <?php
-                        }
-                        ?>
-                        <div class="nums" data-points-to="row1">
-                          <button class="g301 codec all-btn">All</button>
-                          <button class="g302 codec big-btn">Big</button>
-                          <button class="g303 codec small-btn">Small</button>
-                          <button class="g304 codec odd-btn">Odd</button>
-                          <button class="g305 codec even-btn">Even</button>
-                          <button class="g306 codec clear-btn">Clear</button>
-                        </div>
-                      </div>
-                      <br>
-                      <div class="rows row">
-                        <button class="codex">One No.</button>
-                        <?php
-                        for ($x = 0; $x < 10; $x++) {
-                        ?>
-                          <button class="group301 code d min num hvr-pop row2"><b><?= $x ?></b></button>
-                        <?php
-                        }
-                        ?>
-                        <div class="nums" data-points-to="row2">
-                          <button class="g3011 codec all-btn">All</button>
-                          <button class="g3022 codec big-btn">Big</button>
-                          <button class="g3033 codec small-btn">Small</button>
-                          <button class="g3044 codec odd-btn">Odd</button>
-                          <button class="g3055 codec even-btn">Even</button>
-                          <button class="g3066 codec clear-btn">Clear</button>
-                        </div>
-                      </div>
-                      <br>
-
-                    </div>
-                  </div>
-                  <p></p>
-                  <div class="g30" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
-                    <div class="row">
-                      <div class="col-sm">
-                        <!--dropdown 1-->
-                        <div class="dropdown">
-                          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                            Dropdown button
-                          </button>
-                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">draw numbre 1</a>
-                            <a class="dropdown-item" href="#">draw numbre 2</a>
-                            <a class="dropdown-item" href="#">draw numbre 3</a>
-                          </div>
-                        </div>
-
-
-                      </div>
-                      <div class="col-sm">
-                        <div class="btn-group mr-2" role="group" aria-label="First group">
-                          <button type="button" class="btn coins unit-amt" value="2">2</button>
-                          <button type="button" class="btn coins unit-amt money-bg" value="1">1</button>
-                          <button type="button" class="btn coins unit-amt" value="0.2">0.2</button>
-                          <button type="button" class="btn coins unit-amt" value="0.1">0.1</button>
-                          <button type="button" class="btn coins unit-amt" value="0.02">0.02</button>
-                          <button type="button" class="btn coins unit-amt" value="0.01">0.01</button>
-                          <button type="button" class="btn coins unit-amt" value="0.002">0.002</button>
-                          <button type="button" class="btn coins unit-amt" value="0.001">0.001</button>
-                        </div>
-                        <p></p>
-                        <div class="btn-group mr-2" role="group" aria-label="First group">
-                          <button type="button" class="btn coins multiplier-select money-bg" value="1">x1</button>
-                          <button type="button" class="btn coins multiplier-select" value="5">x5</button>
-                          <button type="button" class="btn coins multiplier-select" value="10">x10</button>
-                          <button type="button" class="btn coins multiplier-select" value="20">x20</button>
-                          <button type="button" class="btn coins multiplier-select" value="30">x30</button>
-                          <button type="button" class="btn coins multiplier-select" value="40">x40</button>
-                          <button type="button" class="btn coins multiplier-select" value="50">x50</button>
-                          <button type="button" class="btn coins multiplier-select" value="100">x100</button>
-                        </div>
-                      </div>
-                      <div class="col-sm">
-                        <!---->
-                        <div class="btn-group mr-2" role="group" aria-label="First group">
-                          Bet Amt.<input class="bet-amt" type="text" placeholder="GHc 1" style="width:120px;position:relative;left:20px;border:solid 1px #eee">
-                        </div>
-                        <p></p>
-                        Mult. Bet.<div class="btn-group mr-2" role="group" aria-label="First group" style="width:120px;position:relative;left:15px">
-                          <button type="button" class="btn coins minus">-</button>
-                          <input type="text" maxlength="4" size="3" class="btn coins multiplier-input" value="1">
-                          <button type="button" class="btn coins plus">+</button>
-                        </div>
-
-                      </div>
-                    </div>
-                    <!--bet amount and buttons-->
-                    <div style="padding:10px">
-                      <div class="least-bet">One Pair at least <b>2</b> No. <br> One No. at least <b>1</b> No.</div>
-                      <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
-                    </div>
-
-                    <div class="row d-flex justify-content-end" style="margin-right:20px;">
-                      <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
-                      <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                      <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
-                    </div>
-
-                  </div>
-                  <!--end of bet amount buttons-->
-                  <p></p>
-                  
-                  <!--table-->
-                </div>
-
-
-                <!--group-20-->
-                <div id="group-20" class="all5" style="display:none">
-                  <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
-
-                    <div class="g20" style="position:relative;top:-20px;">
-                      <br>
-                      &nbsp;
-
-                      <div class="rows row">
-                        <button class="codex">Three of <br />a Kind</button>
-                        <?php
-                        for ($x = 0; $x < 10; $x++) {
-                        ?>
-                          <button class="group20 code d min num hvr-pop row1"><b><?= $x ?></b></button>
-                        <?php
-                        }
-                        ?>
-                        <div class="nums" data-points-to="row1">
-                          <button class="g201 codec all-btn">All</button>
-                          <button class="g202 codec big-btn">Big</button>
-                          <button class="g203 codec small-btn">Small</button>
-                          <button class="g204 codec odd-btn">Odd</button>
-                          <button class="g205 codec even-btn">Even</button>
-                          <button class="g206 codec clear-btn">Clear</button>
-                        </div>
-                      </div>
-                      <br>
-                      <div class="rows row">
-                        <button class="codex">One No.</button>
-                        <?php
-                        for ($x = 0; $x < 10; $x++) {
-                        ?>
-                          <button class="group201 code d min num hvr-pop row2"><b><?= $x ?></b></button>
-                        <?php
-                        }
-                        ?>
-                        <div class="nums" data-points-to="row2">
-                          <button class="g2011 codec all-btn">All</button>
-                          <button class="g2022 codec big-btn">Big</button>
-                          <button class="g2033 codec small-btn">Small</button>
-                          <button class="g2044 codec odd-btn">Odd</button>
-                          <button class="g2055 codec even-btn">Even</button>
-                          <button class="g2066 codec clear-btn">Clear</button>
-                        </div>
-                      </div>
-                      <br>
-
-                    </div>
-                  </div>
-                  <p></p>
-                  <div class="g20" style="display:none;padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
-                    <div class="row">
-                      <div class="col-sm">
-                        <!--dropdown 1-->
-                        <div class="dropdown">
-                          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                            Dropdown button
-                          </button>
-                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">draw numbre 1</a>
-                            <a class="dropdown-item" href="#">draw numbre 2</a>
-                            <a class="dropdown-item" href="#">draw numbre 3</a>
-                          </div>
-                        </div>
-
-
-                      </div>
-                      <div class="col-sm">
-                        <div class="btn-group mr-2" role="group" aria-label="First group">
-                          <button type="button" class="btn coins unit-amt" value="2">2</button>
-                          <button type="button" class="btn coins unit-amt money-bg" value="1">1</button>
-                          <button type="button" class="btn coins unit-amt" value="0.2">0.2</button>
-                          <button type="button" class="btn coins unit-amt" value="0.1">0.1</button>
-                          <button type="button" class="btn coins unit-amt" value="0.02">0.02</button>
-                          <button type="button" class="btn coins unit-amt" value="0.01">0.01</button>
-                          <button type="button" class="btn coins unit-amt" value="0.002">0.002</button>
-                          <button type="button" class="btn coins unit-amt" value="0.001">0.001</button>
-                        </div>
-                        <p></p>
-                        <div class="btn-group mr-2" role="group" aria-label="First group">
-                          <button type="button" class="btn coins money-bg" value="1">x1</button>
-                          <button type="button" class="btn coins multiplier-select" value="5">x5</button>
-                          <button type="button" class="btn coins multiplier-select" value="10">x10</button>
-                          <button type="button" class="btn coins multiplier-select" value="20">x20</button>
-                          <button type="button" class="btn coins multiplier-select" value="30">x30</button>
-                          <button type="button" class="btn coins multiplier-select" value="40">x40</button>
-                          <button type="button" class="btn coins multiplier-select" value="50">x50</button>
-                          <button type="button" class="btn coins multiplier-select" value="100">x100</button>
-                        </div>
-                      </div>
-                      <div class="col-sm">
-                        <!---->
-                        <div class="btn-group mr-2" role="group" aria-label="First group">
-                          Bet Amt.<input class="bet-amt" type="text" placeholder="GHc 1" style="width:120px;position:relative;left:20px;border:solid 1px #eee">
-                        </div>
-                        <p></p>
-                        Mult. Bet.<div class="btn-group mr-2" role="group" aria-label="First group" style="width:120px;position:relative;left:15px">
-                          <button type="button" class="btn coins minus">-</button>
-                          <input type="text" maxlength="4" size="3" class="btn coins multiplier-input" value="1">
-                          <button type="button" class="btn coins plus">+</button>
-                        </div>
-
-                      </div>
-                    </div>
-                    <!--bet amount and buttons-->
-                    <div style="padding:10px">
-                      <div class="least-bet">Three of a Kind at least <b>1</b> No. <br> One No. at least <b>2</b> No.</div>
-                      <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
-                    </div>
-
-                    <div class="row d-flex justify-content-end" style="margin-right:20px;">
-                      <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
-                      <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                      <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
-                    </div>
-
-                  </div>
-                  <!--end of bet amount buttons-->
-                  <p></p>
-                  
-                  <!--table-->
-                </div>
-
-
-                <!--group-10-->
-                <div id="group-10" class="all5" style="display:none">
-                  <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
-
-                    <div class="g10" style="position:relative;top:-20px;">
-                      <br>
-                      &nbsp;
-
-                      <div class="rows row">
-                        <button class="codex">Three of <br />a Kind</button>
-                        <?php
-                        for ($x = 0; $x < 10; $x++) {
-                        ?>
-                          <button class="group10 code d min num hvr-pop row1"><b><?= $x ?></b></button>
-                        <?php
-                        }
-                        ?>
-                        <div class="nums" data-points-to="row1">
-                          <button class="g101 codec all-btn">All</button>
-                          <button class="g102 codec big-btn">Big</button>
-                          <button class="g103 codec small-btn">Small</button>
-                          <button class="g104 codec odd-btn">Odd</button>
-                          <button class="g105 codec even-btn">Even</button>
-                          <button class="g106 codec clear-btn">Clear</button>
-                        </div>
-                      </div>
-                      <br>
-                      <div class="rows row">
-                        <button class="codex">One Pair</button>
-                        <?php
-                        for ($x = 0; $x < 10; $x++) {
-                        ?>
-                          <button class="group101 code d min num hvr-pop row2"><b><?= $x ?></b></button>
-                        <?php
-                        }
-                        ?>
-                        <div class="nums" data-points-to="row2">
-                          <button class="g1011 codec all-btn">All</button>
-                          <button class="g1022 codec big-btn">Big</button>
-                          <button class="g1033 codec small-btn">Small</button>
-                          <button class="g1044 codec odd-btn">Odd</button>
-                          <button class="g1055 codec even-btn">Even</button>
-                          <button class="g1066 codec clear-btn">Clear</button>
-                        </div>
-                      </div>
-                      <br>
-
-                    </div>
-                  </div>
-                  <p></p>
-                  <div class="g10" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
-                    <div class="row">
-                      <div class="col-sm">
-                        <!--dropdown 1-->
-                        <div class="dropdown">
-                          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                            Dropdown button
-                          </button>
-                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">draw numbre 1</a>
-                            <a class="dropdown-item" href="#">draw numbre 2</a>
-                            <a class="dropdown-item" href="#">draw numbre 3</a>
-                          </div>
-                        </div>
-
-
-                      </div>
-                      <div class="col-sm">
-                        <div class="btn-group mr-2" role="group" aria-label="First group">
-                          <button type="button" class="btn coins unit-amt" value="2">2</button>
-                          <button type="button" class="btn coins unit-amt money-bg" value="1">1</button>
-                          <button type="button" class="btn coins unit-amt" value="0.2">0.2</button>
-                          <button type="button" class="btn coins unit-amt" value="0.1">0.1</button>
-                          <button type="button" class="btn coins unit-amt" value="0.02">0.02</button>
-                          <button type="button" class="btn coins unit-amt" value="0.01">0.01</button>
-                          <button type="button" class="btn coins unit-amt" value="0.002">0.002</button>
-                          <button type="button" class="btn coins unit-amt" value="0.001">0.001</button>
-                        </div>
-                        <p></p>
-                        <div class="btn-group mr-2" role="group" aria-label="First group">
-                          <button type="button" class="btn coins money-bg" value="1">x1</button>
-                          <button type="button" class="btn coins multiplier-select" value="5">x5</button>
-                          <button type="button" class="btn coins multiplier-select" value="10">x10</button>
-                          <button type="button" class="btn coins multiplier-select" value="20">x20</button>
-                          <button type="button" class="btn coins multiplier-select" value="30">x30</button>
-                          <button type="button" class="btn coins multiplier-select" value="40">x40</button>
-                          <button type="button" class="btn coins multiplier-select" value="50">x50</button>
-                          <button type="button" class="btn coins multiplier-select" value="100">x100</button>
-                        </div>
-                      </div>
-                      <div class="col-sm">
-                        <!---->
-                        <div class="btn-group mr-2" role="group" aria-label="First group">
-                          Bet Amt.<input class="bet-amt" type="text" placeholder="GHc 1" style="width:120px;position:relative;left:20px;border:solid 1px #eee">
-                        </div>
-                        <p></p>
-                        Mult. Bet.<div class="btn-group mr-2" role="group" aria-label="First group" style="width:120px;position:relative;left:15px">
-                          <button type="button" class="btn coins minus">-</button>
-                          <input type="text" maxlength="4" size="3" class="btn coins multiplier-input" value="1">
-                          <button type="button" class="btn coins plus">+</button>
-                        </div>
-
-                      </div>
-                    </div>
-                    <!--bet amount and buttons-->
-                    <div style="padding:10px">
-                      <div class="least-bet">Three of a Kind, One Pair at least <b>1</b> No.</div>
-                      <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
-                    </div>
-
-                    <div class="row d-flex justify-content-end" style="margin-right:20px;">
-                      <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
-                      <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                      <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
-                    </div>
-
-                  </div>
-                  <!--end of bet amount buttons-->
-                  <p></p>
-                  
-                  <!--table-->
-                </div>
-
-
-                <!--group-5-->
-                <div id="group-5" class="all5" style="display:none">
-                  <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
-                    <div class="g5" style="position:relative;top:-20px;">
-                      <br>
-                      &nbsp;
-
-                      <div class="rows row">
-                        <button class="codex">Four of <br />a Kind</button>
-                        <?php
-                        for ($x = 0; $x < 10; $x++) {
-                        ?>
-                          <button class="group5 code d min num hvr-pop row1"><b><?= $x ?></b></button>
-                        <?php
-                        }
-                        ?>
-                        <div class="nums" data-points-to="row1">
-                          <button class="g51 codec all-btn">All</button>
-                          <button class="g52 codec big-btn">Big</button>
-                          <button class="g53 codec small-btn">Small</button>
-                          <button class="g54 codec odd-btn">Odd</button>
-                          <button class="g55 codec even-btn">Even</button>
-                          <button class="g56 codec clear-btn">Clear</button>
-                        </div>
-                      </div>
-                      <br>
-                      <div class="rows row">
-                        <button class="codex">One No.</button>
-                        <?php
-                        for ($x = 0; $x < 10; $x++) {
-                        ?>
-                          <button class="group51 code d min num hvr-pop row2"><b><?= $x ?></b></button>
-                        <?php
-                        }
-                        ?>
-                        <div class="nums" data-points-to="row2">
-                          <button class="g511 codec all-btn">All</button>
-                          <button class="g522 codec big-btn">Big</button>
-                          <button class="g533 codec small-btn">Small</button>
-                          <button class="g544 codec odd-btn">Odd</button>
-                          <button class="g555 codec even-btn">Even</button>
-                          <button class="g566 codec clear-btn">Clear</button>
-                        </div>
-                      </div>
-                      <br>
-
-                    </div>
-                  </div>
-                  <p></p>
-                  <div class="g5" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
-                    <div class="row">
-                      <div class="col-sm">
-                        <!--dropdown 1-->
-                        <div class="dropdown">
-                          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                            Dropdown button
-                          </button>
-                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">draw numbre 1</a>
-                            <a class="dropdown-item" href="#">draw numbre 2</a>
-                            <a class="dropdown-item" href="#">draw numbre 3</a>
-                          </div>
-                        </div>
-
-
-                      </div>
-                      <div class="col-sm">
-                        <div class="btn-group mr-2" role="group" aria-label="First group">
-                          <button type="button" class="btn coins unit-amt" value="2">2</button>
-                          <button type="button" class="btn coins unit-amt money-bg" value="1">1</button>
-                          <button type="button" class="btn coins unit-amt" value="0.2">0.2</button>
-                          <button type="button" class="btn coins unit-amt" value="0.1">0.1</button>
-                          <button type="button" class="btn coins unit-amt" value="0.02">0.02</button>
-                          <button type="button" class="btn coins unit-amt" value="0.01">0.01</button>
-                          <button type="button" class="btn coins unit-amt" value="0.002">0.002</button>
-                          <button type="button" class="btn coins unit-amt" value="0.001">0.001</button>
-                        </div>
-                        <p></p>
-                        <div class="btn-group mr-2" role="group" aria-label="First group">
-                          <button type="button" class="btn coins money-bg" value="1">x1</button>
-                          <button type="button" class="btn coins multiplier-select" value="5">x5</button>
-                          <button type="button" class="btn coins multiplier-select" value="10">x10</button>
-                          <button type="button" class="btn coins multiplier-select" value="20">x20</button>
-                          <button type="button" class="btn coins multiplier-select" value="30">x30</button>
-                          <button type="button" class="btn coins multiplier-select" value="40">x40</button>
-                          <button type="button" class="btn coins multiplier-select" value="50">x50</button>
-                          <button type="button" class="btn coins multiplier-select" value="100">x100</button>
-                        </div>
-                      </div>
-                      <div class="col-sm">
-                        <!---->
-                        <div class="btn-group mr-2" role="group" aria-label="First group">
-                          Bet Amt.<input class="bet-amt" type="text" placeholder="GHc 1" style="width:120px;position:relative;left:20px;border:solid 1px #eee">
-                        </div>
-                        <p></p>
-                        Mult. Bet.<div class="btn-group mr-2" role="group" aria-label="First group" style="width:120px;position:relative;left:15px">
-                          <button type="button" class="btn coins minus">-</button>
-                          <input type="text" maxlength="4" size="3" class="btn coins multiplier-input" value="1">
-                          <button type="button" class="btn coins plus">+</button>
-                        </div>
-
-                      </div>
-                    </div>
-                    <!--bet amount and buttons-->
-                    <div style="padding:10px">
-                      <div class="least-bet">Four of a Kind, One No. at least <b>1</b> No.</div>
-                      <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
-                    </div>
-
-                    <div class="row d-flex justify-content-end" style="margin-right:20px;">
-                      <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
-                      <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                      <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
-                    </div>
-
-                  </div>
-                  <!--end of bet amount buttons-->
-                  <p></p>
-                  
-                  <!--table-->
-                </div>
-
-
-
-
-                <div class="g120" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
-
-<div class="table-responsive">
-
-  <div class="container card shadow d-flex justify-content-center mt-5">
-    <!-- nav options -->
-    <ul class="nav nav-pills mb-3 shadow-sm" id="pills-tab" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Cart <i class='bx bxs-cart' style="font-size: 15px;"></i></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Example 2</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 3</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 4</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 5</a>
-      </li>
-    </ul>
-
-    <!-- content -->
-    <div class="tab-content" id="pills-tabContent p-3">
-      <!-- 1st card -->
-      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-
-        <ul class="ccontent">
-          <li>
-            <div class="wrapp">
-              <div>
-                <table class="cart-table table">
-                  <thead>
-                    <tr>
-                      <th scope="col">Type</th>
-                      <th scope="col">Detail</th>
-                      <th scope="col">Bets</th>
-                      <th scope="col">Unit</th>
-                      <th scope="col">Mult.</th>
-                      <th scope="col">Bet Amt.</th>
-                      <th scope="col"><button class="clear-cart btn btn-danger">Clear</button></th>
-                    </tr>
-                  </thead>
-                  <tbody class="cart-items">
-                  </tbody>
-                </table>
-                <div><button id="cart-submit" class="btn btn-success">Bet Now</button></div>
-              </div>
-            </div>
-          </li>
-        </ul>
-
-      </div>
-      <!-- 2nd card -->
-      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-
-        <ul class="ccontent">
-          <li>
-            <div class="wrapp">
-              <div>login attempts</div>
-            </div>
-          </li>
-        </ul>
-
-      </div>
-      <!-- 3nd card -->
-      <div class="tab-pane fade third" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-
-        <ul class="ccontent">
-          <li>
-            <div class="wrapp">
-              <div>Values</div>
-            </div>
-          </li>
-        </ul>
-
-      </div>
-    </div>
-  </div>
-
-</div>
-
-</div>
 
                 <!--end of -->
 
+                <div class="g120" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
 
+                  <div class="table-responsive">
+
+                    <div class="container card shadow d-flex justify-content-center mt-5">
+                      <!-- nav options -->
+                      <ul class="nav nav-pills mb-3 shadow-sm" id="pills-tab" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Cart <i class='bx bxs-cart' style="font-size: 15px;"></i></a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Example 2</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 3</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 4</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Example 5</a>
+                        </li>
+                      </ul>
+
+                      <!-- content -->
+                      <div class="tab-content" id="pills-tabContent p-3">
+                        <!-- 1st card -->
+                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                          <ul class="ccontent">
+                            <li>
+                              <div class="wrapp">
+                                <div>
+                                  <table class="cart-table table">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">Type</th>
+                                        <th scope="col">Detail</th>
+                                        <th scope="col">Bets</th>
+                                        <th scope="col">Unit</th>
+                                        <th scope="col">Mult.</th>
+                                        <th scope="col">Bet Amt.</th>
+                                        <th scope="col"><button class="clear-cart btn btn-danger">Clear</button></th>
+                                      </tr>
+                                    </thead>
+                                    <tbody class="cart-items">
+                                    </tbody>
+                                  </table>
+                                  <div><button id="cart-submit" class="btn btn-success">Bet Now</button></div>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+
+                        </div>
+                        <!-- 2nd card -->
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+                          <ul class="ccontent">
+                            <li>
+                              <div class="wrapp">
+                                <div>login attempts</div>
+                              </div>
+                            </li>
+                          </ul>
+
+                        </div>
+                        <!-- 3nd card -->
+                        <div class="tab-pane fade third" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+
+                          <ul class="ccontent">
+                            <li>
+                              <div class="wrapp">
+                                <div>Values</div>
+                              </div>
+                            </li>
+                          </ul>
+
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
               </div>
+
+
           </article>
 
 
         </div>
+
       </div>
     </div>
+    </div>
+    </div>
   </section>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   <script src="js/jquery.min.js"></script>
 
   <script type='module'>
-    /*import * as $C from "../demo/js/combinatorics.js";
-$(function(){
 
-let lastId = 0;
-let nums = [];
-let perms = [];
-let money = 1;
-const sample = 5;
-let data;
-
-// $(".wining_num").each(function(index){
-//   $(this).html(index);
-// });
-  //all
-$(".g1201").click(()=>{
-  console.log($(this).attr('points-to'))
-  $(".group120").addClass("default");
-
-  nums = [0,1,2,3,4,5,6,7,8,9];
-  totalBets();
-  console.log(nums);
-})
-
-//big
-$(".g1202").click(()=>{
-  $(".group120").removeClass("default");
-  $(".group120:nth-child(n+6)").addClass("default");
-  nums = [5,6,7,8,9];
-  totalBets();
-})
-
-//small
-$(".g1203").click(()=>{
-  $(".group120").removeClass("default");
-  $(".group120:nth-child(-n+5)").addClass("default");
-  nums = [0,1,2,3,4];
-  totalBets();
-
-})
-
-//odd
-$(".g1204").click(()=>{
-  $(".group120").removeClass("default");
-  $(".group120:nth-child(even)").addClass("default");
-  nums = [1,3,5,7,9];
-  totalBets();
-})
-
-//even
-$(".g1205").click(()=>{
-  $(".group120").removeClass("default");
-  $(".group120:nth-child(odd)").addClass("default");
-  nums = [0,2,4,6,8];
-  totalBets();
- 
-})
-
-//clear
-$(".g1206").click(()=>{
-  $(".group120").removeClass("default");
-  nums = [];
-  totalBets();
-  console.log(nums);
-})
-
-
-$(".group120").click(function(){
-  $(this).toggleClass("default");
-  let btnValue = parseInt($(this).html());
-  let numIndex = nums.indexOf(btnValue);
-    if(numIndex != -1)
-    {
-        nums.splice(numIndex,1);
-        
-    }
-    else
-    {
-        nums.push(btnValue)  
-    }
-    console.log(nums);
-    totalBets();
-})
-
- $('.bet120').click(function(){
-  let comb = new $C.Combination(nums, sample);
-  let userSelection = nums.join(',');
-  for (let val of comb) perms.push(val);
-  perms = JSON.stringify(perms);
-   let data = {
-    'game_id':6,
-    'user_selection':userSelection,
-    'data':perms
-  };
-  let url = '../sender.php';
-  let headers = '';
-  let options = {
-      url: url,
-      method: "POST",
-      headers: headers,
-      data: data,
-    };
-    axios(options).then((response) => {
-      console.log(response);
-    });
-
- })
- 
- function totalBets()
-{
-  
-  let len = nums.length;
-  let results = 0;
-  if (len >= 5)
-      results = (len * (len - 1) * (len - 2) * (len - 3) * (len - 4)) / 120;
-  if(results){
-    $('.bet120').addClass('btn-success');
-    $('.bet120').css('color', '#fff');
-    $('.bet120').attr('disabled', false);
-    }else
-    {
-      $('.bet120').removeClass('btn-success');
-      $('.bet120').css('color', '#6C757D');
-      $('.bet120').attr('disabled', true);
-    }
-    let total = money;
-    results = `<span style='color:red'>${results} </span>bets. Total<span style='color:red'> ${total}</span>`
-// $('.bet-total-div').hide();
-    $('.bet-total-div').html(results);
-    
-}
-
-// $(document).ready(function(){
-//   let url = '../receiver.php?action=getdrawnumber';
-//   let headers = '';
-//   let data = {
-//     'last_id':lastId
-//   }
-//   let options = {
-//       url: url,
-//       method: "POST",
-//       headers: headers,
-//       data: data
-//     };
-//     axios(options).then((response) => {
-//       console.log(response);
-//       lastId = response.data.id;
-//       let numbers = response.data.numbers;
-//       $('.wining_num').each(function(index){
-//          $(this).html(numbers[index]);
-//       })
-//     });
-// })
-function drawNum()
-{
-  let url = '../receiver.php?action=getdrawnumber';
-  let headers = '';
-  let data = {
-    'last_id':lastId
-  }
-  let options = {
-      url: url,
-      method: "POST",
-      headers: headers,
-      data: data,
-    };
-    console.log(data);
-    axios(options).then((response) => {
-      if(response.data){
-        console.log(response);
-        // lastId = response.data.id;
-        let numbers = response.data.numbers;
-        $('.wining_num').each(function(index){
-         $(this).html(numbers[index]);
-      })}
-    });
-}
-
-setInterval(drawNum, 1000);
-
-$('.coins').click(function(){
-money = $(this).html();
-})
-
-//display and hiding game type
-function hideAllExcept(hideAll, except)
-{
-  $(hideAll).hide();
-  $(except).show();
-}
-
-
-//menu selections
-$('.menu').click(function(){
-  $('.menu').removeClass('money-bg');
-  $(this).addClass('money-bg');
-  let pointsTo = $(this).attr('data-points-to');
-  let hideAll = '.all5';
-  let except  = `#${pointsTo}`;
-  hideAllExcept(hideAll, except);
-})
-
-
-
-
-
-
-
-
-function echo(value)
-{
-  console.log(value);
-}
-// setInterval(drawNum, 1000);
-})
-
-*/
   </script>
   <script src="js/royal5.js" type="module"></script>
 
