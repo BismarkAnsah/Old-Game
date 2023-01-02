@@ -466,6 +466,11 @@ class group5 extends Royal5utils {
 
 class group10 extends Royal5utils {
   
+  constructor(pageId)
+  {
+    this(pageId);
+  }
+
   calcTotalBets() {
     let row1 = this.rows.row1;
     let row2 = this.rows.row2;
