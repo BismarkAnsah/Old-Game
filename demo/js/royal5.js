@@ -644,7 +644,10 @@ class a5_g120 extends Royal5utils {
   calcTotalBets()
   {     let row1 = this.rows.row1;
         let len = row1.length;
-        return (len * (len - 1) * (len - 2) * (len - 3) * (len - 4)) / 120;
+        if(len<this.sample1)
+          return 0;
+        return this.getCombination(len, this.sample1);
+        // return (len * (len - 1) * (len - 2) * (len - 3) * (len - 4)) / 120;
   }
 
 
