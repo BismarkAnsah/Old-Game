@@ -421,7 +421,7 @@ getPageId()
 }
 
 
-class group5 extends Royal5utils {
+class a5_g5 extends Royal5utils {
   gameId = 9;
   type = 'All 5 group 5';
   sample1 = 1;
@@ -435,6 +435,14 @@ class group5 extends Royal5utils {
   {
     super(pageId);
   }
+
+  calcTotalBets() {
+    let row1 = this.rows.row1;
+    let row2 = this.rows.row2;
+    let repeatedNums = row2.filter((element) => row1.includes(element));
+    let repeat = repeatedNums.length;
+    return row2.length * (row1.length - repeat) + repeat * (row2.length - 1);
+}
 
   pushToCart() {
  
@@ -451,20 +459,9 @@ class group5 extends Royal5utils {
     cart.push(this.readyData);
   }
 
-  saveToRow(data, row)
-  {
-    if (Array.isArray(data)) this.rows[row] = data;
-    else 
-    {
-      this.rows[row] = this.rows[row]||[];
-      let numIndex = this.rows[row].indexOf(data);
-      numIndex != -1?this.rows[row].splice(numIndex, 1):this.rows[row].push(data);
-    }
-  }
-
 }
 
-class group10 extends Royal5utils {
+class a5_g10 extends Royal5utils {
 
   constructor(pageId)
   {
@@ -498,7 +495,7 @@ class group10 extends Royal5utils {
 }
 
 
-class group20 extends Royal5utils {
+class a5_g20 extends Royal5utils {
   gameId = 7;
   type = 'All 5 group 20';
   sample1 = 1;
@@ -540,7 +537,7 @@ class group20 extends Royal5utils {
 
 
 
-class group30 extends Royal5utils {
+class a5_g30 extends Royal5utils {
   gameId = 6;
   type = 'All 5 group 30';
   sample1 = 2;
@@ -591,7 +588,7 @@ class group30 extends Royal5utils {
 
 }
 
-class group60 extends Royal5utils {
+class a5_g60 extends Royal5utils {
   gameId = 5;
   type = 'All 5 group 60';
   sample1 = 1;
@@ -630,7 +627,7 @@ class group60 extends Royal5utils {
   }
 
 
-class group120 extends Royal5utils {
+class a5_g120 extends Royal5utils {
   gameId = 4;
   type = 'All 5 group 120';
   sample1 = 5;
@@ -667,7 +664,7 @@ class group120 extends Royal5utils {
 
 }
 
-class groupJoint extends Royal5utils {
+class a5_joint extends Royal5utils {
 
   gameId = 1;
   type = 'All 5 Straight(Joint)';
@@ -709,7 +706,7 @@ class groupJoint extends Royal5utils {
 
 }
 
-class groupManual extends Royal5utils {
+class a5_manual extends Royal5utils {
   gameId = 2;
   type = 'All 5 group Straight(Manual)';
   sample1 = 1;
@@ -751,7 +748,7 @@ class groupManual extends Royal5utils {
 }
 
 
-class groupCombo extends Royal5utils {
+class a5_combo extends Royal5utils {
   gameId = 3;
   type = 'All 5 Straight(Combo)';
   // sample1 = 1;
@@ -921,13 +918,14 @@ class groupCombo extends Royal5utils {
 let lastId = 0;
 let initializedClasses = [];
 let cart = [];
-let oldClass = 'group120';
-let game = new group120('#group-120');
-ready('group120');
+let oldClass = 'a5_joint';
+let game = new a5_g120('#a5-joint');
+ready(oldClass);
 
 
 
 function ready(className){
+  
   if(initializedClasses.includes(className)) 
   {
       game.resetAllData();
@@ -1053,7 +1051,6 @@ function ready(className){
       let btnValue = parseInt($(this).children().html());
       let classNames = $(this).attr('class');
       let row  = game.getRowFromClass(classNames);
-      console.log(row, btnValue);
       game.saveToRow(btnValue, row);
       showBetsInfo();
       // let req=$.post('index.php', {name:'kofi'});
@@ -1271,13 +1268,16 @@ $('.game-name.menu').click(function(){
   $(this).addClass('money-bg');
   let pointsTo = $(this).attr('data-points-to');
   let className = $(this).attr('data-className');
+  let gameGroup = $(this).attr('data-game-group');
+  let hideAll = `.game.${gameGroup}`;
+  let except  = `#${pointsTo}`;
+
+  hideAllExcept(hideAll, except);
   game = getClass(className, `#${pointsTo}`);
   if(oldClass != className){
   oldClass = className;
   ready(className);
-  let hideAll = '.all5';
-  let except  = `#${pointsTo}`;
-  hideAllExcept(hideAll, except);
+
   }
 
   
@@ -1292,23 +1292,24 @@ $('.game-group.menu').click(function(){
   // if(oldClass != className){
   // oldClass = className;
   // ready(className);
-  let hideAll = '.game-group:not(.menu)';
+  let hideAll = '.game-group.page';
   let except  = `#${pointsTo}`;
-  // hideAllExcept(hideAll, except);
+  hideAllExcept(hideAll, except);
+  hideAllExcept('.game-nav', `.game-nav.${pointsTo}`);
   //}
 })
 function getClass(className, classConstructor)
 {
   let classes = {
-    'groupJoint':new groupJoint(classConstructor),
-    'groupManual':new groupManual(classConstructor),
-    'groupCombo':new groupCombo(classConstructor),
-    'group120':new group120(classConstructor),
-    'group60':new group60(classConstructor),
-    'group30':new group30(classConstructor),
-    'group20':new group20(classConstructor),
-    'group10':new group10(classConstructor),
-    'group5':new group5(classConstructor)
+    'a5_joint':new a5_joint(classConstructor),
+    'a5_manual':new a5_manual(classConstructor),
+    'a5_combo':new a5_combo(classConstructor),
+    'a5_g120':new a5_g120(classConstructor),
+    'a5_g60':new a5_g60(classConstructor),
+    'a5_g30':new a5_g30(classConstructor),
+    'a5_g20':new a5_g20(classConstructor),
+    'a5_g10':new a5_g10(classConstructor),
+    'a5_g5':new a5_g5(classConstructor)
   }
   return classes[className];
 }
