@@ -31,6 +31,99 @@
   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
   <style>
+    /**toggle begin */
+
+    .toggle {
+      --width: 80px;
+      --height: calc(var(--width) / 3);
+
+      position: relative;
+      display: inline-block;
+      width: var(--width);
+      height: var(--height);
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+      border-radius: var(--height);
+      cursor: pointer;
+    }
+
+    .toggle input {
+      display: none;
+    }
+
+    .toggle .slider {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: var(--height);
+      background-color: #2196F3;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .toggle .slider::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: calc(var(--height));
+      height: calc(var(--height));
+      border-radius: calc(var(--height) / 2);
+      background-color: #fff;
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+      transition: all 0.4s ease-in-out;
+    }
+
+    .toggle input:checked+.slider {
+      background-color: #2196F3;
+    }
+
+    .toggle input:checked+.slider::before {
+      transform: translateX(calc(var(--width) - var(--height)));
+    }
+
+    .toggle .labels {
+      position: absolute;
+      top: 8px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      font-size: 12px;
+      font-family: sans-serif;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .toggle .labels::after {
+      content: attr(data-off);
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      color: #ffffff;
+      opacity: 1;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+      transition: all 0.4s ease-in-out;
+    }
+
+    .toggle .labels::before {
+      content: attr(data-on);
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      color: #ffffff;
+      opacity: 0;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+      transition: all 0.4s ease-in-out;
+    }
+
+    .toggle input:checked~.labels::after {
+      opacity: 0;
+    }
+
+    .toggle input:checked~.labels::before {
+      opacity: 1;
+    }
+  
+    /**toggle end */
     #cart-submit {
 
       width: 20%;
@@ -531,17 +624,12 @@
 
                       <div class="row">
                         <div class="col-sm">
-                          <!--dropdown 1-->
-                          <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                              Dropdown button
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">draw numbre 1</a>
-                              <a class="dropdown-item" href="#">draw numbre 2</a>
-                              <a class="dropdown-item" href="#">draw numbre 3</a>
-                            </div>
-                          </div>
+                          <!--toggle-->
+                          <label class="toggle">
+    <input type="checkbox">
+    <span class="slider"></span>
+    <span class="labels" data-on="Amt." data-off="Mult."></span>
+  </label>
 
 
                         </div>

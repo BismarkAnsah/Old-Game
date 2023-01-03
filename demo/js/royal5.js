@@ -667,6 +667,86 @@ class a5_g120 extends Royal5utils {
 
 }
 
+class f4_g24 extends Royal5utils {
+  gameId = 4;
+  type = 'First 4 group 24';
+  sample1 = 4;
+  rows = {
+    row1:[]
+  };
+
+  constructor(pageId)
+  {
+    super(pageId);
+  
+  }
+
+  calcTotalBets()
+  {     let row1 = this.rows.row1;
+        let len = row1.length;
+        if(len<this.sample1)
+          return 0;
+        return this.getCombination(len, this.sample1);
+        // return (len * (len - 1) * (len - 2) * (len - 3) * (len - 4)) / 120;
+  }
+
+
+  pushToCart()
+  {
+    let index = cart.length;
+    let type = this.type;
+    let detail = this.readyData.userSelections;
+    let bets = this.readyData.totalBets;
+    let unit = this.readyData.unitStaked;
+    let multiplier = `x${this.readyData.multiplier}`;
+    let betAmt = `&#8373;${this.readyData.totalBetAmt}`;
+    this.appendRow(type, detail, bets, unit, multiplier, betAmt, index);
+    cart.push(this.readyData);
+    this.readyData = {};
+  }
+
+}
+
+class f4_g6 extends Royal5utils {
+  gameId = 4;
+  type = 'First 4 group 6';
+  sample1 = 2;
+  rows = {
+    row1:[]
+  };
+
+  constructor(pageId)
+  {
+    super(pageId);
+  
+  }
+
+  calcTotalBets()
+  {     let row1 = this.rows.row1;
+        let len = row1.length;
+        if(len<this.sample1)
+          return 0;
+        return this.getCombination(len, this.sample1);
+        // return (len * (len - 1) * (len - 2) * (len - 3) * (len - 4)) / 120;
+  }
+
+
+  pushToCart()
+  {
+    let index = cart.length;
+    let type = this.type;
+    let detail = this.readyData.userSelections;
+    let bets = this.readyData.totalBets;
+    let unit = this.readyData.unitStaked;
+    let multiplier = `x${this.readyData.multiplier}`;
+    let betAmt = `&#8373;${this.readyData.totalBetAmt}`;
+    this.appendRow(type, detail, bets, unit, multiplier, betAmt, index);
+    cart.push(this.readyData);
+    this.readyData = {};
+  }
+
+}
+
 class a5_joint extends Royal5utils {
 
   gameId = 1;
@@ -922,19 +1002,14 @@ let lastId = 0;
 let initializedClasses = [];
 let cart = [];
 let oldClass = 'a5_joint';
-let game = new a5_g120('#a5-joint');
+let game = new a5_joint('#a5-joint');
 ready(oldClass);
 
 
 
 function ready(className){
-  
   if(initializedClasses.includes(className)) 
-  {
-      game.resetAllData();
       return 0;
-  }
-
   function showBetsInfo()
   {
     let totalBets = game.calcTotalBets();
@@ -1128,7 +1203,6 @@ function ready(className){
     game.setBetAmt(onlyNums);
     $(this).val(onlyNums);
     showBetsInfo();
-    console.log(game.getBetAmt());
   })
 
   game.$('.bet-amt').on('blur', function(){ 
@@ -1276,11 +1350,12 @@ $('.game-name.menu').click(function(){
   let except  = `#${pointsTo}`;
 
   hideAllExcept(hideAll, except);
-  game = getClass(className, `#${pointsTo}`);
   if(oldClass != className){
   oldClass = className;
+  game.resetAllData();
+  game = getClass(className, `#${pointsTo}`);
   ready(className);
-
+ 
   }
 
   
@@ -1312,7 +1387,9 @@ function getClass(className, classConstructor)
     'a5_g30':new a5_g30(classConstructor),
     'a5_g20':new a5_g20(classConstructor),
     'a5_g10':new a5_g10(classConstructor),
-    'a5_g5':new a5_g5(classConstructor)
+    'a5_g5':new a5_g5(classConstructor),
+    'f4_g24':new f4_g24(classConstructor),
+    'f4_g6':new f4_g6(classConstructor)
   }
   return classes[className];
 }
