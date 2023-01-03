@@ -34,6 +34,7 @@
     /**toggle begin */
 
     .toggle {
+      display: none;
       --width: 80px;
       --height: calc(var(--width) / 3);
 
@@ -94,7 +95,7 @@
     }
 
     .toggle .labels::after {
-      content: attr(data-off);
+      content: attr(data-multiplier);
       position: absolute;
       right: 10px;
       bottom: 10px;
@@ -105,7 +106,7 @@
     }
 
     .toggle .labels::before {
-      content: attr(data-on);
+      content: attr(data-amount);
       position: absolute;
       left: 10px;
       bottom: 10px;
@@ -122,7 +123,7 @@
     .toggle input:checked~.labels::before {
       opacity: 1;
     }
-  
+
     /**toggle end */
     #cart-submit {
 
@@ -452,54 +453,54 @@
             </div>
 
             <div class="game-nav all5" style="display:block;height:150px;background-color:#E6E1FF;padding:20px">
-                <div class="row" style="margin-left:10px;">
-                  <span class=" btn-sm game-name option"><b>Straight:</b></span>
-                  <button class="menu  game-name option1 money-bg" data-className="a5_joint" data-points-to="a5-joint" data-game-group="all5">All 5 Straight(Joint)</button>
-                  <button class="menu  game-name option2" data-className="a5_manual" data-points-to="a5-manual" data-game-group="all5">All 5 Straight(Manual)</button>
-                  <button class="menu  game-name option3" data-className="a5_combo" data-points-to="a5-combo" data-game-group="all5">All 5 Straight(Combo)</button>
-                  <span class=" btn-sm game-name option"></span>
-                </div>
-                <div class="row" style="margin-left:10px;">
-                  <span class=" btn-sm option"><b>Group:</b></span>
-                  <button class="menu game-name option4" data-className="a5_g120" data-points-to="a5-g120" data-game-group="all5">All 5 Group 120</button>
-                  <button class="menu game-name option5" data-className="a5_g60" data-points-to="a5-g60" data-game-group="all5">All 5 Group 60</button>
-                  <button class="menu game-name option6" data-className="a5_g30" data-points-to="a5-g30" data-game-group="all5">All 5 Group 30</button>
-                  <button class="menu game-name option7" data-className="a5_g20" data-points-to="a5-g20" data-game-group="all5">All 5 Group 20</button>
-                  <button class="menu game-name option8" data-className="a5_g10" data-points-to="a5-g10" data-game-group="all5">All 5 Group 10</button>
-                  <button class="menu game-name option9" data-className="a5_g5" data-points-to="a5-g5" data-game-group="all5">All 5 Group 5</button>
-                </div>
+              <div class="row" style="margin-left:10px;">
+                <span class=" btn-sm game-name option"><b>Straight:</b></span>
+                <button class="menu  game-name option1 money-bg" data-className="a5_joint" data-points-to="a5-joint" data-game-group="all5">All 5 Straight(Joint)</button>
+                <button class="menu  game-name option2" data-className="a5_manual" data-points-to="a5-manual" data-game-group="all5">All 5 Straight(Manual)</button>
+                <button class="menu  game-name option3" data-className="a5_combo" data-points-to="a5-combo" data-game-group="all5">All 5 Straight(Combo)</button>
+                <span class=" btn-sm game-name option"></span>
+              </div>
+              <div class="row" style="margin-left:10px;">
+                <span class=" btn-sm option"><b>Group:</b></span>
+                <button class="menu game-name option4" data-className="a5_g120" data-points-to="a5-g120" data-game-group="all5">All 5 Group 120</button>
+                <button class="menu game-name option5" data-className="a5_g60" data-points-to="a5-g60" data-game-group="all5">All 5 Group 60</button>
+                <button class="menu game-name option6" data-className="a5_g30" data-points-to="a5-g30" data-game-group="all5">All 5 Group 30</button>
+                <button class="menu game-name option7" data-className="a5_g20" data-points-to="a5-g20" data-game-group="all5">All 5 Group 20</button>
+                <button class="menu game-name option8" data-className="a5_g10" data-points-to="a5-g10" data-game-group="all5">All 5 Group 10</button>
+                <button class="menu game-name option9" data-className="a5_g5" data-points-to="a5-g5" data-game-group="all5">All 5 Group 5</button>
+              </div>
             </div>
             <div class="game-nav all4" style="display:none;height:250px;background-color:#E6E1FF;padding:20px">
-                <div class="row" style="margin-left:10px;">
-                  <span class=" btn-sm game-name option"><b>Straight:</b></span>
-                  <button class="menu  game-name option1 money-bg" data-className="f4_joint" data-points-to="f4-joint" data-game-group="all4">First 4 Straight(Joint)</button>
-                  <button class="menu  game-name option2" data-className="f4_manual" data-points-to="f4-manual" data-game-group="all4">First 4 Straight(Manual)</button>
-                  <button class="menu  game-name option3" data-className="f4_combo" data-points-to="f4-combo" data-game-group="all4">First 4 Straight(Combo)</button>
-                  <span class=" btn-sm game-name option"></span>
-                </div>
-                <div class="row" style="margin-left:10px;">
-                  <span class=" btn-sm option"><b>Group:</b></span>
-        
-                  <button class="menu game-name option5" data-className="f4_g24" data-points-to="f4-g24" data-game-group="all4">First 4 Group 24</button>
-                  <button class="menu game-name option6" data-className="f4_g12" data-points-to="f4-g12" data-game-group="all4">First 4 Group 12</button>
-                  <button class="menu game-name option7" data-className="f4_g6" data-points-to="f4-g6" data-game-group="all4">First 4 Group 6</button>
-                  <button class="menu game-name option8" data-className="f4_g4" data-points-to="f4-g4" data-game-group="all4">First 4 Group 4</button>
-                </div>
-                <br>
-                <div class="row" style="margin-left:10px;">
-                  <span class=" btn-sm game-name option"><b>Straight:</b></span>
-                  <button class="menu  game-name option1" data-className="l4_joint" data-points-to="l4-joint" data-game-group="all4">last 4 Straight(Joint)</button>
-                  <button class="menu  game-name option2" data-className="l4_manual" data-points-to="l4-manual" data-game-group="all4">last 4 Straight(Manual)</button>
-                  <button class="menu  game-name option3" data-className="l4_combo" data-points-to="l4-combo" data-game-group="all4">last 4 Straight(Combo)</button>
-                  <span class=" btn-sm game-name option"></span>
-                </div>
-                <div class="row" style="margin-left:10px;">
-                  <span class=" btn-sm option"><b>Group:</b></span>
-                  <button class="menu game-name option5" data-className="l4_g24" data-points-to="l4-g24" data-game-group="all4">last 4 Group 24</button>
-                  <button class="menu game-name option6" data-className="l4_g12" data-points-to="l4-g12" data-game-group="all4">last 4 Group 12</button>
-                  <button class="menu game-name option7" data-className="l4_g6" data-points-to="l4-g6" data-game-group="all4">last 4 Group 6</button>
-                  <button class="menu game-name option8" data-className="l4_g4" data-points-to="l4-g4" data-game-group="all4">last 4 Group 4</button>
-                </div>
+              <div class="row" style="margin-left:10px;">
+                <span class=" btn-sm game-name option"><b>Straight:</b></span>
+                <button class="menu  game-name option1 money-bg" data-className="f4_joint" data-points-to="f4-joint" data-game-group="all4">First 4 Straight(Joint)</button>
+                <button class="menu  game-name option2" data-className="f4_manual" data-points-to="f4-manual" data-game-group="all4">First 4 Straight(Manual)</button>
+                <button class="menu  game-name option3" data-className="f4_combo" data-points-to="f4-combo" data-game-group="all4">First 4 Straight(Combo)</button>
+                <span class=" btn-sm game-name option"></span>
+              </div>
+              <div class="row" style="margin-left:10px;">
+                <span class=" btn-sm option"><b>Group:</b></span>
+
+                <button class="menu game-name option5" data-className="f4_g24" data-points-to="f4-g24" data-game-group="all4">First 4 Group 24</button>
+                <button class="menu game-name option6" data-className="f4_g12" data-points-to="f4-g12" data-game-group="all4">First 4 Group 12</button>
+                <button class="menu game-name option7" data-className="f4_g6" data-points-to="f4-g6" data-game-group="all4">First 4 Group 6</button>
+                <button class="menu game-name option8" data-className="f4_g4" data-points-to="f4-g4" data-game-group="all4">First 4 Group 4</button>
+              </div>
+              <br>
+              <div class="row" style="margin-left:10px;">
+                <span class=" btn-sm game-name option"><b>Straight:</b></span>
+                <button class="menu  game-name option1" data-className="l4_joint" data-points-to="l4-joint" data-game-group="all4">last 4 Straight(Joint)</button>
+                <button class="menu  game-name option2" data-className="l4_manual" data-points-to="l4-manual" data-game-group="all4">last 4 Straight(Manual)</button>
+                <button class="menu  game-name option3" data-className="l4_combo" data-points-to="l4-combo" data-game-group="all4">last 4 Straight(Combo)</button>
+                <span class=" btn-sm game-name option"></span>
+              </div>
+              <div class="row" style="margin-left:10px;">
+                <span class=" btn-sm option"><b>Group:</b></span>
+                <button class="menu game-name option5" data-className="l4_g24" data-points-to="l4-g24" data-game-group="all4">last 4 Group 24</button>
+                <button class="menu game-name option6" data-className="l4_g12" data-points-to="l4-g12" data-game-group="all4">last 4 Group 12</button>
+                <button class="menu game-name option7" data-className="l4_g6" data-points-to="l4-g6" data-game-group="all4">last 4 Group 6</button>
+                <button class="menu game-name option8" data-className="l4_g4" data-points-to="l4-g4" data-game-group="all4">last 4 Group 4</button>
+              </div>
             </div>
             <div style="height:50px;background-color:#FFF;box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;"></div>
 
@@ -626,10 +627,10 @@
                         <div class="col-sm">
                           <!--toggle-->
                           <label class="toggle">
-    <input type="checkbox">
-    <span class="slider"></span>
-    <span class="labels" data-on="Amt." data-off="Mult."></span>
-  </label>
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                            <span class="labels" data-amount="Amt." data-multiplier="Mult."></span>
+                          </label>
 
 
                         </div>
@@ -2344,8 +2345,8 @@
                   </div>
 
 
-                   <!--first4-group6-->
-                   <div id="f4-g6" class="game all4" style="display:none">
+                  <!--first4-group6-->
+                  <div id="f4-g6" class="game all4" style="display:none">
                     <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
 
                       <div class="g24" style="position:relative;top:-20px;">
@@ -2571,8 +2572,8 @@
                     <!--table-->
                   </div>
 
-                   <!--last4-joint-->
-                   <div id="l4-joint" class="game all4" style="display:none">
+                  <!--last4-joint-->
+                  <div id="l4-joint" class="game all4" style="display:none">
                     <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
 
                       <div class="l4-joint" style="position:relative;top:-20px;">
@@ -3221,8 +3222,8 @@
                   </div>
 
 
-                   <!--last4-group6-->
-                   <div id="l4-g6" class="game all4" style="display:none">
+                  <!--last4-group6-->
+                  <div id="l4-g6" class="game all4" style="display:none">
                     <div style="width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
 
                       <div class="g24" style="position:relative;top:-20px;">

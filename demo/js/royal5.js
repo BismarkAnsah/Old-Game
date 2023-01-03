@@ -16,7 +16,7 @@ class Royal5utils {
   decimalPlaces = 3;
   page;
   groupName = ".group-joint";
-
+  units = [2,1,0.2,0.1,0.02,0.01,0.002,0.001];
 
   savepoint = {
     cart:[],
@@ -159,6 +159,21 @@ getPageId()
           result *= i;
       return result;
   }
+
+  calcMultiplier(totalBets)
+  {
+    let multiplier;
+    let amt = this.calcActualAmt();
+    multiplier = units.some(function(unit){
+    multiplier =  amt/(totalBets*unit);
+      if(multiplier%1 == 0)
+      return true;
+  })
+
+  return multiplier;
+  
+}
+
 allSelections(...rowsAndSamples)
 {
     let rows = [], samples =  [], perms = [], results =[];
