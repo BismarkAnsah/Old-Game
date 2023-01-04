@@ -1224,7 +1224,9 @@ function ready(className){
     game.saveData();
     let savedData = game.getSavedData();
     let data = JSON.stringify([savedData]);
-    let url = '../nav.php';
+    // let url = '../nav.php';
+    let url = 'http://192.168.199.126/task/nav.php';
+    
       let req = $.post(url, data, function(response){
         console.log(response);
         response = JSON.parse(response);
@@ -1383,7 +1385,8 @@ function getClass(className, classConstructor)
 function getDrawNums(url=false, data=false)
 {
     // let url = '../generateRandom.php';
-     url = url || '../receiver.php?action=getdrawnumber';
+    //  url = url || '../receiver.php?action=getdrawnumber';
+     url = url || 'http://192.168.199.126/task/receiver.php?action=getdrawnumber';
      data = data ||  {
       'last_id':lastId
     }
@@ -1413,7 +1416,8 @@ function showDrawNums(drawNums=getDrawNums())
 
 $().ready(function(){
     // let url = '../generateRandom.php';
-    let url = '../receiver.php?action=getdrawnumber';
+    // let url = '../receiver.php?action=getdrawnumber';
+    let url = 'http://192.168.199.126/task/receiver.php?action=getdrawnumber';
     let data = {
       'last_id':lastId
     }
