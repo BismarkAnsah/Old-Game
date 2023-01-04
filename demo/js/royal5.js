@@ -160,19 +160,30 @@ getPageId()
       return result;
   }
 
-  calcMultiplier(totalBets)
+ calcUnitAmt()
   {
-    let multiplier;
-    let amt = this.calcActualAmt();
-    multiplier = units.some(function(unit){
-    multiplier =  amt/(totalBets*unit);
-      if(multiplier%1 == 0)
-      return true;
-  })
+    let multiplier, unitAmt;
+    this.units.some(unit=>{
+    multiplier =  this.betAmt/(this.totalBets*unit);
+      if(multiplier%1 == 0){
+          unitAmt = unit;
+          return true;
+      }
+  });
+      return unitAmt;
+ }
 
-  return multiplier;
-  
+ calcActualAmt()
+ {
+  return this.truncate(this.betAmt/this.totalBets);
 }
+
+calcMultiplier()
+{
+  let actualAmt = this.calcActualAmt();
+  return actualAmt/(this.totalBets*this.unitAmt);
+}
+
 
 allSelections(...rowsAndSamples)
 {
@@ -411,20 +422,6 @@ getPageId()
   getUnitAmt()
   {
     return this.unitAmt;
-  }
-
-  calcUnitAmt(betAmt) {
-    betAmt = betAmt||0;
-    let totalBets, unitAmt;
-    totalBets = this.calcTotalBets();
-    if(totalBets == 0)
-      return totalBets;
-    unitAmt = betAmt / totalBets;
-    return this.truncate(unitAmt);
-  }
-
-  calcActualAmt() {
-    return this.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
   }
 
 
@@ -1028,7 +1025,8 @@ function ready(className){
   function showBetsInfo()
   {
     let totalBets = game.calcTotalBets();
-    let unitAmt = game.getBetAmt()? game.calcUnitAmt(game.betAmt):game.getUnitAmt();
+    let unitAmt = game.getUnitAmt();
+    // let unitAmt = game.getBetAmt()? game.calcUnitAmt(game.betAmt):game.getUnitAmt();
     if(!totalBets)
     {
       game.$('div.least-bet').show();
@@ -1040,7 +1038,7 @@ function ready(className){
     
     let multiplier = game.getMultiplier();
     // console.log(unitAmt);
-    let actualAmt = game.truncate(totalBets * multiplier * unitAmt);
+    let actualAmt = game.calcActualAmt();
     game.$('span.total-bets').html(totalBets);
     game.$('span.unit-amt').html(unitAmt);
     game.$('span.actual-amt').html(actualAmt);
@@ -1199,22 +1197,20 @@ function ready(className){
     showBetsInfo();
   })
 
-  game.$('input.bet-amt').click(function(){
-    let betAmt = game.betAmt;
-    let unitAmt = game.betAmt?unitAmt:0;
-    game.setUnitAmt(unitAmt);
-    $(this).val(betAmt);
-    $(this).select();
-    game.$('.unit-amt').removeClass('money-bg');
-    game.$('.multiplier-select[value="1"]').click();
-  })
+  // game.$('input.bet-amt').click(function(){
+  //   let betAmt = game.betAmt;
+  //   let unitAmt = game.betAmt?unitAmt:0;
+  //   game.setUnitAmt(unitAmt);
+  //   $(this).val(betAmt);
+  //   $(this).select();
+  //   game.$('.unit-amt').removeClass('money-bg');
+  //   game.$('.multiplier-select[value="1"]').click();
+  // })
 
   game.$('input.bet-amt').on('input', function(){
     let onlyNums = parseInt($(this).val().replace(/\D+/g, ''));
     onlyNums = onlyNums ? onlyNums:'';
     onlyNums = onlyNums>=9999?9999:onlyNums;
-    let unitAmt = game.calcUnitAmt(onlyNums);
-    game.setUnitAmt(unitAmt);
     game.setBetAmt(onlyNums);
     $(this).val(onlyNums);
     showBetsInfo();
