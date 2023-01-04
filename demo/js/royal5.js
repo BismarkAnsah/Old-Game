@@ -1,4 +1,4 @@
-// $('#all5').hide();
+$('.cart').hide();
 import * as $C from "../js/combinatorics.js";
 class Royal5utils {
 
@@ -17,6 +17,9 @@ class Royal5utils {
   page;
   groupName = ".group-joint";
   units = [2,1,0.2,0.1,0.02,0.01,0.002,0.001];
+  multiplier = 1;
+  unitAmt = 1;
+  totalBets = 0;
 
   savepoint = {
     cart:[],
@@ -164,7 +167,7 @@ getPageId()
   {
     let multiplier, unitAmt;
     this.units.some(unit=>{
-    multiplier =  this.betAmt/(this.totalBets*unit);
+    multiplier =  this.calcActualAmt()/(this.totalBets*unit);
       if(multiplier%1 == 0){
           unitAmt = unit;
           return true;
@@ -173,15 +176,22 @@ getPageId()
       return unitAmt;
  }
 
- calcActualAmt()
- {
-  return this.truncate(this.betAmt/this.totalBets);
+calcBetAmt()
+{
+  return this.totalBets*this.multiplier*this.unitAmt;
+}
+
+calcActualAmt()
+{
+  let actualAmt = this.totalBets*this.truncate(this.betAmt/this.totalBets);
+  return parseFloat(actualAmt.toFixed(3));
 }
 
 calcMultiplier()
 {
   let actualAmt = this.calcActualAmt();
-  return actualAmt/(this.totalBets*this.unitAmt);
+  let unitAmt = this.calcUnitAmt();
+  return actualAmt/(this.totalBets*unitAmt);
 }
 
 
@@ -404,16 +414,26 @@ getPageId()
     return this.betAmt;
   }
 
+  getTotalBets()
+  {
+    return this.totalBets;
+  }
+
   setMultiplier(multiplier)
   {
     this.multiplier = multiplier;
   }
 
+  setTotalBets(totalBets)
+  {
+    this.totalBets = totalBets;
+  }
   setBetAmt(amt)
   {
     this.betAmt = amt;
   }
 
+  
   setUnitAmt(amt)
   {
     this.unitAmt = amt;
@@ -479,6 +499,12 @@ class a5_g10 extends Royal5utils {
   {
     super(pageId);
   }
+
+  rows = {
+    row1:[],
+    row2:[]
+  };
+
 
   calcTotalBets() {
     let row1 = this.rows.row1;
@@ -872,37 +898,8 @@ class a5_combo extends Royal5utils {
     let row5 = this.rows.row5.length;
     return row1 * row2 * row3 * row4 * row5 * 5;
   }
-  showBetsInfo()
-  {
-    let totalBets = this.calcTotalBets();
-    let unitAmt = this.betAmt? this.calcUnitAmt(this.betAmt):this.unitAmt;
-    if(!totalBets)
-    {
-      this.$('div.least-bet').show();
-      this.$('div.bet-info').hide();
-      this.disableButtons(true, '.cart', '.bet-now');
-      return 0;
-  }
+  
 
-    
-    let multiplier = this.multiplier;
-    // console.log(unitAmt);
-    let actualAmt = this.truncate(totalBets * multiplier * unitAmt);
-    this.$('span.total-bets').html(totalBets);
-    this.$('span.unit-amt').html(unitAmt);
-    this.$('span.actual-amt').html(actualAmt);
-    this.$('div.least-bet').hide();
-    this.$('div.bet-info').show();
-    this.disableButtons(false, '.cart', '.bet-now');
-    if(!unitAmt)
-    this.disableButtons(true, '.cart', '.bet-now');
-  }
-
-  unsetBetAmt()
-  {
-    this.betAmt = '';
-    this.$('input.bet-amt').val('');
-  }
   pushToCart() {
  
     // console.log(this.unitAmt);
@@ -918,95 +915,6 @@ class a5_combo extends Royal5utils {
     cart.push(this.readyData);
     
   }
-
-  saveToRow(data, row)
-  {
-    if (Array.isArray(data)) this.rows[row] = data;
-    else 
-    {
-      this.rows[row] = this.rows[row]||[];
-      let numIndex = this.rows[row].indexOf(data);
-      if (numIndex != -1) this.rows[row].splice(numIndex, 1);
-      else this.rows[row].push(data);
-    }
-  }
-
-  resetAllData()
-  {
-    this.multiplier = 1;
-    this.unitAmt = 1;
-    this.betAmt = '';
-    this.readyData = {};
-    this.$('.clear-btn').click();
-    this.$('input.bet-amt').val('');
-    this.$('.multiplier-input').val(1);
-    this.$('.multiplier-select').removeClass('money-bg');
-    this.$('.multiplier-select[value="1"]').addClass('money-bg');
-    this.$('.unit-amt').removeClass('money-bg');
-    this.$('.unit-amt[value="1"]').addClass('money-bg');
-  }
-
-  
-  getCart()
-  {
-    return this.cart;
-  }
-
-  getAllRows()
-  {
-    return this.rows;
-  }
-
-  getMultiplier()
-  {
-    return this.multiplier;
-  }
-
-  getBetAmt()
-  {
-    return this.betAmt;
-  }
-
-  setMultiplier(multiplier)
-  {
-    this.multiplier = multiplier;
-  }
-
-  setBetAmt(amt)
-  {
-    this.betAmt = amt;
-  }
-
-  setUnitAmt(amt)
-  {
-    this.unitAmt = amt;
-  }
-
-  getUnitAmt()
-  {
-    return this.unitAmt;
-  }
-
-  calcUnitAmt(betAmt) {
-    betAmt = betAmt||0;
-    let totalBets, unitAmt;
-    totalBets = this.calcTotalBets();
-    if(totalBets == 0)
-      return totalBets;
-    unitAmt = betAmt / totalBets;
-    return this.truncate(unitAmt);
-  }
-
-  calcActualAmt() {
-    return this.truncate(this.calcTotalBets() * this.unitAmt * this.multiplier);
-  }
-
-
-  getRow(row)
-  {
-    return this.rows[row];
-  }
-
 }
 
 
@@ -1024,20 +932,24 @@ function ready(className){
       return 0;
   function showBetsInfo()
   {
-    let totalBets = game.calcTotalBets();
-    let unitAmt = game.getUnitAmt();
-    // let unitAmt = game.getBetAmt()? game.calcUnitAmt(game.betAmt):game.getUnitAmt();
+   // let totalBets = this.calcTotalBets();
+    // let unitAmt = this.betAmt? this.calcUnitAmt(this.betAmt):this.unitAmt;
+    // let totalBets = this.totalBets;
+    // let unitAmt = this.unitAmt;
+    let totalBets = game.getTotalBets();
     if(!totalBets)
     {
       game.$('div.least-bet').show();
       game.$('div.bet-info').hide();
       game.disableButtons(true, '.cart', '.bet-now');
       return 0;
-    }
+  }
 
     
-    let multiplier = game.getMultiplier();
+    // let multiplier = this.multiplier;
     // console.log(unitAmt);
+    // let actualAmt = this.actualAmt;
+    let unitAmt = game.getUnitAmt();
     let actualAmt = game.calcActualAmt();
     game.$('span.total-bets').html(totalBets);
     game.$('span.unit-amt').html(unitAmt);
@@ -1096,6 +1008,10 @@ function ready(className){
       let row = $(this).parent().attr('data-points-to');
       game.selectAll(`.${row}`);
       game.saveToRow(data, row);
+      let totalBets =  game.calcTotalBets();
+      !totalBets?game.disableButtons(true, game.$('input.bet-amt')):game.disableButtons(false, game.$('input.bet-amt'));
+      game.setTotalBets(totalBets);
+      game.setBetAmt(game.calcBetAmt());
       showBetsInfo();
     });
 
@@ -1105,6 +1021,10 @@ function ready(className){
       let row = $(this).parent().attr('data-points-to');
       game.selectBig(`.${row}`);
       game.saveToRow(data, row);
+      let totalBets = game.calcTotalBets();
+      !totalBets?game.disableButtons(true, game.$('input.bet-amt')):game.disableButtons(false, game.$('input.bet-amt'));
+      game.setTotalBets(totalBets);
+      game.setBetAmt(game.calcBetAmt());
       showBetsInfo();
     });
 
@@ -1114,7 +1034,10 @@ function ready(className){
       let row = $(this).parent().attr('data-points-to');
       game.selectSmall(`.${row}`);
       game.saveToRow(data, row);
-      console.log(data);
+      let totalBets = game.calcTotalBets();
+      !totalBets?game.disableButtons(true, game.$('input.bet-amt')):game.disableButtons(false, game.$('input.bet-amt'));
+      game.setTotalBets(totalBets);
+      game.setBetAmt(game.calcBetAmt());
       showBetsInfo();
     });
 
@@ -1124,6 +1047,10 @@ function ready(className){
       let row = $(this).parent().attr('data-points-to');
       game.selectOdd(`.${row}`);
       game.saveToRow(data, row);
+      let totalBets = game.calcTotalBets();
+      !totalBets?game.disableButtons(true, game.$('input.bet-amt')):game.disableButtons(false, game.$('input.bet-amt'));
+      game.setTotalBets(totalBets);
+      game.setBetAmt(game.calcBetAmt());
       showBetsInfo();
     });
 
@@ -1133,6 +1060,10 @@ function ready(className){
       game.selectEven(`.${row}`);
       savePoint.data[row] = data;
       game.saveToRow(data, row);
+      let totalBets = game.calcTotalBets();
+      !totalBets?game.disableButtons(true, game.$('input.bet-amt')):game.disableButtons(false, game.$('input.bet-amt'));
+      game.setTotalBets(totalBets);
+      game.setBetAmt(game.calcBetAmt());
       showBetsInfo();
     });
 
@@ -1143,6 +1074,10 @@ function ready(className){
       let classNames = $(this).attr('class');
       let row  = game.getRowFromClass(classNames);
       game.saveToRow(btnValue, row);
+      let totalBets = game.calcTotalBets();
+      !totalBets?game.disableButtons(true, game.$('input.bet-amt')):game.disableButtons(false, game.$('input.bet-amt'));
+      game.setTotalBets(totalBets);
+      game.setBetAmt(game.calcBetAmt());
       showBetsInfo();
       // let req=$.post('index.php', {name:'kofi'});
       // req.done(function(){alert('done')})
@@ -1159,6 +1094,10 @@ function ready(className){
       game.clear(`.${row}`);
       savePoint.data[row] = data;
       game.saveToRow(data, row);
+      let totalBets = game.calcTotalBets();
+      !totalBets?game.disableButtons(true, game.$('input.bet-amt')):game.disableButtons(false, game.$('input.bet-amt'));
+      game.setTotalBets(totalBets);
+      game.setBetAmt(game.calcBetAmt());
       showBetsInfo();
     });
 
@@ -1168,8 +1107,9 @@ function ready(className){
         game.$(this).addClass('money-bg');
         let value = $(this).val();
         game.setMultiplier(value);
+        game.setBetAmt(game.calcBetAmt());
         game.$('.multiplier-input').val(value);
-        game.unsetBetAmt();
+        game.$('input.bet-amt').val('');
         showBetsInfo();
   });
 
@@ -1178,7 +1118,8 @@ function ready(className){
         game.$(this).addClass('money-bg');
         let value = $(this).val();
         game.setUnitAmt(value);
-        game.unsetBetAmt();
+        game.setBetAmt(game.calcBetAmt());
+        game.$('input.bet-amt').val('');
         showBetsInfo();
   });
 
@@ -1191,35 +1132,52 @@ function ready(className){
     let onlyNums = parseInt($(this).val().replace(/\D+/g, ''));
     onlyNums = onlyNums ? onlyNums:1;
     $(this).val(onlyNums);
-    game.$(`.multiplier-select[value=${onlyNums}]`).click();
-    game.unsetBetAmt();
+    game.$('.multiplier-select').removeClass('money-bg');
+    game.$(`.multiplier-select[value='${onlyNums}']`).addClass('money-bg');
     game.setMultiplier(onlyNums);
+    game.setBetAmt(game.calcBetAmt());
+    game.$('input.bet-amt').val('');
     showBetsInfo();
   })
 
-  // game.$('input.bet-amt').click(function(){
-  //   let betAmt = game.betAmt;
-  //   let unitAmt = game.betAmt?unitAmt:0;
-  //   game.setUnitAmt(unitAmt);
-  //   $(this).val(betAmt);
-  //   $(this).select();
-  //   game.$('.unit-amt').removeClass('money-bg');
-  //   game.$('.multiplier-select[value="1"]').click();
-  // })
+  game.$('input.bet-amt').click(function(){
+    // let betAmt = game.betAmt;
+    // let unitAmt = game.betAmt?unitAmt:0;
+    // game.setUnitAmt(unitAmt);
+    // $(this).val(betAmt);
+    
+    $(this).select();
+    // game.$('.unit-amt').removeClass('money-bg');
+    // game.$('.multiplier-select[value="1"]').click();
+  })
+ 
+  game.$('input.bet-amt').on('focus', function(){
+  let totalBets = game.calcTotalBets();
+      !totalBets?game.disableButtons(true, $(this)):game.disableButtons(false, $(this));
+  })
 
   game.$('input.bet-amt').on('input', function(){
+    let oldMultiplier = game.getMultiplier();
     let onlyNums = parseInt($(this).val().replace(/\D+/g, ''));
     onlyNums = onlyNums ? onlyNums:'';
     onlyNums = onlyNums>=9999?9999:onlyNums;
-    game.setBetAmt(onlyNums);
+    onlyNums?game.setBetAmt(onlyNums):game.setBetAmt(game.calcBetAmt());
+    let multiplier = game.calcMultiplier();
+    let unitAmt = game.calcUnitAmt();
+    // console.log('multi', multiplier);
+    multiplier = onlyNums?multiplier:oldMultiplier;
+    game.setUnitAmt(unitAmt);
+    game.setMultiplier(multiplier);
+    game.$('.multiplier-input').val(multiplier);
+    game.$(`.multiplier-select`).removeClass('money-bg');
+    game.$(`.multiplier-select[value='${multiplier}']`).addClass('money-bg');
+    game.$(`.unit-amt`).removeClass('money-bg');
+    game.$(`.unit-amt[value='${unitAmt}']`).addClass('money-bg');
     $(this).val(onlyNums);
     showBetsInfo();
   })
 
-  game.$('.bet-amt').on('blur', function(){ 
-    
-  })
-
+//for manual bet
   game.$('.bet-box').on('input',function(){
       game.setAllBets();
       showBetsInfo();
@@ -1233,8 +1191,10 @@ function ready(className){
       $('.plus').removeClass('money-bg')
     }, 50);
     game.setMultiplier(value);
+    game.setBetAmt(game.calcBetAmt());
+    game.$('input.bet-amt').val('');
     game.$('.multiplier-select').removeClass('money-bg');
-    game.$(`.multiplier-select[value=${value}]`).click();
+    game.$(`.multiplier-select[value='${value}']`).addClass('money-bg');
     showBetsInfo();
   })
 
@@ -1246,8 +1206,10 @@ function ready(className){
       $('.minus').removeClass('money-bg')
     }, 50);
     game.setMultiplier(value);
+    game.setBetAmt(game.calcBetAmt());
+    game.$('input.bet-amt').val('');
     game.$('.multiplier-select').removeClass('money-bg');
-    game.$(`.multiplier-select[value=${value}]`).click();
+    game.$(`.multiplier-select[value='${value}']`).addClass('money-bg');
     showBetsInfo();
   })
 

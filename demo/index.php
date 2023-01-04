@@ -446,7 +446,7 @@
             </div>
             <div style="height:70px;background-color:#5548A2;padding:10px;">
               <button class="menu game-group money-bg" data-points-to="all5">All 5</button>
-              <button class="menu game-group" data-points-to="all4">All 4</button>
+              <button class="menu game-group" disabled data-points-to="all4">All 4</button>
               <button class="menu game-group" data-points-to="first3">First 3</button>
               <button class="menu game-group" data-points-to="mid3">Mid 3</button>
               <button class="menu game-group" data-points-to="last3">Last 3</button>
@@ -1692,6 +1692,7 @@
                   </div>
                 </div>
               </div>
+
               <div id="all4" class="game-group page" style="display:none">
                 <div class="mb-3 main">
 
