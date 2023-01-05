@@ -1,5 +1,6 @@
 $('.cart').hide();
 import * as $C from "../js/combinatorics.js";
+
 class Royal5utils {
 
   /***
@@ -120,16 +121,21 @@ getPageId()
     // $(`del-${index}`).fadeIn('slow', function() { $(this).prepend(cartItem); });
   }
 
-  removeRow(id)
+  removeRow(id, cart)
   {
-    let index = id.split("-")[1];
-    $(`#cart-row${index}`).fadeOut(300, function() { $(this).remove(); });
-    cart.splice(index,1);console.log(cart.length);
-    if(!cart.length)
+    let key = id.split("-")[1];
+    $(`#cart-row${key}`).fadeOut(300, function() { $(this).remove(); });
+    if(!Object.keys(cart).length)
     {
     $('#cart-submit').hide();
     $('.clear-cart').hide();
     }
+  }
+
+  deleteFromCart(id, cart)
+  {
+    let key = id.split("-")[1];
+    delete cart[key];
   }
 
   truncate(number, decimalPlaces = 3) 
@@ -555,20 +561,32 @@ class a5_g20 extends Royal5utils {
       return row2.length * ( row2.length - 1 ) / 2  * (row1.length - repeat ) + repeat * ( row2.length - 1 ) * ( row2.length - 2 ) / 2
     }
 
-    
-  pushToCart() {
- 
-    // console.log(this.unitAmt);
-    // this.readyData.totalbetAmt = this.calcTotalBets();
-    this.readyData.gameId = this.gameId;
-    this.readyData.unitStaked = this.unitAmt;
-    this.readyData.totalBetAmt = this.calcActualAmt();
-    this.readyData.multiplier =this.multiplier;
-    this.readyData.totalBets = this.calcTotalBets();
-    this.readyData.allSelections = this.allSelections(...Object.values(this.rows), this.sample1, this.sample2);
-    /*this.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
-    this.readyData.userSelections = Object.values(this.rows).join("|");
-    cart.push(this.readyData);
+
+  getSavedData()
+  {
+    let readyData = {};
+    readyData.gameId = this.gameId;
+    readyData.unitStaked = this.unitAmt;
+    readyData.totalBetAmt = this.calcActualAmt();
+    readyData.multiplier =this.multiplier;
+    readyData.totalBets = this.calcTotalBets();
+    readyData.allSelections = this.allSelections(...Object.values(this.rows), this.sample1, this.sample2);
+    readyData.userSelections = Object.values(this.rows).join("|");
+    return readyData;
+  }
+
+  pushToCart(cart)
+  {
+    let data = this.getSavedData();
+    let key = cart.length;
+    let type = this.type;
+    let detail = data.userSelections;
+    let bets = data.totalBets;
+    let unit = data.unitStaked;
+    let multiplier = `x${data.multiplier}`;
+    let betAmt = `&#8373;${data.totalBetAmt}`;
+    this.appendRow(type, detail, bets, unit, multiplier, betAmt, index);
+    cart[key] = data;
   }
 
   }
@@ -689,18 +707,24 @@ class a5_g120 extends Royal5utils {
   }
 
 
-  pushToCart()
+  pushToCart(cart)
   {
-    let index = cart.length;
+    let data = this.getSavedData();
+    let key = cart.length;
     let type = this.type;
-    let detail = this.readyData.userSelections;
-    let bets = this.readyData.totalBets;
-    let unit = this.readyData.unitStaked;
-    let multiplier = `x${this.readyData.multiplier}`;
-    let betAmt = `&#8373;${this.readyData.totalBetAmt}`;
+    let detail = data.userSelections;
+    let bets = data.totalBets;
+    let unit = data.unitStaked;
+    let multiplier = `x${data.multiplier}`;
+    let betAmt = `&#8373;${data.totalBetAmt}`;
     this.appendRow(type, detail, bets, unit, multiplier, betAmt, index);
-    cart.push(this.readyData);
+    cart[key] = data;
     this.readyData = {};
+  }
+
+  getSavedData()
+  {
+
   }
 
 }
@@ -1214,14 +1238,12 @@ function ready(className){
   })
 
   game.$('.cart').click(function(){
-    game.saveData();
-    game.pushToCart();
+    game.pushToCart(cart);
     game.resetAllData();
   })
 
   game.$('.bet-now').click(function(){
-    game.alertErrBets();
-    game.saveData();
+    // game.alertErrBets();
     let savedData = game.getSavedData();
     let data = JSON.stringify([savedData]);
     // let url = '../nav.php';
@@ -1231,20 +1253,22 @@ function ready(className){
         console.log(response);
         response = JSON.parse(response);
   if(response.title == 'success'){
-
-    toastr.options.progressBar = true;
-    toastr.success(response.message, response.title);
+alert(response.message);
+    // toastr.options.progressBar = true;
+    // toastr.success(response.message, response.title);
     game.resetAllData();
     cart = [];
   }else{
-    toastr.options.progressBar = true;
-    toastr.warning(response.message, response.title);
+    // toastr.options.progressBar = true;
+    // toastr.warning(response.message, response.title);
+    alert(response.message);
     
   }
       
       req.fail(function(){
-        toastr.options.progressBar = true;
-        toastr.warning('Please check your internet connection', 'Failed');
+        alert('failed')
+        // toastr.options.progressBar = true;
+        // toastr.warning('Please check your internet connection', 'Failed');
       })
       
     });
@@ -1303,7 +1327,7 @@ $(document).on('click','.del', function(){
 
 
   let id = $(this).attr('id');
-  game.removeRow(id);
+  game.removeFromCart(id);
 })
 
 //display and hiding game type
