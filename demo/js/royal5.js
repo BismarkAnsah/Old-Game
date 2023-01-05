@@ -174,7 +174,7 @@ getPageId()
     let multiplier, unitAmt;
     this.units.some(unit=>{
     multiplier =  this.calcActualAmt()/(this.totalBets*unit);
-      if(multiplier%1 == 0){
+      if(+multiplier.toFixed(8)%1 == 0){
           unitAmt = unit;
           return true;
       }
@@ -197,9 +197,30 @@ calcMultiplier()
 {
   let actualAmt = this.calcActualAmt();
   let unitAmt = this.calcUnitAmt();
-  return actualAmt/(this.totalBets*unitAmt);
+  return +(actualAmt/(this.totalBets*unitAmt)).toFixed(8);
 }
 
+calcPrize(prize)
+{
+  let winAmt = this.multiplier*this.unitAmt*prize
+  return this.truncate(winAmt);
+}
+
+calcMultiplierFromModel(modelValue, balance)
+{
+  let multiplier;
+  let tryAmount = modelValue*balance;
+  let divisor = this.totalBets*this.unitAmt;
+  multiplier = ~~(tryAmount/divisor);
+  return multiplier;
+}
+
+calcActualAmtFromModel()
+{
+  let multiplier = this.calcMultiplierFromModel();
+  let actualAmt = multiplier*this.totalBets*this.unitAmt;
+  return actualAmt;
+}
 
 allSelections(...rowsAndSamples)
 {
