@@ -29,7 +29,10 @@
   <!--box icons library-->
   <!-- <link rel="stylesheet" href="demo/boxicons/boxicons.css"> -->
   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-
+  <link rel="stylesheet" type="text/css" 
+     href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+	
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"> </script>
   <style>
     /**toggle begin */
 

@@ -1440,7 +1440,7 @@ data = JSON.stringify(data);
   function drawNum()
   {
     // let url = '../generateRandom.php';
-    let url =  '../receiver.php?action=getdrawnumber';
+    let url =  'http://192.168.199.126/task/receiver.php?action=getdrawnumber';
     let data = {
       'last_id':lastId
     }
@@ -1458,4 +1458,4 @@ data = JSON.stringify(data);
   }
   
 
-setInterval(drawNum, 30000000);
+setInterval(drawNum, 300000000);
