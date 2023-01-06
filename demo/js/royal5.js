@@ -738,19 +738,31 @@ class a5_g60 extends Royal5utils {
       return row2.length * ( row2.length - 1 ) * ( row2.length - 2 ) / 6     *   ( row1.length - repeat ) + repeat * ( row2.length - 1) * ( row2.length - 2 ) * ( row2.length - 3 ) / 6;
   }
 
-  pushToCart() {
- 
-    // console.log(this.unitAmt);
-    // this.readyData.totalbetAmt = this.calcTotalBets();
-    this.readyData.gameId = this.gameId;
-    this.readyData.unitStaked = this.unitAmt;
-    this.readyData.totalBetAmt = this.calcActualAmt();
-    this.readyData.multiplier =this.multiplier;
-    this.readyData.totalBets = this.calcTotalBets();
-    this.readyData.allSelections = this.allSelections(...Object.values(this.rows), this.sample1, this.sample2);
-    /*this.allSelections(Object.values(this.rows), this.sample1, this.sample2);*/
-    this.readyData.userSelections = Object.values(this.rows).join("|");
-    cart.push(this.readyData);
+  pushToCart(cart)
+{
+  let data = this.getSavedData();
+  let key = cart.length;
+  let type = this.type;
+  let detail = data.userSelections;
+  let bets = data.totalBets;
+  let unit = data.unitStaked;
+  let multiplier = `x${data.multiplier}`;
+  let betAmt = `&#8373;${data.totalBetAmt}`;
+  this.appendRow(type, detail, bets, unit, multiplier, betAmt, index);
+  cart[key] = data;
+}
+
+  getSavedData()
+  {
+    let readyData = {};
+    readyData.gameId = this.gameId;
+    readyData.unitStaked = this.unitAmt;
+    readyData.totalBetAmt = this.calcActualAmt();
+    readyData.multiplier =this.multiplier;
+    readyData.totalBets = this.calcTotalBets();
+    readyData.allSelections = this.allSelections(...Object.values(this.rows), this.sample1, this.sample2);
+    readyData.userSelections = Object.values(this.rows).join("|");
+    return readyData;
   }
 
   }
@@ -1343,7 +1355,7 @@ function ready(className){
     // let unitAmt = game.betAmt?unitAmt:0;
     // game.setUnitAmt(unitAmt);
     // $(this).val(betAmt);
-    
+    game.$(classNames.modelSelect).removeClass('money-bg');
     $(this).select();
     // game.$('.unit-amt').removeClass('money-bg');
     // game.$('.multiplier-select[value="1"]').click();
