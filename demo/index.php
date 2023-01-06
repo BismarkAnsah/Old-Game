@@ -1,7 +1,7 @@
 <?php
-session_start();
-// php code to check if session betuser is not set?
-echo (!isset($_SESSION['betuser'])) ? '<script>window.location="login.php"</script>' : '';
+// session_start();
+// // php code to check if session betuser is not set?
+// echo (!isset($_SESSION['betuser'])) ? '<script>window.location="login.php"</script>' : '';
 
 
 ?>
@@ -165,6 +165,11 @@ echo (!isset($_SESSION['betuser'])) ? '<script>window.location="login.php"</scri
 
     }
 
+    .user-balance{
+      font-size: large;
+      font-weight: bolder;
+      color:red;
+    }
     .cart,
     .cart:enabled:hover {
       background-color: #7C65D8;
@@ -696,7 +701,10 @@ echo (!isset($_SESSION['betuser'])) ? '<script>window.location="login.php"</scri
                         <div class="least-bet">At least <b>1</b> No. every place</div>
                         <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
                       </div>
-
+                      <div style="padding:10px">
+                        <span>Balance:</span><span class="user-balance"> 456</span>
+                      </div>
+  
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
                         <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
@@ -784,6 +792,9 @@ echo (!isset($_SESSION['betuser'])) ? '<script>window.location="login.php"</scri
                       <!--bet amount and buttons-->
                       <div style="padding:10px">
                         <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
+                      </div>
+                      <div style="padding:10px">
+                        <span>Balance:</span><span class="user-balance"> 456</span>
                       </div>
 
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
@@ -969,6 +980,9 @@ echo (!isset($_SESSION['betuser'])) ? '<script>window.location="login.php"</scri
                         <div class="least-bet">At least <b>1</b> No. every place</div>
                         <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
                       </div>
+                      <div style="padding:10px">
+                        <span>Balance:</span><span class="user-balance"> 456</span>
+                      </div>
 
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
@@ -1068,6 +1082,9 @@ echo (!isset($_SESSION['betuser'])) ? '<script>window.location="login.php"</scri
                       <div style="padding:10px">
                         <div class="least-bet">At least <b>5</b> No.</div>
                         <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
+                      </div>
+                      <div style="padding:10px">
+                        <span>Balance:</span><span class="user-balance"> 456</span>
                       </div>
 
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
@@ -1188,6 +1205,9 @@ echo (!isset($_SESSION['betuser'])) ? '<script>window.location="login.php"</scri
                         <div class="least-bet">One Pair at least <b>1</b> No. <br> One No. at least <b>3</b> No.</div>
                         <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
                       </div>
+                      <div style="padding:10px">
+                        <span>Balance:</span><span class="user-balance"> 456</span>
+                      </div>
 
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
@@ -1306,6 +1326,9 @@ echo (!isset($_SESSION['betuser'])) ? '<script>window.location="login.php"</scri
                       <div style="padding:10px">
                         <div class="least-bet">One Pair at least <b>2</b> No. <br> One No. at least <b>1</b> No.</div>
                         <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
+                      </div>
+                      <div style="padding:10px">
+                        <span>Balance:</span><span class="user-balance"> 456</span>
                       </div>
 
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
@@ -1426,6 +1449,9 @@ echo (!isset($_SESSION['betuser'])) ? '<script>window.location="login.php"</scri
                         <div class="least-bet">Three of a Kind at least <b>1</b> No. <br> One No. at least <b>2</b> No.</div>
                         <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
                       </div>
+                      <div style="padding:10px">
+                        <span>Balance:</span><span class="user-balance"> 456</span>
+                      </div>
 
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
@@ -1545,6 +1571,9 @@ echo (!isset($_SESSION['betuser'])) ? '<script>window.location="login.php"</scri
                         <div class="least-bet">Three of a Kind, One Pair at least <b>1</b> No.</div>
                         <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
                       </div>
+                      <div style="padding:10px">
+                        <span>Balance:</span><span class="user-balance"> 456</span>
+                      </div>
 
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
@@ -1662,6 +1691,9 @@ echo (!isset($_SESSION['betuser'])) ? '<script>window.location="login.php"</scri
                       <div style="padding:10px">
                         <div class="least-bet">Four of a Kind, One No. at least <b>1</b> No.</div>
                         <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
+                      </div>
+                      <div style="padding:10px">
+                        <span>Balance:</span><span class="user-balance"> 456</span>
                       </div>
 
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
@@ -1827,6 +1859,9 @@ echo (!isset($_SESSION['betuser'])) ? '<script>window.location="login.php"</scri
                         <div class="least-bet">At least <b>1</b> No. every place</div>
                         <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
                       </div>
+                      <div style="padding:10px">
+                        <span>Balance:</span><span class="user-balance"> 456</span>
+                      </div>
 
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
@@ -1913,6 +1948,9 @@ echo (!isset($_SESSION['betuser'])) ? '<script>window.location="login.php"</scri
                       <!--bet amount and buttons-->
                       <div style="padding:10px">
                         <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
+                      </div>
+                      <div style="padding:10px">
+                        <span>Balance:</span><span class="user-balance"> 456</span>
                       </div>
 
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
@@ -2074,6 +2112,9 @@ echo (!isset($_SESSION['betuser'])) ? '<script>window.location="login.php"</scri
                         <div class="least-bet">At least <b>1</b> No. every place</div>
                         <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
                       </div>
+                      <div style="padding:10px">
+                        <span>Balance:</span><span class="user-balance"> 456</span>
+                      </div>
 
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
@@ -2172,6 +2213,9 @@ echo (!isset($_SESSION['betuser'])) ? '<script>window.location="login.php"</scri
                       <div style="padding:10px">
                         <div class="least-bet">At least <b>5</b> No.</div>
                         <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
+                      </div>
+                      <div style="padding:10px">
+                        <span>Balance:</span><span class="user-balance"> 456</span>
                       </div>
 
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
@@ -2292,6 +2336,9 @@ echo (!isset($_SESSION['betuser'])) ? '<script>window.location="login.php"</scri
                         <div class="least-bet">One Pair at least <b>1</b> No. <br> One No. at least <b>3</b> No.</div>
                         <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
                       </div>
+                      <div style="padding:10px">
+                        <span>Balance:</span><span class="user-balance"> 456</span>
+                      </div>
 
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
@@ -2390,6 +2437,9 @@ echo (!isset($_SESSION['betuser'])) ? '<script>window.location="login.php"</scri
                       <div style="padding:10px">
                         <div class="least-bet">At least <b>5</b> No.</div>
                         <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
+                      </div>
+                      <div style="padding:10px">
+                        <span>Balance:</span><span class="user-balance"> 456</span>
                       </div>
 
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
@@ -2509,6 +2559,9 @@ echo (!isset($_SESSION['betuser'])) ? '<script>window.location="login.php"</scri
                       <div style="padding:10px">
                         <div class="least-bet">Three of a Kind at least <b>1</b> No. <br> One No. at least <b>2</b> No.</div>
                         <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
+                      </div>
+                      <div style="padding:10px">
+                        <span>Balance:</span><span class="user-balance"> 456</span>
                       </div>
 
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
@@ -2669,6 +2722,9 @@ echo (!isset($_SESSION['betuser'])) ? '<script>window.location="login.php"</scri
                         <div class="least-bet">At least <b>1</b> No. every place</div>
                         <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
                       </div>
+                      <div style="padding:10px">
+                        <span>Balance:</span><span class="user-balance"> 456</span>
+                      </div>
 
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
@@ -2755,6 +2811,9 @@ echo (!isset($_SESSION['betuser'])) ? '<script>window.location="login.php"</scri
                       <!--bet amount and buttons-->
                       <div style="padding:10px">
                         <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
+                      </div>
+                      <div style="padding:10px">
+                        <span>Balance:</span><span class="user-balance"> 456</span>
                       </div>
 
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
@@ -2916,6 +2975,9 @@ echo (!isset($_SESSION['betuser'])) ? '<script>window.location="login.php"</scri
                         <div class="least-bet">At least <b>1</b> No. every place</div>
                         <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
                       </div>
+                      <div style="padding:10px">
+                        <span>Balance:</span><span class="user-balance"> 456</span>
+                      </div>
 
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
@@ -3014,6 +3076,9 @@ echo (!isset($_SESSION['betuser'])) ? '<script>window.location="login.php"</scri
                       <div style="padding:10px">
                         <div class="least-bet">At least <b>5</b> No.</div>
                         <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
+                      </div>
+                      <div style="padding:10px">
+                        <span>Balance:</span><span class="user-balance"> 456</span>
                       </div>
 
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
@@ -3134,6 +3199,9 @@ echo (!isset($_SESSION['betuser'])) ? '<script>window.location="login.php"</scri
                         <div class="least-bet">One Pair at least <b>1</b> No. <br> One No. at least <b>3</b> No.</div>
                         <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
                       </div>
+                      <div style="padding:10px">
+                        <span>Balance:</span><span class="user-balance"> 456</span>
+                      </div>
 
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
@@ -3232,6 +3300,9 @@ echo (!isset($_SESSION['betuser'])) ? '<script>window.location="login.php"</scri
                       <div style="padding:10px">
                         <div class="least-bet">At least <b>5</b> No.</div>
                         <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
+                      </div>
+                      <div style="padding:10px">
+                        <span>Balance:</span><span class="user-balance"> 456</span>
                       </div>
 
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
@@ -3351,6 +3422,9 @@ echo (!isset($_SESSION['betuser'])) ? '<script>window.location="login.php"</scri
                       <div style="padding:10px">
                         <div class="least-bet">Three of a Kind at least <b>1</b> No. <br> One No. at least <b>2</b> No.</div>
                         <div class="bet-info">Total Bets <span class="total-bets"> 21 </span> <br> Each bet &#8373;<span class="unit-amt">50.223</span><br> Actual betting &#8373;<span class="actual-amt">54</span></div>
+                      </div>
+                      <div style="padding:10px">
+                        <span>Balance:</span><span class="user-balance"> 456</span>
                       </div>
 
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">

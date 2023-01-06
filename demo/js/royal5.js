@@ -133,6 +133,15 @@ getPageId()
     }
   }
 
+ fetchData(url, data=[])
+{
+    data = data || JSON.stringify(data);
+    
+    return ($.ajax({
+       url: url,
+       data: data
+  }));
+}
   deleteFromCart(id, cart)
   {
     let key = id.split("-")[1];
@@ -1075,13 +1084,14 @@ class a5_combo extends Royal5utils {
     }
 }
 
-let balance = 200;
 let lastId = 0;
 let initializedClasses = [];
 let cart = [];
 let oldClass = 'a5_joint';
+let balanceUrl = "http://192.168.199.126/task/receiver.php?action=userbalance";
 let game = new a5_joint('#a5-joint');
-
+let balance = await game.fetchData(balanceUrl);
+$('.user-balance').html(JSON.parse(balance).userBalance);
 ready(oldClass);
 
 
@@ -1297,6 +1307,7 @@ function ready(className){
     game.$(classNames.modelSelect).removeClass('money-bg');
     game.$(this).addClass('money-bg');
     let modelValue = eval($(this).val());
+    let balance = game.$('.user-balance').html();
     let unitAmt = game.calcUnitFromModel(balance, modelValue);
     game.setUnitAmt(unitAmt);
     game.$(classNames.unitAmt).removeClass('money-bg');
@@ -1413,12 +1424,15 @@ function ready(className){
     let data = JSON.stringify([savedData]);
     // let url = '../nav.php';
     let url = 'http://192.168.199.126/task/nav.php';
-    
       let req = $.post(url, data, function(response){
         // console.log(response);
         game.$('.spinner').hide();
         response = JSON.parse(response);
   if(response.title == 'success'){
+    game.fetchData(balanceUrl).then(response=>{
+      response = JSON.parse(response);
+      $('.user-balance').html(response.userBalance);
+    });
  alert(response.message);
     // toastr.options.progressBar = true;
     // toastr.success(response.message, response.title);
@@ -1582,16 +1596,7 @@ function getDrawNums(url=false, data=false)
 
   }
 
-function fetchData(url, data)
-{
-    let results = false;
-    data = JSON.stringify(data);
-    let req = $.post(url, data, function(response){
-        results = JSON.parse(response); 
-  });
-  req.fail(function(){console.log('failed')});
-  return results;
-}
+
 
 
 function showDrawNums(drawNums=getDrawNums())
