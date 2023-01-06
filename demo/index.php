@@ -123,6 +123,14 @@
       opacity: 1;
     }
 
+    .spinner {
+      position: absolute;
+      right: 2.5cm;
+      margin-top: 5px;
+      color: #875FDF;
+      display: none;
+    }
+
     /**toggle end */
     #cart-submit {
 
@@ -625,12 +633,19 @@
                       <div class="row">
                         <div class="col-sm">
                           <!--toggle-->
-                          <label class="toggle">
+                          <!-- <label class="toggle">
                             <input type="checkbox">
                             <span class="slider"></span>
                             <span class="labels" data-amount="Amt." data-multiplier="Mult."></span>
-                          </label>
-
+                          </label> -->
+                          <!--dropdown 1-->
+                          <!--dropdown 1-->
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins model" value="1/4">1/4</button>
+                            <button type="button" class="btn coins model" value="1/3">1/3</button>
+                            <button type="button" class="btn coins model" value="1/2">1/2</button>
+                            <button type="button" class="btn coins model" value="1">All</button>
+                          </div>
 
                         </div>
                         <div class="col-sm">
@@ -678,10 +693,11 @@
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
                         <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled><span class="spinner-border spinner-border-sm spinner" role="status" aria-hidden="true"></span>Bet now</button>
                       </div>
 
                     </div>
+
                     <!--end of bet amount buttons-->
                     <p></p>
 
@@ -711,16 +727,12 @@
 
                       <div class="row">
                         <div class="col-sm">
-                          <!--dropdown 1-->
-                          <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                              Dropdown button
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">draw numbre 1</a>
-                              <a class="dropdown-item" href="#">draw numbre 2</a>
-                              <a class="dropdown-item" href="#">draw numbre 3</a>
-                            </div>
+
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins model" value="1/4">1/4</button>
+                            <button type="button" class="btn coins model" value="1/3">1/3</button>
+                            <button type="button" class="btn coins model" value="1/2">1/2</button>
+                            <button type="button" class="btn coins model" value="1">All</button>
                           </div>
 
 
@@ -770,8 +782,11 @@
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
                         <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled><span class="spinner-border spinner-border-sm spinner" role="status" aria-hidden="true"></span>Bet now</button>
+                          
                       </div>
+                      
+              
 
                     </div>
                     <!--end of bet amount buttons-->
@@ -896,16 +911,11 @@
 
                       <div class="row">
                         <div class="col-sm">
-                          <!--dropdown 1-->
-                          <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                              Dropdown button
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">draw numbre 1</a>
-                              <a class="dropdown-item" href="#">draw numbre 2</a>
-                              <a class="dropdown-item" href="#">draw numbre 3</a>
-                            </div>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins model" value="1/4">1/4</button>
+                            <button type="button" class="btn coins model" value="1/3">1/3</button>
+                            <button type="button" class="btn coins model" value="1/2">1/2</button>
+                            <button type="button" class="btn coins model" value="1">All</button>
                           </div>
 
 
@@ -956,7 +966,7 @@
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
                         <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled><span class="spinner-border spinner-border-sm spinner" role="status" aria-hidden="true"></span>Bet now</button>
                       </div>
 
                     </div>
@@ -1001,16 +1011,11 @@
 
                       <div class="row">
                         <div class="col-sm">
-                          <!--dropdown 1-->
-                          <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                              Dropdown button
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">draw numbre 1</a>
-                              <a class="dropdown-item" href="#">draw numbre 2</a>
-                              <a class="dropdown-item" href="#">draw numbre 3</a>
-                            </div>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins model" value="1/4">1/4</button>
+                            <button type="button" class="btn coins model" value="1/3">1/3</button>
+                            <button type="button" class="btn coins model" value="1/2">1/2</button>
+                            <button type="button" class="btn coins model" value="1">All</button>
                           </div>
 
 
@@ -1061,7 +1066,7 @@
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
                         <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled><span class="spinner-border spinner-border-sm spinner" role="status" aria-hidden="true"></span>Bet now</button>
                       </div>
 
                     </div>
@@ -1125,16 +1130,11 @@
                     <div class="g60" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
                       <div class="row">
                         <div class="col-sm">
-                          <!--dropdown 1-->
-                          <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                              Dropdown button
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">draw numbre 1</a>
-                              <a class="dropdown-item" href="#">draw numbre 2</a>
-                              <a class="dropdown-item" href="#">draw numbre 3</a>
-                            </div>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins model" value="1/4">1/4</button>
+                            <button type="button" class="btn coins model" value="1/3">1/3</button>
+                            <button type="button" class="btn coins model" value="1/2">1/2</button>
+                            <button type="button" class="btn coins model" value="1">All</button>
                           </div>
 
 
@@ -1185,7 +1185,7 @@
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
                         <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled><span class="spinner-border spinner-border-sm spinner" role="status" aria-hidden="true"></span>Bet now</button>
                       </div>
 
                     </div>
@@ -1249,16 +1249,11 @@
                     <div class="g30" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
                       <div class="row">
                         <div class="col-sm">
-                          <!--dropdown 1-->
-                          <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                              Dropdown button
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">draw numbre 1</a>
-                              <a class="dropdown-item" href="#">draw numbre 2</a>
-                              <a class="dropdown-item" href="#">draw numbre 3</a>
-                            </div>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins model" value="1/4">1/4</button>
+                            <button type="button" class="btn coins model" value="1/3">1/3</button>
+                            <button type="button" class="btn coins model" value="1/2">1/2</button>
+                            <button type="button" class="btn coins model" value="1">All</button>
                           </div>
 
 
@@ -1309,7 +1304,7 @@
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
                         <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled><span class="spinner-border spinner-border-sm spinner" role="status" aria-hidden="true"></span>Bet now</button>
                       </div>
 
                     </div>
@@ -1373,16 +1368,11 @@
                     <div class="g20" style="display:none;padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
                       <div class="row">
                         <div class="col-sm">
-                          <!--dropdown 1-->
-                          <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                              Dropdown button
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">draw numbre 1</a>
-                              <a class="dropdown-item" href="#">draw numbre 2</a>
-                              <a class="dropdown-item" href="#">draw numbre 3</a>
-                            </div>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins model" value="1/4">1/4</button>
+                            <button type="button" class="btn coins model" value="1/3">1/3</button>
+                            <button type="button" class="btn coins model" value="1/2">1/2</button>
+                            <button type="button" class="btn coins model" value="1">All</button>
                           </div>
 
 
@@ -1433,7 +1423,7 @@
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
                         <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled><span class="spinner-border spinner-border-sm spinner" role="status" aria-hidden="true"></span>Bet now</button>
                       </div>
 
                     </div>
@@ -1497,16 +1487,11 @@
                     <div class="g10" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
                       <div class="row">
                         <div class="col-sm">
-                          <!--dropdown 1-->
-                          <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                              Dropdown button
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">draw numbre 1</a>
-                              <a class="dropdown-item" href="#">draw numbre 2</a>
-                              <a class="dropdown-item" href="#">draw numbre 3</a>
-                            </div>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins model" value="1/4">1/4</button>
+                            <button type="button" class="btn coins model" value="1/3">1/3</button>
+                            <button type="button" class="btn coins model" value="1/2">1/2</button>
+                            <button type="button" class="btn coins model" value="1">All</button>
                           </div>
 
 
@@ -1557,7 +1542,7 @@
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
                         <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled><span class="spinner-border spinner-border-sm spinner" role="status" aria-hidden="true"></span>Bet now</button>
                       </div>
 
                     </div>
@@ -1620,16 +1605,11 @@
                     <div class="g5" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
                       <div class="row">
                         <div class="col-sm">
-                          <!--dropdown 1-->
-                          <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                              Dropdown button
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">draw numbre 1</a>
-                              <a class="dropdown-item" href="#">draw numbre 2</a>
-                              <a class="dropdown-item" href="#">draw numbre 3</a>
-                            </div>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins model" value="1/4">1/4</button>
+                            <button type="button" class="btn coins model" value="1/3">1/3</button>
+                            <button type="button" class="btn coins model" value="1/2">1/2</button>
+                            <button type="button" class="btn coins model" value="1">All</button>
                           </div>
 
 
@@ -1680,7 +1660,7 @@
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
                         <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled><span class="spinner-border spinner-border-sm spinner" role="status" aria-hidden="true"></span>Bet now</button>
                       </div>
 
                     </div>
@@ -1790,16 +1770,11 @@
 
                       <div class="row">
                         <div class="col-sm">
-                          <!--dropdown 1-->
-                          <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                              Dropdown button
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">draw numbre 1</a>
-                              <a class="dropdown-item" href="#">draw numbre 2</a>
-                              <a class="dropdown-item" href="#">draw numbre 3</a>
-                            </div>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins model" value="1/4">1/4</button>
+                            <button type="button" class="btn coins model" value="1/3">1/3</button>
+                            <button type="button" class="btn coins model" value="1/2">1/2</button>
+                            <button type="button" class="btn coins model" value="1">All</button>
                           </div>
 
 
@@ -1849,7 +1824,7 @@
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
                         <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled><span class="spinner-border spinner-border-sm spinner" role="status" aria-hidden="true"></span>Bet now</button>
                       </div>
 
                     </div>
@@ -1882,16 +1857,11 @@
 
                       <div class="row">
                         <div class="col-sm">
-                          <!--dropdown 1-->
-                          <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                              Dropdown button
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">draw numbre 1</a>
-                              <a class="dropdown-item" href="#">draw numbre 2</a>
-                              <a class="dropdown-item" href="#">draw numbre 3</a>
-                            </div>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins model" value="1/4">1/4</button>
+                            <button type="button" class="btn coins model" value="1/3">1/3</button>
+                            <button type="button" class="btn coins model" value="1/2">1/2</button>
+                            <button type="button" class="btn coins model" value="1">All</button>
                           </div>
 
 
@@ -1941,7 +1911,7 @@
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
                         <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled><span class="spinner-border spinner-border-sm spinner" role="status" aria-hidden="true"></span>Bet now</button>
                       </div>
 
                     </div>
@@ -2046,16 +2016,11 @@
 
                       <div class="row">
                         <div class="col-sm">
-                          <!--dropdown 1-->
-                          <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                              Dropdown button
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">draw numbre 1</a>
-                              <a class="dropdown-item" href="#">draw numbre 2</a>
-                              <a class="dropdown-item" href="#">draw numbre 3</a>
-                            </div>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins model" value="1/4">1/4</button>
+                            <button type="button" class="btn coins model" value="1/3">1/3</button>
+                            <button type="button" class="btn coins model" value="1/2">1/2</button>
+                            <button type="button" class="btn coins model" value="1">All</button>
                           </div>
 
 
@@ -2106,7 +2071,7 @@
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
                         <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled><span class="spinner-border spinner-border-sm spinner" role="status" aria-hidden="true"></span>Bet now</button>
                       </div>
 
                     </div>
@@ -2150,16 +2115,11 @@
 
                       <div class="row">
                         <div class="col-sm">
-                          <!--dropdown 1-->
-                          <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                              Dropdown button
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">draw numbre 1</a>
-                              <a class="dropdown-item" href="#">draw numbre 2</a>
-                              <a class="dropdown-item" href="#">draw numbre 3</a>
-                            </div>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins model" value="1/4">1/4</button>
+                            <button type="button" class="btn coins model" value="1/3">1/3</button>
+                            <button type="button" class="btn coins model" value="1/2">1/2</button>
+                            <button type="button" class="btn coins model" value="1">All</button>
                           </div>
 
 
@@ -2210,7 +2170,7 @@
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
                         <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled><span class="spinner-border spinner-border-sm spinner" role="status" aria-hidden="true"></span>Bet now</button>
                       </div>
 
                     </div>
@@ -2274,16 +2234,11 @@
                     <div class="g60" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
                       <div class="row">
                         <div class="col-sm">
-                          <!--dropdown 1-->
-                          <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                              Dropdown button
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">draw numbre 1</a>
-                              <a class="dropdown-item" href="#">draw numbre 2</a>
-                              <a class="dropdown-item" href="#">draw numbre 3</a>
-                            </div>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins model" value="1/4">1/4</button>
+                            <button type="button" class="btn coins model" value="1/3">1/3</button>
+                            <button type="button" class="btn coins model" value="1/2">1/2</button>
+                            <button type="button" class="btn coins model" value="1">All</button>
                           </div>
 
 
@@ -2334,7 +2289,7 @@
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
                         <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled><span class="spinner-border spinner-border-sm spinner" role="status" aria-hidden="true"></span>Bet now</button>
                       </div>
 
                     </div>
@@ -2378,16 +2333,11 @@
 
                       <div class="row">
                         <div class="col-sm">
-                          <!--dropdown 1-->
-                          <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                              Dropdown button
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">draw numbre 1</a>
-                              <a class="dropdown-item" href="#">draw numbre 2</a>
-                              <a class="dropdown-item" href="#">draw numbre 3</a>
-                            </div>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins model" value="1/4">1/4</button>
+                            <button type="button" class="btn coins model" value="1/3">1/3</button>
+                            <button type="button" class="btn coins model" value="1/2">1/2</button>
+                            <button type="button" class="btn coins model" value="1">All</button>
                           </div>
 
 
@@ -2438,7 +2388,7 @@
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
                         <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled><span class="spinner-border spinner-border-sm spinner" role="status" aria-hidden="true"></span>Bet now</button>
                       </div>
 
                     </div>
@@ -2502,16 +2452,11 @@
                     <div class="g20" style="display:none;padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
                       <div class="row">
                         <div class="col-sm">
-                          <!--dropdown 1-->
-                          <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                              Dropdown button
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">draw numbre 1</a>
-                              <a class="dropdown-item" href="#">draw numbre 2</a>
-                              <a class="dropdown-item" href="#">draw numbre 3</a>
-                            </div>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins model" value="1/4">1/4</button>
+                            <button type="button" class="btn coins model" value="1/3">1/3</button>
+                            <button type="button" class="btn coins model" value="1/2">1/2</button>
+                            <button type="button" class="btn coins model" value="1">All</button>
                           </div>
 
 
@@ -2562,7 +2507,7 @@
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
                         <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled><span class="spinner-border spinner-border-sm spinner" role="status" aria-hidden="true"></span>Bet now</button>
                       </div>
 
                     </div>
@@ -2667,16 +2612,11 @@
 
                       <div class="row">
                         <div class="col-sm">
-                          <!--dropdown 1-->
-                          <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                              Dropdown button
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">draw numbre 1</a>
-                              <a class="dropdown-item" href="#">draw numbre 2</a>
-                              <a class="dropdown-item" href="#">draw numbre 3</a>
-                            </div>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins model" value="1/4">1/4</button>
+                            <button type="button" class="btn coins model" value="1/3">1/3</button>
+                            <button type="button" class="btn coins model" value="1/2">1/2</button>
+                            <button type="button" class="btn coins model" value="1">All</button>
                           </div>
 
 
@@ -2726,7 +2666,7 @@
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
                         <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled><span class="spinner-border spinner-border-sm spinner" role="status" aria-hidden="true"></span>Bet now</button>
                       </div>
 
                     </div>
@@ -2759,16 +2699,11 @@
 
                       <div class="row">
                         <div class="col-sm">
-                          <!--dropdown 1-->
-                          <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                              Dropdown button
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">draw numbre 1</a>
-                              <a class="dropdown-item" href="#">draw numbre 2</a>
-                              <a class="dropdown-item" href="#">draw numbre 3</a>
-                            </div>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins model" value="1/4">1/4</button>
+                            <button type="button" class="btn coins model" value="1/3">1/3</button>
+                            <button type="button" class="btn coins model" value="1/2">1/2</button>
+                            <button type="button" class="btn coins model" value="1">All</button>
                           </div>
 
 
@@ -2818,7 +2753,7 @@
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
                         <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled><span class="spinner-border spinner-border-sm spinner" role="status" aria-hidden="true"></span>Bet now</button>
                       </div>
 
                     </div>
@@ -2923,16 +2858,11 @@
 
                       <div class="row">
                         <div class="col-sm">
-                          <!--dropdown 1-->
-                          <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                              Dropdown button
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">draw numbre 1</a>
-                              <a class="dropdown-item" href="#">draw numbre 2</a>
-                              <a class="dropdown-item" href="#">draw numbre 3</a>
-                            </div>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins model" value="1/4">1/4</button>
+                            <button type="button" class="btn coins model" value="1/3">1/3</button>
+                            <button type="button" class="btn coins model" value="1/2">1/2</button>
+                            <button type="button" class="btn coins model" value="1">All</button>
                           </div>
 
 
@@ -2983,7 +2913,7 @@
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
                         <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled><span class="spinner-border spinner-border-sm spinner" role="status" aria-hidden="true"></span>Bet now</button>
                       </div>
 
                     </div>
@@ -3027,16 +2957,11 @@
 
                       <div class="row">
                         <div class="col-sm">
-                          <!--dropdown 1-->
-                          <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                              Dropdown button
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">draw numbre 1</a>
-                              <a class="dropdown-item" href="#">draw numbre 2</a>
-                              <a class="dropdown-item" href="#">draw numbre 3</a>
-                            </div>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins model" value="1/4">1/4</button>
+                            <button type="button" class="btn coins model" value="1/3">1/3</button>
+                            <button type="button" class="btn coins model" value="1/2">1/2</button>
+                            <button type="button" class="btn coins model" value="1">All</button>
                           </div>
 
 
@@ -3087,7 +3012,7 @@
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
                         <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled><span class="spinner-border spinner-border-sm spinner" role="status" aria-hidden="true"></span>Bet now</button>
                       </div>
 
                     </div>
@@ -3151,16 +3076,11 @@
                     <div class="g60" style="padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
                       <div class="row">
                         <div class="col-sm">
-                          <!--dropdown 1-->
-                          <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                              Dropdown button
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">draw numbre 1</a>
-                              <a class="dropdown-item" href="#">draw numbre 2</a>
-                              <a class="dropdown-item" href="#">draw numbre 3</a>
-                            </div>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins model" value="1/4">1/4</button>
+                            <button type="button" class="btn coins model" value="1/3">1/3</button>
+                            <button type="button" class="btn coins model" value="1/2">1/2</button>
+                            <button type="button" class="btn coins model" value="1">All</button>
                           </div>
 
 
@@ -3211,7 +3131,7 @@
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
                         <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled><span class="spinner-border spinner-border-sm spinner" role="status" aria-hidden="true"></span>Bet now</button>
                       </div>
 
                     </div>
@@ -3255,16 +3175,11 @@
 
                       <div class="row">
                         <div class="col-sm">
-                          <!--dropdown 1-->
-                          <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                              Dropdown button
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">draw numbre 1</a>
-                              <a class="dropdown-item" href="#">draw numbre 2</a>
-                              <a class="dropdown-item" href="#">draw numbre 3</a>
-                            </div>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins model" value="1/4">1/4</button>
+                            <button type="button" class="btn coins model" value="1/3">1/3</button>
+                            <button type="button" class="btn coins model" value="1/2">1/2</button>
+                            <button type="button" class="btn coins model" value="1">All</button>
                           </div>
 
 
@@ -3315,7 +3230,7 @@
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
                         <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled><span class="spinner-border spinner-border-sm spinner" role="status" aria-hidden="true"></span>Bet now</button>
                       </div>
 
                     </div>
@@ -3379,16 +3294,11 @@
                     <div class="g20" style="display:none;padding:10px;width:100%;height:auto;border-radius:10px;background-color:#fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;display:block;">
                       <div class="row">
                         <div class="col-sm">
-                          <!--dropdown 1-->
-                          <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border:solid 1px #eee">
-                              Dropdown button
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">draw numbre 1</a>
-                              <a class="dropdown-item" href="#">draw numbre 2</a>
-                              <a class="dropdown-item" href="#">draw numbre 3</a>
-                            </div>
+                          <div class="btn-group mr-2" role="group" aria-label="First group">
+                            <button type="button" class="btn coins model" value="1/4">1/4</button>
+                            <button type="button" class="btn coins model" value="1/3">1/3</button>
+                            <button type="button" class="btn coins model" value="1/2">1/2</button>
+                            <button type="button" class="btn coins model" value="1">All</button>
                           </div>
 
 
@@ -3439,7 +3349,7 @@
                       <div class="row d-flex justify-content-end" style="margin-right:20px;">
                         <button type="button" class="btn btn-outline-secondary btnx cart" disabled>Add to cart</button>
                         <button type="button" class="btn btn-outline-secondary btnx track" disabled>Track</button>
-                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled>Bet now</button>
+                        <button type="button" class="btn btn-outline-secondary btnx bet-now" disabled><span class="spinner-border spinner-border-sm spinner" role="status" aria-hidden="true"></span>Bet now</button>
                       </div>
 
                     </div>
