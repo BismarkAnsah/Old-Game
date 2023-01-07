@@ -133,6 +133,7 @@ getPageId()
     }
   }
 
+  
  fetchData(url, data=[])
 {
     data = data || JSON.stringify(data);
@@ -163,6 +164,11 @@ getPageId()
       });
   }
   
+  decimalCount(value)
+  {
+    const strValue = String(value);
+    return strValue.includes('.')?strValue.split('.')[1].length:0;
+  }
    getCombination(n, r){
       if(!(r>=0 && n>=r))
           return -1;
@@ -179,17 +185,34 @@ getPageId()
       return result;
   }
 
+  calcPseudoUnit()
+  {
+    return this.truncate(this.betAmt/this.totalBets);
+  }
+
+  fixArithmetic(value)
+  {
+    return +(value).toFixed(8);
+  }
  calcUnitAmt()
   {
-    let multiplier, unitAmt;
-    this.units.some(unit=>{
-    multiplier =  this.calcActualAmt()/(this.totalBets*unit);
-      if(+multiplier.toFixed(8)%1 == 0){
-          unitAmt = unit;
-          return true;
-      }
-  });
-      return unitAmt;
+    /**Old Implementation */
+  //   let multiplier, unitAmt;
+  //   this.units.some(unit=>{
+  //   multiplier =  this.calcActualAmt()/(this.totalBets*unit);
+  //     if(+multiplier.toFixed(8)%1 == 0){
+  //         unitAmt = unit;
+  //         return true;
+  //     }
+  // });
+  //     return unitAmt;
+
+  /**New Implementation */
+      let pseudoUnit = this.calcPseudoUnit();
+      let decimalCount = this.decimalCount(pseudoUnit);
+      let pseudoMult = this.fixArithmetic(pseudoUnit * 10**decimalCount);
+      let realUnit = pseudoMult%2==0?2*10**-decimalCount:10**-decimalCount;
+      return realUnit;
  }
 
 calcBetAmt()
@@ -1190,6 +1213,7 @@ function ready(className){
       let row = $(this).parent().attr('data-points-to');
       game.selectAll(`.${row}`);
       game.saveToRow(data, row);
+      game.$('input.bet-amt').val('');
       let totalBets =  game.calcTotalBets();
       !totalBets?game.disableButtons(true, game.$('input.bet-amt')):game.disableButtons(false, game.$('input.bet-amt'));
       game.$(classNames.modelSelect).removeClass('money-bg');
@@ -1203,6 +1227,7 @@ function ready(className){
       let data = [5,6,7,8,9];
       let row = $(this).parent().attr('data-points-to');
       game.selectBig(`.${row}`);
+      game.$('input.bet-amt').val('');
       game.saveToRow(data, row);
       let totalBets = game.calcTotalBets();
       !totalBets?game.disableButtons(true, game.$('input.bet-amt')):game.disableButtons(false, game.$('input.bet-amt'));
@@ -1217,6 +1242,7 @@ function ready(className){
       let data = [0,1,2,3,4];
       let row = $(this).parent().attr('data-points-to');
       game.selectSmall(`.${row}`);
+      game.$('input.bet-amt').val('');
       game.saveToRow(data, row);
       let totalBets = game.calcTotalBets();
       !totalBets?game.disableButtons(true, game.$('input.bet-amt')):game.disableButtons(false, game.$('input.bet-amt'));
@@ -1231,6 +1257,7 @@ function ready(className){
       let data = [1,3,5,7,9];
       let row = $(this).parent().attr('data-points-to');
       game.selectOdd(`.${row}`);
+      game.$('input.bet-amt').val('');
       game.saveToRow(data, row);
       let totalBets = game.calcTotalBets();
       !totalBets?game.disableButtons(true, game.$('input.bet-amt')):game.disableButtons(false, game.$('input.bet-amt'));
@@ -1244,6 +1271,7 @@ function ready(className){
       let data = [0,2,4,6,8];
       let row = $(this).parent().attr('data-points-to');
       game.selectEven(`.${row}`);
+      game.$('input.bet-amt').val('');
       savePoint.data[row] = data;
       game.saveToRow(data, row);
       let totalBets = game.calcTotalBets();
@@ -1259,6 +1287,7 @@ function ready(className){
       $(this).toggleClass('default');
       let btnValue = parseInt($(this).children().html());
       let classNames = $(this).attr('class');
+      game.$('input.bet-amt').val('');
       let row  = game.getRowFromClass(classNames);
       game.saveToRow(btnValue, row);
       let totalBets = game.calcTotalBets();
@@ -1282,6 +1311,7 @@ function ready(className){
       game.clear(`.${row}`);
       savePoint.data[row] = data;
       game.saveToRow(data, row);
+      game.$('input.bet-amt').val('');
       let totalBets = game.calcTotalBets();
       !totalBets?game.disableButtons(true, game.$('input.bet-amt')):game.disableButtons(false, game.$('input.bet-amt'));
       game.$(classNames.modelSelect).removeClass('money-bg');
