@@ -694,6 +694,7 @@
 	}
 	#Path_1 {
 		fill: rgba(112,112,112,1);
+	
 	}
 	.Path_1 {
 		overflow: visible;
@@ -704,6 +705,7 @@
 		top: 154px;
 		transform: matrix(1,0,0,1,0,0);
 	}
+
 	#Path_1_bx {
 		fill: rgba(112,112,112,1);
 	}
@@ -790,7 +792,7 @@
 	}
 	#Path_1_cd {
 		fill: rgba(73,85,109,1);
-		
+		/* fill:rgb(243,234,219); */
 	}
 	.Path_1_cd {
 		overflow: visible;
@@ -1133,6 +1135,7 @@
 		font-style: normal;
 		font-weight: normal;
 		font-size: 30px;
+
 		color: rgba(112,112,112,1);
 	}
 	#All_5_Group_120 {
@@ -12401,6 +12404,8 @@
 		overflow: visible;
 	}
 </style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
 <style></style>
 <!-- <script id="applicationScript">
 ///////////////////////////////////////
@@ -15468,10 +15473,6 @@ window.application = new Application();
 			<path id="Path_1" d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
 			</path>
 		</svg>
-		<svg class="Path_1_bx" viewBox="1082.685 756.5 371.083 56">
-			<path id="Path_1_bx" d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
-			</path>
-		</svg>
 		<svg class="Path_1_by" viewBox="1082.684 756.5 328.25 54.5">
 			<path id="Path_1_by" d="M 1110.437866210938 756.5000610351562 L 1392.189819335938 756.5000610351562 L 1410.9345703125 779.7062377929688 L 1392.27734375 811.0000610351562 L 1096.28564453125 811.0000610351562 L 1082.684448242188 791.228515625 L 1110.437866210938 756.5000610351562 Z M 1391.334716796875 758.6513061523438 L 1384.868041992188 758.6513061523438 L 1110.437866210938 758.6513061523438 L 1096.28564453125 808.6695556640625 L 1391.334716796875 808.6695556640625 L 1408.503295898438 779.9058227539062 L 1408.503295898438 779.7062377929688 L 1391.334716796875 758.6513061523438 Z">
 			</path>
@@ -15605,6 +15606,8 @@ window.application = new Application();
 		<div id="n_96515">
 			<span>1965.15</span>
 		</div>
+	
+                        
 		<img id="circle" src="circle.png" srcset="circle.png 1x, circle@2x.png 2x">
 			
 		<img id="circle_cz" src="circle_cz.png" srcset="circle_cz.png 1x, circle_cz@2x.png 2x">
@@ -15674,102 +15677,50 @@ window.application = new Application();
 		<div id="n_1">
 			<span>01</span>
 		</div>
-		<div id="n_1_dw">
-			<span>01</span>
-		</div>
-		<div id="n_1_dx">
-			<span>01</span>
-		</div>
+		
+		
 		<div id="n_2">
 			<span>02</span>
 		</div>
-		<div id="n_2_dz">
-			<span>02</span>
-		</div>
-		<div id="n_2_d">
-			<span>02</span>
-		</div>
+		
+		
 		<div id="n_3">
 			<span>03</span>
 		</div>
-		<div id="n_3_d">
-			<span>03</span>
-		</div>
-		<div id="n_3_ea">
-			<span>03</span>
-		</div>
+		
+		
 		<div id="n_4">
 			<span>04</span>
 		</div>
-		<div id="n_4_d">
-			<span>04</span>
-		</div>
-		<div id="n_4_ea">
-			<span>04</span>
-		</div>
+		
 		<div id="n_5">
 			<span>05</span>
 		</div>
-		<div id="n_5_d">
-			<span>05</span>
-		</div>
-		<div id="n_5_ea">
-			<span>05</span>
-		</div>
+		
 		<div id="n_6">
 			<span>06</span>
 		</div>
-		<div id="n_6_eb">
-			<span>06</span>
-		</div>
-		<div id="n_6_ec">
-			<span>06</span>
-		</div>
+		
 		<div id="n_7">
 			<span>07</span>
 		</div>
-		<div id="n_7_ee">
-			<span>07</span>
-		</div>
-		<div id="n_7_ef">
-			<span>07</span>
-		</div>
+		
 		<div id="n_8">
 			<span>08</span>
 		</div>
-		<div id="n_8_eh">
-			<span>08</span>
-		</div>
-		<div id="n_8_ei">
-			<span>08</span>
-		</div>
+		
 		<div id="n_9">
 			<span>09</span>
 		</div>
-		<div id="n_9_ek">
-			<span>09</span>
-		</div>
-		<div id="n_9_el">
-			<span>09</span>
-		</div>
+		
 		<div id="n_0">
 			<span>10</span>
 		</div>
-		<div id="n_0_en">
-			<span>10</span>
-		</div>
-		<div id="n_0_eo">
-			<span>10</span>
-		</div>
+		
 		<div id="n_1_ep">
 			<span>11</span>
 		</div>
-		<div id="n_1_eq">
-			<span>11</span>
-		</div>
-		<div id="n_1_er">
-			<span>11</span>
-		</div>
+		
 		<div id="All">
 			<span>All</span>
 		</div>
