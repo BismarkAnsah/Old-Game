@@ -8,10 +8,17 @@
 	<title>Web 1920 – 1</title>
 	<!-- <link rel="stylesheet" href="css/system.css"> -->
 	<style id="applicationStylesheet" type="text/css">
-		*{
+		* {
 			font-size: 32px;
-		
+
 		}
+
+
+
+		body {
+			background-color: blueviolet;
+		}
+
 		#how_to_play {
 			cursor: pointer;
 		}
@@ -38,7 +45,7 @@
 			position: absolute;
 			width: 5213px;
 			height: 3636px;
-			background-color: rgba(255, 255, 255, 1);
+			background-color: #F1F3FE;
 			overflow: hidden;
 			--web-view-name: Web 1920 – 1;
 			--web-view-id: Web_1920__1;
@@ -89,8 +96,8 @@
 		}
 
 		#Rectangle_4 {
-			opacity: 0.41;
-			fill: rgba(232, 221, 165, 1);
+			opacity: 1;
+			fill: #EEE3BB;
 			stroke: rgba(0, 0, 0, 1);
 			stroke-width: 1px;
 			stroke-linejoin: miter;
@@ -109,7 +116,7 @@
 		}
 
 		#Rectangle_5 {
-			fill: transparent;
+			fill: #EEF0FC;
 			stroke: rgba(0, 0, 0, 1);
 			stroke-width: 3px;
 			stroke-linejoin: miter;
@@ -441,21 +448,6 @@
 			color: rgba(213, 135, 126, 1);
 		}
 
-		#n_968-0 {
-			left: 226px;
-			top: 1150px;
-			position: absolute;
-			overflow: visible;
-			width: 125px;
-			white-space: nowrap;
-			text-align: left;
-			font-family: Segoe UI;
-			font-style: normal;
-			font-weight: normal;
-			font-size: 30px;
-			color: rgba(213, 135, 126, 1);
-		}
-
 		#the_amount {
 			left: 646px;
 			top: 1043px;
@@ -561,21 +553,6 @@
 			color: rgba(112, 112, 112, 1);
 		}
 
-		#selected_0_note_total_0_Yuan_h {
-			left: 1332px;
-			top: 1268px;
-			position: absolute;
-			overflow: visible;
-			width: 673px;
-			white-space: nowrap;
-			text-align: left;
-			font-family: Segoe UI;
-			font-style: normal;
-			font-weight: normal;
-			font-size: 30px;
-			color: rgba(112, 112, 112, 1);
-		}
-
 		#multiple {
 			left: 646px;
 			top: 1155px;
@@ -621,17 +598,11 @@
 			color: rgba(112, 112, 112, 1);
 		}
 
-		#First_3_Straight_Joint {
+		#active-game-box{
 			left: 52px;
 			top: 418px;
 			position: absolute;
 			overflow: visible;
-			width: 280px;
-			white-space: nowrap;
-			text-align: left;
-			font-family: Segoe UI;
-			font-style: normal;
-			font-weight: normal;
 			font-size: 30px;
 			color: rgba(112, 112, 112, 1);
 		}
@@ -681,7 +652,7 @@
 			color: rgba(112, 112, 112, 1);
 		}
 
-		#How_to_play {
+		/* #How_to_play {
 			left: 716px;
 			top: 419px;
 			position: absolute;
@@ -694,26 +665,59 @@
 			font-weight: normal;
 			font-size: 30px;
 			color: rgba(112, 112, 112, 1);
+		} */
+
+		#What_is_solo,
+		#How_to_play {
+			box-sizing: border-box;
+			padding: 12px;
+			background-color: #BFD8F2;
+			color: #707070;
+			border-radius: 24px;
+			outline: none;
+		}
+
+		#How_to_play {
+			left: 690px;
+			top: 400px;
+			padding: 12px;
+			position: absolute;
 		}
 
 		#What_is_solo {
 			left: 965px;
-			top: 419px;
+			top: 400px;
 			position: absolute;
-			overflow: visible;
-			width: 161px;
-			white-space: nowrap;
-			text-align: left;
-			font-family: Segoe UI;
-			font-style: normal;
-			font-weight: normal;
-			font-size: 30px;
-			color: rgba(112, 112, 112, 1);
 		}
 
-		#HotCold {
-			left: 2277px;
+		.hotCold-lack {
+			position: absolute;
+			left: 2100px;
 			top: 421px;
+			margin: 15px;
+
+		}
+
+		.hotCold-box,
+		.lack-box {
+			cursor: pointer;
+			display: inline-block;;
+		}
+
+		.hotCold,
+		.lack {
+			height: 30px;
+			width: 30px;
+			background-color: #92C6EC;
+			outline: none;
+			margin: 12px;
+			cursor: pointer;
+		}
+
+
+
+		#HotCold {
+
 			position: absolute;
 			overflow: visible;
 			width: 123px;
@@ -758,6 +762,8 @@
 			fill: rgba(73, 85, 109, 1) !important;
 			color: #fff !important;
 		}
+
+
 
 		.Path_1 {
 			overflow: visible;
@@ -1399,9 +1405,9 @@
 		
 	} */
 
-		
 
-/*my css begins*/
+
+		/*my css begins*/
 		.btn-rec {
 			padding: 21px;
 			border: 2px solid #000;
@@ -1419,22 +1425,22 @@
 			font-size: 34px;
 		}
 
-		.hover-shape:hover{
-			background-color: rgba(73, 85, 109, 1);
+		.hover-shape:hover {
+			background-color: #49556D;
 			color: #fff;
 		}
-		
-		.num-group{
+
+		.num-group {
 			font-size: 34px;
 		}
 
-		.num-group.row1{
+		.num-group.row1 {
 			position: absolute;
 			left: 128px;
 			top: 629px;
 		}
 
-		.num{
+		.num {
 			padding: 21px;
 			border-radius: 50%;
 			background-color: #E7E0DC;
@@ -1443,98 +1449,201 @@
 			margin-left: 21px;
 			width: 90px;
 		}
-		 label{
+
+		label {
 			color: #B88785;
-			margin-right: 10px;
+			margin-right: 12px;
 		}
-		div.period-box{
+
+		/* div.period-box {
 			position: absolute;
 			left: 45px;
 			top: 1000px;
+		} */
+
+		::placeholder {
+			text-align: center;
 		}
 
-		select.period,select.bonus, input.bet-amt, input.multiplier{
+		select.period,
+		select.bonus,
+		input.bet-amt,
+		input.multiplier-input {
 			color: #B88785;
-			padding: 5px;
+			padding: 3px;
+			align-items: center;
 			border: 1px solid #49546D;
 			background-color: #F8F4E9;
 			border-radius: 12px;
-			width: 280px;
-			height: 64px;
+			width: 275px;
+			height: 60px;
 			outline: none;
 		}
 
-		div.bonus-box {
+		/* div.bonus-box {
 			position: absolute;
 			left: 45px;
 			top: 1145px;
-		}
+		} */
 
-		div.unit-amt-select-box{
-			position: absolute;
+
+		div.unit-amt-select-box {
+			/* position: absolute;
 			left: 600px;
-			top: 980px;
+			top: 900px; */
+			position: relative;
+			left: 75px;
 		}
 
-		div.multiplier-select-box{
-			position: absolute;
-			left: 837px;
-			top: 1137px;
+		div.multiplier-select-box {
+			/* position: absolute;
+			left: 600px;
+			top: 1137px; */
 		}
 
-		div.model-select-box{
-			position: absolute;
-			left: 931px;
-			top: 1259px;
+		div.model-select-box {
+			/* position: absolute;
+			left: 600px;
+			top: 1259px;  */
+			position: relative;
+			left: 282px;
 		}
 
 
-		div.unit-amt-select-values, div.multiplier-values, div.model-values{
+		div.unit-amt-select-values,
+		div.multiplier-select-values,
+		div.model-select-values {
 			border: 1px solid #49546D;
 			display: inline-block;
 			border-radius: 24px;
 		}
 
-		.unit-amt-select, .multiplier-select, .model-select{
-			padding: 21px;
+
+
+		.unit-amt-select,
+		.multiplier-select,
+		.model-select {
+			padding: 18px;
 			margin: 0px -5px;
 			background-color: inherit;
 			color: #49546D;
 			border-color: #49546D;
 			border-style: solid;
 			border-width: 0px 2px 0px 0px;
-			width: 125px;
-		}
-		
-
-		.unit-amt-select:last-child, .multiplier-select:last-child, .model-select:last-child  {
-		border: 0px !important;
-		border-top-right-radius: 24px;
-		border-bottom-right-radius: 24px;
-		}
-		
-		.unit-amt-select:first-child, .multiplier-select:first-child, .model-select:first-child {
-		border-top-left-radius: 24px;
-		border-bottom-left-radius: 24px;
+			width: 120px;
 		}
 
-		.btn-c:focus{
-		outline: none;
+
+		.unit-amt-select:last-child,
+		.multiplier-select:last-child,
+		.model-select:last-child {
+			border: 0px !important;
+			border-top-right-radius: 24px;
+			border-bottom-right-radius: 24px;
 		}
 
-		input.bet-amt{
+		.unit-amt-select:first-child,
+		.multiplier-select:first-child,
+		.model-select:first-child {
+			border-top-left-radius: 24px;
+			border-bottom-left-radius: 24px;
+		}
+
+		.btn-c:focus {
+			outline: none;
+		}
+
+		/* div.bet-amt-box {
 			position: absolute;
 			left: 2054px;
 			top: 1040px;
 		}
 
-		input.bet.multiplier-value{
+		div.multiplier-input-box {
 			position: absolute;
 			left: 2054px;
 			top: 1137px;
+		} */
+
+		div.bet-info {
+			position: absolute;
+			left: 1560px;
+			top: 1160px;
+			color: #B88785;
 		}
-		
-/* my css ends*/
+
+		.draw-num-box {
+			position: absolute;
+			left: 2100px;
+			top: 116px;
+			width: 660px;
+		}
+
+		/* .ball-num-box {
+			position: absolute;
+			top: 36px;
+			right: 12px;
+			width: 600px;
+			border: 2px solid black;
+			box-sizing: border-box;
+			display: none;
+
+		} */
+
+		/* .ball-num-box>* {
+			font-size: 36px;
+			font-weight: bolder;
+			box-sizing: border-box;
+			margin-left: 81px;
+		} */
+
+		.balls-box {
+			position: relative;
+		}
+
+		.ball {
+			width: 120px;
+			height: 120px;
+		}
+
+		.ball:nth-child(odd) {
+			display: none;
+		}
+
+
+
+		div.selections-box {
+			position: absolute;
+			left: 600px;
+			top: 900px;
+
+		}
+
+		div.period-bonus-box {
+			position: absolute;
+			top: 900px;
+			left: 60px;
+		}
+
+		div.multiplier-bet-box {
+			position: absolute;
+			top: 900px;
+			left: 2190px;
+		}
+
+		.multiplier-bet-box>* {
+			margin-bottom: 30px;
+		}
+
+		.selections-box>* {
+			margin-bottom: 30px;
+		}
+
+		.period-bonus-box>* {
+			margin-bottom: 30px;
+		}
+
+		/* my css ends*/
 
 		#Rectangle_69 {
 			fill: transparent;
@@ -1549,14 +1658,14 @@
 		.Rectangle_69 {
 			position: absolute;
 			overflow: visible;
-			
-			
+
+
 		}
 
 
 
 
-		
+
 
 
 		.Rectangle_75 {
@@ -1617,7 +1726,7 @@
 
 
 
-		
+
 
 		#Ellipse_52 {
 			fill: transparent;
@@ -1659,35 +1768,69 @@
 
 		#Group_1 {
 			position: absolute;
-			width: 2874px;
+			width: 2876px;
 			height: 289px;
 			left: 736px;
-			top: 272px;
+			top: 265px;
 			overflow: visible;
 		}
 
 		#Path_7_f {
-			fill: url(#Path_7_f);
-			stroke: rgba(0, 0, 0, 1);
-			stroke-width: 3px;
-			stroke-linejoin: miter;
-			stroke-linecap: butt;
-			stroke-miterlimit: 4;
-			shape-rendering: auto;
+			/* fill: url(#Path_7_f); */
+			background-color: blue;
+			padding: 145px;
+			border: 4px solid #000;
+			height: 100px;
+			border-bottom: 0px;
 		}
+
+
 
 		.Path_7_f {
 			overflow: visible;
 			position: absolute;
 			width: 2874px;
 			height: 289px;
-			left: 0px;
 			top: 0px;
 			transform: matrix(1, 0, 0, 1, 0, 0);
 		}
 
+
+
+
+		text {
+			z-index: 9999;
+		}
+
+
+
+		#Path_7_f			
+		{
+
+			/* ff 3.6+ */
+			background:-moz-linear-gradient(117deg, rgba(153, 203, 231, 1) 31%, rgba(135, 191, 245, 1) 54%, rgba(122, 182, 255, 1) 100%); 
+
+			/* safari 5.1+,chrome 10+ */
+			background:-webkit-linear-gradient(117deg, rgba(153, 203, 231, 1) 31%, rgba(135, 191, 245, 1) 54%, rgba(122, 182, 255, 1) 100%);
+
+			/* opera 11.10+ */
+			background:-o-linear-gradient(117deg, rgba(153, 203, 231, 1) 31%, rgba(135, 191, 245, 1) 54%, rgba(122, 182, 255, 1) 100%);
+
+			/* ie 6-9 */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7AB6FF', endColorstr='#99CBE7', GradientType=0 );
+
+			/* ie 10+ */
+			background:-ms-linear-gradient(117deg, rgba(153, 203, 231, 1) 31%, rgba(135, 191, 245, 1) 54%, rgba(122, 182, 255, 1) 100%);
+
+			/* global 94%+ browsers support */
+			background:linear-gradient(117deg, rgba(153, 203, 231, 1) 31%, rgba(135, 191, 245, 1) 54%, rgba(122, 182, 255, 1) 100%);
+
+		}
+
+
 		#Rectangle_6 {
-			fill: rgba(73, 84, 110, 1);
+
+
 			stroke: rgba(112, 112, 112, 1);
 			stroke-width: 1px;
 			stroke-linejoin: miter;
@@ -1737,10 +1880,7 @@
 		.Rectangle_16 {
 			position: absolute;
 			overflow: visible;
-			width: 108px;
-			height: 122px;
-			left: 2617px;
-			top: 116px;
+
 		}
 
 		#Rectangle_12 {
@@ -2772,13 +2912,31 @@
 		}
 
 		#Group_3 {
-			position: absolute;
+			position: relative;
 			width: 343.033px;
 			height: 77px;
-			left: 2799.089px;
-			top: 1959.5px;
 			overflow: visible;
 		}
+
+		#cart-track-bet>*:hover .text,
+		#cart-track-bet>*:hover path {
+			fill: #49556D;
+			cursor: pointer;
+			color: #fff;
+		}
+
+		.cart-track-bet {
+			position: absolute;
+			left: 1500px;
+			top: 1650px;
+			/* border: 2px solid #000; */
+		}
+
+		.cart-track-bet>* {
+			display: inline-block;
+			margin-right: 21px;
+		}
+
 
 		#Path_3 {
 			fill: rgba(236, 198, 165, 1);
@@ -2786,7 +2944,7 @@
 
 		.Path_3 {
 			overflow: visible;
-			position: absolute;
+			position: relative;
 			width: 314.75px;
 			height: 76.5px;
 			left: 14.161px;
@@ -2839,11 +2997,8 @@
 		}
 
 		#Group_5 {
-			position: absolute;
+			position: relative;
 			width: 343.033px;
-			height: 77px;
-			left: 2422.089px;
-			top: 1959px;
 			overflow: visible;
 		}
 
@@ -2867,7 +3022,7 @@
 
 		.Path_3_ic {
 			overflow: visible;
-			position: absolute;
+			position: relative;
 			width: 68.033px;
 			height: 77px;
 			left: 0px;
@@ -2906,11 +3061,9 @@
 		}
 
 		#Group_4 {
-			position: absolute;
+			position: relative;
 			width: 343.033px;
 			height: 77.5px;
-			left: 3176.089px;
-			top: 1959px;
 			overflow: visible;
 		}
 
@@ -2934,7 +3087,7 @@
 
 		.Path_3_ig {
 			overflow: visible;
-			position: absolute;
+			position: relative;
 			width: 68.033px;
 			height: 77px;
 			left: 0px;
@@ -3012,7 +3165,7 @@
 		}
 
 		#Rectangle_81 {
-			fill: rgba(194, 213, 224, 1);
+			fill: #EEE3BB;
 			stroke: rgba(0, 0, 0, 1);
 			stroke-width: 1px;
 			stroke-linejoin: miter;
@@ -3045,20 +3198,7 @@
 			color: rgba(29, 29, 29, 1);
 		}
 
-		#how_to_play_ {
-			left: 946px;
-			top: 2316px;
-			position: absolute;
-			overflow: visible;
-			width: 175px;
-			white-space: nowrap;
-			text-align: center;
-			font-family: Segoe UI;
-			font-style: normal;
-			font-weight: bold;
-			font-size: 30px;
-			color: rgba(29, 29, 29, 1);
-		}
+
 
 		#betting_content_ {
 			left: 1284px;
@@ -15223,14 +15363,13 @@ window.application = new Application();
 
 <body>
 	<div id="Web_1920__1">
-		<svg class="Rectangle_1_l">
+		<!-- <svg class="Rectangle_1_l">
 			<linearGradient id="Rectangle_1_l" spreadMethod="pad" x1="0.688" x2="1.099" y1="0.483" y2="1.328">
 				<stop offset="0" stop-color="#f3eadb" stop-opacity="1"></stop>
 				<stop offset="1" stop-color="#f1d5bd" stop-opacity="1"></stop>
 			</linearGradient>
-			<rect id="Rectangle_1_l" rx="0" ry="0" x="0" y="0" width="5213" height="3639">
-			</rect>
-		</svg>
+		
+		</svg> -->
 		<svg class="Path_2" viewBox="0 0 2722 1570">
 			<path id="Path_2" d="M 4 0 L 2722 0 L 2722 1570 L 0 1570 L 4 0 Z">
 			</path>
@@ -15289,14 +15428,7 @@ window.application = new Application();
 			<svg class="Rectangle_35">
 
 			</svg>
-			<svg class="Rectangle_36">
-				<rect id="Rectangle_36" rx="30" ry="30" x="0" y="0" width="207" height="64">
-				</rect>
-			</svg>
-			<svg class="Rectangle_95">
-				<rect id="Rectangle_95" rx="30" ry="30" x="0" y="0" width="207" height="64">
-				</rect>
-			</svg>
+
 			<div id="V">
 				<span>V</span>
 			</div>
@@ -15306,35 +15438,27 @@ window.application = new Application();
 			<div id="Group">
 				<span>Group</span>
 			</div>
-			
-			<div id="n_968-0">
-				<span>19.68-0%</span>
-			</div>
-		
-		
-		
-			<div id="selected_0_note_total_0_Yuan_h">
-				<span>selected 0 note, total 0 Yuan. highest profit 0 Yuan.</span>
-			</div>
-		
-	
-			<div id="First_3_Straight_Joint">
+
+
+
+
+			<div id="active-game-box" class="active-game-box">
 				<span>First 3 Straight (Joint)</span>
 			</div>
-			
 
-			<div id="How_to_play">
-				<span>How to play</span>
+			<button id="How_to_play">How to play</button>
+			<button id="What_is_solo">What is solo?</button>
+
+			<div class="hotCold-lack">
+				<div class="hotCold-box">
+					<input class="hotCold btn-c" type="radio" name="hotCold-lack" id="hotCold"><label for="hotCold">Hot/Cold</label>
+				</div>
+				<div class="lack-box">
+					<input class="lack btn-c" type="radio" name="hotCold-lack" id="lack"><label for="lack">Lack</label>
+				</div>
 			</div>
-			<div id="What_is_solo">
-				<span>What is solo</span>
-			</div>
-			<div id="HotCold">
-				<span>Hot/Cold</span>
-			</div>
-			<div id="Lack">
-				<span>Lack</span>
-			</div>
+
+
 			<svg class="Path_1" viewBox="1082.685 756.5 371.083 56">
 				<path id="Path_1_cd" d="M 1110.41650390625 756.5 L 1391.953979492188 756.5 L 1410.684326171875 780.3447875976562 L 1392.041137695312 812.5 L 1096.275268554688 812.5 L 1082.684204101562 792.1841430664062 L 1110.41650390625 756.5 Z M 1391.099609375 758.7105102539062 L 1392.041137695312 810.2894897460938 L 1166.438110351562 810.2894897460938 L 1097.222045898438 810.2894897460938 L 1391.01220703125 810.2894897460938 L 1408.2548828125 780.5498657226562 L 1391.01220703125 804.2105102539062 L 1391.099609375 758.7105102539062 Z">
 				</path>
@@ -15426,76 +15550,80 @@ window.application = new Application();
 				<button id="Even" class="btn-c hover-shape btn-rec">Even</button>
 				<button id="Clear" class="btn-c hover-shape btn-rec">Clear</button>
 			</div>
-			<div class="period-box">
-				<label for="">Period</label>
-				<select class="period" name="">
-					<option value="20221221413">20221221413</option>
-					<option value="20221221414">20221221414</option>
-					<option value="20221221415">20221221415</option>
-				</select>
-			
-			</div>
 
-			<div class="bonus-box">
-				<label for="">Bonus</label>
-				<select class="bonus" name="" >
-					<option value="0%">1639.999-0%</option>
-					<option value="13.5%">1414.999-13.5%</option>
-				</select>
-			</div>
 
-			<div class="unit-amt-select-box">
-				<label for="">Unit</label>
-				<div class="unit-amt-select-values">
-					<button class="btn-c hover-shape unit-amt-select" value="2">2</button>
-					<button class="btn-c hover-shape unit-amt-select" value="1">1</button>
-					<button class="btn-c hover-shape unit-amt-select" value="0.2">0.2</button>
-					<button class="btn-c hover-shape unit-amt-select" value="0.1">0.1</button>
-					<button class="btn-c hover-shape unit-amt-select" value="0.02">0.02</button>
-					<button class="btn-c hover-shape unit-amt-select" value="0.01">0.01</button>
-					<button class="btn-c hover-shape unit-amt-select" value="0.002">0.002</button>
-					<button class="btn-c hover-shape unit-amt-select" value="0.001">0.001</button>
+			<div class="period-bonus-box">
+				<div class="period-box">
+					<label for="">Period</label>
+					<select class="period" name="">
+						<option value="20221221413">20221221413</option>
+						<option value="20221221414">20221221414</option>
+						<option value="20221221415">20221221415</option>
+					</select>
+
+				</div>
+
+				<div class="bonus-box">
+					<label for="">Bonus</label>
+					<select class="bonus" name="">
+						<option value="0%">1639.999-0%</option>
+						<option value="13.5%">1414.999-13.5%</option>
+					</select>
 				</div>
 			</div>
 
+			<div class="selections-box">
+				<div class="unit-amt-select-box">
+					<label for="">Unit</label>
+					<div class="unit-amt-select-values">
+						<button class="btn-c hover-shape unit-amt-select" value="2">2</button>
+						<button class="btn-c hover-shape unit-amt-select" value="1">1</button>
+						<button class="btn-c hover-shape unit-amt-select" value="0.2">0.2</button>
+						<button class="btn-c hover-shape unit-amt-select" value="0.1">0.1</button>
+						<button class="btn-c hover-shape unit-amt-select" value="0.02">0.02</button>
+						<button class="btn-c hover-shape unit-amt-select" value="0.01">0.01</button>
+						<button class="btn-c hover-shape unit-amt-select" value="0.002">0.002</button>
+						<button class="btn-c hover-shape unit-amt-select" value="0.001">0.001</button>
+					</div>
+				</div>
+				<div class="multiplier-select-box">
+					<label for="">Multiplier</label>
+					<div class="multiplier-select-values">
+						<button class="btn-c hover-shape multiplier-select" value="1">x1</button>
+						<button class="btn-c hover-shape multiplier-select" value="5">x5</button>
+						<button class="btn-c hover-shape multiplier-select" value="10">x10</button>
+						<button class="btn-c hover-shape multiplier-select" value="20">x20</button>
+						<button class="btn-c hover-shape multiplier-select" value="30">x30</button>
+						<button class="btn-c hover-shape multiplier-select" value="40">x40</button>
+						<button class="btn-c hover-shape multiplier-select" value="50">x50</button>
+						<button class="btn-c hover-shape multiplier-select" value="100">x100</button>
+					</div>
+				</div>
 
-			<div class="multiplier-select-box">
-				<label for="">Multiplier</label>
-				<div class="multiplier-select-values">
-					<button class="btn-c hover-shape multiplier-select" value="1">x1</button>
-					<button class="btn-c hover-shape multiplier-select" value="5">x5</button>
-					<button class="btn-c hover-shape multiplier-select" value="10">x10</button>
-					<button class="btn-c hover-shape multiplier-select" value="20">x20</button>
-					<button class="btn-c hover-shape multiplier-select" value="30">x30</button>
-					<button class="btn-c hover-shape multiplier-select" value="40">x40</button>
-					<button class="btn-c hover-shape multiplier-select" value="50">x50</button>
-					<button class="btn-c hover-shape multiplier-select" value="100">x100</button>
+				<div class="model-select-box">
+					<label for="">Model</label>
+					<div class="model-select-values">
+						<button class="btn-c hover-shape model-select" value="1/4">1/4</button>
+						<button class="btn-c hover-shape model-select" value="1/3">1/3</button>
+						<button class="btn-c hover-shape model-select" value="1/2">1/4</button>
+						<button class="btn-c hover-shape model-select" value="1">All in</button>
+					</div>
 				</div>
 			</div>
-
-			<div class="model-select-box">
-				<label for="">Model</label>
-				<div class="model-select-values">
-					<button class="btn-c hover-shape model-select" value="1/4">1/4</button>
-					<button class="btn-c hover-shape model-select" value="1/3">1/3</button>
-					<button class="btn-c hover-shape model-select" value="1/2">1/4</button>
-					<button class="btn-c hover-shape model-select" value="1">All in</button>
-				</div>
+			<div class="bet-info">
+				<span>selected <span class="total-bets">0</span> note, total <span class="actual-amt">0</span> Yuan profit <span class="profit">0</span> Yuan</span>
 			</div>
-		
+
+			<div class="multiplier-bet-box">
 				<div class="multiplier-input-box">
-					<input type="text" name="" placeholder="Enter bet amount">
+					<input class="multiplier-input" type="text" name="" placeholder="multiplier">
 				</div>
-		
-		
-			<svg class="Ellipse_52">
-				<ellipse id="Ellipse_52" rx="16.5" ry="16.5" cx="16.5" cy="16.5">
-				</ellipse>
-			</svg>
-			<svg class="Ellipse_53">
-				<ellipse id="Ellipse_53" rx="16.5" ry="16.5" cx="16.5" cy="16.5">
-				</ellipse>
-			</svg>
+
+				<div class="bet-amt-box">
+					<input class="bet-amt" type="text" name="" placeholder="Enter bet amount">
+				</div>
+			</div>
+
 		</div>
 		<div id="Group_1">
 			<svg class="Path_7_f" viewBox="0 0 2874 289">
@@ -15503,29 +15631,87 @@ window.application = new Application();
 					<stop offset="0" stop-color="#f1dcbd" stop-opacity="1"></stop>
 					<stop offset="1" stop-color="#f1d3bd" stop-opacity="1"></stop>
 				</linearGradient>
-				<path id="Path_7_f" d="M 0 0 L 2874 0 L 2874 289 L 0 289 L 0 0 Z">
-				</path>
+			
 			</svg>
-			<svg class="Rectangle_6">
-				<rect id="Rectangle_6" rx="54" ry="54" x="0" y="0" width="108" height="122">
-				</rect>
-			</svg>
-			<svg class="Rectangle_14">
-				<rect id="Rectangle_14" rx="54" ry="54" x="0" y="0" width="108" height="122">
-				</rect>
-			</svg>
-			<svg class="Rectangle_16">
-				<rect id="Rectangle_16" rx="54" ry="54" x="0" y="0" width="108" height="122">
-				</rect>
-			</svg>
-			<svg class="Rectangle_12">
-				<rect id="Rectangle_12" rx="54" ry="54" x="0" y="0" width="108" height="122">
-				</rect>
-			</svg>
-			<svg class="Rectangle_13">
-				<rect id="Rectangle_13" rx="54" ry="54" x="0" y="0" width="108" height="122">
-				</rect>
-			</svg>
+
+			<div id="Path_7_f">
+
+			</div>
+
+
+			<div class="draw-num-box">
+				<div class="balls-box">
+					<img class="ball" src="balls/0.png" alt="">
+					<img class="ball" src="balls/1.png" alt="">
+					<img class="ball" src="balls/2.png" alt="">
+					<img class="ball" src="balls/3.png" alt="">
+					<img class="ball" src="balls/4.png" alt="">
+					<img class="ball" src="balls/5.png" alt="">
+					<img class="ball" src="balls/6.png" alt="">
+					<img class="ball" src="balls/7.png" alt="">
+					<img class="ball" src="balls/8.png" alt="">
+					<img class="ball" src="balls/9.png" alt="">
+				</div>
+			</div>
+
+			<div class="cart-track-bet" id="cart-track-bet">
+				<div id="Group_3" class="track">
+					<svg class="Path_3" viewBox="2771.25 1959.5 314.75 76.5">
+						<path id="Path_3" class="text" d="M 2824 1959.5 L 2805.5 1964.75 L 2783.75 1990 L 2771.25 2019.75 L 2774.25 2024 L 2825 2036 L 3033.5 2036 L 3052.5 2030.75 L 3074.25 2005.75 L 3086 1976 L 3082.5 1971.75 L 3033.5 1960.75 L 2824 1959.5 Z">
+						</path>
+					</svg>
+					<svg class="Path_3_h" viewBox="2581.089 1959.5 68.033 77">
+						<path id="Path_3_h" d="M 2619.666748046875 1959.5 L 2649 1959.5 L 2649.121337890625 1960.485107421875 L 2629.2763671875 1965.4462890625 L 2607.801513671875 1990.576416015625 L 2595.576416015625 2019.91650390625 L 2598.399169921875 2023.390625 L 2603.11572265625 2024.513549804688 L 2649.1162109375 2035.513671875 L 2649 2036.5 L 2607.761962890625 2036.5 L 2607.612060546875 2036.315307617188 L 2597.837158203125 2024.28466796875 L 2581.088623046875 2020.296997070312 L 2581.619873046875 2019.675170898438 L 2606.93896484375 1990.046508789062 L 2619.666748046875 1959.5 Z M 2644.9384765625 1960.5 L 2620.333251953125 1960.5 L 2609.05322265625 1987.572387695312 L 2628.7236328125 1964.5537109375 L 2628.878662109375 1964.514892578125 L 2644.9384765625 1960.5 Z M 2596.801513671875 2023.01025390625 L 2594.423583984375 2020.08349609375 L 2594.53857421875 2019.807739257812 L 2605.687255859375 1993.050415039062 L 2582.911376953125 2019.703002929688 L 2596.801513671875 2023.01025390625 Z M 2644.75927734375 2035.5 L 2602.8837890625 2025.486328125 L 2599.4345703125 2024.6650390625 L 2608.238037109375 2035.5 L 2644.75927734375 2035.5 Z">
+						</path>
+					</svg>
+					<svg class="Path_3_ia" viewBox="2581.089 1959.5 68.033 77">
+						<path id="Path_3_ia" d="M 2619.666748046875 1959.5 L 2649 1959.5 L 2649.121337890625 1960.485107421875 L 2629.2763671875 1965.4462890625 L 2607.801513671875 1990.576416015625 L 2595.576416015625 2019.91650390625 L 2598.399169921875 2023.390625 L 2603.11572265625 2024.513549804688 L 2649.1162109375 2035.513671875 L 2649 2036.5 L 2607.761962890625 2036.5 L 2607.612060546875 2036.315307617188 L 2597.837158203125 2024.28466796875 L 2581.088623046875 2020.296997070312 L 2581.619873046875 2019.675170898438 L 2606.93896484375 1990.046508789062 L 2619.666748046875 1959.5 Z M 2644.9384765625 1960.5 L 2620.333251953125 1960.5 L 2609.05322265625 1987.572387695312 L 2628.7236328125 1964.5537109375 L 2628.878662109375 1964.514892578125 L 2644.9384765625 1960.5 Z M 2596.801513671875 2023.01025390625 L 2594.423583984375 2020.08349609375 L 2594.53857421875 2019.807739257812 L 2605.687255859375 1993.050415039062 L 2582.911376953125 2019.703002929688 L 2596.801513671875 2023.01025390625 Z M 2644.75927734375 2035.5 L 2602.8837890625 2025.486328125 L 2599.4345703125 2024.6650390625 L 2608.238037109375 2035.5 L 2644.75927734375 2035.5 Z">
+						</path>
+					</svg>
+					<div id="Track">
+						<span class="text">Track</span>
+					</div>
+				</div>
+				<div id="Group_5" class="cart">
+					<svg class="Path_3_ib" viewBox="2771.25 1959.5 314.75 76.5">
+						<path id="Path_3_ib" d="M 2824 1959.5 L 2805.5 1964.75 L 2783.75 1990 L 2771.25 2019.75 L 2774.25 2024 L 2825 2036 L 3033.5 2036 L 3052.5 2030.75 L 3074.25 2005.75 L 3086 1976 L 3082.5 1971.75 L 3033.5 1960.75 L 2824 1959.5 Z">
+						</path>
+					</svg>
+					<svg class="Path_3_ic" viewBox="2581.089 1959.5 68.033 77">
+						<path id="Path_3_ic" d="M 2619.666748046875 1959.5 L 2649 1959.5 L 2649.121337890625 1960.485107421875 L 2629.2763671875 1965.4462890625 L 2607.801513671875 1990.576416015625 L 2595.576416015625 2019.91650390625 L 2598.399169921875 2023.390625 L 2603.11572265625 2024.513549804688 L 2649.1162109375 2035.513671875 L 2649 2036.5 L 2607.761962890625 2036.5 L 2607.612060546875 2036.315307617188 L 2597.837158203125 2024.28466796875 L 2581.088623046875 2020.296997070312 L 2581.619873046875 2019.675170898438 L 2606.93896484375 1990.046508789062 L 2619.666748046875 1959.5 Z M 2644.9384765625 1960.5 L 2620.333251953125 1960.5 L 2609.05322265625 1987.572387695312 L 2628.7236328125 1964.5537109375 L 2628.878662109375 1964.514892578125 L 2644.9384765625 1960.5 Z M 2596.801513671875 2023.01025390625 L 2594.423583984375 2020.08349609375 L 2594.53857421875 2019.807739257812 L 2605.687255859375 1993.050415039062 L 2582.911376953125 2019.703002929688 L 2596.801513671875 2023.01025390625 Z M 2644.75927734375 2035.5 L 2602.8837890625 2025.486328125 L 2599.4345703125 2024.6650390625 L 2608.238037109375 2035.5 L 2644.75927734375 2035.5 Z">
+						</path>
+					</svg>
+					<svg class="Path_3_id" viewBox="2581.089 1959.5 68.033 77">
+						<path id="Path_3_id" d="M 2619.666748046875 1959.5 L 2649 1959.5 L 2649.121337890625 1960.485107421875 L 2629.2763671875 1965.4462890625 L 2607.801513671875 1990.576416015625 L 2595.576416015625 2019.91650390625 L 2598.399169921875 2023.390625 L 2603.11572265625 2024.513549804688 L 2649.1162109375 2035.513671875 L 2649 2036.5 L 2607.761962890625 2036.5 L 2607.612060546875 2036.315307617188 L 2597.837158203125 2024.28466796875 L 2581.088623046875 2020.296997070312 L 2581.619873046875 2019.675170898438 L 2606.93896484375 1990.046508789062 L 2619.666748046875 1959.5 Z M 2644.9384765625 1960.5 L 2620.333251953125 1960.5 L 2609.05322265625 1987.572387695312 L 2628.7236328125 1964.5537109375 L 2628.878662109375 1964.514892578125 L 2644.9384765625 1960.5 Z M 2596.801513671875 2023.01025390625 L 2594.423583984375 2020.08349609375 L 2594.53857421875 2019.807739257812 L 2605.687255859375 1993.050415039062 L 2582.911376953125 2019.703002929688 L 2596.801513671875 2023.01025390625 Z M 2644.75927734375 2035.5 L 2602.8837890625 2025.486328125 L 2599.4345703125 2024.6650390625 L 2608.238037109375 2035.5 L 2644.75927734375 2035.5 Z">
+						</path>
+					</svg>
+					<div id="Add_to_cart">
+						<span class="text">Add to cart</span>
+					</div>
+
+				</div>
+				<div id="Group_4" class="bet-now">
+					<svg class="Path_4 path" viewBox="2771.25 1959.5 314.75 76.5">
+						<path id="Path_4" d="M 2824 1959.5 L 2805.5 1964.75 L 2783.75 1990 L 2771.25 2019.75 L 2774.25 2024 L 2825 2036 L 3033.5 2036 L 3052.5 2030.75 L 3074.25 2005.75 L 3086 1976 L 3082.5 1971.75 L 3033.5 1960.75 L 2824 1959.5 Z">
+						</path>
+					</svg>
+					<svg class="Path_3_ig" viewBox="2581.089 1959.5 68.033 77">
+						<path id="Path_3_ig" d="M 2619.666748046875 1959.5 L 2649 1959.5 L 2649.121337890625 1960.485107421875 L 2629.2763671875 1965.4462890625 L 2607.801513671875 1990.576416015625 L 2595.576416015625 2019.91650390625 L 2598.399169921875 2023.390625 L 2603.11572265625 2024.513549804688 L 2649.1162109375 2035.513671875 L 2649 2036.5 L 2607.761962890625 2036.5 L 2607.612060546875 2036.315307617188 L 2597.837158203125 2024.28466796875 L 2581.088623046875 2020.296997070312 L 2581.619873046875 2019.675170898438 L 2606.93896484375 1990.046508789062 L 2619.666748046875 1959.5 Z M 2644.9384765625 1960.5 L 2620.333251953125 1960.5 L 2609.05322265625 1987.572387695312 L 2628.7236328125 1964.5537109375 L 2628.878662109375 1964.514892578125 L 2644.9384765625 1960.5 Z M 2596.801513671875 2023.01025390625 L 2594.423583984375 2020.08349609375 L 2594.53857421875 2019.807739257812 L 2605.687255859375 1993.050415039062 L 2582.911376953125 2019.703002929688 L 2596.801513671875 2023.01025390625 Z M 2644.75927734375 2035.5 L 2602.8837890625 2025.486328125 L 2599.4345703125 2024.6650390625 L 2608.238037109375 2035.5 L 2644.75927734375 2035.5 Z">
+						</path>
+					</svg>
+					<svg class="Path_3_ih" viewBox="2581.089 1959.5 68.033 77">
+						<path id="Path_3_ih" class="path" d="M 2619.666748046875 1959.5 L 2649 1959.5 L 2649.121337890625 1960.485107421875 L 2629.2763671875 1965.4462890625 L 2607.801513671875 1990.576416015625 L 2595.576416015625 2019.91650390625 L 2598.399169921875 2023.390625 L 2603.11572265625 2024.513549804688 L 2649.1162109375 2035.513671875 L 2649 2036.5 L 2607.761962890625 2036.5 L 2607.612060546875 2036.315307617188 L 2597.837158203125 2024.28466796875 L 2581.088623046875 2020.296997070312 L 2581.619873046875 2019.675170898438 L 2606.93896484375 1990.046508789062 L 2619.666748046875 1959.5 Z M 2644.9384765625 1960.5 L 2620.333251953125 1960.5 L 2609.05322265625 1987.572387695312 L 2628.7236328125 1964.5537109375 L 2628.878662109375 1964.514892578125 L 2644.9384765625 1960.5 Z M 2596.801513671875 2023.01025390625 L 2594.423583984375 2020.08349609375 L 2594.53857421875 2019.807739257812 L 2605.687255859375 1993.050415039062 L 2582.911376953125 2019.703002929688 L 2596.801513671875 2023.01025390625 Z M 2644.75927734375 2035.5 L 2602.8837890625 2025.486328125 L 2599.4345703125 2024.6650390625 L 2608.238037109375 2035.5 L 2644.75927734375 2035.5 Z">
+						</path>
+					</svg>
+					<div id="Bet_now">
+						<span class="text">Bet now</span>
+					</div>
+
+				</div>
+			</div>
+
+
+
 			<div id="n_02212211287__">
 				<span>202212211287 </span><span style="color:rgba(112,112,112,1);"> 期・截止时间</span>
 			</div>
@@ -15667,58 +15853,8 @@ window.application = new Application();
 		<div id="LF_lotto">
 			<span>LF lotto</span>
 		</div>
-		
-		<div id="Group_3">
-			<svg class="Path_3" viewBox="2771.25 1959.5 314.75 76.5">
-				<path id="Path_3" d="M 2824 1959.5 L 2805.5 1964.75 L 2783.75 1990 L 2771.25 2019.75 L 2774.25 2024 L 2825 2036 L 3033.5 2036 L 3052.5 2030.75 L 3074.25 2005.75 L 3086 1976 L 3082.5 1971.75 L 3033.5 1960.75 L 2824 1959.5 Z">
-				</path>
-			</svg>
-			<svg class="Path_3_h" viewBox="2581.089 1959.5 68.033 77">
-				<path id="Path_3_h" d="M 2619.666748046875 1959.5 L 2649 1959.5 L 2649.121337890625 1960.485107421875 L 2629.2763671875 1965.4462890625 L 2607.801513671875 1990.576416015625 L 2595.576416015625 2019.91650390625 L 2598.399169921875 2023.390625 L 2603.11572265625 2024.513549804688 L 2649.1162109375 2035.513671875 L 2649 2036.5 L 2607.761962890625 2036.5 L 2607.612060546875 2036.315307617188 L 2597.837158203125 2024.28466796875 L 2581.088623046875 2020.296997070312 L 2581.619873046875 2019.675170898438 L 2606.93896484375 1990.046508789062 L 2619.666748046875 1959.5 Z M 2644.9384765625 1960.5 L 2620.333251953125 1960.5 L 2609.05322265625 1987.572387695312 L 2628.7236328125 1964.5537109375 L 2628.878662109375 1964.514892578125 L 2644.9384765625 1960.5 Z M 2596.801513671875 2023.01025390625 L 2594.423583984375 2020.08349609375 L 2594.53857421875 2019.807739257812 L 2605.687255859375 1993.050415039062 L 2582.911376953125 2019.703002929688 L 2596.801513671875 2023.01025390625 Z M 2644.75927734375 2035.5 L 2602.8837890625 2025.486328125 L 2599.4345703125 2024.6650390625 L 2608.238037109375 2035.5 L 2644.75927734375 2035.5 Z">
-				</path>
-			</svg>
-			<svg class="Path_3_ia" viewBox="2581.089 1959.5 68.033 77">
-				<path id="Path_3_ia" d="M 2619.666748046875 1959.5 L 2649 1959.5 L 2649.121337890625 1960.485107421875 L 2629.2763671875 1965.4462890625 L 2607.801513671875 1990.576416015625 L 2595.576416015625 2019.91650390625 L 2598.399169921875 2023.390625 L 2603.11572265625 2024.513549804688 L 2649.1162109375 2035.513671875 L 2649 2036.5 L 2607.761962890625 2036.5 L 2607.612060546875 2036.315307617188 L 2597.837158203125 2024.28466796875 L 2581.088623046875 2020.296997070312 L 2581.619873046875 2019.675170898438 L 2606.93896484375 1990.046508789062 L 2619.666748046875 1959.5 Z M 2644.9384765625 1960.5 L 2620.333251953125 1960.5 L 2609.05322265625 1987.572387695312 L 2628.7236328125 1964.5537109375 L 2628.878662109375 1964.514892578125 L 2644.9384765625 1960.5 Z M 2596.801513671875 2023.01025390625 L 2594.423583984375 2020.08349609375 L 2594.53857421875 2019.807739257812 L 2605.687255859375 1993.050415039062 L 2582.911376953125 2019.703002929688 L 2596.801513671875 2023.01025390625 Z M 2644.75927734375 2035.5 L 2602.8837890625 2025.486328125 L 2599.4345703125 2024.6650390625 L 2608.238037109375 2035.5 L 2644.75927734375 2035.5 Z">
-				</path>
-			</svg>
-			<div id="Track">
-				<span>Track</span>
-			</div>
-		</div>
-		<div id="Group_5">
-			<svg class="Path_3_ib" viewBox="2771.25 1959.5 314.75 76.5">
-				<path id="Path_3_ib" d="M 2824 1959.5 L 2805.5 1964.75 L 2783.75 1990 L 2771.25 2019.75 L 2774.25 2024 L 2825 2036 L 3033.5 2036 L 3052.5 2030.75 L 3074.25 2005.75 L 3086 1976 L 3082.5 1971.75 L 3033.5 1960.75 L 2824 1959.5 Z">
-				</path>
-			</svg>
-			<svg class="Path_3_ic" viewBox="2581.089 1959.5 68.033 77">
-				<path id="Path_3_ic" d="M 2619.666748046875 1959.5 L 2649 1959.5 L 2649.121337890625 1960.485107421875 L 2629.2763671875 1965.4462890625 L 2607.801513671875 1990.576416015625 L 2595.576416015625 2019.91650390625 L 2598.399169921875 2023.390625 L 2603.11572265625 2024.513549804688 L 2649.1162109375 2035.513671875 L 2649 2036.5 L 2607.761962890625 2036.5 L 2607.612060546875 2036.315307617188 L 2597.837158203125 2024.28466796875 L 2581.088623046875 2020.296997070312 L 2581.619873046875 2019.675170898438 L 2606.93896484375 1990.046508789062 L 2619.666748046875 1959.5 Z M 2644.9384765625 1960.5 L 2620.333251953125 1960.5 L 2609.05322265625 1987.572387695312 L 2628.7236328125 1964.5537109375 L 2628.878662109375 1964.514892578125 L 2644.9384765625 1960.5 Z M 2596.801513671875 2023.01025390625 L 2594.423583984375 2020.08349609375 L 2594.53857421875 2019.807739257812 L 2605.687255859375 1993.050415039062 L 2582.911376953125 2019.703002929688 L 2596.801513671875 2023.01025390625 Z M 2644.75927734375 2035.5 L 2602.8837890625 2025.486328125 L 2599.4345703125 2024.6650390625 L 2608.238037109375 2035.5 L 2644.75927734375 2035.5 Z">
-				</path>
-			</svg>
-			<svg class="Path_3_id" viewBox="2581.089 1959.5 68.033 77">
-				<path id="Path_3_id" d="M 2619.666748046875 1959.5 L 2649 1959.5 L 2649.121337890625 1960.485107421875 L 2629.2763671875 1965.4462890625 L 2607.801513671875 1990.576416015625 L 2595.576416015625 2019.91650390625 L 2598.399169921875 2023.390625 L 2603.11572265625 2024.513549804688 L 2649.1162109375 2035.513671875 L 2649 2036.5 L 2607.761962890625 2036.5 L 2607.612060546875 2036.315307617188 L 2597.837158203125 2024.28466796875 L 2581.088623046875 2020.296997070312 L 2581.619873046875 2019.675170898438 L 2606.93896484375 1990.046508789062 L 2619.666748046875 1959.5 Z M 2644.9384765625 1960.5 L 2620.333251953125 1960.5 L 2609.05322265625 1987.572387695312 L 2628.7236328125 1964.5537109375 L 2628.878662109375 1964.514892578125 L 2644.9384765625 1960.5 Z M 2596.801513671875 2023.01025390625 L 2594.423583984375 2020.08349609375 L 2594.53857421875 2019.807739257812 L 2605.687255859375 1993.050415039062 L 2582.911376953125 2019.703002929688 L 2596.801513671875 2023.01025390625 Z M 2644.75927734375 2035.5 L 2602.8837890625 2025.486328125 L 2599.4345703125 2024.6650390625 L 2608.238037109375 2035.5 L 2644.75927734375 2035.5 Z">
-				</path>
-			</svg>
-			<div id="Add_to_cart">
-				<span>Add to cart</span>
-			</div>
-		</div>
-		<div id="Group_4">
-			<svg class="Path_4" viewBox="2771.25 1959.5 314.75 76.5">
-				<path id="Path_4" d="M 2824 1959.5 L 2805.5 1964.75 L 2783.75 1990 L 2771.25 2019.75 L 2774.25 2024 L 2825 2036 L 3033.5 2036 L 3052.5 2030.75 L 3074.25 2005.75 L 3086 1976 L 3082.5 1971.75 L 3033.5 1960.75 L 2824 1959.5 Z">
-				</path>
-			</svg>
-			<svg class="Path_3_ig" viewBox="2581.089 1959.5 68.033 77">
-				<path id="Path_3_ig" d="M 2619.666748046875 1959.5 L 2649 1959.5 L 2649.121337890625 1960.485107421875 L 2629.2763671875 1965.4462890625 L 2607.801513671875 1990.576416015625 L 2595.576416015625 2019.91650390625 L 2598.399169921875 2023.390625 L 2603.11572265625 2024.513549804688 L 2649.1162109375 2035.513671875 L 2649 2036.5 L 2607.761962890625 2036.5 L 2607.612060546875 2036.315307617188 L 2597.837158203125 2024.28466796875 L 2581.088623046875 2020.296997070312 L 2581.619873046875 2019.675170898438 L 2606.93896484375 1990.046508789062 L 2619.666748046875 1959.5 Z M 2644.9384765625 1960.5 L 2620.333251953125 1960.5 L 2609.05322265625 1987.572387695312 L 2628.7236328125 1964.5537109375 L 2628.878662109375 1964.514892578125 L 2644.9384765625 1960.5 Z M 2596.801513671875 2023.01025390625 L 2594.423583984375 2020.08349609375 L 2594.53857421875 2019.807739257812 L 2605.687255859375 1993.050415039062 L 2582.911376953125 2019.703002929688 L 2596.801513671875 2023.01025390625 Z M 2644.75927734375 2035.5 L 2602.8837890625 2025.486328125 L 2599.4345703125 2024.6650390625 L 2608.238037109375 2035.5 L 2644.75927734375 2035.5 Z">
-				</path>
-			</svg>
-			<svg class="Path_3_ih" viewBox="2581.089 1959.5 68.033 77">
-				<path id="Path_3_ih" d="M 2619.666748046875 1959.5 L 2649 1959.5 L 2649.121337890625 1960.485107421875 L 2629.2763671875 1965.4462890625 L 2607.801513671875 1990.576416015625 L 2595.576416015625 2019.91650390625 L 2598.399169921875 2023.390625 L 2603.11572265625 2024.513549804688 L 2649.1162109375 2035.513671875 L 2649 2036.5 L 2607.761962890625 2036.5 L 2607.612060546875 2036.315307617188 L 2597.837158203125 2024.28466796875 L 2581.088623046875 2020.296997070312 L 2581.619873046875 2019.675170898438 L 2606.93896484375 1990.046508789062 L 2619.666748046875 1959.5 Z M 2644.9384765625 1960.5 L 2620.333251953125 1960.5 L 2609.05322265625 1987.572387695312 L 2628.7236328125 1964.5537109375 L 2628.878662109375 1964.514892578125 L 2644.9384765625 1960.5 Z M 2596.801513671875 2023.01025390625 L 2594.423583984375 2020.08349609375 L 2594.53857421875 2019.807739257812 L 2605.687255859375 1993.050415039062 L 2582.911376953125 2019.703002929688 L 2596.801513671875 2023.01025390625 Z M 2644.75927734375 2035.5 L 2602.8837890625 2025.486328125 L 2599.4345703125 2024.6650390625 L 2608.238037109375 2035.5 L 2644.75927734375 2035.5 Z">
-				</path>
-			</svg>
-			<div id="Bet_now">
-				<span>Bet now</span>
-			</div>
-		</div>
+
+
 		<svg class="Rectangle_80">
 			<rect id="Rectangle_80" rx="0" ry="0" x="0" y="0" width="2722" height="1388">
 			</rect>
@@ -15734,9 +15870,7 @@ window.application = new Application();
 		<div id="number__basket">
 			<span>number<br /> basket</span>
 		</div>
-		<div id="how_to_play_">
-			<span>how to play </span>
-		</div>
+
 		<div id="betting_content_">
 			<span>betting content </span>
 		</div>
@@ -17637,10 +17771,10 @@ window.application = new Application();
 		<img id="n_9-593921_png-file-svg-passwo_y" src="n_9-593921_png-file-svg-passwo_y.png" srcset="n_9-593921_png-file-svg-passwo_y.png 1x, n_9-593921_png-file-svg-passwo_y@2x.png 2x">
 
 	</div>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
 	<script>
-		let el = document.getElementById('How_to_play')
-		console.log(el);
-		el.addEventListener('click', function() {
+		$('.bet-now').click(function() {
 			alert('clicked')
 		})
 	</script>

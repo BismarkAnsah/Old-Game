@@ -837,7 +837,7 @@ class a5_g120 extends Royal5utils {
       readyData.totalBetAmt = this.calcActualAmt();
       readyData.multiplier =this.multiplier;
       readyData.totalBets = this.calcTotalBets();
-      readyData.allSelections = this.allSelections(...Object.values(this.rows), this.sample1, this.sample2);
+      readyData.allSelections = this.allSelections(...Object.values(this.rows), this.sample1);
       readyData.userSelections = Object.values(this.rows).join("|");
       return readyData;
     }
@@ -943,6 +943,7 @@ class f4_g6 extends Royal5utils {
     readyData.totalBetAmt = this.calcActualAmt();
     readyData.multiplier =this.multiplier;
     readyData.totalBets = this.calcTotalBets();
+
     readyData.allSelections = this.allSelections(...Object.values(this.rows), this.sample1, this.sample2);
     readyData.userSelections = Object.values(this.rows).join("|");
     return readyData;
@@ -1125,7 +1126,7 @@ let cart = [];
 let oldClass = 'a5_joint';
 let balanceUrl = "http://192.168.199.126/task/receiver.php?action=userbalance";
 let game = new a5_joint('#a5-joint');
-let balance = await game.fetchData(balanceUrl);
+let balance = await game.fetchData(balanceUrl) || 500;
 $('.user-balance').html(JSON.parse(balance).userBalance);
 ready(oldClass);
 
@@ -1463,6 +1464,7 @@ function ready(className){
     game.$('.spinner').show();
     // game.alertErrBets();
     let savedData = game.getSavedData();
+    console.log(savedData);
     let data = JSON.stringify([savedData]);
     // let url = '../nav.php';
     let url = 'http://192.168.199.126/task/nav.php';
