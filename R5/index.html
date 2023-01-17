@@ -16,7 +16,15 @@
 			font-size: 36px;
 			box-sizing: border-box;
 		}
-
+.workArea{
+	border: 5px solid black;
+	
+	/* position: relative;
+	width: 2000px;
+	display: flex;
+	justify-content: center;
+	align-items: center; */
+}
 		.quick-settings-box {
 			color: #707070;
 			position: relative;
@@ -38,10 +46,6 @@
 			font-size: 42px;
 			margin-left: 12px;
 			cursor: pointer;
-		}
-
-		body {
-			background-color: blueviolet;
 		}
 
 		#how-to-play {
@@ -101,24 +105,23 @@
 			shape-rendering: auto;
 		}
 
-		.workArea {
+		.Path_2 {
 			overflow: visible;
 			position: absolute;
 			width: 2722px;
 			height: 1570px;
+			left: 888px;
+			top: 558px;
 			transform: matrix(1, 0, 0, 1, 0, 0);
 		}
 
 		#Group_2 {
-			border: 2px solid black;
 			position: absolute;
 			width: 2660px;
-			height: 1800px;
+			height: 1515px;
 			left: 921px;
 			top: 588px;
 			overflow: visible;
-			width: fit-content;
-			padding: 15px;
 		}
 
 		#Rectangle_4 {
@@ -175,15 +178,15 @@
         color: rgba(112, 112, 112, 1);
       } */
 
-		.nav-box {
+		.game-group-nav-box {
 			left: 95px;
-			position: absolute;
+			position: relative;
 			left: 0px;
 			height: fit-content;
 			width: fit-content;
 		}
 
-		.nav-box>ul {
+		.game-group-nav-box>ul {
 			border: 5px solid black;
 			width: 2660px;
 			height: 120px;
@@ -196,7 +199,7 @@
 			background-color: #eee3bb;
 		}
 
-		.nav-box>ul>li {
+		.game-group-nav-box>ul>li {
 			cursor: pointer;
 			border-radius: 9px;
 			padding: 6px;
@@ -655,9 +658,9 @@
 		}
 
 		#active-game-box {
-			left: 52px;
-			top: 418px;
-			position: absolute;
+			left: 51px;
+			top: 260px;
+			position: relative;
 			overflow: visible;
 			font-size: 30px;
 			color: rgba(112, 112, 112, 1);
@@ -1417,9 +1420,9 @@
 		}
 
 		#Prize {
-			left: 421px;
-			top: 421px;
-			position: absolute;
+			left: 90px;
+			top: 260px;
+			position: relative;
 			overflow: visible;
 			width: 71px;
 			white-space: nowrap;
@@ -1455,6 +1458,113 @@
 	} */
 
 		/*my css begins*/
+
+		.path-outline {
+			fill: #707070;
+		}
+
+		.path-outline-box {
+			overflow: visible;
+			position: absolute;
+			width: 381px;
+			height: 60px;
+			transform: matrix(1, 0, 0, 1, 0, 0);
+			z-index: 555;
+		}
+
+		.path-fill {
+			fill: #f1f3fe;
+			;
+			stroke-width: 1px;
+			stroke-linejoin: miter;
+			stroke-linecap: butt;
+			stroke-miterlimit: 4;
+			shape-rendering: auto;
+		}
+
+		.path-fill-box {
+			overflow: visible;
+			position: absolute;
+			width: 366px;
+			height: 60px;
+			left: 13.4px;
+			transform: matrix(1, 0, 0, 1, 0, 0);
+		}
+
+		.nav-item {
+			position: relative;
+			/* border: 2px solid black; */
+
+			width: 375px;
+			height: 60px;
+			margin-left: 45px;
+			padding: 0px;
+		}
+
+
+
+		.nav-text {
+			position: absolute;
+			z-index: 9999;
+			left: 6px;
+			font-size: 12px !important;
+			color: #707070;
+			/* border: 2px solid black !important; */
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 381px;
+			/*#707070;*/
+		}
+
+
+		.nav-item:hover {
+			cursor: pointer;
+		}
+
+		.nav-item:hover .path-outline,
+		.nav-item:hover .path-fill {
+			fill: #49556d;
+		}
+
+		.nav-item:hover .text {
+			color: #fff;
+		}
+
+		.svg-active>*>* {
+			fill: #49556d;
+			;
+			color: #fff;
+		}
+
+		.group,
+		.straight {
+			display: flex;
+			width: fit-content;
+			/* border: 2px solid black; */
+			margin-left: 51px;
+			margin-bottom: 15px;
+			position: relative;
+			left: 60px;
+			bottom: 12px;
+		}
+
+		.game-nav-box {
+			position: absolute;
+			top: 165px;
+			left: 51px;
+		}
+
+
+		.game-nav-box>label {
+			position: absolute;
+			font-size: 36px !important;
+			;
+			margin: 0px;
+			/* border: 2px solid black; */
+		}
+
+
 		.btn-rec {
 			padding: 21px;
 			border: 2px solid #000;
@@ -1536,7 +1646,7 @@
 			left: 600px;
 			top: 900px; */
 			position: relative;
-			left: 75px;
+			left: 84px;
 		}
 
 		div.multiplier-select-box {
@@ -1550,7 +1660,7 @@
 			left: 600px;
 			top: 1259px;  */
 			position: relative;
-			left: 282px;
+			left: 291px;
 		}
 
 		div.unit-amt-select-values,
@@ -2818,6 +2928,10 @@
 			color: #fff;
 		}
 
+		#cart-track-bet>*:hover {
+			cursor: pointer;
+		}
+
 		.cart-track-bet {
 			position: absolute;
 			left: 1500px;
@@ -2874,8 +2988,8 @@
 		}
 
 		#Track {
-			left: 132.911px;
-			top: 16.5px;
+			left: 132px;
+			top: 12px;
 			position: absolute;
 			overflow: visible;
 			width: 71px;
@@ -2938,8 +3052,8 @@
 		}
 
 		#Add_to_cart {
-			left: 97.911px;
-			top: 16.5px;
+			left: 87px;
+			top: 12px;
 			position: absolute;
 			overflow: visible;
 			width: 150px;
@@ -3003,8 +3117,8 @@
 		}
 
 		#Bet_now {
-			left: 111.911px;
-			top: 18px;
+			left: 117px;
+			top: 12px;
 			position: absolute;
 			overflow: visible;
 			width: 109px;
@@ -15311,7 +15425,7 @@ window.application = new Application();
 			</div>
 		</div>
 		<div class="col">
-			
+
 		</div>
 		<div class="row">
 			<ul class="quick-settings-box simple-hover">
@@ -15399,16 +15513,24 @@ window.application = new Application();
 			</div>
 		</div>
 
-	
+
 
 		<svg class="Path_2" viewBox="0 0 2722 1570">
 			<path id="Path_2" d="M 4 0 L 2722 0 L 2722 1570 L 0 1570 L 4 0 Z"></path>
 		</svg>
 		<div id="Group_2">
-			
+			<svg class="Rectangle_4">
+				<rect id="Rectangle_4" rx="62.5" ry="62.5" x="0" y="0" width="2660" height="125"></rect>
+			</svg>
+			<svg class="Rectangle_5">
+				<rect id="Rectangle_5" rx="0" ry="0" x="0" y="0" width="2660" height="1515"></rect>
+			</svg>
+			<div class="row">
+
+			</div>
 			<div>
-				<div class="workArea Path_2" style="border: 15px dotted black; z-index: 9999;">
-					<div class="nav-box">
+				<div class="workArea" style="border: px solid black;">
+					<div class="game-group-nav-box">
 						<ul class="simple-hover">
 							<li>All 5</li>
 							<li>All 4</li>
@@ -15426,7 +15548,153 @@ window.application = new Application();
 							<li>Pick 4</li>
 						</ul>
 					</div>
+					<div class="game-nav-box">
+						<label for="">Straight:</label>
+						<div class="straight">
+							<div class="svg-active nav-item">
+								<svg class="path-outline-box" viewBox="1082.685 756.5 371.083 56">
+									<path class="path-outline"
+										d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
+									</path>
+								</svg>
+								<svg class="path-fill-box" viewBox="1566.5 8196 354 52">
+									<path class="path-fill"
+										d="M 1582.5 8196 L 1566.5 8248 L 1899.5 8248 L 1920.5 8218 L 1899.5 8196 L 1582.5 8196 Z">
+									</path>
+								</svg>
+								<div class="nav-text">
+									<span class="text">All 5 straight(Joint)</span>
+								</div>
+							</div>
+							<div class="nav-item">
+								<svg class="path-outline-box" viewBox="1082.685 756.5 371.083 56">
+									<path class="path-outline"
+										d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
+									</path>
+								</svg>
+								<svg class="path-fill-box" viewBox="1566.5 8196 354 52">
+									<path class="path-fill"
+										d="M 1582.5 8196 L 1566.5 8248 L 1899.5 8248 L 1920.5 8218 L 1899.5 8196 L 1582.5 8196 Z">
+									</path>
+								</svg>
+								<div class="nav-text">
+									<span class="text">All 5 straight(manual)</span>
+								</div>
+							</div>
+							<div class="nav-item">
+								<svg class="path-outline-box" viewBox="1082.685 756.5 371.083 56">
+									<path class="path-outline"
+										d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
+									</path>
+								</svg>
+								<svg class="path-fill-box" viewBox="1566.5 8196 354 52">
+									<path class="path-fill"
+										d="M 1582.5 8196 L 1566.5 8248 L 1899.5 8248 L 1920.5 8218 L 1899.5 8196 L 1582.5 8196 Z">
+									</path>
+								</svg>
+								<div class="nav-text">
+									<span class="text">All 5 straight(combo)</span>
+								</div>
+							</div>
+						</div>
+						<label for="">Group:</label>
+						<div class="group">
+							<div class="nav-item">
+								<svg class="path-outline-box" viewBox="1082.685 756.5 371.083 56">
+									<path class="path-outline"
+										d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
+									</path>
+								</svg>
+								<svg class="path-fill-box" viewBox="1566.5 8196 354 52">
+									<path class="path-fill"
+										d="M 1582.5 8196 L 1566.5 8248 L 1899.5 8248 L 1920.5 8218 L 1899.5 8196 L 1582.5 8196 Z">
+									</path>
+								</svg>
+								<div class="nav-text">
+									<span class="text">All 5 Group 120</span>
+								</div>
+							</div>
+							<div class="nav-item">
+								<svg class="path-outline-box" viewBox="1082.685 756.5 371.083 56">
+									<path class="path-outline"
+										d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
+									</path>
+								</svg>
+								<svg class="path-fill-box" viewBox="1566.5 8196 354 52">
+									<path class="path-fill"
+										d="M 1582.5 8196 L 1566.5 8248 L 1899.5 8248 L 1920.5 8218 L 1899.5 8196 L 1582.5 8196 Z">
+									</path>
+								</svg>
+								<div class="nav-text">
+									<span class="text">All 5 Group 60</span>
+								</div>
+							</div>
+							<div class="nav-item">
+								<svg class="path-outline-box" viewBox="1082.685 756.5 371.083 56">
+									<path class="path-outline"
+										d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
+									</path>
+								</svg>
+								<svg class="path-fill-box" viewBox="1566.5 8196 354 52">
+									<path class="path-fill"
+										d="M 1582.5 8196 L 1566.5 8248 L 1899.5 8248 L 1920.5 8218 L 1899.5 8196 L 1582.5 8196 Z">
+									</path>
+								</svg>
+								<div class="nav-text">
+									<span class="text">All 5 Group 30</span>
+								</div>
+							</div>
+							<br>
+							<div class="nav-item">
+								<svg class="path-outline-box" viewBox="1082.685 756.5 371.083 56">
+									<path class="path-outline"
+										d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
+									</path>
+								</svg>
+								<svg class="path-fill-box" viewBox="1566.5 8196 354 52">
+									<path class="path-fill"
+										d="M 1582.5 8196 L 1566.5 8248 L 1899.5 8248 L 1920.5 8218 L 1899.5 8196 L 1582.5 8196 Z">
+									</path>
+								</svg>
+								<div class="nav-text">
+									<span class="text">All 5 Group 20</span>
+								</div>
+							</div>
+						</div>
+						<div class="group">
 
+							<div class="nav-item">
+								<svg class="path-outline-box" viewBox="1082.685 756.5 371.083 56">
+									<path class="path-outline"
+										d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
+									</path>
+								</svg>
+								<svg class="path-fill-box" viewBox="1566.5 8196 354 52">
+									<path class="path-fill"
+										d="M 1582.5 8196 L 1566.5 8248 L 1899.5 8248 L 1920.5 8218 L 1899.5 8196 L 1582.5 8196 Z">
+									</path>
+								</svg>
+								<div class="nav-text">
+									<span class="text">All 5 Group 10</span>
+								</div>
+							</div>
+							<div class="nav-item">
+								<svg class="path-outline-box" viewBox="1082.685 756.5 371.083 56">
+									<path class="path-outline"
+										d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
+									</path>
+								</svg>
+								<svg class="path-fill-box" viewBox="1566.5 8196 354 52">
+									<path class="path-fill"
+										d="M 1582.5 8196 L 1566.5 8248 L 1899.5 8248 L 1920.5 8218 L 1899.5 8196 L 1582.5 8196 Z">
+									</path>
+								</svg>
+								<div class="nav-text">
+									<span class="text">All 5 Group 5</span>
+								</div>
+							</div>
+						</div>
+					</div>
 					<div class="row">
 						<div id="active-game-box" class="active-game-box">
 							<span>First 3 Straight (Joint)</span>
@@ -15465,16 +15733,16 @@ window.application = new Application();
 						</div>
 
 						<div class="num-controls row1">
-							<button id="All" class="btn-c hover-shape btn-rec">All</button>
-							<button id="Big" class="btn-c hover-shape btn-rec">Big</button>
-							<button id="Small" class="btn-c hover-shape btn-rec">
+							<button id="All" class="btn-c hover-shape btn-rec all-btn">All</button>
+							<button id="Big" class="btn-c hover-shape btn-rec big-btn">Big</button>
+							<button id="Small" class="btn-c hover-shape btn-rec small-btn">
 								Small
 							</button>
-							<button id="Odd" class="btn-c hover-shape btn-rec">Odd</button>
-							<button id="Even" class="btn-c hover-shape btn-rec">
+							<button id="Odd" class="btn-c hover-shape btn-rec odd-btn">Odd</button>
+							<button id="Even" class="btn-c hover-shape btn-rec even-btn">
 								Even
 							</button>
-							<button id="Clear" class="btn-c hover-shape btn-rec">
+							<button id="Clear" class="btn-c hover-shape btn-rec clear-btn">
 								Clear
 							</button>
 						</div>
@@ -15656,47 +15924,6 @@ window.application = new Application();
 							</div>
 						</div>
 					</div>
-
-					<svg class="Path_1" viewBox="1082.685 756.5 371.083 56">
-						<path id="Path_1_cd"
-							d="M 1110.41650390625 756.5 L 1391.953979492188 756.5 L 1410.684326171875 780.3447875976562 L 1392.041137695312 812.5 L 1096.275268554688 812.5 L 1082.684204101562 792.1841430664062 L 1110.41650390625 756.5 Z M 1391.099609375 758.7105102539062 L 1392.041137695312 810.2894897460938 L 1166.438110351562 810.2894897460938 L 1097.222045898438 810.2894897460938 L 1391.01220703125 810.2894897460938 L 1408.2548828125 780.5498657226562 L 1391.01220703125 804.2105102539062 L 1391.099609375 758.7105102539062 Z">
-						</path>
-					</svg>
-					<svg class="Path_1_by" viewBox="1082.684 756.5 328.25 54.5">
-						<path id="Path_1_by"
-							d="M 1110.437866210938 756.5000610351562 L 1392.189819335938 756.5000610351562 L 1410.9345703125 779.7062377929688 L 1392.27734375 811.0000610351562 L 1096.28564453125 811.0000610351562 L 1082.684448242188 791.228515625 L 1110.437866210938 756.5000610351562 Z M 1391.334716796875 758.6513061523438 L 1384.868041992188 758.6513061523438 L 1110.437866210938 758.6513061523438 L 1096.28564453125 808.6695556640625 L 1391.334716796875 808.6695556640625 L 1408.503295898438 779.9058227539062 L 1408.503295898438 779.7062377929688 L 1391.334716796875 758.6513061523438 Z">
-						</path>
-					</svg>
-					<svg class="Path_1_bz" viewBox="1082.684 756.5 371.083 54.5">
-						<path id="Path_1_bz"
-							d="M 1114.059326171875 756.5000610351562 L 1432.576904296875 756.5000610351562 L 1453.767578125 779.7062377929688 L 1432.67578125 811.0000610351562 L 1098.060546875 811.0000610351562 L 1082.684326171875 791.228515625 L 1114.059326171875 756.5000610351562 Z M 1431.6103515625 758.6513061523438 L 1424.2998046875 758.6513061523438 L 1114.059326171875 758.6513061523438 L 1098.060546875 808.6695556640625 L 1431.6103515625 808.6695556640625 L 1451.01904296875 779.9058227539062 L 1451.01904296875 779.7062377929688 L 1431.6103515625 758.6513061523438 Z">
-						</path>
-					</svg>
-					<svg class="Path_1_b" viewBox="1082.684 756.5 371.083 54.5">
-						<path id="Path_1_b"
-							d="M 1114.059326171875 756.5000610351562 L 1432.576782226562 756.5000610351562 L 1453.767578125 779.7062377929688 L 1432.67578125 811.0000610351562 L 1098.060424804688 811.0000610351562 L 1082.684448242188 791.228515625 L 1114.059326171875 756.5000610351562 Z M 1431.610229492188 758.6513061523438 L 1424.299682617188 758.6513061523438 L 1114.059326171875 758.6513061523438 L 1098.060424804688 808.6695556640625 L 1431.610229492188 808.6695556640625 L 1451.01904296875 779.9058227539062 L 1451.01904296875 779.7062377929688 L 1431.610229492188 758.6513061523438 Z">
-						</path>
-					</svg>
-					<svg class="Path_1_ca" viewBox="1082.684 756.5 371.083 54.5">
-						<path id="Path_1_ca"
-							d="M 1114.059326171875 756.5000610351562 L 1432.576782226562 756.5000610351562 L 1453.767578125 779.7062377929688 L 1432.67578125 811.0000610351562 L 1098.060424804688 811.0000610351562 L 1082.684448242188 791.228515625 L 1114.059326171875 756.5000610351562 Z M 1431.610229492188 758.6513061523438 L 1424.299682617188 758.6513061523438 L 1114.059326171875 758.6513061523438 L 1098.060424804688 808.6695556640625 L 1431.610229492188 808.6695556640625 L 1451.01904296875 779.9058227539062 L 1451.01904296875 779.7062377929688 L 1431.610229492188 758.6513061523438 Z">
-						</path>
-					</svg>
-					<svg class="Path_1_cb" viewBox="1082.684 756.5 371.083 53">
-						<path id="Path_1_cb"
-							d="M 1114.059326171875 756.5 L 1432.576904296875 756.5 L 1453.767578125 779.0675048828125 L 1432.67578125 809.5 L 1098.060546875 809.5 L 1082.684326171875 790.2726440429688 L 1114.059326171875 756.5 Z M 1431.6103515625 758.592041015625 L 1424.2998046875 758.592041015625 L 1114.059326171875 758.592041015625 L 1098.060546875 807.233642578125 L 1431.6103515625 807.233642578125 L 1451.01904296875 779.2615966796875 L 1451.01904296875 779.0675048828125 L 1431.6103515625 758.592041015625 Z">
-						</path>
-					</svg>
-					<svg class="Path_1_cc" viewBox="1082.684 756.5 328.25 56">
-						<path id="Path_1_cc"
-							d="M 1110.437866210938 756.5000610351562 L 1392.189819335938 756.5000610351562 L 1410.9345703125 780.3449096679688 L 1392.27734375 812.5 L 1096.28564453125 812.5 L 1082.684448242188 792.1842041015625 L 1110.437866210938 756.5000610351562 Z M 1391.334716796875 758.7105102539062 L 1384.868041992188 758.7105102539062 L 1110.437866210938 758.7105102539062 L 1096.28564453125 810.1052856445312 L 1391.334716796875 810.1052856445312 L 1408.503295898438 780.5499877929688 L 1408.503295898438 780.3449096679688 L 1391.334716796875 758.7105102539062 Z">
-						</path>
-					</svg>
-					<svg class="Path_1_cd" viewBox="1082.684 756.5 328 56">
-						<path id="Path_1_cd"
-							d="M 1110.41650390625 756.5 L 1391.953979492188 756.5 L 1410.684326171875 780.3447875976562 L 1392.041137695312 812.5 L 1096.275268554688 812.5 L 1082.684204101562 792.1841430664062 L 1110.41650390625 756.5 Z M 1391.099609375 758.7105102539062 L 1392.041137695312 810.2894897460938 L 1166.438110351562 810.2894897460938 L 1097.222045898438 810.2894897460938 L 1391.01220703125 810.2894897460938 L 1408.2548828125 780.5498657226562 L 1391.01220703125 804.2105102539062 L 1391.099609375 758.7105102539062 Z">
-						</path>
-					</svg>
 				</div>
 			</div>
 
@@ -15705,40 +15932,7 @@ window.application = new Application();
 			<div id="V">
 				<span>V</span>
 			</div>
-			<div id="Straight">
-				<span>Straight</span>
-			</div>
-			<div id="Group">
-				<span>Group</span>
-			</div>
 
-			<div id="First_3_Straight_Joint_cn">
-				<span>First 3 Straight (Joint)</span>
-			</div>
-			<div id="First_3_Straight_Manual">
-				<span>First 3 Straight (Manual)</span>
-			</div>
-			<div id="All_5_Group_120">
-				<span>All 5 Group 120</span>
-			</div>
-			<div id="All_5_Group__10">
-				<span>All 5 Group 10</span>
-			</div>
-			<div id="All_5_Group_5">
-				<span>All 5 Group 5</span>
-			</div>
-			<div id="All_5_Group_60">
-				<span>All 5 Group 60</span>
-			</div>
-			<div id="All_5_Group_30">
-				<span>All 5 Group 30</span>
-			</div>
-			<div id="All_5_Group_20">
-				<span>All 5 Group 20</span>
-			</div>
-			<div id="All_5_StraightCombo">
-				<span>All 5 Straight(Combo)</span>
-			</div>
 
 			<div class="row"></div>
 		</div>
@@ -15762,7 +15956,7 @@ window.application = new Application();
 			<path id="Path_8" d="M 0 0 L 3356 0"></path>
 		</svg>
 
-	
+
 
 		<svg class="Rectangle_80">
 			<rect id="Rectangle_80" rx="0" ry="0" x="0" y="0" width="2722" height="1388"></rect>
