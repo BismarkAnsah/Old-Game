@@ -22,10 +22,10 @@
 			font-weight: normal;
 		}
 
-		.num-btn-controls>*{
+		.num-btn-controls>* {
 			margin: 30px !important;
 		}
-		
+
 		.cart-info-head {
 			list-style-type: none;
 			display: flex;
@@ -64,9 +64,6 @@
 			right: 45px;
 		}
 
-		.num-controls {
-			margin-left: 260px;
-		}
 
 		.solo-play {
 			margin-left: 60px;
@@ -85,9 +82,13 @@
 			margin-bottom: 99px;
 		}
 
+		.work-area .row:nth-child(5)
+		{
+			margin-top: 150px;
+		}
 		.work-area {
 			border: 5px solid #707070;
-			;
+
 			/* position: relative;
 	width: 2000px;
 	display: flex;
@@ -1607,9 +1608,9 @@
 			width: 150px;
 		}
 
-		.num-controls{
+		.num-controls {
 			font-size: 34px;
-			margin-left: 396px;
+			margin-left: 300px;
 		}
 
 		.hover-shape:hover {
@@ -1669,7 +1670,7 @@
 
 		div.unit-amt-select-box {
 			position: relative;
-			left: 81px;
+			left: 87px;
 			/* position: absolute;
 			left: 600px;
 			top: 900px; */
@@ -1745,10 +1746,10 @@
 		} */
 
 		div.bet-info {
-			position: relative;
+			position: absolute;
 			/* border: 5px solid black; */
-			top: 240px;
-			left: 300px;
+			top: 1330px;
+			left: 1800px;
 			color: #b88785;
 			width: fit-content;
 			height: fit-content;
@@ -1818,7 +1819,7 @@
 		}
 
 		div.multiplier-bet-box {
-			margin-right: 30px;
+			margin-left: 60px;
 			height: fit-content;
 		}
 
@@ -2972,7 +2973,7 @@
 		}
 
 		.cart-track-bet {
-			margin-left: 1490px;
+			margin-left: 1400px;
 			/* border: 2px solid #000; */
 		}
 
