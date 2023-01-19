@@ -17,15 +17,31 @@
 		* {
 			font-size: 36px;
 			box-sizing: border-box;
+			font-family: Segoe UI;
+			font-style: normal;
+			font-weight: normal;
 		}
 
-		.workArea.outline {
+		.num-btn-controls>*{
+			margin: 30px !important;
+		}
+		
+		.cart-info-head {
+			list-style-type: none;
+			display: flex;
+			justify-content: space-between;
+			width: 1200px;
+			position: relative;
+			left: 600px;
+		}
 
-			border: 2px solid #000;
+		.work-area.outline {
+
+			border: 3px solid #707070;
 			padding: 30px;
 		}
 
-		.workArea .col {
+		.work-area .col {
 			display: block;
 			justify-content: space-between;
 
@@ -34,19 +50,33 @@
 			width: fit-content;
 		}
 
+		.line {
+			margin: 30px;
+			position: relative;
+			right: 45px;
+			border: 2px solid #707070;
+			width: 2700px;
+			z-index: 999;
+		}
+
+		.cart-area {
+			position: relative;
+			right: 45px;
+		}
+
 		.num-controls {
 			margin-left: 260px;
 		}
 
 		.solo-play {
-			margin-left: 180px;
+			margin-left: 60px;
 		}
 
 		.solo-play>* {
-			margin-right: 21px;
+			margin-right: 12px;
 		}
 
-		.workArea .row {
+		.work-area .row {
 			display: flex;
 			width: fit-content;
 			/* border: 5px solid black; */
@@ -55,8 +85,9 @@
 			margin-bottom: 99px;
 		}
 
-		.workArea {
-			border: 5px solid black;
+		.work-area {
+			border: 5px solid #707070;
+			;
 			/* position: relative;
 	width: 2000px;
 	display: flex;
@@ -217,13 +248,15 @@
         color: rgba(112, 112, 112, 1);
       } */
 
-		.game-group-nav-box {
+		.game-group-nav-box,
+		.history-nav-box {
 			height: fit-content;
 			width: fit-content;
 			margin-bottom: 63px;
 		}
 
-		.game-group-nav-box>ul {
+		.game-group-nav-box>ul,
+		.history-nav-box>ul {
 			border: 5px solid black;
 			width: 2589px;
 			height: 120px;
@@ -236,7 +269,8 @@
 			background-color: #eee3bb;
 		}
 
-		.game-group-nav-box>ul>li {
+		.game-group-nav-box>ul>li,
+		.history-nav-box>ul>li {
 			cursor: pointer;
 			border-radius: 9px;
 			padding: 6px;
@@ -1507,7 +1541,7 @@
 			position: absolute;
 			z-index: 9999;
 			left: 6px;
-			top: 9px;
+			top: 3px;
 			font-size: 12px !important;
 			color: #707070;
 			/* border: 2px solid black !important; */
@@ -1573,7 +1607,7 @@
 			width: 150px;
 		}
 
-		.num-controls.row1 {
+		.num-controls{
 			font-size: 34px;
 			margin-left: 396px;
 		}
@@ -3134,78 +3168,9 @@
 			color: rgba(0, 0, 0, 1);
 		}
 
-		#Rectangle_80 {
-			fill: transparent;
-			stroke: rgba(0, 0, 0, 1);
-			stroke-width: 3px;
-			stroke-linejoin: miter;
-			stroke-linecap: butt;
-			stroke-miterlimit: 4;
-			shape-rendering: auto;
-		}
 
-		.Rectangle_80 {
-			position: absolute;
-			overflow: visible;
-			width: 2722px;
-			height: 1388px;
-			left: 888px;
-			top: 2188px;
-		}
 
-		#Line_17 {
-			fill: transparent;
-			stroke: rgba(0, 0, 0, 1);
-			stroke-width: 3px;
-			stroke-linejoin: miter;
-			stroke-linecap: butt;
-			stroke-miterlimit: 4;
-			shape-rendering: auto;
-		}
 
-		.Line_17 {
-			overflow: visible;
-			position: absolute;
-			width: 2722px;
-			height: 3px;
-			left: 888.5px;
-			top: 2160.5px;
-			transform: matrix(1, 0, 0, 1, 0, 0);
-		}
-
-		#Rectangle_81 {
-			fill: #eee3bb;
-			stroke: rgba(0, 0, 0, 1);
-			stroke-width: 1px;
-			stroke-linejoin: miter;
-			stroke-linecap: butt;
-			stroke-miterlimit: 4;
-			shape-rendering: auto;
-		}
-
-		.Rectangle_81 {
-			position: absolute;
-			overflow: visible;
-			width: 2718px;
-			height: 103px;
-			left: 891px;
-			top: 2191px;
-		}
-
-		#number__basket {
-			left: 989px;
-			top: 2197px;
-			position: absolute;
-			overflow: visible;
-			width: 111px;
-			white-space: nowrap;
-			text-align: center;
-			font-family: Segoe UI;
-			font-style: normal;
-			font-weight: bold;
-			font-size: 30px;
-			color: rgba(29, 29, 29, 1);
-		}
 
 		#betting_content_ {
 			left: 1284px;
@@ -12248,44 +12213,7 @@
 			text-transform: uppercase;
 		}
 
-		#Rectangle_92 {
-			fill: transparent;
-			stroke: rgba(0, 0, 0, 1);
-			stroke-width: 3px;
-			stroke-linejoin: miter;
-			stroke-linecap: butt;
-			stroke-miterlimit: 4;
-			shape-rendering: auto;
-		}
 
-		.Rectangle_92 {
-			position: absolute;
-			overflow: visible;
-			width: 2660px;
-			height: 1148px;
-			left: 921px;
-			top: 2406px;
-		}
-
-		#Line_166 {
-			fill: transparent;
-			stroke: rgba(0, 0, 0, 1);
-			stroke-width: 3px;
-			stroke-linejoin: miter;
-			stroke-linecap: butt;
-			stroke-miterlimit: 4;
-			shape-rendering: auto;
-		}
-
-		.Line_166 {
-			overflow: visible;
-			position: absolute;
-			width: 2721px;
-			height: 3px;
-			left: 888.5px;
-			top: 2372.5px;
-			transform: matrix(1, 0, 0, 1, 0, 0);
-		}
 
 		#Polygon_1 {
 			fill: transparent;
@@ -15501,7 +15429,7 @@ window.application = new Application();
 			</div>
 
 			<div class="draw-num-box" style="overflow: hidden;">
-				<div class="balls-box" style="overflow: hidden;" >
+				<div class="balls-box" style="transition: all 50s ease-out 0s;">
 					<div><img class="ball" src="balls/0.png" alt="" /></div>
 					<div><img class="ball" src="balls/1.png" alt="" /></div>
 					<div><img class="ball" src="balls/2.png" alt="" /></div>
@@ -15513,8 +15441,9 @@ window.application = new Application();
 					<div><img class="ball" src="balls/8.png" alt="" /></div>
 					<div><img class="ball" src="balls/9.png" alt="" /></div> -->
 				</div>
-				
+
 			</div>
+
 		</div>
 
 
@@ -15527,8 +15456,8 @@ window.application = new Application();
 				<rect id="Rectangle_5" rx="0" ry="0" x="0" y="0" width="2660" height="1515"></rect>
 			</svg> -->
 
-			<div class="workArea outline">
-				<div class="workArea" style="border: px solid black;">
+			<div class="work-area outline">
+				<div class="work-area" style="border: px solid black;">
 					<div class="game-group-nav-box">
 						<ul class="simple-hover">
 							<li>All 5</li>
@@ -15719,36 +15648,68 @@ window.application = new Application();
 							</div>
 						</div>
 					</div>
+					<div class="num-btn-controls">
+						<div class="row row1">
+							<div class="col num-group row1">
+								<?php
+			for ($x = 0; $x < 10; $x++) {
+			?>
+								<button class="btn-c num hover-shape row1 btn-circle">
+									<?= $x ?>
+								</button>
+								<?php
+			}
+			?>
+							</div>
 
-					<div class="row">
-						<div class="col num-group row1">
-							<?php
-							for ($x = 0; $x < 10; $x++) {
-							?>
-							<button class="btn-c num hover-shape row1 btn-circle">
-								<?= $x ?>
-							</button>
-							<?php
-							}
-							?>
+
+							<div class="col num-controls row1">
+								<button id="All" class="btn-c hover-shape btn-rec all-btn">All</button>
+								<button id="Big" class="btn-c hover-shape btn-rec big-btn">Big</button>
+								<button id="Small" class="btn-c hover-shape btn-rec small-btn">
+									Small
+								</button>
+								<button id="Odd" class="btn-c hover-shape btn-rec odd-btn">Odd</button>
+								<button id="Even" class="btn-c hover-shape btn-rec even-btn">
+									Even
+								</button>
+								<button id="Clear" class="btn-c hover-shape btn-rec clear-btn">
+									Clear
+								</button>
+							</div>
 						</div>
 
+						<div class="row row2">
+							<div class="col num-group row2">
+								<?php
+			for ($x = 0; $x < 10; $x++) {
+			?>
+								<button class="btn-c num hover-shape row1 btn-circle">
+									<?= $x ?>
+								</button>
+								<?php
+			}
+			?>
+							</div>
 
-						<div class="col num-controls row1">
-							<button id="All" class="btn-c hover-shape btn-rec all-btn">All</button>
-							<button id="Big" class="btn-c hover-shape btn-rec big-btn">Big</button>
-							<button id="Small" class="btn-c hover-shape btn-rec small-btn">
-								Small
-							</button>
-							<button id="Odd" class="btn-c hover-shape btn-rec odd-btn">Odd</button>
-							<button id="Even" class="btn-c hover-shape btn-rec even-btn">
-								Even
-							</button>
-							<button id="Clear" class="btn-c hover-shape btn-rec clear-btn">
-								Clear
-							</button>
+
+							<div class="col num-controls row2">
+								<button id="All" class="btn-c hover-shape btn-rec all-btn">All</button>
+								<button id="Big" class="btn-c hover-shape btn-rec big-btn">Big</button>
+								<button id="Small" class="btn-c hover-shape btn-rec small-btn">
+									Small
+								</button>
+								<button id="Odd" class="btn-c hover-shape btn-rec odd-btn">Odd</button>
+								<button id="Even" class="btn-c hover-shape btn-rec even-btn">
+									Even
+								</button>
+								<button id="Clear" class="btn-c hover-shape btn-rec clear-btn">
+									Clear
+								</button>
+							</div>
 						</div>
 					</div>
+
 
 					<div class="row">
 						<div class="col period-bonus-box">
@@ -15930,15 +15891,38 @@ window.application = new Application();
 					</div>
 				</div>
 			</div>
+			<div class="line"></div>
 
-			<svg class="Rectangle_35"></svg>
+			<div class="row cart-area outline">
+				<div class="row cart-area-head">
+					<div class="history-nav-box">
+						<ul class="history-nav simple-hover">
+							<li>number<br>basket</li>
+							<li>Recent<br>bets</li>
+							<li>Recently chasing<br>number</li>
+							<li>Recent<br>recharge</li>
+							<li>Recent<br>withdrawals</li>
+							<li>Recent<br>withdrawals</li>
+							<li>Recent profit and<br>loss</li>
+							<li>plan<br>record</li>
+							<li>Details</li>
+							<li>All betting</li>
+						</ul>
+					</div>
+					<div class="row cart-info-box">
+						<ul class="cart-info-head">
+							<li>Betting content</li>
+							<li>unit</li>
+							<li>Number of bets</li>
+							<li>total amount</li>
+							<li>operate</li>
+						</ul>
+					</div>
+				</div>
+				<div class="row cart-area">
 
-			<div id="V">
-				<span>V</span>
+				</div>
 			</div>
-
-
-			<div class="row"></div>
 		</div>
 
 
@@ -15955,66 +15939,12 @@ window.application = new Application();
 
 
 
-		<svg class="Rectangle_80">
-			<rect id="Rectangle_80" rx="0" ry="0" x="0" y="0" width="2722" height="1388"></rect>
-		</svg>
+
 		<svg class="Line_17" viewBox="0 0 2722 3">
 			<path id="Line_17" d="M 0 0 L 2722 0"></path>
 		</svg>
-		<svg class="Rectangle_81">
-			<rect id="Rectangle_81" rx="41" ry="41" x="0" y="0" width="2718" height="103"></rect>
-		</svg>
-		<div id="number__basket">
-			<span>number<br />
-				basket</span>
-		</div>
 
-		<div id="betting_content_">
-			<span>betting content </span>
-		</div>
-		<div id="unit_">
-			<span>unit </span>
-		</div>
-		<div id="no_data_">
-			<span>no data </span>
-		</div>
 
-		<div id="Number_of_bets">
-			<span>Number of bets</span>
-		</div>
-		<div id="total_amount">
-			<span>total amount</span>
-		</div>
-		<div id="operate">
-			<span>operate</span>
-		</div>
-		<div id="Recent_bets">
-			<span>Recent<br />bets</span>
-		</div>
-		<div id="Recently_chasing__number_">
-			<span>Recently chasing <br />number </span>
-		</div>
-		<div id="Recent__recharge">
-			<span>Recent <br />recharge</span>
-		</div>
-		<div id="Recent__withdrawals">
-			<span>Recent <br />withdrawals</span>
-		</div>
-		<div id="Recent__withdrawals_iz">
-			<span>Recent <br />withdrawals</span>
-		</div>
-		<div id="Recent_profit_and__loss">
-			<span>Recent profit and <br />loss</span>
-		</div>
-		<div id="Plan_record">
-			<span>Plan<br />record</span>
-		</div>
-		<div id="Details">
-			<span>Details</span>
-		</div>
-		<div id="All_betting">
-			<span>All betting</span>
-		</div>
 		<div id="Group_8">
 			<svg class="Rectangle_83">
 				<rect id="Rectangle_83" rx="33" ry="33" x="0" y="0" width="298" height="136"></rect>
@@ -17658,12 +17588,7 @@ window.application = new Application();
 				<span>s<br />t<br />a<br />n<br />d<br />a<br />r<br />d</span>
 			</div>
 		</div>
-		<svg class="Rectangle_92">
-			<rect id="Rectangle_92" rx="0" ry="0" x="0" y="0" width="2660" height="1148"></rect>
-		</svg>
-		<svg class="Line_166" viewBox="0 0 2721 3">
-			<path id="Line_166" d="M 0 0 L 2721 0"></path>
-		</svg>
+
 		<svg class="Polygon_1" viewBox="0 0 59 51">
 			<path id="Polygon_1" d="M 29.49999809265137 0 L 59 51 L 0 51 Z"></path>
 		</svg>
@@ -17692,18 +17617,28 @@ window.application = new Application();
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 	<script>
-		$(".bet-now").click(function() {
+		$(".bet-now").click(function () {
 			alert("clicked");
 		});
 		const el = document.querySelector('.draw-num-box');
 		const machine = new SlotMachine(el, {
-			active:0,
-			delay:100,
-			direction:'down'
+			active: 0,
+			delay: 800,
+			direction: 'down'
 		});
-		machine.shuffle(Infinity);
-		machine.stop(100);
-		
+		machine.shuffle();
+		machine.stop(2);
+// 		let promise = new Promise((resolve , reject) => {
+// 			machine.stop(20)
+//     .then((res) => {
+//       // successfully got data
+//       resolve(res);
+//     })
+//     .catch((err) => {
+//       // an error occured
+//       reject(err);
+//     });          
+// });
 		// console.log(machine.nextActive);
 	</script>
 </body>
