@@ -23,7 +23,7 @@
 		}
 
 		.num-btn-controls>* {
-			margin: 30px !important;
+			margin: 60px !important;
 		}
 
 		.cart-info-head {
@@ -82,10 +82,10 @@
 			margin-bottom: 99px;
 		}
 
-		.work-area .row:nth-child(5)
-		{
+		.work-area .row:nth-child(5) {
 			margin-top: 150px;
 		}
+
 		.work-area {
 			border: 5px solid #707070;
 
@@ -1610,7 +1610,7 @@
 
 		.num-controls {
 			font-size: 34px;
-			margin-left: 300px;
+			margin-left: 210px;
 		}
 
 		.hover-shape:hover {
@@ -1629,7 +1629,8 @@
 			border: 2px solid #000;
 			border-right: 36px;
 			margin-left: 21px;
-			width: 90px;
+			width: 96px;
+			height: 96px;
 		}
 
 		label {
@@ -1654,23 +1655,55 @@
 			color: #b88785;
 			padding: 3px;
 			align-items: center;
-			border: 1px solid #49546d;
+			border: 2px solid #49546d;
 			background-color: #f8f4e9;
 			border-radius: 12px;
 			width: 372px;
 			height: 60px;
+			text-align: center;
 			outline: none;
 		}
 
-		/* div.bonus-box {
-			position: absolute;
-			left: 45px;
-			top: 1145px;
-		} */
+		input.multiplier-input {
+			position: relative;
+			right: 12px;
+			width: 192px;
+			border-left: 0px;
+			border-radius: 0px;
+			border-right: 0px;
+		}
+
+
+		.plus, .minus {
+			border: 2px solid #49546d;
+			width: 93px;
+			background-color: #f8f4e9;
+			padding: 3px;
+			height: 60px;
+			cursor: pointer;
+	
+		}
+		
+
+		.plus {
+			border-left: 0px;
+			border-top-right-radius: 12px;
+			border-bottom-right-radius: 12px;
+			position: relative;
+			right: 24px;
+		}
+
+		.minus {
+			border-right: 0px;
+			border-top-left-radius: 12px;
+			border-bottom-left-radius: 12px;
+			
+		}
 
 		div.unit-amt-select-box {
 			position: relative;
 			left: 87px;
+			width: fit-content;
 			/* position: absolute;
 			left: 600px;
 			top: 900px; */
@@ -1748,7 +1781,7 @@
 		div.bet-info {
 			position: absolute;
 			/* border: 5px solid black; */
-			top: 1330px;
+			top: 1360px;
 			left: 1800px;
 			color: #b88785;
 			width: fit-content;
@@ -1805,7 +1838,8 @@
 			/* border: 6px solid black; */
 			position: relative;
 			left: 180px;
-			width: 1500px;
+			/* width: 1500px; */
+			width: fit-content;
 		}
 
 		div.period-bonus-box {
@@ -1819,7 +1853,7 @@
 		}
 
 		div.multiplier-bet-box {
-			margin-left: 60px;
+			margin-left: 420px;
 			height: fit-content;
 		}
 
@@ -15461,11 +15495,11 @@ window.application = new Application();
 				<div class="work-area" style="border: px solid black;">
 					<div class="game-group-nav-box">
 						<ul class="simple-hover">
-							<li>All 5</li>
-							<li>All 4</li>
-							<li>First 3</li>
-							<li>Mid 3</li>
-							<li>Last 3</li>
+							<li class="active" data-points-to="all5">All 5</li>
+							<li data-points-to="all4">All 4</li>
+							<li data-points-to="first3">First 3</li>
+							<li data-points-to="mid3">Mid 3</li>
+							<li data-points-to="last3">Last 3</li>
 							<li>First 2</li>
 							<li>Last 2</li>
 							<li>Fixed place</li>
@@ -15480,7 +15514,7 @@ window.application = new Application();
 					<div class="game-nav-box">
 						<label for="">Straight:</label>
 						<div class="straight">
-							<div class="svg-active nav-item">
+							<div class="svg-active nav-item" data-points-to="a5-joint">
 								<svg class="path-outline-box" viewBox="1082.685 756.5 371.083 56">
 									<path class="path-outline"
 										d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
@@ -15495,7 +15529,7 @@ window.application = new Application();
 									<span class="text">All 5 straight(Joint)</span>
 								</div>
 							</div>
-							<div class="nav-item">
+							<div class="nav-item" data-points-to="a5-manual">
 								<svg class="path-outline-box" viewBox="1082.685 756.5 371.083 56">
 									<path class="path-outline"
 										d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
@@ -15510,7 +15544,7 @@ window.application = new Application();
 									<span class="text">All 5 straight(manual)</span>
 								</div>
 							</div>
-							<div class="nav-item">
+							<div class="nav-item" data-points-to="a5-combo">
 								<svg class="path-outline-box" viewBox="1082.685 756.5 371.083 56">
 									<path class="path-outline"
 										d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
@@ -15528,7 +15562,7 @@ window.application = new Application();
 						</div>
 						<label for="">Group:</label>
 						<div class="group">
-							<div class="nav-item">
+							<div class="nav-item" data-points-to="a5-g120">
 								<svg class="path-outline-box" viewBox="1082.685 756.5 371.083 56">
 									<path class="path-outline"
 										d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
@@ -15543,7 +15577,7 @@ window.application = new Application();
 									<span class="text">All 5 Group 120</span>
 								</div>
 							</div>
-							<div class="nav-item">
+							<div class="nav-item" data-points-to="a5-g60">
 								<svg class="path-outline-box" viewBox="1082.685 756.5 371.083 56">
 									<path class="path-outline"
 										d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
@@ -15558,7 +15592,7 @@ window.application = new Application();
 									<span class="text">All 5 Group 60</span>
 								</div>
 							</div>
-							<div class="nav-item">
+							<div class="nav-item" data-points-to="a5-g30">
 								<svg class="path-outline-box" viewBox="1082.685 756.5 371.083 56">
 									<path class="path-outline"
 										d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
@@ -15574,7 +15608,7 @@ window.application = new Application();
 								</div>
 							</div>
 							<br>
-							<div class="nav-item">
+							<div class="nav-item" data-points-to="a5-g20">
 								<svg class="path-outline-box" viewBox="1082.685 756.5 371.083 56">
 									<path class="path-outline"
 										d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
@@ -15592,7 +15626,7 @@ window.application = new Application();
 						</div>
 						<div class="group">
 
-							<div class="nav-item">
+							<div class="nav-item" data-points-to="a5-g10">
 								<svg class="path-outline-box" viewBox="1082.685 756.5 371.083 56">
 									<path class="path-outline"
 										d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
@@ -15607,7 +15641,7 @@ window.application = new Application();
 									<span class="text">All 5 Group 10</span>
 								</div>
 							</div>
-							<div class="nav-item">
+							<div class="nav-item" data-points-to="a5-g5">
 								<svg class="path-outline-box" viewBox="1082.685 756.5 371.083 56">
 									<path class="path-outline"
 										d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
@@ -15653,17 +15687,11 @@ window.application = new Application();
 						<div class="row row1">
 							<div class="col num-group row1">
 								<?php
-			for ($x = 0; $x < 10; $x++) {
-			?>
-								<button class="btn-c num hover-shape row1 btn-circle">
-									<?= $x ?>
-								</button>
-								<?php
-			}
-			?>
+								for ($x = 0; $x < 10; $x++) {
+								?>
+									<button class="btn-c num hover-shape row1 btn-circle"><span><?= $x ?></span></button><?php
+								}?>
 							</div>
-
-
 							<div class="col num-controls row1">
 								<button id="All" class="btn-c hover-shape btn-rec all-btn">All</button>
 								<button id="Big" class="btn-c hover-shape btn-rec big-btn">Big</button>
@@ -15683,14 +15711,10 @@ window.application = new Application();
 						<div class="row row2">
 							<div class="col num-group row2">
 								<?php
-			for ($x = 0; $x < 10; $x++) {
-			?>
-								<button class="btn-c num hover-shape row1 btn-circle">
-									<?= $x ?>
-								</button>
-								<?php
-			}
-			?>
+								for ($x = 0; $x < 10; $x++) {
+								?>
+									<button class="btn-c num hover-shape row2 btn-circle"><span><?= $x ?></span></button><?php
+								}?>
 							</div>
 
 
@@ -15819,7 +15843,9 @@ window.application = new Application();
 
 						<div class="multiplier-bet-box">
 							<div class="multiplier-input-box">
+								<button type="button" class="minus">-</button>
 								<input class="multiplier-input" type="text" name="" placeholder="multiplier" />
+								<button type="button" class="plus">+</button>
 							</div>
 
 							<div class="bet-amt-box">
