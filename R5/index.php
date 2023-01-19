@@ -22,9 +22,27 @@
 			font-weight: normal;
 		}
 
-		.num-btn-controls>* {
-			margin: 60px !important;
+		textarea{
+			resize: none;
+			margin-left: 54px;
+			width: 2400px;
+			height: 450px;
+            outline: none;
+			color: #b88785;
+			background-color: #f8f4e9;
 		}
+
+		.num-btn-controls>* {
+			margin: 30px !important;
+		}
+
+		.num-btn-controls{
+			width: fit-content;
+			margin-left: 36px;
+			/* border: 5px solid #000; */
+		
+		}
+
 
 		.cart-info-head {
 			list-style-type: none;
@@ -1567,7 +1585,7 @@
 			color: #fff;
 		}
 
-		.svg-active>*>* {
+		.active-svg>*>* {
 			fill: #49556d;
 			;
 			color: #fff;
@@ -1605,23 +1623,33 @@
 			border: 2px solid #000;
 			border-radius: 12px;
 			background-color: #e7e0dc;
-			width: 150px;
+			width: 120px;
+			text-align: center;
 		}
 
 		.num-controls {
 			font-size: 34px;
-			margin-left: 210px;
+			margin-left: 90px;
 		}
 
-		.hover-shape:hover {
+		.hover-shape:hover, .active-btn {
 			background-color: #49556d;
 			color: #fff;
 		}
 
 		.num-group {
 			font-size: 34px;
+		
 		}
-
+		
+	
+		.num-group>label {
+			display: inline-block;
+			/* border: 3px solid black; */
+			position: relative;
+			width: 150px;
+		
+		}
 		.num {
 			padding: 21px;
 			border-radius: 50%;
@@ -1644,8 +1672,11 @@
 			top: 1000px;
 		} */
 
-		::placeholder {
+		::placeholder ~textarea::placeholder{
 			text-align: center;
+		}
+		textarea::placeholder{
+			padding: 30px;
 		}
 
 		select.period,
@@ -1779,10 +1810,13 @@
 		} */
 
 		div.bet-info {
-			position: absolute;
+			position: relative;
 			/* border: 5px solid black; */
-			top: 1360px;
-			left: 1800px;
+			/* top: 1360px;
+			left: 1800px; */
+
+			bottom:75px;
+			left:720px;
 			color: #b88785;
 			width: fit-content;
 			height: fit-content;
@@ -15514,7 +15548,7 @@ window.application = new Application();
 					<div class="game-nav-box">
 						<label for="">Straight:</label>
 						<div class="straight">
-							<div class="svg-active nav-item" data-points-to="a5-joint">
+							<div class="active-svg nav-item" data-points-to="a5-joint">
 								<svg class="path-outline-box" viewBox="1082.685 756.5 371.083 56">
 									<path class="path-outline"
 										d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
@@ -15683,9 +15717,10 @@ window.application = new Application();
 							</div>
 						</div>
 					</div>
-					<div class="num-btn-controls">
-						<div class="row row1">
+					<div class="num-btn-controls game-interface">
+						<div class=" row1">
 							<div class="col num-group row1">
+							<label for="">one pair</label>
 								<?php
 								for ($x = 0; $x < 10; $x++) {
 								?>
@@ -15708,8 +15743,9 @@ window.application = new Application();
 							</div>
 						</div>
 
-						<div class="row row2">
+						<div class="row2">
 							<div class="col num-group row2">
+								<label for="">four of a kind</label>
 								<?php
 								for ($x = 0; $x < 10; $x++) {
 								?>
@@ -15734,7 +15770,9 @@ window.application = new Application();
 							</div>
 						</div>
 					</div>
-
+					<div class="game-interface a5_manual">
+					<textarea name="" placeholder="Enter your bet manually here&#10;&#10;Example is as below. Separate your bet with semi colon (;)&#10;&#10;0,1,2,3,4;   0,4,5,6,2;   0,2,5,6,1;   0,1,3,4,2;"></textarea>
+					</div>
 
 					<div class="row">
 						<div class="col period-bonus-box">
@@ -15832,14 +15870,15 @@ window.application = new Application();
 										All in
 									</button>
 								</div>
-							</div>
-						</div>
-
-						<div class="bet-info">
+								<div class="bet-info">
 							<span>selected <span class="total-bets">0</span> note, total
 								<span class="actual-amt">0</span> Yuan profit
 								<span class="profit">0</span> Yuan</span>
 						</div>
+							</div>
+						</div>
+
+						
 
 						<div class="multiplier-bet-box">
 							<div class="multiplier-input-box">
@@ -17644,17 +17683,21 @@ window.application = new Application();
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 	<script>
-		$(".bet-now").click(function () {
-			alert("clicked");
-		});
-		const el = document.querySelector('.draw-num-box');
-		const machine = new SlotMachine(el, {
-			active: 0,
-			delay: 800,
-			direction: 'down'
-		});
-		machine.shuffle();
-		machine.stop(2);
+		setTimeout(function(){
+			$(".game-interface").hide();
+			$(".game-interface.a5_manual").show();
+		},3000)
+		// $(".bet-now").click(function () {
+		// 	alert("clicked");
+		// });
+		// const el = document.querySelector('.draw-num-box');
+		// const machine = new SlotMachine(el, {
+		// 	active: 0,
+		// 	delay: 800,
+		// 	direction: 'down'
+		// });
+		// machine.shuffle();
+		// machine.stop(2);
 // 		let promise = new Promise((resolve , reject) => {
 // 			machine.stop(20)
 //     .then((res) => {
