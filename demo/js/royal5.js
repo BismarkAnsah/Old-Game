@@ -49,42 +49,42 @@ getPageId()
 {
   return this.pageId;
 }
-  selectAll(row=this.classNames.row1Nums, effects='default') {
+  selectAll(row=this.classNames.row1Nums, effects='active-btn') {
       this.$(row).addClass(effects);
   }
 
-  selectBig(row=this.classNames.row1Nums, effects='default') {
+  selectBig(row=this.classNames.row1Nums, effects='active-btn') {
       this.$(row).removeClass(effects);
       this.$(`${row}:nth-child(n+7)`).addClass(effects);
   }
 
-  selectSmall(row=this.classNames.row1Nums, effects='default') {
+  selectSmall(row=this.classNames.row1Nums, effects='active-btn') {
       this.$(row).removeClass(effects);
       this.$(`${row}:nth-child(-n+6)`).addClass(effects);
   }
 
-  selectEven(row=this.classNames.row1Nums, effects='default') {
+  selectEven(row=this.classNames.row1Nums, effects='active-btn') {
       this.$(row).removeClass(effects);
       this.$(`${row}:nth-child(even)`).addClass(effects);
 
   }
 
-  selectOdd(row, effects='default') {
+  selectOdd(row, effects='active-btn') {
       this.$(row).removeClass(effects);
       this.$(`${row}:nth-child(odd)`).addClass(effects);
   }
 
-  clear(row, effects='default') {
+  clear(row, effects='active-btn') {
       this.$(row).removeClass(effects);
   }
 
-  selectAmount(row, effects='default')
+  selectAmount(row, effects='active-btn')
   {
         this.$(row).removeClass(effects);
         this.$(row).addClass(effects);
   }
 
-  selectElement(target, effects='money-bg')
+  selectElement(target, effects='active-btn')
   {
         this.$(target).removeClass(effects);
         console.log(this.$(this));
@@ -463,10 +463,10 @@ getPageId()
     this.$('.clear-btn').click();
     this.$('input.bet-amt').val('');
     this.$('.multiplier-input').val(1);
-    this.$('.multiplier-select').removeClass('money-bg');
-    this.$('.multiplier-select[value="1"]').addClass('money-bg');
-    this.$('.unit-amt').removeClass('money-bg');
-    this.$('.unit-amt[value="1"]').addClass('money-bg');
+    this.$('.multiplier-select').removeClass('active-btn');
+    this.$('.multiplier-select[value="1"]').addClass('active-btn');
+    this.$('.unit-amt').removeClass('active-btn');
+    this.$('.unit-amt[value="1"]').addClass('active-btn');
   }
 
   /**Getters */
@@ -1217,7 +1217,7 @@ function ready(className){
       game.$('input.bet-amt').val('');
       let totalBets =  game.calcTotalBets();
       !totalBets?game.disableButtons(true, game.$('input.bet-amt')):game.disableButtons(false, game.$('input.bet-amt'));
-      game.$(classNames.modelSelect).removeClass('money-bg');
+      game.$(classNames.modelSelect).removeClass('active-btn');
       game.setTotalBets(totalBets);
       game.setBetAmt(game.calcBetAmt());
       showBetsInfo();
@@ -1232,7 +1232,7 @@ function ready(className){
       game.saveToRow(data, row);
       let totalBets = game.calcTotalBets();
       !totalBets?game.disableButtons(true, game.$('input.bet-amt')):game.disableButtons(false, game.$('input.bet-amt'));
-      game.$(classNames.modelSelect).removeClass('money-bg');
+      game.$(classNames.modelSelect).removeClass('active-btn');
       game.setTotalBets(totalBets);
       game.setBetAmt(game.calcBetAmt());
       showBetsInfo();
@@ -1247,7 +1247,7 @@ function ready(className){
       game.saveToRow(data, row);
       let totalBets = game.calcTotalBets();
       !totalBets?game.disableButtons(true, game.$('input.bet-amt')):game.disableButtons(false, game.$('input.bet-amt'));
-      game.$(classNames.modelSelect).removeClass('money-bg');
+      game.$(classNames.modelSelect).removeClass('active-btn');
       game.setTotalBets(totalBets);
       game.setBetAmt(game.calcBetAmt());
       showBetsInfo();
@@ -1262,7 +1262,7 @@ function ready(className){
       game.saveToRow(data, row);
       let totalBets = game.calcTotalBets();
       !totalBets?game.disableButtons(true, game.$('input.bet-amt')):game.disableButtons(false, game.$('input.bet-amt'));
-      game.$(classNames.modelSelect).removeClass('money-bg');
+      game.$(classNames.modelSelect).removeClass('active-btn');
       game.setTotalBets(totalBets);
       game.setBetAmt(game.calcBetAmt());
       showBetsInfo();
@@ -1277,7 +1277,7 @@ function ready(className){
       game.saveToRow(data, row);
       let totalBets = game.calcTotalBets();
       !totalBets?game.disableButtons(true, game.$('input.bet-amt')):game.disableButtons(false, game.$('input.bet-amt'));
-      game.$(classNames.modelSelect).removeClass('money-bg');
+      game.$(classNames.modelSelect).removeClass('active-btn');
       game.setTotalBets(totalBets);
       game.setBetAmt(game.calcBetAmt());
       showBetsInfo();
@@ -1285,7 +1285,7 @@ function ready(className){
 
 
     game.$('.num').click(function(){
-      $(this).toggleClass('default');
+      $(this).toggleClass('active-btn');
       let btnValue = parseInt($(this).children().html());
       let classNames = $(this).attr('class');
       game.$('input.bet-amt').val('');
@@ -1293,7 +1293,7 @@ function ready(className){
       game.saveToRow(btnValue, row);
       let totalBets = game.calcTotalBets();
       !totalBets?game.disableButtons(true, game.$('input.bet-amt')):game.disableButtons(false, game.$('input.bet-amt'));
-      game.$('.model').removeClass('money-bg');
+      game.$('.model').removeClass('active-btn');
       game.setTotalBets(totalBets);
       game.setBetAmt(game.calcBetAmt());
       showBetsInfo();
@@ -1315,7 +1315,7 @@ function ready(className){
       game.$('input.bet-amt').val('');
       let totalBets = game.calcTotalBets();
       !totalBets?game.disableButtons(true, game.$('input.bet-amt')):game.disableButtons(false, game.$('input.bet-amt'));
-      game.$(classNames.modelSelect).removeClass('money-bg');
+      game.$(classNames.modelSelect).removeClass('active-btn');
       game.setTotalBets(totalBets);
       game.setBetAmt(game.calcBetAmt());
       showBetsInfo();
@@ -1323,43 +1323,43 @@ function ready(className){
 
     
     game.$(classNames.multiplierSelect).click(function(){
-        game.$(classNames.multiplierSelect).removeClass('money-bg');
-        game.$(this).addClass('money-bg');
+        game.$(classNames.multiplierSelect).removeClass('active-btn');
+        game.$(this).addClass('active-btn');
         let value = $(this).val();
         game.setMultiplier(value);
         game.setBetAmt(game.calcBetAmt());
-        game.$(classNames.modelSelect).removeClass('money-bg');
+        game.$(classNames.modelSelect).removeClass('active-btn');
         game.$('.multiplier-input').val(value);
         game.$('input.bet-amt').val('');
         showBetsInfo();
   });
 
   game.$(classNames.unitAmt).click(function(){
-        game.$(classNames.unitAmt).removeClass('money-bg');
-        game.$(this).addClass('money-bg');
+        game.$(classNames.unitAmt).removeClass('active-btn');
+        game.$(this).addClass('active-btn');
         let value = $(this).val();
         game.setUnitAmt(value);
         game.setBetAmt(game.calcBetAmt());
-        game.$(classNames.modelSelect).removeClass('money-bg');
+        game.$(classNames.modelSelect).removeClass('active-btn');
         game.$('input.bet-amt').val('');
         showBetsInfo();
   });
 
 
   game.$(classNames.modelSelect).click(function(){
-    game.$(classNames.modelSelect).removeClass('money-bg');
-    game.$(this).addClass('money-bg');
+    game.$(classNames.modelSelect).removeClass('active-btn');
+    game.$(this).addClass('active-btn');
     let modelValue = eval($(this).val());
     let balance = game.$('.user-balance').html();
     let unitAmt = game.calcUnitFromModel(balance, modelValue);
     game.setUnitAmt(unitAmt);
-    game.$(classNames.unitAmt).removeClass('money-bg');
-    game.$(`.unit-amt[value='${unitAmt}']`).addClass('money-bg');
+    game.$(classNames.unitAmt).removeClass('active-btn');
+    game.$(`.unit-amt[value='${unitAmt}']`).addClass('active-btn');
     let actualAmt = game.calcAmtFromModel(balance, modelValue);
     game.setBetAmt(actualAmt);
     game.setMultiplier(1);
-    game.$('.multiplier-select').removeClass('money-bg');
-    game.$(".multiplier-select[value='1']").addClass('money-bg');
+    game.$('.multiplier-select').removeClass('active-btn');
+    game.$(".multiplier-select[value='1']").addClass('active-btn');
     game.$('.multiplier-input').val(1);
     game.$('input.bet-amt').val('');
     showBetsInfo();
@@ -1373,8 +1373,8 @@ function ready(className){
     let onlyNums = parseInt($(this).val().replace(/\D+/g, ''));
     onlyNums = onlyNums ? onlyNums:1;
     $(this).val(onlyNums);
-    game.$('.multiplier-select').removeClass('money-bg');
-    game.$(`.multiplier-select[value='${onlyNums}']`).addClass('money-bg');
+    game.$('.multiplier-select').removeClass('active-btn');
+    game.$(`.multiplier-select[value='${onlyNums}']`).addClass('active-btn');
     game.setMultiplier(onlyNums);
     game.setBetAmt(game.calcBetAmt());
     game.$('input.bet-amt').val('');
@@ -1386,9 +1386,9 @@ function ready(className){
     // let unitAmt = game.betAmt?unitAmt:0;
     // game.setUnitAmt(unitAmt);
     // $(this).val(betAmt);
-    game.$(classNames.modelSelect).removeClass('money-bg');
+    game.$(classNames.modelSelect).removeClass('active-btn');
     $(this).select();
-    // game.$('.unit-amt').removeClass('money-bg');
+    // game.$('.unit-amt').removeClass('active-btn');
     // game.$('.multiplier-select[value="1"]').click();
   })
  
@@ -1410,10 +1410,10 @@ function ready(className){
     game.setUnitAmt(unitAmt);
     game.setMultiplier(multiplier);
     game.$('.multiplier-input').val(multiplier);
-    game.$(`.multiplier-select`).removeClass('money-bg');
-    game.$(`.multiplier-select[value='${multiplier}']`).addClass('money-bg');
-    game.$(`.unit-amt`).removeClass('money-bg');
-    game.$(`.unit-amt[value='${unitAmt}']`).addClass('money-bg');
+    game.$(`.multiplier-select`).removeClass('active-btn');
+    game.$(`.multiplier-select[value='${multiplier}']`).addClass('active-btn');
+    game.$(`.unit-amt`).removeClass('active-btn');
+    game.$(`.unit-amt[value='${unitAmt}']`).addClass('active-btn');
     $(this).val(onlyNums);
     showBetsInfo();
   })
@@ -1426,31 +1426,31 @@ function ready(className){
 
   game.$('.plus').click(function(){
     game.increaseMultiplier(classNames.multiValue);
-    $(this).addClass('money-bg');
+    $(this).addClass('active-btn');
     let value = game.$('.multiplier-input').val();
     setTimeout(function(){
-      $('.plus').removeClass('money-bg')
+      $('.plus').removeClass('active-btn')
     }, 50);
     game.setMultiplier(value);
     game.setBetAmt(game.calcBetAmt());
     game.$('input.bet-amt').val('');
-    game.$('.multiplier-select').removeClass('money-bg');
-    game.$(`.multiplier-select[value='${value}']`).addClass('money-bg');
+    game.$('.multiplier-select').removeClass('active-btn');
+    game.$(`.multiplier-select[value='${value}']`).addClass('active-btn');
     showBetsInfo();
   })
 
   game.$('.minus').click(function(){
     game.decreaseMultiplier(classNames.multiValue);
     let value = game.$('.multiplier-input').val();
-    $(this).addClass('money-bg');
+    $(this).addClass('active-btn');
     setTimeout(function(){
-      $('.minus').removeClass('money-bg')
+      $('.minus').removeClass('active-btn')
     }, 50);
     game.setMultiplier(value);
     game.setBetAmt(game.calcBetAmt());
     game.$('input.bet-amt').val('');
-    game.$('.multiplier-select').removeClass('money-bg');
-    game.$(`.multiplier-select[value='${value}']`).addClass('money-bg');
+    game.$('.multiplier-select').removeClass('active-btn');
+    game.$(`.multiplier-select[value='${value}']`).addClass('active-btn');
     showBetsInfo();
   })
 
@@ -1565,8 +1565,8 @@ function hideAllExcept(hideAll, except)
 
 //menu selections
 $('.game-name.menu').click(function(){
-  $('.game-name.menu').removeClass('money-bg');
-  $(this).addClass('money-bg');
+  $('.game-name.menu').removeClass('active-btn');
+  $(this).addClass('active-btn');
   let pointsTo = $(this).attr('data-points-to');
   let className = $(this).attr('data-className');
   let gameGroup = $(this).attr('data-game-group');
@@ -1584,8 +1584,8 @@ $('.game-name.menu').click(function(){
 })
 
 $('.game-group.menu').click(function(){
-  $('.game-group.menu').removeClass('money-bg');
-  $(this).addClass('money-bg');
+  $('.game-group.menu').removeClass('active-btn');
+  $(this).addClass('active-btn');
   let pointsTo = $(this).attr('data-points-to');
   // game = getClass(className, `#${pointsTo}`);
   // if(oldClass != className){

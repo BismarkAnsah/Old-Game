@@ -22,13 +22,14 @@
 			font-weight: normal;
 		}
 
-		textarea{
+		textarea {
 			resize: none;
 			margin-left: 54px;
 			width: 2400px;
 			height: 450px;
-            outline: none;
+			outline: none;
 			color: #b88785;
+			padding: 30px;
 			background-color: #f8f4e9;
 		}
 
@@ -36,11 +37,11 @@
 			margin: 30px !important;
 		}
 
-		.num-btn-controls{
+		.num-btn-controls {
 			width: fit-content;
 			margin-left: 36px;
 			/* border: 5px solid #000; */
-		
+
 		}
 
 
@@ -1586,9 +1587,9 @@
 		}
 
 		.active-svg>*>* {
-			fill: #49556d;
+			fill: #49556d !important;
 			;
-			color: #fff;
+			color: #fff !important;
 		}
 
 		.group,
@@ -1632,24 +1633,26 @@
 			margin-left: 90px;
 		}
 
-		.hover-shape:hover, .active-btn {
-			background-color: #49556d;
-			color: #fff;
+		.hover-shape:hover,
+		.active-btn {
+			background-color: #49556d !important;
+			color: #fff !important;
 		}
 
 		.num-group {
 			font-size: 34px;
-		
+
 		}
-		
-	
+
+
 		.num-group>label {
 			display: inline-block;
 			/* border: 3px solid black; */
 			position: relative;
 			width: 150px;
-		
+
 		}
+
 		.num {
 			padding: 21px;
 			border-radius: 50%;
@@ -1672,10 +1675,11 @@
 			top: 1000px;
 		} */
 
-		::placeholder ~textarea::placeholder{
+		::placeholder~textarea::placeholder {
 			text-align: center;
 		}
-		textarea::placeholder{
+
+		textarea::placeholder {
 			padding: 30px;
 		}
 
@@ -1705,16 +1709,17 @@
 		}
 
 
-		.plus, .minus {
+		.plus,
+		.minus {
 			border: 2px solid #49546d;
 			width: 93px;
 			background-color: #f8f4e9;
 			padding: 3px;
 			height: 60px;
 			cursor: pointer;
-	
+
 		}
-		
+
 
 		.plus {
 			border-left: 0px;
@@ -1728,7 +1733,7 @@
 			border-right: 0px;
 			border-top-left-radius: 12px;
 			border-bottom-left-radius: 12px;
-			
+
 		}
 
 		div.unit-amt-select-box {
@@ -1815,8 +1820,8 @@
 			/* top: 1360px;
 			left: 1800px; */
 
-			bottom:75px;
-			left:720px;
+			bottom: 75px;
+			left: 720px;
 			color: #b88785;
 			width: fit-content;
 			height: fit-content;
@@ -12437,7 +12442,7 @@
 			width: 193px;
 			height: 193px;
 			left: 2080px;
-			top: 2794px;
+			top: 3300px;
 			overflow: visible;
 		}
 
@@ -15692,7 +15697,7 @@ window.application = new Application();
 							</div>
 						</div>
 					</div>
-					<div class="row" style="background-color: ;">
+					<div class="row">
 
 
 						<div class="col active-game-box">
@@ -15718,16 +15723,19 @@ window.application = new Application();
 						</div>
 					</div>
 					<div class="num-btn-controls game-interface">
-						<div class=" row1">
-							<div class="col num-group row1">
-							<label for="">one pair</label>
+						<div class="row1">
+							<div class="col num-group row1" data-points-to="row1">
+								<label for="">one pair</label>
 								<?php
 								for ($x = 0; $x < 10; $x++) {
 								?>
-									<button class="btn-c num hover-shape row1 btn-circle"><span><?= $x ?></span></button><?php
+								<button class="btn-c num hover-shape row1 btn-circle"><span>
+										<?= $x ?>
+									</span></button>
+								<?php
 								}?>
 							</div>
-							<div class="col num-controls row1">
+							<div class="col num-controls row1" data-points-to="row1">
 								<button id="All" class="btn-c hover-shape btn-rec all-btn">All</button>
 								<button id="Big" class="btn-c hover-shape btn-rec big-btn">Big</button>
 								<button id="Small" class="btn-c hover-shape btn-rec small-btn">
@@ -15744,17 +15752,20 @@ window.application = new Application();
 						</div>
 
 						<div class="row2">
-							<div class="col num-group row2">
+							<div class="col num-group row2" data-points-to="row2">
 								<label for="">four of a kind</label>
 								<?php
 								for ($x = 0; $x < 10; $x++) {
 								?>
-									<button class="btn-c num hover-shape row2 btn-circle"><span><?= $x ?></span></button><?php
+								<button class="btn-c num hover-shape row2 btn-circle"><span>
+										<?= $x ?>
+									</span></button>
+								<?php
 								}?>
 							</div>
 
 
-							<div class="col num-controls row2">
+							<div class="col num-controls row2" data-points-to="row2">
 								<button id="All" class="btn-c hover-shape btn-rec all-btn">All</button>
 								<button id="Big" class="btn-c hover-shape btn-rec big-btn">Big</button>
 								<button id="Small" class="btn-c hover-shape btn-rec small-btn">
@@ -15768,10 +15779,105 @@ window.application = new Application();
 									Clear
 								</button>
 							</div>
+
+						</div>
+
+						<div class="row3">
+							<div class="col num-group row3" data-points-to="row3">
+								<label for="">3rd</label>
+								<?php
+								for ($x = 0; $x < 10; $x++) {
+								?>
+								<button class="btn-c num hover-shape row3 btn-circle"><span>
+										<?= $x ?>
+									</span></button>
+								<?php
+								}?>
+							</div>
+
+
+							<div class="col num-controls row3" data-points-to="row3">
+								<button id="All" class="btn-c hover-shape btn-rec all-btn">All</button>
+								<button id="Big" class="btn-c hover-shape btn-rec big-btn">Big</button>
+								<button id="Small" class="btn-c hover-shape btn-rec small-btn">
+									Small
+								</button>
+								<button id="Odd" class="btn-c hover-shape btn-rec odd-btn">Odd</button>
+								<button id="Even" class="btn-c hover-shape btn-rec even-btn">
+									Even
+								</button>
+								<button id="Clear" class="btn-c hover-shape btn-rec clear-btn">
+									Clear
+								</button>
+							</div>
+
+						</div>
+
+						<div class="row4">
+							<div class="col num-group row4" data-points-to="row4">
+								<label for="">4th</label>
+								<?php
+								for ($x = 0; $x < 10; $x++) {
+								?>
+								<button class="btn-c num hover-shape row4 btn-circle"><span>
+										<?= $x ?>
+									</span></button>
+								<?php
+								}?>
+							</div>
+
+
+							<div class="col num-controls row4" data-points-to="row4">
+								<button id="All" class="btn-c hover-shape btn-rec all-btn">All</button>
+								<button id="Big" class="btn-c hover-shape btn-rec big-btn">Big</button>
+								<button id="Small" class="btn-c hover-shape btn-rec small-btn">
+									Small
+								</button>
+								<button id="Odd" class="btn-c hover-shape btn-rec odd-btn">Odd</button>
+								<button id="Even" class="btn-c hover-shape btn-rec even-btn">
+									Even
+								</button>
+								<button id="Clear" class="btn-c hover-shape btn-rec clear-btn">
+									Clear
+								</button>
+							</div>
+
+						</div>
+
+						<div class="row5">
+							<div class="col num-group row5" data-points-to="row5">
+								<label for="">5th</label>
+								<?php
+								for ($x = 0; $x < 10; $x++) {
+								?>
+								<button class="btn-c num hover-shape row5 btn-circle"><span>
+										<?= $x ?>
+									</span></button>
+								<?php
+								}?>
+							</div>
+
+
+							<div class="col num-controls row5" data-points-to="row2">
+								<button id="All" class="btn-c hover-shape btn-rec all-btn">All</button>
+								<button id="Big" class="btn-c hover-shape btn-rec big-btn">Big</button>
+								<button id="Small" class="btn-c hover-shape btn-rec small-btn">
+									Small
+								</button>
+								<button id="Odd" class="btn-c hover-shape btn-rec odd-btn">Odd</button>
+								<button id="Even" class="btn-c hover-shape btn-rec even-btn">
+									Even
+								</button>
+								<button id="Clear" class="btn-c hover-shape btn-rec clear-btn">
+									Clear
+								</button>
+							</div>
+
 						</div>
 					</div>
 					<div class="game-interface a5_manual">
-					<textarea name="" placeholder="Enter your bet manually here&#10;&#10;Example is as below. Separate your bet with semi colon (;)&#10;&#10;0,1,2,3,4;   0,4,5,6,2;   0,2,5,6,1;   0,1,3,4,2;"></textarea>
+						<textarea name=""
+							placeholder="Enter your bet manually here&#10;&#10;Example is as below. Separate your bet with semi colon (;)&#10;&#10;0,1,2,3,4;   0,4,5,6,2;   0,2,5,6,1;   0,1,3,4,2;"></textarea>
 					</div>
 
 					<div class="row">
@@ -15798,7 +15904,7 @@ window.application = new Application();
 							<div class="unit-amt-select-box">
 								<label for="">Unit</label>
 								<div class="unit-amt-select-values">
-									<button class="btn-c hover-shape unit-amt-select" value="2">
+									<button class="btn-c hover-shape unit-amt-select active-btn" value="2">
 										2
 									</button>
 									<button class="btn-c hover-shape unit-amt-select" value="1">
@@ -15827,7 +15933,7 @@ window.application = new Application();
 							<div class="multiplier-select-box">
 								<label for="">Multiplier</label>
 								<div class="multiplier-select-values">
-									<button class="btn-c hover-shape multiplier-select" value="1">
+									<button class="btn-c hover-shape multiplier-select active-btn" value="1">
 										x1
 									</button>
 									<button class="btn-c hover-shape multiplier-select" value="5">
@@ -15871,14 +15977,14 @@ window.application = new Application();
 									</button>
 								</div>
 								<div class="bet-info">
-							<span>selected <span class="total-bets">0</span> note, total
-								<span class="actual-amt">0</span> Yuan profit
-								<span class="profit">0</span> Yuan</span>
-						</div>
+									<span>selected <span class="total-bets">0</span> note, total
+										<span class="actual-amt">0</span> Yuan profit
+										<span class="profit">0</span> Yuan</span>
+								</div>
 							</div>
 						</div>
 
-						
+
 
 						<div class="multiplier-bet-box">
 							<div class="multiplier-input-box">
@@ -17683,10 +17789,10 @@ window.application = new Application();
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 	<script>
-		setTimeout(function(){
-			$(".game-interface").hide();
-			$(".game-interface.a5_manual").show();
-		},3000)
+		setTimeout(function () {
+			// $(".game-interface").hide();
+			$(".game-interface.a5_manual").hide();
+		}, 0)
 		// $(".bet-now").click(function () {
 		// 	alert("clicked");
 		// });
