@@ -35,8 +35,8 @@ class Royal5utils {
     }
   }
   constructor(pageId) {
-    this.pageId = pageId;
-    this.page = $(pageId);
+    // this.pageId = pageId;
+    // this.page = $(pageId);
   }
 
   hideAllExcept(hideAll, except)
@@ -47,7 +47,8 @@ class Royal5utils {
 
   
   $(element = "") {
-    return element ? $(this.page).find(element) : this.$(this.pageId);
+    // return element ? $(this.pageId).find(element) : this.$(this.pageId);
+    return $(element);
   }
 
 getPageId()
@@ -55,7 +56,7 @@ getPageId()
   return this.pageId;
 }
   selectAll(row=this.classNames.row1Nums, effects='active-btn') {
-      this.$(row).addClass(effects);
+      this.$(row).addClass(effects)
   }
 
   selectBig(row=this.classNames.row1Nums, effects='active-btn') {
@@ -116,6 +117,7 @@ getPageId()
    */
    createGameInterface(label=false, manual=false)
    {
+    this.$('.game-interface').hide();
      if(!manual){
        this.$('.interface-item').hide();
        this.$('.game-interface').hide();
@@ -125,6 +127,7 @@ getPageId()
        }else{
        for(let i = 1; i<=label.length; i++) {
          this.$(`.interface-item>.num-group.row${i}>label`).html(label[i-1]);
+         this.$(`.interface-item>.num-group.row${i}>label`).show();
          this.$(`.game-interface .row${i}`).show();
        }}
        this.$('.game-interface.allRows').show();
@@ -486,7 +489,7 @@ getPageId()
   resetAllData()
   {
     this.multiplier = 1;
-    this.unitAmt = 1;
+    this.unitAmt = 2;
     this.betAmt = '';
     this.readyData = {};
     this.$('.clear-btn').click();
@@ -495,7 +498,7 @@ getPageId()
     this.$('.multiplier-select').removeClass('active-btn');
     this.$('.multiplier-select[value="1"]').addClass('active-btn');
     this.$('.unit-amt-select').removeClass('active-btn');
-    this.$('.unit-amt-select[value="1"]').addClass('active-btn');
+    this.$('.unit-amt-select[value="2"]').addClass('active-btn');
   }
 
   /**Getters */
@@ -572,7 +575,7 @@ class a5_g5 extends Royal5utils {
   constructor(pageId)
   {
     super(pageId);
-    this.createGameInterface(this.labels);
+    this.createGameInterface();
   }
 
   calcTotalBets() {
@@ -1066,7 +1069,7 @@ class a5_manual extends Royal5utils {
   constructor(pageId)
   {
     super(pageId);
-    this.createGameInterface(false, false);
+    this.createGameInterface(false, true);
   }
 
   
@@ -1269,7 +1272,7 @@ function ready(className){
   game.$(classNames.allBtn).click(function(){
       let data = [0,1,2,3,4,5,6,7,8,9];
       let row = $(this).parent().attr('data-points-to');
-      game.selectAll(`.${row}`);
+      game.selectAll(`.num-group.${row}>button`);
       game.saveToRow(data, row);
       game.$('input.bet-amt').val('');
       let totalBets =  game.calcTotalBets();
@@ -1284,7 +1287,7 @@ function ready(className){
   game.$(classNames.bigBtn).click(function(){
       let data = [5,6,7,8,9];
       let row = $(this).parent().attr('data-points-to');
-      game.selectBig(`.${row}`);
+      game.selectBig(`.num-group.${row}>button`);
       game.$('input.bet-amt').val('');
       game.saveToRow(data, row);
       let totalBets = game.calcTotalBets();
@@ -1299,7 +1302,7 @@ function ready(className){
   game.$(classNames.smallBtn).click(function(){
       let data = [0,1,2,3,4];
       let row = $(this).parent().attr('data-points-to');
-      game.selectSmall(`.${row}`);
+      game.selectSmall(`.num-group.${row}>button`);
       game.$('input.bet-amt').val('');
       game.saveToRow(data, row);
       let totalBets = game.calcTotalBets();
@@ -1314,7 +1317,7 @@ function ready(className){
   game.$(classNames.oddBtn).click(function(){
       let data = [1,3,5,7,9];
       let row = $(this).parent().attr('data-points-to');
-      game.selectOdd(`.${row}`);
+      game.selectOdd(`.num-group.${row}>button`);
       game.$('input.bet-amt').val('');
       game.saveToRow(data, row);
       let totalBets = game.calcTotalBets();
@@ -1328,7 +1331,7 @@ function ready(className){
   game.$(classNames.evenBtn).click(function(){
       let data = [0,2,4,6,8];
       let row = $(this).parent().attr('data-points-to');
-      game.selectEven(`.${row}`);
+      game.selectEven(`.num-group.${row}>button`);
       game.$('input.bet-amt').val('');
       savePoint.data[row] = data;
       game.saveToRow(data, row);
@@ -1366,7 +1369,7 @@ function ready(className){
   game.$(classNames.clearBtn).click(function(){
       let data = [];
       let row = $(this).parent().attr('data-points-to');
-      game.clear(`.${row}`);
+      game.clear(`.num-group.${row}>button`);
       savePoint.data[row] = data;
       game.saveToRow(data, row);
       game.$('input.bet-amt').val('');
@@ -1621,15 +1624,15 @@ function hideAllExcept(hideAll, except)
 
 
 //menu selections
-$(`${classNames.gameNavBox} ${classNames.navItem}`).click(function(){
+$(` ${classNames.navItem}`).click(function(){
   $(`${classNames.gameNavBox} ${classNames.navItem}`).removeClass('active-svg');
   $(this).addClass('active-svg');
   let className = $(this).attr('data-class');
   if(oldClass != className){
   oldClass = className;
   game.resetAllData();
-  game = getClass(className, `#${pointsTo}`);
-  ready(className);
+  game = getClass(className, /*`#${pointsTo}`*/'.game-interface');
+  // ready(className);
   }
 })
 
@@ -1651,19 +1654,19 @@ $('.game-group.menu').click(function(){
 function getClass(className, classConstructor)
 {
   let classes = {
-    'a5_joint':new a5_joint(classConstructor),
-    'a5_manual':new a5_manual(classConstructor),
-    'a5_combo':new a5_combo(classConstructor),
-    'a5_g120':new a5_g120(classConstructor),
-    'a5_g60':new a5_g60(classConstructor),
-    'a5_g30':new a5_g30(classConstructor),
-    'a5_g20':new a5_g20(classConstructor),
-    'a5_g10':new a5_g10(classConstructor),
-    'a5_g5':new a5_g5(classConstructor),
-    'f4_g24':new f4_g24(classConstructor),
-    'f4_g6':new f4_g6(classConstructor)
+    'a5_joint':a5_joint,
+    'a5_manual':a5_manual,
+    'a5_combo':a5_combo,
+    'a5_g120':a5_g120,
+    'a5_g60':a5_g60,
+    'a5_g30':a5_g30,
+    'a5_g20':a5_g20,
+    'a5_g10':a5_g10,
+    'a5_g5':a5_g5,
+    'f4_g24':f4_g24,
+    'f4_g6':f4_g6
   }
-  return classes[className];
+  return new classes[className](classConstructor);
 }
 
 
