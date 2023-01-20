@@ -39,6 +39,11 @@ class Royal5utils {
     this.page = $(pageId);
   }
 
+  hideAllExcept(hideAll, except)
+  {
+    $(hideAll).hide();
+    $(except).show();
+  }
 
   
   $(element = "") {
@@ -968,6 +973,10 @@ class a5_joint extends Royal5utils {
   {
     super(pageId);
   }
+  createGameInterface()
+  {
+    classNames
+  }
   calcTotalBets() {
     let row1 = this.rows.row1.length;
     let row2 = this.rows.row2.length;
@@ -1130,7 +1139,35 @@ let balance = await game.fetchData(balanceUrl) || 500;
 $('.user-balance').html(JSON.parse(balance).userBalance);
 ready(oldClass);
 
-
+let classNames = {
+    selectionCtrl:'selection-ctr',
+    allBtn:'.all-btn',
+    bigBtn:'.big-btn',
+    smallBtn:'.small-btn',
+    oddBtn:'.odd-btn',
+    evenBtn:'.even-btn',
+    clearBtn:'.clear-btn',
+    row1Nums:'.row1',
+    row2Nums:'.row2',
+    row3Nums:'.row3',
+    row4Nums:'.row4',
+    row5Nums:'.row5',
+    row6Nums:'.row6',
+    betAmt:'.bet-amt',
+    eachBetBox:'.each-bet-select',
+    multiplierSelect:'.multiplier-select',
+    unitAmt:'.unit-amt',
+    eachBetShow:'.each-bet',
+    totalBetShow:'.total-bet',
+    totalBetAmtShow:'.totalAmt',
+    multiValue: '.multiplier-input',
+    cartBtn:'.cart-btn',
+    betNowBtn:'.bet-now',
+    numBtn: '.num', 
+    modelSelect: '.model',
+    gameNavBox:".game-nav-box",
+    navItem:".nav-item"
+  };
 
 function ready(className){
   if(initializedClasses.includes(className)) 
@@ -1168,33 +1205,7 @@ function ready(className){
 
 
   initializedClasses.push(className);
-  let classNames = {
-    selectionCtrl:'selection-ctr',
-    allBtn:'.all-btn',
-    bigBtn:'.big-btn',
-    smallBtn:'.small-btn',
-    oddBtn:'.odd-btn',
-    evenBtn:'.even-btn',
-    clearBtn:'.clear-btn',
-    row1Nums:'.row1',
-    row2Nums:'.row2',
-    row3Nums:'.row3',
-    row4Nums:'.row4',
-    row5Nums:'.row5',
-    row6Nums:'.row6',
-    betAmt:'.bet-amt',
-    eachBetBox:'.each-bet-select',
-    multiplierSelect:'.multiplier-select',
-    unitAmt:'.unit-amt',
-    eachBetShow:'.each-bet',
-    totalBetShow:'.total-bet',
-    totalBetAmtShow:'.totalAmt',
-    multiValue: '.multiplier-input',
-    cartBtn:'.cart-btn',
-    betNowBtn:'.bet-now',
-    numBtn: '.num', 
-    modelSelect: '.model'
-  };
+  
 
 
 
@@ -1564,9 +1575,9 @@ function hideAllExcept(hideAll, except)
 
 
 //menu selections
-$('.game-name.menu').click(function(){
-  $('.game-name.menu').removeClass('active-btn');
-  $(this).addClass('active-btn');
+$(`${classNames.gameNavBox} ${classNames.navItem}`).click(function(){
+  $(`${classNames.gameNavBox} ${classNames.navItem}`).removeClass('active-svg');
+  $(this).addClass('active-svg');
   let pointsTo = $(this).attr('data-points-to');
   let className = $(this).attr('data-className');
   let gameGroup = $(this).attr('data-game-group');

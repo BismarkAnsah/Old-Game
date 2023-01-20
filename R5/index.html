@@ -17789,10 +17789,12 @@ window.application = new Application();
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 	<script>
-		setTimeout(function () {
-			// $(".game-interface").hide();
-			$(".game-interface.a5_manual").hide();
-		}, 0)
+		$('.game-nav-box .nav-item').click(function(){
+			$('.game-nav-box .nav-item').removeClass('active-svg');
+			$(this).addClass('active-svg');
+  		
+		})
+		
 		// $(".bet-now").click(function () {
 		// 	alert("clicked");
 		// });
