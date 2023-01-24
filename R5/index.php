@@ -5,20 +5,27 @@
 // // php code to check if session betuser is not set?
 // echo (!isset($_SESSION['betuser'])) ? '<script>window.location="login.php"</script>' : '';
 
-
+fgfg
 ?>
 
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 	<title>Web 1920 – 1</title>
 	<!-- <link rel="stylesheet" href="css/system.css"> -->
-	<link rel="stylesheet" href="slot_machine/dist/slotmachine.css" />
-	<script src="slot_machine/dist/slotmachine.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
+	<!-- <script src="lib/slot-master/slot.js"></script> -->
+	<script src="js/jquery-3.6.3.min.js"></script>
+	<!-- <script src="js/jquery-3.3.1.min.js"></script> -->
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
 
 	<style id="applicationStylesheet" type="text/css">
+		:root {
+			--blue: #1e90ff;
+			--white: #ffffff;
+		}
+
+
 		* {
 			font-size: 36px;
 			box-sizing: border-box;
@@ -27,9 +34,18 @@
 			font-weight: normal;
 		}
 
-		.balance-show{
+		.show-balance .user-balance,
+		.show-balance .eye {
+			display: inline !important;
 
 		}
+
+		.show-balance .asterisks,
+		.show-balance .eye-slash {
+			display: none !important;
+
+		}
+
 		textarea {
 			resize: none;
 			margin-left: 54px;
@@ -170,7 +186,7 @@
 
 		#Web_1920__1 {
 			position: absolute;
-			width: 5213px;
+			width: 5214px;
 			height: 3636px;
 			background-color: #f1f3fe;
 			overflow: hidden;
@@ -293,7 +309,7 @@
 			align-items: center;
 			list-style-type: none;
 			padding: 12px;
-			border-radius: 45px;
+			border-radius: 15px;
 			background-color: #eee3bb;
 		}
 
@@ -305,8 +321,8 @@
 			color: #707070;
 		}
 
-		.simple-hover>*:hover {
-			color: #000;
+		.simple-hover>*:hover, .active-nav {
+			color: #000 !important;
 		}
 
 		/* #All_4 {
@@ -1600,6 +1616,18 @@
 			color: #fff !important;
 		}
 
+		.disabled-svg path,
+		.disabled-svg .text {
+			fill: #cccccc !important;
+			color: #666666 !important;
+			background-color: #cccccc !important;
+		}
+
+		.bet-amt[disabled='disabled'] {
+			color: #666666 !important;
+			background-color: #cccccc !important;
+		}
+
 		.group,
 		.straight {
 			display: flex;
@@ -1775,7 +1803,7 @@
 		div.model-select-values {
 			border: 1px solid #49546d;
 			display: inline-block;
-			border-radius: 24px;
+			border-radius: 12px;
 		}
 
 		.unit-amt-select,
@@ -1795,15 +1823,15 @@
 		.multiplier-select:last-child,
 		.model-select:last-child {
 			border: 0px !important;
-			border-top-right-radius: 24px;
-			border-bottom-right-radius: 24px;
+			border-top-right-radius: 12px;
+			border-bottom-right-radius: 12px;
 		}
 
 		.unit-amt-select:first-child,
 		.multiplier-select:first-child,
 		.model-select:first-child {
-			border-top-left-radius: 24px;
-			border-bottom-left-radius: 24px;
+			border-top-left-radius: 12px;
+			border-bottom-left-radius: 12px;
 		}
 
 		.btn-c:focus {
@@ -1837,13 +1865,42 @@
 
 		.draw-num-box {
 			position: absolute;
-			left: 2100px;
+			left: 2200px;
 			top: 116px;
-			width: 120px;
+			width: fit-content;
 			height: 120px;
 		}
 
-		/* .ball-num-box {
+		/* .container {
+			margin: 0 auto;
+			width: 766px;
+			
+		} */
+
+		.slot-wrapper {
+			/* border: 1px solid #000000; */
+			height: 120px;
+		}
+
+		.slot {
+			/* margin-top: -30px; */
+			/* background-position: -50px 100px; */
+			/* background-position-y: -210px; */
+			background: url("lib/slot-master/images/sharp.png") repeat-y;
+			/*Taken from http://www.swish-designs.co.uk*/
+			width: 120px;
+			height: 120px;
+			float: left;
+			/* border: 1px solid #000; */
+			background-position: 0 -20px;
+		}
+
+		.motion {
+			background: url("lib/slot-master/images/sharp.png") repeat-y;
+			/*Taken from http://www.swish-designs.co.uk*/
+		}
+
+		.ball-num-box {
 			position: absolute;
 			top: 36px;
 			right: 12px;
@@ -1852,7 +1909,7 @@
 			box-sizing: border-box;
 			display: none;
 
-		} */
+		}
 
 		/* .ball-num-box>* {
 			font-size: 36px;
@@ -2036,15 +2093,15 @@
 			padding: 145px;
 			border: 4px solid #000;
 			height: 100px;
-			border-bottom: 0px;
+
 		}
 
 		.status-box {
 			position: relative;
-			width: 2874px;
+			width: 54.5%;
 			height: 289px;
 			top: 141px;
-			left: 657px;
+			left: 685px;
 		}
 
 		text {
@@ -12337,45 +12394,7 @@
 			transform: matrix(1, 0, 0, 1, 0, 0);
 		}
 
-		#Polygon_2 {
-			fill: transparent;
-			stroke: rgba(0, 0, 0, 1);
-			stroke-width: 3px;
-			stroke-linejoin: miter;
-			stroke-linecap: butt;
-			stroke-miterlimit: 4;
-			shape-rendering: auto;
-		}
 
-		.Polygon_2 {
-			overflow: visible;
-			position: absolute;
-			width: 59px;
-			height: 51px;
-			left: 463px;
-			top: 509px;
-			transform: matrix(1, 0, 0, 1, 0, 0);
-		}
-
-		#Polygon_3 {
-			fill: transparent;
-			stroke: rgba(0, 0, 0, 1);
-			stroke-width: 3px;
-			stroke-linejoin: miter;
-			stroke-linecap: butt;
-			stroke-miterlimit: 4;
-			shape-rendering: auto;
-		}
-
-		.Polygon_3 {
-			overflow: visible;
-			position: absolute;
-			width: 59px;
-			height: 51px;
-			left: 3786px;
-			top: 528px;
-			transform: matrix(1, 0, 0, 1, 0, 0);
-		}
 
 		#Polygon_5 {
 			fill: transparent;
@@ -12397,25 +12416,6 @@
 			transform: matrix(1, 0, 0, 1, 0, 0);
 		}
 
-		#Polygon_4 {
-			fill: transparent;
-			stroke: rgba(0, 0, 0, 1);
-			stroke-width: 3px;
-			stroke-linejoin: miter;
-			stroke-linecap: butt;
-			stroke-miterlimit: 4;
-			shape-rendering: auto;
-		}
-
-		.Polygon_4 {
-			overflow: visible;
-			position: absolute;
-			width: 59px;
-			height: 51px;
-			left: 3749px;
-			top: 560px;
-			transform: matrix(1, 0, 0, 1, 0, 0);
-		}
 
 		#Rectangle_96 {
 			fill: rgba(73, 84, 110, 1);
@@ -15454,13 +15454,13 @@ window.application = new Application();
 					<i class="fas fa-user-circle"></i>
 					<span>kzing00kzd9527</span>
 				</li>
-				<li class="balance-show">
+				<li class="balance-box show-balance">
 					<span>Bal.</span>
 					<i class="fa-solid fa-yen-sign"></i>
-					<span class="user-balance">38.000</span>
-					<span class="" style="display: none"><i class="fa-solid fa-asterisk asterisk"></i><i class="fa-solid fa-asterisk"></i><i class="fa-solid fa-asterisk"></i>
+					<span class="user-balance" style="display:none">38.000</span>
+					<span class="asterisks"><i class="fa-solid fa-asterisk asterisk"></i><i class="fa-solid fa-asterisk"></i><i class="fa-solid fa-asterisk"></i>
 					</span>
-					<i class="fa-solid fa-eye eye"></i>
+					<i class="fa-solid fa-eye eye" style="display:none"></i>
 					<i class="fas fa-eye-slash eye-slash"></i>
 				</li>
 
@@ -15509,20 +15509,15 @@ window.application = new Application();
 				<div class="Rectangle_37" style="height: 24px; width: 75%"></div>
 			</div>
 
-			<div class="draw-num-box" style="overflow: hidden;">
-				<div class="balls-box" style="transition: all 50s ease-out 0s;">
-					<div><img class="ball" src="balls/0.png" alt="" /></div>
-					<div><img class="ball" src="balls/1.png" alt="" /></div>
-					<div><img class="ball" src="balls/2.png" alt="" /></div>
-					<div><img class="ball" src="balls/3.png" alt="" /></div>
-					<div><img class="ball" src="balls/4.png" alt="" /></div>
-					<!-- <div><img class="ball" src="balls/5.png" alt="" /></div>
-					<div><img class="ball" src="balls/6.png" alt="" /></div>
-					<div><img class="ball" src="balls/7.png" alt="" /></div>
-					<div><img class="ball" src="balls/8.png" alt="" /></div>
-					<div><img class="ball" src="balls/9.png" alt="" /></div> -->
+			<div class="draw-num-box container">
+				<div class="slot-wrapper">
+					<div id="slot1" class="slot"></div>
+					<div id="slot2" class="slot"></div>
+					<div id="slot3" class="slot"></div>
+					<div id="slot4" class="slot"></div>
+					<div id="slot5" class="slot"></div>
 				</div>
-
+				<div><button id="control" style="display: none;">Start</button></div>
 			</div>
 
 		</div>
@@ -15540,8 +15535,8 @@ window.application = new Application();
 			<div class="work-area outline">
 				<div class="work-area" style="border: px solid black;">
 					<div class="game-group-nav-box">
-						<ul class="simple-hover">
-							<li class="active" data-points-to="all5">All 5</li>
+						<ul class="group-nav simple-hover">
+							<li class="active-nav" data-points-to="all5">All 5</li>
 							<li data-points-to="all4">All 4</li>
 							<li data-points-to="first3">First 3</li>
 							<li data-points-to="mid3">Mid 3</li>
@@ -15556,6 +15551,135 @@ window.application = new Application();
 							<li>Pick 3</li>
 							<li>Pick 4</li>
 						</ul>
+					</div>
+					<div class="game-nav-box">
+						<label for="">Straight:</label>
+						<div class="straight">
+							<div class="active-svg nav-item" data-class="a5_joint">
+								<svg class="path-outline-box" viewBox="1082.685 756.5 371.083 56">
+									<path class="path-outline" d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
+									</path>
+								</svg>
+								<svg class="path-fill-box" viewBox="1566.5 8196 354 52">
+									<path class="path-fill" d="M 1582.5 8196 L 1566.5 8248 L 1899.5 8248 L 1920.5 8218 L 1899.5 8196 L 1582.5 8196 Z">
+									</path>
+								</svg>
+								<div class="nav-text">
+									<span class="text">All 5 straight(Joint)</span>
+								</div>
+							</div>
+							<div class="nav-item" data-class="a5_manual">
+								<svg class="path-outline-box" viewBox="1082.685 756.5 371.083 56">
+									<path class="path-outline" d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
+									</path>
+								</svg>
+								<svg class="path-fill-box" viewBox="1566.5 8196 354 52">
+									<path class="path-fill" d="M 1582.5 8196 L 1566.5 8248 L 1899.5 8248 L 1920.5 8218 L 1899.5 8196 L 1582.5 8196 Z">
+									</path>
+								</svg>
+								<div class="nav-text">
+									<span class="text">All 5 straight(manual)</span>
+								</div>
+							</div>
+							<div class="nav-item" data-class="a5_combo">
+								<svg class="path-outline-box" viewBox="1082.685 756.5 371.083 56">
+									<path class="path-outline" d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
+									</path>
+								</svg>
+								<svg class="path-fill-box" viewBox="1566.5 8196 354 52">
+									<path class="path-fill" d="M 1582.5 8196 L 1566.5 8248 L 1899.5 8248 L 1920.5 8218 L 1899.5 8196 L 1582.5 8196 Z">
+									</path>
+								</svg>
+								<div class="nav-text">
+									<span class="text">All 5 straight(combo)</span>
+								</div>
+							</div>
+						</div>
+						<label for="">Group:</label>
+						<div class="group">
+							<div class="nav-item" data-class="a5_g120">
+								<svg class="path-outline-box" viewBox="1082.685 756.5 371.083 56">
+									<path class="path-outline" d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
+									</path>
+								</svg>
+								<svg class="path-fill-box" viewBox="1566.5 8196 354 52">
+									<path class="path-fill" d="M 1582.5 8196 L 1566.5 8248 L 1899.5 8248 L 1920.5 8218 L 1899.5 8196 L 1582.5 8196 Z">
+									</path>
+								</svg>
+								<div class="nav-text">
+									<span class="text">All 5 Group 120</span>
+								</div>
+							</div>
+							<div class="nav-item" data-class="a5_g60">
+								<svg class="path-outline-box" viewBox="1082.685 756.5 371.083 56">
+									<path class="path-outline" d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
+									</path>
+								</svg>
+								<svg class="path-fill-box" viewBox="1566.5 8196 354 52">
+									<path class="path-fill" d="M 1582.5 8196 L 1566.5 8248 L 1899.5 8248 L 1920.5 8218 L 1899.5 8196 L 1582.5 8196 Z">
+									</path>
+								</svg>
+								<div class="nav-text">
+									<span class="text">All 5 Group 60</span>
+								</div>
+							</div>
+							<div class="nav-item" data-class="a5_g30">
+								<svg class="path-outline-box" viewBox="1082.685 756.5 371.083 56">
+									<path class="path-outline" d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
+									</path>
+								</svg>
+								<svg class="path-fill-box" viewBox="1566.5 8196 354 52">
+									<path class="path-fill" d="M 1582.5 8196 L 1566.5 8248 L 1899.5 8248 L 1920.5 8218 L 1899.5 8196 L 1582.5 8196 Z">
+									</path>
+								</svg>
+								<div class="nav-text">
+									<span class="text">All 5 Group 30</span>
+								</div>
+							</div>
+							<br>
+							<div class="nav-item" data-class="a5_g20">
+								<svg class="path-outline-box" viewBox="1082.685 756.5 371.083 56">
+									<path class="path-outline" d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
+									</path>
+								</svg>
+								<svg class="path-fill-box" viewBox="1566.5 8196 354 52">
+									<path class="path-fill" d="M 1582.5 8196 L 1566.5 8248 L 1899.5 8248 L 1920.5 8218 L 1899.5 8196 L 1582.5 8196 Z">
+									</path>
+								</svg>
+								<div class="nav-text">
+									<span class="text">All 5 Group 20</span>
+								</div>
+							</div>
+						</div>
+						<div class="group">
+
+							<div class="nav-item" data-class="a5_g10">
+								<svg class="path-outline-box" viewBox="1082.685 756.5 371.083 56">
+									<path class="path-outline" d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
+									</path>
+								</svg>
+								<svg class="path-fill-box" viewBox="1566.5 8196 354 52">
+									<path class="path-fill" d="M 1582.5 8196 L 1566.5 8248 L 1899.5 8248 L 1920.5 8218 L 1899.5 8196 L 1582.5 8196 Z">
+									</path>
+								</svg>
+								<div class="nav-text">
+									<span class="text">All 5 Group 10</span>
+								</div>
+							</div>
+							<div class="nav-item" data-class="a5_g5">
+								<svg class="path-outline-box" viewBox="1082.685 756.5 371.083 56">
+									<path class="path-outline" d="M 1114.059326171875 756.5 L 1432.5771484375 756.5 L 1453.767822265625 780.3448486328125 L 1432.676025390625 812.5 L 1098.060546875 812.5 L 1082.6845703125 792.1842041015625 L 1114.059326171875 756.5 Z M 1431.610595703125 758.7105712890625 L 1424.2998046875 758.7105712890625 L 1114.059326171875 758.7105712890625 L 1098.060546875 810.1053466796875 L 1431.610595703125 810.1053466796875 L 1451.019287109375 780.5499267578125 L 1451.019287109375 780.3448486328125 L 1431.610595703125 758.7105712890625 Z">
+									</path>
+								</svg>
+								<svg class="path-fill-box" viewBox="1566.5 8196 354 52">
+									<path class="path-fill" d="M 1582.5 8196 L 1566.5 8248 L 1899.5 8248 L 1920.5 8218 L 1899.5 8196 L 1582.5 8196 Z">
+									</path>
+								</svg>
+								<div class="nav-text">
+									<span class="text">All 5 Group 5</span>
+								</div>
+							</div>
+						</div>
 					</div>
 					<div class="game-nav-box">
 						<label for="">Straight:</label>
@@ -15980,14 +16104,20 @@ window.application = new Application();
 							</div>
 
 							<div class="bet-amt-box">
-								<input class="bet-amt" type="text" name="" placeholder="Enter bet amount" />
+								<input class="bet-amt" disabled="disabled" type="text" name="" placeholder="Enter bet amount" />
 							</div>
 						</div>
 					</div>
 
 					<div class="row cart-track-bet" id="cart-track-bet">
-						<div id="Group_3" class="col track">
-							<svg class="Path_3" viewBox="2771.25 1959.5 314.75 76.5">
+						<div id="Group_3" class="col track disabled-svg">
+							<svg class="Path_3 path" viewBox="2771.25 1959.5 314.75 76.5">
+								<style>
+									.disabled-svg {
+										pointer-events: none;
+
+									}
+								</style>
 								<path id="Path_3" class="text" d="M 2824 1959.5 L 2805.5 1964.75 L 2783.75 1990 L 2771.25 2019.75 L 2774.25 2024 L 2825 2036 L 3033.5 2036 L 3052.5 2030.75 L 3074.25 2005.75 L 3086 1976 L 3082.5 1971.75 L 3033.5 1960.75 L 2824 1959.5 Z">
 								</path>
 							</svg>
@@ -16003,8 +16133,14 @@ window.application = new Application();
 								<span class="text">Track</span>
 							</div>
 						</div>
-						<div id="Group_5" class="col cart">
+						<div id="Group_5" class="col cart disabled-svg">
 							<svg class="Path_3_ib" viewBox="2771.25 1959.5 314.75 76.5">
+								<style>
+									.disabled-svg {
+										pointer-events: none;
+
+									}
+								</style>
 								<path id="Path_3_ib" d="M 2824 1959.5 L 2805.5 1964.75 L 2783.75 1990 L 2771.25 2019.75 L 2774.25 2024 L 2825 2036 L 3033.5 2036 L 3052.5 2030.75 L 3074.25 2005.75 L 3086 1976 L 3082.5 1971.75 L 3033.5 1960.75 L 2824 1959.5 Z">
 								</path>
 							</svg>
@@ -16020,8 +16156,14 @@ window.application = new Application();
 								<span class="text">Add to cart</span>
 							</div>
 						</div>
-						<div id="Group_4" class="col bet-now">
-							<svg class="Path_4 path" viewBox="2771.25 1959.5 314.75 76.5">
+						<div id="Group_4" class="col bet-now disabled-svg">
+							<svg class="Path_4  path" viewBox="2771.25 1959.5 314.75 76.5">
+								<style>
+									.disabled-svg {
+										pointer-events: none;
+
+									}
+								</style>
 								<path id="Path_4" d="M 2824 1959.5 L 2805.5 1964.75 L 2783.75 1990 L 2771.25 2019.75 L 2774.25 2024 L 2825 2036 L 3033.5 2036 L 3052.5 2030.75 L 3074.25 2005.75 L 3086 1976 L 3082.5 1971.75 L 3033.5 1960.75 L 2824 1959.5 Z">
 								</path>
 							</svg>
@@ -16079,9 +16221,7 @@ window.application = new Application();
 		<svg class="Rectangle_68">
 			<rect id="Rectangle_68" rx="0" ry="0" x="0" y="0" width="273" height="1955"></rect>
 		</svg>
-		<svg class="Path_1_gq" viewBox="0 0 3356 3">
-			<path id="Path_1_gq" d="M 0 0 L 3356 0"></path>
-		</svg>
+
 		<svg class="Path_8" viewBox="0 0 3356 3">
 			<path id="Path_8" d="M 0 0 L 3356 0"></path>
 		</svg>
@@ -17719,24 +17859,16 @@ window.application = new Application();
 			</div>
 		</div>
 
-		<svg class="Polygon_1" viewBox="0 0 59 51">
-			<path id="Polygon_1" d="M 29.49999809265137 0 L 59 51 L 0 51 Z"></path>
-		</svg>
+
 		<svg class="Polygon_6" viewBox="0 0 59 51">
 			<path id="Polygon_6" d="M 29.49999809265137 0 L 59 51 L 0 51 Z"></path>
 		</svg>
-		<svg class="Polygon_2" viewBox="0 0 59 51">
-			<path id="Polygon_2" d="M 29.49999809265137 0 L 59 51 L 0 51 Z"></path>
-		</svg>
-		<svg class="Polygon_3" viewBox="0 0 59 51">
-			<path id="Polygon_3" d="M 29.49999809265137 0 L 59 51 L 0 51 Z"></path>
-		</svg>
+
+
 		<svg class="Polygon_5" viewBox="0 0 59 51">
 			<path id="Polygon_5" d="M 29.49999809265137 0 L 59 51 L 0 51 Z"></path>
 		</svg>
-		<svg class="Polygon_4" viewBox="0 0 59 51">
-			<path id="Polygon_4" d="M 29.49999809265137 0 L 59 51 L 0 51 Z"></path>
-		</svg>
+
 		<svg class="Rectangle_96">
 			<rect id="Rectangle_96" rx="8" ry="8" x="0" y="0" width="74" height="190"></rect>
 		</svg>
@@ -17744,42 +17876,10 @@ window.application = new Application();
 
 		<img id="n_134065" src="n_134065.png" srcset="n_134065.png 1x, n_134065@2x.png 2x" />
 	</div>
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-	<script>
-		// $('.game-nav-box .nav-item').click(function(){
-		// 	$('.game-nav-box .nav-item').removeClass('active-svg');
-		// 	$(this).addClass('active-svg');
-
-		// })
-
-
-
-		// $(".bet-now").click(function () {
-		// 	alert("clicked");
-		// });
-		// const el = document.querySelector('.draw-num-box');
-		// const machine = new SlotMachine(el, {
-		// 	active: 0,
-		// 	delay: 800,
-		// 	direction: 'down'
-		// });
-		// machine.shuffle();
-		// machine.stop(2);
-		// 		let promise = new Promise((resolve , reject) => {
-		// 			machine.stop(20)
-		//     .then((res) => {
-		//       // successfully got data
-		//       resolve(res);
-		//     })
-		//     .catch((err) => {
-		//       // an error occured
-		//       reject(err);
-		//     });          
-		// });
-		// console.log(machine.nextActive);
-	</script>
-	<script src="js/royal5.js" type="module"></script>
+	<script type="module" src="js/royal5.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script src="lib/slot-master/slot.js"></script>
 </body>
 
 </html>
