@@ -1653,6 +1653,7 @@ import * as $C from "../js/combinatorics.js";
     $('.group-nav>li').removeClass('active-nav');
     $(this).addClass('active-nav');
     let pointsTo = $(this).attr('data-points-to');
+    hideAllExcept('.game-nav-box', `.${pointsTo}.game-nav-box`);
     // game = getClass(className, `#${pointsTo}`);
     // if(oldClass != className){
     // oldClass = className;
